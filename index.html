@@ -88,16 +88,16 @@
 		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-17T08:43:01.685Z" itemprop="datePublished"> 发表于 2015-07-17</time>
+    <time datetime="2015-07-17T10:41:12.695Z" itemprop="datePublished"> 发表于 2015-07-17</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>Tips：最近几天都在折腾这个东西，网上有很多的教程，但终究还是有点费劲，在这里总结一下。我是在win7上做的，我尽可能把我<br>出问题的地方着重描述，希望让有兴趣玩这个伙伴们可以顺利点，嘻嘻。特别鸣谢陈素封的博客，帮助很大，话不多说，开始整理。</p>
+        <p>Tips：最近几天都在折腾这个东西，网上有很多的教程，但终究还是有点费劲，在这里总结一下。我是在win7上做的，我尽可能把我<br>出问题的地方着重描述，希望让有兴趣玩这个伙伴们可以顺利点，嘻嘻。特别鸣谢陈素封的博客，帮助很大，话不多说，开始整理。<br>win上多有不便，还会在linux上进行搭建。</p>
 <h1 id="更新记录">更新记录</h1><p> 2015/07/17第一次记录，因对markdown语法不熟练，Blog功能尚不完善，所以待补充修改</p>
 <h1 id="准备工作">准备工作</h1><ol>
-<li>github账户设置<br>平台为win，需注册<a href="http://www.github.com" title="github account" target="_blank" rel="external">github account</a>登陆github后需要创建一个repository,然后就写个REpositoryname，<strong>注意要和Owner的name<br>一致</strong>（注意），然后勾选那个Initaalize this深的的选项，然后就这样成了，不然就是像我一样不停的犯错，为何还有待考量，反正现<br>在听话就ok。</li>
+<li>github账户设置<br>平台为win，需注册<a href="http://www.github.com" title="github account" target="_blank" rel="external">github account</a>登陆github后需要创建一个repository,然后就写个REpositoryname，<strong>注意要和Owner的name<br>一致</strong>（注意），然后勾选那个Initaalize this…什么的选项，然后就这样成了，不然就是像我一样不停的犯错，为何还有待考量，反正现<br>在听话就ok。</li>
 <li>软件设置<br>需要的软件有node.js和git，实际最好再来个Visual Studio Code，你会发现有语法高亮就是舒心</li>
 <li>待补充昂<br>为了可以清晰一点，决定把Markdown和这个Blog分开记录。恩，就是这样</li>
 </ol>
@@ -109,6 +109,35 @@
 </blockquote>
 </li>
 <li>然后可以通过访问localhost查看预览http：//localhost:4000/</li>
+</ol>
+<h3 id="部署">部署</h3><ol>
+<li>将在github上创建的Repository，找到https那个url将其复制</li>
+<li>然后编辑位于你创建的文件夹下的文件，例如我就是：/user/arvon/hexo-lxc/_config.yml<blockquote>
+<p>deploy:<br> type: git<br> repository: <a href="https://github.com/arvon2014/arvon2014.github.com" target="_blank" rel="external">https://github.com/arvon2014/arvon2014.github.com</a><br> branch: master<br>#github上的地址：<a href="https://github.com/Arvon2014/arvon2014.github.com.git" target="_blank" rel="external">https://github.com/Arvon2014/arvon2014.github.com.git</a><br>#web上访问的为：<a href="http://arvon2014.github.io" target="_blank" rel="external">http://arvon2014.github.io</a></p>
+</blockquote>
+</li>
+<li>设置ssh免密码访问</li>
+</ol>
+<ul>
+<li>先查看本地是否已经存在ssh文件，如不存在直接跳过下面第二步</li>
+<li>删除已有的ssh的文件</li>
+<li>输入命令<blockquote>
+<p>ssh-keygen -t rsa -C “邮件地址@youremail.com” Generating public/private rsa key pair. Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):<br>Enter passphrase (empty for no passphrase):&lt;输入加密串&gt; Enter same passphrase again:&lt;再次输入加密串&gt;<br>ssh -T git@github.com    #测试<br>The authenticity of host ‘github.com (207.97.227.239)’ can’t be established. RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48. Are you sure you want to continue connecting (yes/no)?    #说明成功<br>$ git config —global user.name “你的名字” $ git config —global user.email “your_email@youremail.com”    #设置你的信息</p>
+</blockquote>
+</li>
+<li>现在已经可以顺利将环境搭建完毕</li>
+<li>进入你的Hexo目录，开始试验吧<blockquote>
+<p>hexo generate = hexo g<br>hexo server = hexo s    #部署本地预览<br>hexo deploy = hexo d    #生成部署     </p>
+</blockquote>
+</li>
+</ul>
+<h3 id="主题更换">主题更换</h3><ol>
+<li>模板获取</li>
+<li>更改设置</li>
+</ol>
+<h3 id="插件添加">插件添加</h3><ol>
+<li>待更新</li>
+<li>待更新</li>
 </ol>
 
         
