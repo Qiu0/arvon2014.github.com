@@ -193,7 +193,107 @@
 </header>
     <div class="article-content">
         
-        
+        <p><strong>简介：</strong>Markdown是一个web上使用的文本到HTML的转换工具，目前github、Stackoverflow等网站均支持这种格式，还有简书也是<br>很支持的呦。它存在的宗旨就是实现易读易写，称为适用于网络的书写语言。自我感觉也确实不错，很适合做IT的人记笔记用。</p>
+<h1 id="语法介绍">语法介绍</h1><h3 id="基本介绍">基本介绍</h3><ul>
+<li>在Markdown中，<em>、-、+3个符号的效果一致，称为Markdown符号，我习惯用\</em>号</li>
+<li>空白行表示另起一个段落</li>
+<li>-是表示inline代码，tab是用来标记代码段，分别对应html的code、pre标签</li>
+</ul>
+<h3 id="标题">标题</h3><ul>
+<li>可以用#、-、=一样的效果，个人偏爱#</li>
+<li>#    一级标题</li>
+<li>##    二级标题        </li>
+<li>…    以此类推</li>
+<li>######    六级标题</li>
+</ul>
+<h3 id="文本强调">文本强调</h3><ul>
+<li><em>斜体</em> or <em>强调</em></li>
+<li><strong>加粗</strong> or <strong>加粗</strong></li>
+<li><strong><em>粗斜体</em></strong> or <strong><em>粗斜体</em></strong></li>
+</ul>
+<h3 id="List列表">List列表</h3><ul>
+<li>*无序列表（unordered）</li>
+</ul>
+<ul>
+<li>+无序列表</li>
+</ul>
+<ul>
+<li>-无序列表</li>
+</ul>
+<ol>
+<li><ol>
+<li>第一行（ordered有序列表）</li>
+</ol>
+</li>
+<li>2.或- 第二行</li>
+<li>3.或- 第三行</li>
+</ol>
+<h3 id="组合用法">组合用法</h3><ul>
+<li>产品介绍（子项目符号）<br>  此时子项，要以一个制表符或者四个空格缩进</li>
+</ul>
+<ul>
+<li>产品特点<ol>
+<li>特点1</li>
+</ol>
+<ul>
+<li>特点2</li>
+<li>特点3</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>产品功能<ol>
+<li>功能1</li>
+</ol>
+<ul>
+<li>功能2</li>
+<li>功能3</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>可能有时会出现这样的情况，首行内容是以日期或数字开头：2013.公司的年度目标，为了避免也转换成有序列表，可以在.前面<br>加上\:2013. 公司的年度目标</li>
+</ul>
+<h3 id="Links网站链接">Links网站链接</h3><blockquote>
+<p>Inline-style 内嵌方式：<br>[link text](<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a> “title text”)</p>
+<p>Reference-style 引用方式：<br>[link text][id]<br>[id]: <a href="https://www.mozilla.org" target="_blank" rel="external">https://www.mozilla.org</a> “title text”</p>
+<p>Relative reference to a repository file 引用存储文件：<br>[link text](../path/file/readme.text “title text”)</p>
+<p>还能这样使用：<br>[link text][]<br>[link text]: <a href="http://www.reddit.com" target="_blank" rel="external">http://www.reddit.com</a></p>
+<p>Email 邮件：<br><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#x3a;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#x65;&#64;&#x65;&#x78;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#111;&#109;">&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#x65;&#64;&#x65;&#x78;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#111;&#109;</a></p>
+</blockquote>
+<h3 id="images图片链接">images图片链接</h3><blockquote>
+<p>Inline-style 内嵌方式：<br>![alt text](<a href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" target="_blank" rel="external">https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png</a> “title text”)</p>
+<p>Reference-style 引用方式：<br>![alt text][logo]<br>[logo]: <a href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" target="_blank" rel="external">https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png</a> “title text”<br>Inline-style 内嵌方式：<br><img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="alt text" title="title text"></p>
+<p>Reference-style 引用方式：<br>![alt text][logo]</p>
+<p>[logo]: <a href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" target="_blank" rel="external">https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png</a> “title text”</p>
+<h3 id="code_and_Syntax_HIghlighting_代码语法高亮：">code and Syntax HIghlighting 代码语法高亮：</h3><ul>
+<li>使用`` 包裹起来 ``效果为： <code>包裹起来</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>语法高亮</li>
+<li><p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">"Python syntax highlighting"</span></span><br><span class="line"><span class="keyword">print</span> s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Block Code代码分组（代码区块）：<br>在该行开头缩进4个空格或一个制表符(tab)</p>
+</li>
+</ul>
+<p><strong>Blockquotes 引用：</strong></p>
+<blockquote>
+<p>Email-style angle brackets<br>are used for blockquotes.</p>
+<blockquote>
+<p>And, they can be nested.</p>
+<h4 id="Headers_in_blockquotes">Headers in blockquotes</h4><ul>
+<li>You can quote a list.</li>
+<li>Etc.</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="Hard_LIne_Breaks换行：">Hard LIne Breaks换行：</h3><p>在一行的结尾处加上2个或2个以上的空格，也可以使用标签<br>第一行文字，<br>第二行文字</p>
+<h3 id="水平分割线：">水平分割线：</h3><p>*<em>*<br>\</em> <em> </em><br>- - -</p>
+<h3 id="Escape_charecter转义符（反斜杠）：">Escape charecter转义符（反斜杠）：</h3><p>Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号，例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠：<br>*literal asterisks*<br>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：<br>\反斜杠  `反引号  *星号  _下划线  {}花括号  []方括号  ()括弧  #井字号  +加号  -减号  .英文句 !感叹号</p>
+<h3 id="参考文档">参考文档</h3><p><a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="external">Markdown官网</a><br><a href="http://www.markdown.cn/" target="_blank" rel="external">Markdown语法说明</a><br><a href="http://www.bluesdream.com/blog/markdown-cheatsheet-syntax-manual.html" target="_blank" rel="external">参照地址</a></p>
+
         
         
         <p class="article-more-link">
@@ -203,6 +303,11 @@
     <footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/markdown/">markdown</a>
+  </div>
 
 </div>
 
@@ -388,7 +493,7 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
@@ -396,7 +501,11 @@
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+				<li><a href="/tags/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
 			
 		
 		</ul>
