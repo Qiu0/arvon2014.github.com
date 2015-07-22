@@ -4,32 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hexo简明 | Arvon&#39;s Blog</title>
+    <title>Tmux 使用简记 | Arvon&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Arvon">
     
 
     
-    <meta name="description" content="简介：出自台湾某大学生之手，说是叫tommy351，感觉是叼了个扎天。是一个基于Node.js的静态博客程序，其编译上百篇文字只需要几秒。hexo生成静态网页可以直接放到Github Pages，BAE，SAE等平台上。
-常用的命令
-hexo n “我的博客” == hexo new “我的博客”    #新建文章
-hexo p == hexo publish    #将_drafts下的文件放到">
+    <meta name="description" content="简述：tmux是指通过一个终端登录远程主机并运行后，在其中可以开启多个控制台的终端复用软件。tmux是一个优秀的终端复用软件，类似GNU Screen，但来自于OpenBSD，采用BSD授权。使用它最直观的好处就是，通过一个终端登录远程主机并运行tmux后，在其中可以开启多个控制台而无需再“浪费”多余的终端来连接这台远程主机；个人更注重工作环境的连续性，可以进行会话保持(保证可以在网络情况不佳的情">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo简明">
-<meta property="og:url" content="http://yoursite.com/2015/07/20/Hexo简明/index.html">
+<meta property="og:title" content="Tmux 使用简记">
+<meta property="og:url" content="http://yoursite.com/2015/07/22/Tmux-使用简记/index.html">
 <meta property="og:site_name" content="Arvon's Blog">
-<meta property="og:description" content="简介：出自台湾某大学生之手，说是叫tommy351，感觉是叼了个扎天。是一个基于Node.js的静态博客程序，其编译上百篇文字只需要几秒。hexo生成静态网页可以直接放到Github Pages，BAE，SAE等平台上。
-常用的命令
-hexo n “我的博客” == hexo new “我的博客”    #新建文章
-hexo p == hexo publish    #将_drafts下的文件放到">
-<meta property="og:updated_time" content="2015-07-21T00:19:16.240Z">
+<meta property="og:description" content="简述：tmux是指通过一个终端登录远程主机并运行后，在其中可以开启多个控制台的终端复用软件。tmux是一个优秀的终端复用软件，类似GNU Screen，但来自于OpenBSD，采用BSD授权。使用它最直观的好处就是，通过一个终端登录远程主机并运行tmux后，在其中可以开启多个控制台而无需再“浪费”多余的终端来连接这台远程主机；个人更注重工作环境的连续性，可以进行会话保持(保证可以在网络情况不佳的情">
+<meta property="og:updated_time" content="2015-07-22T07:18:44.631Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo简明">
-<meta name="twitter:description" content="简介：出自台湾某大学生之手，说是叫tommy351，感觉是叼了个扎天。是一个基于Node.js的静态博客程序，其编译上百篇文字只需要几秒。hexo生成静态网页可以直接放到Github Pages，BAE，SAE等平台上。
-常用的命令
-hexo n “我的博客” == hexo new “我的博客”    #新建文章
-hexo p == hexo publish    #将_drafts下的文件放到">
+<meta name="twitter:title" content="Tmux 使用简记">
+<meta name="twitter:description" content="简述：tmux是指通过一个终端登录远程主机并运行后，在其中可以开启多个控制台的终端复用软件。tmux是一个优秀的终端复用软件，类似GNU Screen，但来自于OpenBSD，采用BSD授权。使用它最直观的好处就是，通过一个终端登录远程主机并运行tmux后，在其中可以开启多个控制台而无需再“浪费”多余的终端来连接这台远程主机；个人更注重工作环境的连续性，可以进行会话保持(保证可以在网络情况不佳的情">
 
     
     <link rel="alternative" href="/atom.xml" title="Arvon&#39;s Blog" type="application/atom+xml">
@@ -89,14 +80,14 @@ hexo p == hexo publish    #将_drafts下的文件放到">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/20/Hexo简明/" title="Hexo简明" itemprop="url">Hexo简明</a>
+      <a href="/2015/07/22/Tmux-使用简记/" title="Tmux 使用简记" itemprop="url">Tmux 使用简记</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-20T08:42:47.000Z" itemprop="datePublished"> 发表于 2015-07-20</time>
+    <time datetime="2015-07-22T01:49:22.000Z" itemprop="datePublished"> 发表于 2015-07-22</time>
     
   </p>
 </header>
@@ -105,51 +96,22 @@ hexo p == hexo publish    #将_drafts下的文件放到">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的命令"><span class="toc-number">1.</span> <span class="toc-text">常用的命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器命令"><span class="toc-number">2.</span> <span class="toc-text">服务器命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#监视文件是否变动"><span class="toc-number">3.</span> <span class="toc-text">监视文件是否变动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#完成后部署"><span class="toc-number">4.</span> <span class="toc-text">完成后部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#草稿"><span class="toc-number">5.</span> <span class="toc-text">草稿</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板"><span class="toc-number">6.</span> <span class="toc-text">模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#摘抄地址"><span class="toc-number">7.</span> <span class="toc-text">摘抄地址</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用操作"><span class="toc-number">1.</span> <span class="toc-text">常用操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷键操作"><span class="toc-number">2.</span> <span class="toc-text">快捷键操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考教程"><span class="toc-number">3.</span> <span class="toc-text">参考教程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tmux源码安装"><span class="toc-number">4.</span> <span class="toc-text">Tmux源码安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置手册"><span class="toc-number">5.</span> <span class="toc-text">配置手册</span></a></li></ol>
 		
 		</div>
 		
-		<p><strong>简介</strong>：出自台湾某大学生之手，说是叫tommy351，感觉是叼了个扎天。是一个基于Node.js的静态博客程序，其<br>编译上百篇文字只需要几秒。hexo生成静态网页可以直接放到Github Pages，BAE，SAE等平台上。</p>
-<h3 id="常用的命令">常用的命令</h3><ul>
-<li>hexo n “我的博客” == hexo new “我的博客”    #新建文章</li>
-<li>hexo p == hexo publish    #将_drafts下的文件放到_post下，也就是发布草稿</li>
-<li>hexo g == hexo generate    #生成静态网页</li>
-<li>hexo d == hexo deploy    #发布到远程服务器，开启—generate选项可以在deploy前自动generate</li>
-</ul>
-<h3 id="服务器命令">服务器命令</h3><ul>
-<li>hexo server #Hexo 会监视文件变动并自动更新，您无须重启服务器。</li>
-<li>hexo server -s #静态模式</li>
-<li>hexo server -p 5000 #更改端口</li>
-<li>hexo server -i 192.168.1.1 #自定义 IP</li>
-<li>hexo clean #清除缓存 网页正常情况下可以忽略此条命令</li>
-<li>hexo g #生成静态网页</li>
-<li>hexo d #开始部署</li>
-</ul>
-<h3 id="监视文件是否变动">监视文件是否变动</h3><ul>
-<li>hexo generate    #使hexo生成静态文件快速而且简单</li>
-<li>hexo generate —watch    #监视文件变动</li>
-</ul>
-<h3 id="完成后部署">完成后部署</h3><ul>
-<li>hexo deploy -g 或hexo server -g</li>
-<li>hexo henerate —deploy 或hexo deploy —generate</li>
-</ul>
-<h3 id="草稿">草稿</h3><ul>
-<li>hexo publish [layout]<title></title></li>
-</ul>
-<h3 id="模板">模板</h3><ul>
-<li>hexo new “postName” #新建文章</li>
-<li>hexo new page “pageName” #新建页面</li>
-<li>hexo generate #生成静态页面至public目录</li>
-<li>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</li>
-<li>hexo deploy #将.deploy目录部署到GitHub</li>
-<li>hexo new [layout] <title></title></li>
-<li>hexo new photo “My Gallery”</li>
-<li>hexo new “Hello World” —lang tw</li>
-</ul>
-<h3 id="摘抄地址">摘抄地址</h3><ul>
-<li>地址一：<a href="https://segmentfault.com/a/1190000002632530" title="hexo命令详解" target="_blank" rel="external">Hexo命令详解</a></li>
-<li>地址二：<a href="http://c4fun.cn/blog/2014/03/03/use-hexo-blog/" title="##可以不加的嘿嘿##" target="_blank" rel="external">Hexo搭建博客</a></li>
-</ul>
+		<p>简述：tmux是指通过一个终端登录远程主机并运行后，在其中可以开启多个控制台的终端复用软件。tmux是一个优秀的终端复用软件，类似GNU Screen，但来自<br>于OpenBSD，采用BSD授权。使用它最直观的好处就是，通过一个终端登录远程主机并运行tmux后，在其中可以开启多个控制台而无需再“浪费”多余的终端来连接<br>这台远程主机；个人更注重工作环境的连续性，可以进行会话保持(保证可以在网络情况不佳的情况下工作现场不丢失)。</p>
+<h3 id="常用操作">常用操作</h3><blockquote>
+<p>tmux new-session -s session-name    #创建一个新的tmux对话<br>tmux ls    #列出已有的tmux列表，相当于Ctrl-B s<br>tmux attach-session -t sessionname = tmux a -t sessionname（支持缩写匹配）    #进入一个tmux会话窗<br>使用Ctrl-B d返回主shell界面，tmux仍旧在后台运行，里面的命令也保持运行状态<br>tmux kill-session -t session-name    #关闭开启在后台的终端；在终端下也可以使用exit进行退出</p>
+</blockquote>
+<h3 id="快捷键操作">快捷键操作</h3><blockquote>
+<p>C-b c    #创建一个新的窗口<br>C-b n    #切换到下一个窗口<br>C-b p    #切换到上一个窗口<br>C-b d    #临时断开会话，还可以连上的<br>C-b pageup/pagedown    #向上或向下翻页</p>
+</blockquote>
+<h3 id="参考教程">参考教程</h3><p><a href="http://my.oschina.net/cshell/blog/135261" target="_blank" rel="external">使用大全（桔子空间）</a><br><a href="http://coolshell.cn/articles/7829.html" target="_blank" rel="external">不明觉厉（命令行神器）</a></p>
+<h3 id="Tmux源码安装">Tmux源码安装</h3><blockquote>
+<p>yum install tmux -y    #<br>wget <a href="http://downloads.sourceforge.net/tmux/tmux-1.6.tar.gz" target="_blank" rel="external">http://downloads.sourceforge.net/tmux/tmux-1.6.tar.gz</a><br>cd tmux-1.6<br>./configure<br>make<br>make install</p>
+</blockquote>
+<h3 id="配置手册">配置手册</h3><p><a href="http://www.doc88.com/p-386623377619.html" target="_blank" rel="external">个性配置参考</a><br><a href="http://www.doc88.com/p-386623377619.html" target="_blank" rel="external">配置地址二</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -158,7 +120,7 @@ hexo p == hexo publish    #将_drafts下的文件放到">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/hexo/">hexo</a>
+  <span></span> <a href="/tags/tmux/">tmux</a>
   </div>
 
 </div>
@@ -167,7 +129,7 @@ hexo p == hexo publish    #将_drafts下的文件放到">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/07/20/Hexo简明/" data-title="Hexo简明 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/07/22/Tmux-使用简记/" data-title="Tmux 使用简记 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -180,19 +142,11 @@ hexo p == hexo publish    #将_drafts下的文件放到">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/07/21/Markdown-Introduction/" title="Markdown Introduction">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Markdown Introduction</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/07/17/皮卡邱/"  title="皮卡邱">
+<a href="/2015/07/21/salt简明使用手册/"  title="SaltStack使用简明手册">
  <strong>下一篇：</strong><br/> 
- <span>皮卡邱
+ <span>SaltStack使用简明手册
 </span>
 </a>
 </div>
@@ -207,7 +161,7 @@ hexo p == hexo publish    #将_drafts下的文件放到">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的命令"><span class="toc-number">1.</span> <span class="toc-text">常用的命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器命令"><span class="toc-number">2.</span> <span class="toc-text">服务器命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#监视文件是否变动"><span class="toc-number">3.</span> <span class="toc-text">监视文件是否变动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#完成后部署"><span class="toc-number">4.</span> <span class="toc-text">完成后部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#草稿"><span class="toc-number">5.</span> <span class="toc-text">草稿</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板"><span class="toc-number">6.</span> <span class="toc-text">模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#摘抄地址"><span class="toc-number">7.</span> <span class="toc-text">摘抄地址</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用操作"><span class="toc-number">1.</span> <span class="toc-text">常用操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷键操作"><span class="toc-number">2.</span> <span class="toc-text">快捷键操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考教程"><span class="toc-number">3.</span> <span class="toc-text">参考教程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tmux源码安装"><span class="toc-number">4.</span> <span class="toc-text">Tmux源码安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置手册"><span class="toc-number">5.</span> <span class="toc-text">配置手册</span></a></li></ol>
  
   </div>
 
