@@ -99,27 +99,19 @@
 <p>mysql –u用户名 [–h主机名或者IP地址] –p密码<br>eggs: mysql -uusername -hIPaddress -p(password)</p>
 </blockquote>
 <p><strong>格式：</strong> mysql -h主机地址 -u用户名 －p用户密码</p>
-<ul>
+<ol>
 <li>连接到本机上的MYSQL。<br>首先打开DOS窗口，然后进入目录mysql\bin，再键入命令mysql -u root -p，回车后提示你输密码.注意用户名前可以有空格也可以没有空格，但是密码前必须没有空格，否则让你重新输入密码.<br>如果刚安装好MYSQL，超级用户root是没有密码的，故直接回车即可进入到MYSQL中了，MYSQL的提示符是： mysql&gt;</li>
 <li>连接到远程主机上的MYSQL。假设远程主机的IP为：110.110.110.110，用户名为root,密码为abcd123。则键入以下命令：<br>mysql -h110.110.110.110 -u root -p 123;（注:u与root之间可以不用加空格，其它也一样）</li>
 <li>退出MYSQL命令： exit （回车）</li>
-</ul>
-<h3 id="修改密码">修改密码</h3><ul>
-<li><strong>格式：</strong>mysqladmin -u用户名 -p旧密码 password 新密码(注：因为开始时root没有密码，所以-p旧密码一项就可以省略)<blockquote>
-<p>mysqladmin -u root -password ab12</p>
+</ol>
+<h3 id="修改密码">修改密码</h3><p><strong>格式：</strong>mysqladmin -u用户名 -p旧密码 password 新密码(注：因为开始时root没有密码，所以-p旧密码一项就可以省略)</p>
+<blockquote>
+<p>mysqladmin -u root -password ab12<br>再将root的密码改为djg345<br>mysqladmin -u root -p ab12 password djg345</p>
 </blockquote>
-</li>
-<li>再将root的密码改为djg345<blockquote>
-<p>mysqladmin -u root -p ab12 password djg345</p>
-</blockquote>
-</li>
-</ul>
 <h3 id="查看mysql数据库中所有用户及拥有的权限">查看mysql数据库中所有用户及拥有的权限</h3><blockquote>
 <p>SELECT DISTINCT CONCAT(‘User: ‘’’,user,’’’@’’’,host,’’’;’) AS query FROM mysql.user;</p>
 </blockquote>
-<h3 id="添加新用户">添加新用户</h3><ul>
-<li><strong>格式：</strong>grant select on 数据库.* to 用户名@登录主机 identified by “密码”</li>
-</ul>
+<h3 id="添加新用户">添加新用户</h3><p><strong>格式：</strong>grant select on 数据库.* to 用户名@登录主机 identified by “密码”</p>
 <ol>
 <li>增加一个用户test1密码为abc，让他可以在任何主机上登录，并对所有数据库有查询、插入、修改、删除的权限。首先用root用户连入MYSQL，然后键入以下命令：<blockquote>
 <p>grant select,insert,update,delete on <em>.</em> to test1@”%” Identified by “abc”;</p>
@@ -131,9 +123,8 @@
 </li>
 </ol>
 <h3 id="删除用户">删除用户</h3><blockquote>
-<p>mysql -u root -p<br>密码<br>mysql&gt;Delete FROM user Where User=’test’ and Host=’localhost’;<br>mysql&gt;flush privileges;<br>mysql&gt;drop database testDB; //删除用户的数据库</p>
+<p>mysql -u root -p<br>密码<br>mysql&gt;Delete FROM user Where User=’test’ and Host=’localhost’;<br>mysql&gt;flush privileges;<br>mysql&gt;drop database testDB; //删除用户的数据库<br>删除账户及权限：&gt;drop user 用户名@’%’;</p>
 </blockquote>
-<p>删除账户及权限：&gt;drop user 用户名@’%’;</p>
 <p>　　　　　　　　>drop user 用户名@ localhost; </p>
 <h3 id="查看命令">查看命令</h3><ol>
 <li>mysql&gt; SHOW DATABASES;    #显示当前数据库服务器中的数据库列表(注意：mysql库里面有MYSQL的系统信息，我们改密码和新增用户，实际上就是用这个库进行操作。)<br>mysql&gt; USE 库名；    ##显示数据库中的数据表</li>
@@ -536,7 +527,7 @@
 <p>Reference-style 引用方式：<br>[link text][id]<br>[id]: <a href="https://www.mozilla.org" target="_blank" rel="external">https://www.mozilla.org</a> “title text”</p>
 <p>Relative reference to a repository file 引用存储文件：<br>[link text](../path/file/readme.text “title text”)</p>
 <p>还能这样使用：<br>[link text][]<br>[link text]: <a href="http://www.reddit.com" target="_blank" rel="external">http://www.reddit.com</a></p>
-<p>Email 邮件：<br><a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#101;&#x78;&#97;&#x6d;&#x70;&#108;&#101;&#x40;&#101;&#120;&#x61;&#x6d;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#109;">&#101;&#x78;&#97;&#x6d;&#x70;&#108;&#101;&#x40;&#101;&#120;&#x61;&#x6d;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#109;</a></p>
+<p>Email 邮件：<br><a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#101;&#120;&#97;&#x6d;&#x70;&#108;&#x65;&#64;&#x65;&#120;&#97;&#109;&#112;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;">&#101;&#120;&#97;&#x6d;&#x70;&#108;&#x65;&#64;&#x65;&#120;&#97;&#109;&#112;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;</a></p>
 </blockquote>
 <h3 id="images图片链接">images图片链接</h3><blockquote>
 <p>Inline-style 内嵌方式：<br>![alt text](<a href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" target="_blank" rel="external">https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png</a> “title text”)</p>
