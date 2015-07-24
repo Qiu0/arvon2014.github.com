@@ -4,26 +4,44 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>使用Hexo和Github搭建Blog | Arvon&#39;s Blog</title>
+    <title>Linux下hexo+github组建Blog | Arvon&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Arvon">
     
 
     
-    <meta name="description" content="Tips：最近几天都在折腾这个东西，网上有很多的教程，但终究还是有点费劲，在这里总结一下。我是在win7上做的，我尽可能把我出问题的地方着重描述，希望让有兴趣玩这个伙伴们可以顺利点，嘻嘻。特别鸣谢陈素封的博客，帮助很大，话不多说，开始整理。win上多有不便，还会在linux上进行搭建。
-更新记录 2015/07/17第一次记录，因对markdown语法不熟练，Blog功能尚不完善，所以待补充修改">
+    <meta name="description" content="配置流程环境准备本地环境
+CentOS6
+下载nvm（Node.js的版本管理器）软件
+wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh    #下载安装nvm（安装目录在/root/.nvm/）
+
+
+安装nvm软件
+nvm install 0.10    #选择Node.js的安装版本nvm ls">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Hexo和Github搭建Blog">
-<meta property="og:url" content="http://yoursite.com/2015/07/21/使用Hexo和Github搭建Blog/index.html">
+<meta property="og:title" content="Linux下hexo+github组建Blog">
+<meta property="og:url" content="http://yoursite.com/2015/07/23/Linux下hexo+github搭建Blog/index.html">
 <meta property="og:site_name" content="Arvon's Blog">
-<meta property="og:description" content="Tips：最近几天都在折腾这个东西，网上有很多的教程，但终究还是有点费劲，在这里总结一下。我是在win7上做的，我尽可能把我出问题的地方着重描述，希望让有兴趣玩这个伙伴们可以顺利点，嘻嘻。特别鸣谢陈素封的博客，帮助很大，话不多说，开始整理。win上多有不便，还会在linux上进行搭建。
-更新记录 2015/07/17第一次记录，因对markdown语法不熟练，Blog功能尚不完善，所以待补充修改">
-<meta property="og:updated_time" content="2015-07-17T10:50:42.491Z">
+<meta property="og:description" content="配置流程环境准备本地环境
+CentOS6
+下载nvm（Node.js的版本管理器）软件
+wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh    #下载安装nvm（安装目录在/root/.nvm/）
+
+
+安装nvm软件
+nvm install 0.10    #选择Node.js的安装版本nvm ls">
+<meta property="og:updated_time" content="2015-07-24T10:29:55.014Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Hexo和Github搭建Blog">
-<meta name="twitter:description" content="Tips：最近几天都在折腾这个东西，网上有很多的教程，但终究还是有点费劲，在这里总结一下。我是在win7上做的，我尽可能把我出问题的地方着重描述，希望让有兴趣玩这个伙伴们可以顺利点，嘻嘻。特别鸣谢陈素封的博客，帮助很大，话不多说，开始整理。win上多有不便，还会在linux上进行搭建。
-更新记录 2015/07/17第一次记录，因对markdown语法不熟练，Blog功能尚不完善，所以待补充修改">
+<meta name="twitter:title" content="Linux下hexo+github组建Blog">
+<meta name="twitter:description" content="配置流程环境准备本地环境
+CentOS6
+下载nvm（Node.js的版本管理器）软件
+wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh    #下载安装nvm（安装目录在/root/.nvm/）
+
+
+安装nvm软件
+nvm install 0.10    #选择Node.js的安装版本nvm ls">
 
     
     <link rel="alternative" href="/atom.xml" title="Arvon&#39;s Blog" type="application/atom+xml">
@@ -83,14 +101,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/21/使用Hexo和Github搭建Blog/" title="使用Hexo和Github搭建Blog" itemprop="url">使用Hexo和Github搭建Blog</a>
+      <a href="/2015/07/23/Linux下hexo+github搭建Blog/" title="Linux下hexo+github组建Blog" itemprop="url">Linux下hexo+github组建Blog</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-21T00:20:02.656Z" itemprop="datePublished"> 发表于 2015-07-21</time>
+    <time datetime="2015-07-22T16:00:00.000Z" itemprop="datePublished"> 发表于 2015-07-23</time>
     
   </p>
 </header>
@@ -99,56 +117,81 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#更新记录"><span class="toc-number">1.</span> <span class="toc-text">更新记录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#准备工作"><span class="toc-number">2.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开始搭建"><span class="toc-number">3.</span> <span class="toc-text">开始搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装node-js软件"><span class="toc-number">3.0.1.</span> <span class="toc-text">安装node.js软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装git软件"><span class="toc-number">3.0.2.</span> <span class="toc-text">安装git软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Hexo"><span class="toc-number">3.0.3.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署"><span class="toc-number">3.0.4.</span> <span class="toc-text">部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主题更换"><span class="toc-number">3.0.5.</span> <span class="toc-text">主题更换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插件添加"><span class="toc-number">3.0.6.</span> <span class="toc-text">插件添加</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置流程"><span class="toc-number">1.</span> <span class="toc-text">配置流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境准备"><span class="toc-number">1.1.</span> <span class="toc-text">环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本地环境"><span class="toc-number">1.1.1.</span> <span class="toc-text">本地环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装git"><span class="toc-number">1.1.2.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Hexo"><span class="toc-number">1.1.3.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初步预览"><span class="toc-number">1.1.4.</span> <span class="toc-text">初步预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置git并发布"><span class="toc-number">1.1.5.</span> <span class="toc-text">配置git并发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#免密码ssh公钥设置"><span class="toc-number">1.1.6.</span> <span class="toc-text">免密码ssh公钥设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#待完善"><span class="toc-number">1.1.7.</span> <span class="toc-text">待完善</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<p>Tips：最近几天都在折腾这个东西，网上有很多的教程，但终究还是有点费劲，在这里总结一下。我是在win7上做的，我尽可能把我<br>出问题的地方着重描述，希望让有兴趣玩这个伙伴们可以顺利点，嘻嘻。特别鸣谢陈素封的博客，帮助很大，话不多说，开始整理。<br>win上多有不便，还会在linux上进行搭建。</p>
-<h1 id="更新记录">更新记录</h1><p> 2015/07/17第一次记录，因对markdown语法不熟练，Blog功能尚不完善，所以待补充修改</p>
-<h1 id="准备工作">准备工作</h1><ol>
-<li>github账户设置<br>平台为win，需注册<a href="http://www.github.com" title="github account" target="_blank" rel="external">github account</a>登陆github后需要创建一个repository,然后就写个REpositoryname，<strong>注意要和Owner的name<br>一致</strong>（注意），然后勾选那个Initaalize this…什么的选项，然后就这样成了，不然就是像我一样不停的犯错，为何还有待考量，反<br>正现在听话就ok。</li>
-<li>软件设置<br>需要的软件有node.js和git，实际最好再来个Visual Studio Code，你会发现有语法高亮就是舒心</li>
-<li>待补充昂<br>为了可以清晰一点，决定把Markdown和这个Blog分开记录。恩，就是这样</li>
-</ol>
-<h1 id="开始搭建">开始搭建</h1><h3 id="安装node-js软件">安装node.js软件</h3><p>下载地址戳：<a href="http://www.nodejs.org/download/" title="node.js" target="_blank" rel="external">node.js</a>,然后就开始一路下一步吧，然后你的发现带cmd多了一条np</p>
-<h3 id="安装git软件">安装git软件</h3><p>下载地址戳：<a href="http://git-scm.com/download/" title="git" target="_blank" rel="external">git</a>,依旧下一步到底。昨天做着的时候没记录，真是一大败笔</p>
-<h3 id="安装Hexo">安装Hexo</h3><ol>
-<li>进入Git bash,输入命令<blockquote>
-<p>npm install -g hexo    #hexo表示全局安装hexo<br>#创建hexo文件夹，如/user/arvon/hexo-lxc<br>hexo init    #初始化hexo<br>npm install<br>npm generate<br>npm server</p>
+		<h1 id="配置流程">配置流程</h1><h2 id="环境准备">环境准备</h2><h3 id="本地环境">本地环境</h3><ul>
+<li>CentOS6</li>
+<li>下载nvm（Node.js的版本管理器）软件<blockquote>
+<p>wget -qO- <a href="https://raw.github.com/creationix/nvm/master/install.sh" target="_blank" rel="external">https://raw.github.com/creationix/nvm/master/install.sh</a> | sh    #下载安装nvm（安装目录在/root/.nvm/）</p>
 </blockquote>
 </li>
-<li>然后可以通过访问localhost查看预览http：//localhost:4000/</li>
-</ol>
-<h3 id="部署">部署</h3><ol>
-<li>将在github上创建的Repository，找到https那个url将其复制</li>
-<li>然后编辑位于你创建的文件夹下的文件，例如我就是：/user/arvon/hexo-lxc/_config.yml<blockquote>
-<p>deploy:<br> type: git<br> repository: <a href="https://github.com/arvon2014/arvon2014.github.com" target="_blank" rel="external">https://github.com/arvon2014/arvon2014.github.com</a><br> branch: master<br>#github上的地址：<a href="https://github.com/Arvon2014/arvon2014.github.com.git" target="_blank" rel="external">https://github.com/Arvon2014/arvon2014.github.com.git</a><br>#web上访问的为：<a href="http://arvon2014.github.io" target="_blank" rel="external">http://arvon2014.github.io</a></p>
-</blockquote>
-</li>
-<li>设置ssh免密码访问</li>
-</ol>
-<ul>
-<li>先查看本地是否已经存在ssh文件，如不存在直接跳过下面第二步</li>
-<li>删除已有的ssh的文件</li>
-<li>输入命令<blockquote>
-<p>ssh-keygen -t rsa -C “邮件地址@youremail.com” Generating public/private rsa key pair. Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):<br>Enter passphrase (empty for no passphrase):&lt;输入加密串&gt; Enter same passphrase again:&lt;再次输入加密串&gt;<br>ssh -T git@github.com    #测试<br>The authenticity of host ‘github.com (207.97.227.239)’ can’t be established. RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48. Are you sure you want to continue connecting (yes/no)?    #说明成功<br>$ git config —global user.name “你的名字” $ git config —global user.email “your_email@youremail.com”    #设置你的信息</p>
-</blockquote>
-</li>
-<li>现在已经可以顺利将环境搭建完毕</li>
-<li>进入你的Hexo目录，开始试验吧<blockquote>
-<p>hexo generate = hexo g<br>hexo server = hexo s    #部署本地预览<br>hexo deploy = hexo d    #生成部署     </p>
+<li>安装nvm软件<blockquote>
+<p>nvm install 0.10    #选择Node.js的安装版本<br>nvm ls    #查看node.js的版本</p>
 </blockquote>
 </li>
 </ul>
-<h3 id="主题更换">主题更换</h3><ol>
-<li>模板获取</li>
-<li>更改设置</li>
+<h3 id="安装git">安装git</h3><p>&gt;</p>
+<h3 id="安装Hexo">安装Hexo</h3><blockquote>
+<p>npm install -g hexo    #使用npm安装hexo(此处安装并未完成)<br>如果显示command not found，就重启终端，然后使用nvm ls检查当前版本，如果没有使用命令<br>nvm use 0.10    #即使用方才装的版本（使用此命令后安装成功）<br>或使用一下命令直接设置全局默认的node.js版本<br>nvm alias default 0.10.26</p>
+</blockquote>
+<ul>
+<li><p>安装失败的原因可能是无法连接到官方服务器，或者是GFW（Great Firewall，中国国家防火墙或长城防火墙）的问题。需<br>  修改npm镜像源<br>  使用config命令</p>
+<blockquote>
+<p>$ npm config set registry <a href="http://registry.cnpmjs.org" target="_blank" rel="external">http://registry.cnpmjs.org</a><br>$ npm info underscore (如果上面配置成功，使用这个命令会有以下提示)<br>$ npm http GET <a href="http://registry.cnpmjs.org/underscore" target="_blank" rel="external">http://registry.cnpmjs.org/underscore</a><br>$ npm http 200 <a href="http://registry.cnpmjs.org/underscore" target="_blank" rel="external">http://registry.cnpmjs.org/underscore</a>  </p>
+<pre><code>命令行指定  
+```Shell 
+$ npm --<span class="keyword">registry</span> <span class="keyword">http</span>://<span class="keyword">registry</span>.cnpmjs.org <span class="keyword">info</span> underscore
+</code></pre><p>编辑 ~/.npmrc 加入以下内容可以使配置永久生效，就不用每次npm安装时都要运行指定源命令了  </p>
+<pre><code class="Shell">$ registry = http://registry.cnpmjs.org
+</code></pre>
+</blockquote>
+</li>
+<li><p>使用以下命令对hexo进行初始化（这里我位于~目录，而且我想把我的个人博客放在~/hexo目录，需要放在其他目录直接改一下自己需要的目录就可以了）  </p>
+<blockquote>
+<p>```Shell<br>$ hexo install hexo —save<br>$ hexo init hexo</p>
+</blockquote>
+</li>
+<li><p>本地环境到此结束，有木有很easy</p>
+</li>
+</ul>
+<h3 id="初步预览">初步预览</h3><blockquote>
+<p>hexo generate 或 hexo g    #生成静态文件<br>hexo server 或 hexo s    #打开本地预览（http:localhost:4000）</p>
+</blockquote>
+<h3 id="配置git并发布">配置git并发布</h3><p>配置git并发布基于hexo和github的个人博客<br>首先编辑个人安装目录的_config.yml文件，找到一下内容并修改为git</p>
+<blockquote>
+<p>deploy:<br>type: git<br>repository: <a href="https://github.com/Arvon2014/arvon2014.github.com.git(直接将github上的https项复制并粘贴" target="_blank" rel="external">https://github.com/Arvon2014/arvon2014.github.com.git(直接将github上的https项复制并粘贴</a>)<br>branch: master</p>
+</blockquote>
+<p>运行以下命令设置git全局变量，即设置用户名和邮箱(需要先和github建立免密码登陆)</p>
+<blockquote>
+<p>git config —global user.name “Arvon”<br>git config —global user.email “yafeng2011@126.com”</p>
+</blockquote>
+<h3 id="免密码ssh公钥设置">免密码ssh公钥设置</h3><ol>
+<li><p>是否安装了ssh，未装执行</p>
+<blockquote>
+<p>yum install ssh</p>
+</blockquote>
+</li>
+<li><p>检查公钥</p>
+<blockquote>
+<p>cd ~/.ssh    #存在就删了</p>
+</blockquote>
+</li>
+<li><p>生成公钥私钥对</p>
+<blockquote>
+<p>ssh-keygen -t rsa -C “you_email@youremail.com”<br>cd ~/.ssh    #验证</p>
+</blockquote>
+</li>
+<li><p>添加ssh公钥到github<br>将公钥（pub）的内容复制到Deploykeys里面</p>
+</li>
+<li><p>测试是否生效</p>
+<blockquote>
+<p>ssh -T git@github.com</p>
+</blockquote>
+</li>
 </ol>
-<h3 id="插件添加">插件添加</h3><ol>
-<li>待更新</li>
-<li>待更新</li>
-</ol>
-  
+<h3 id="待完善">待完善</h3>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -165,7 +208,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/07/21/使用Hexo和Github搭建Blog/" data-title="使用Hexo和Github搭建Blog | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/07/23/Linux下hexo+github搭建Blog/" data-title="Linux下hexo+github组建Blog | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -178,19 +221,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/07/21/salt简明使用手册/" title="SaltStack使用简明手册">
-  <strong>上一篇：</strong><br/>
-  <span>
-  SaltStack使用简明手册</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/07/21/Markdown-Introduction/"  title="Markdown Introduction">
+<a href="/2015/07/22/mysql自用命令手册/"  title="Mysql自用命令手册">
  <strong>下一篇：</strong><br/> 
- <span>Markdown Introduction
+ <span>Mysql自用命令手册
 </span>
 </a>
 </div>
@@ -205,7 +240,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#更新记录"><span class="toc-number">1.</span> <span class="toc-text">更新记录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#准备工作"><span class="toc-number">2.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开始搭建"><span class="toc-number">3.</span> <span class="toc-text">开始搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装node-js软件"><span class="toc-number">3.0.1.</span> <span class="toc-text">安装node.js软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装git软件"><span class="toc-number">3.0.2.</span> <span class="toc-text">安装git软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Hexo"><span class="toc-number">3.0.3.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署"><span class="toc-number">3.0.4.</span> <span class="toc-text">部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主题更换"><span class="toc-number">3.0.5.</span> <span class="toc-text">主题更换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插件添加"><span class="toc-number">3.0.6.</span> <span class="toc-text">插件添加</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置流程"><span class="toc-number">1.</span> <span class="toc-text">配置流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境准备"><span class="toc-number">1.1.</span> <span class="toc-text">环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本地环境"><span class="toc-number">1.1.1.</span> <span class="toc-text">本地环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装git"><span class="toc-number">1.1.2.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Hexo"><span class="toc-number">1.1.3.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初步预览"><span class="toc-number">1.1.4.</span> <span class="toc-text">初步预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置git并发布"><span class="toc-number">1.1.5.</span> <span class="toc-text">配置git并发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#免密码ssh公钥设置"><span class="toc-number">1.1.6.</span> <span class="toc-text">免密码ssh公钥设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#待完善"><span class="toc-number">1.1.7.</span> <span class="toc-text">待完善</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
