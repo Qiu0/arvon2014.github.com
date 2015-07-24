@@ -31,7 +31,7 @@ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh    #下�
 
 安装nvm软件
 nvm install 0.10    #选择Node.js的安装版本nvm ls">
-<meta property="og:updated_time" content="2015-07-24T10:29:55.014Z">
+<meta property="og:updated_time" content="2015-07-24T10:34:05.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux下hexo+github组建Blog">
 <meta name="twitter:description" content="配置流程环境准备本地环境
@@ -117,7 +117,7 @@ nvm install 0.10    #选择Node.js的安装版本nvm ls">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置流程"><span class="toc-number">1.</span> <span class="toc-text">配置流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境准备"><span class="toc-number">1.1.</span> <span class="toc-text">环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本地环境"><span class="toc-number">1.1.1.</span> <span class="toc-text">本地环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装git"><span class="toc-number">1.1.2.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Hexo"><span class="toc-number">1.1.3.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初步预览"><span class="toc-number">1.1.4.</span> <span class="toc-text">初步预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置git并发布"><span class="toc-number">1.1.5.</span> <span class="toc-text">配置git并发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#免密码ssh公钥设置"><span class="toc-number">1.1.6.</span> <span class="toc-text">免密码ssh公钥设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#待完善"><span class="toc-number">1.1.7.</span> <span class="toc-text">待完善</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置流程"><span class="toc-number">1.</span> <span class="toc-text">配置流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境准备"><span class="toc-number">1.1.</span> <span class="toc-text">环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本地环境"><span class="toc-number">1.1.1.</span> <span class="toc-text">本地环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装git"><span class="toc-number">1.1.2.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Hexo"><span class="toc-number">1.1.3.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初步预览"><span class="toc-number">1.1.4.</span> <span class="toc-text">初步预览</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置git并发布"><span class="toc-number">1.2.</span> <span class="toc-text">配置git并发布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#免密码ssh公钥设置"><span class="toc-number">1.3.</span> <span class="toc-text">免密码ssh公钥设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#待完善"><span class="toc-number">1.4.</span> <span class="toc-text">待完善</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -159,7 +159,7 @@ $ npm --<span class="keyword">registry</span> <span class="keyword">http</span>:
 <h3 id="初步预览">初步预览</h3><blockquote>
 <p>hexo generate 或 hexo g    #生成静态文件<br>hexo server 或 hexo s    #打开本地预览（http:localhost:4000）</p>
 </blockquote>
-<h3 id="配置git并发布">配置git并发布</h3><p>配置git并发布基于hexo和github的个人博客<br>首先编辑个人安装目录的_config.yml文件，找到一下内容并修改为git</p>
+<h2 id="配置git并发布">配置git并发布</h2><p>配置git并发布基于hexo和github的个人博客<br>首先编辑个人安装目录的_config.yml文件，找到一下内容并修改为git</p>
 <blockquote>
 <p>deploy:<br>type: git<br>repository: <a href="https://github.com/Arvon2014/arvon2014.github.com.git(直接将github上的https项复制并粘贴" target="_blank" rel="external">https://github.com/Arvon2014/arvon2014.github.com.git(直接将github上的https项复制并粘贴</a>)<br>branch: master</p>
 </blockquote>
@@ -167,7 +167,7 @@ $ npm --<span class="keyword">registry</span> <span class="keyword">http</span>:
 <blockquote>
 <p>git config —global user.name “Arvon”<br>git config —global user.email “yafeng2011@126.com”</p>
 </blockquote>
-<h3 id="免密码ssh公钥设置">免密码ssh公钥设置</h3><ol>
+<h2 id="免密码ssh公钥设置">免密码ssh公钥设置</h2><ol>
 <li><p>是否安装了ssh，未装执行</p>
 <blockquote>
 <p>yum install ssh</p>
@@ -191,7 +191,7 @@ $ npm --<span class="keyword">registry</span> <span class="keyword">http</span>:
 </blockquote>
 </li>
 </ol>
-<h3 id="待完善">待完善</h3>  
+<h2 id="待完善">待完善</h2>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -240,7 +240,7 @@ $ npm --<span class="keyword">registry</span> <span class="keyword">http</span>:
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置流程"><span class="toc-number">1.</span> <span class="toc-text">配置流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境准备"><span class="toc-number">1.1.</span> <span class="toc-text">环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本地环境"><span class="toc-number">1.1.1.</span> <span class="toc-text">本地环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装git"><span class="toc-number">1.1.2.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Hexo"><span class="toc-number">1.1.3.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初步预览"><span class="toc-number">1.1.4.</span> <span class="toc-text">初步预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置git并发布"><span class="toc-number">1.1.5.</span> <span class="toc-text">配置git并发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#免密码ssh公钥设置"><span class="toc-number">1.1.6.</span> <span class="toc-text">免密码ssh公钥设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#待完善"><span class="toc-number">1.1.7.</span> <span class="toc-text">待完善</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置流程"><span class="toc-number">1.</span> <span class="toc-text">配置流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境准备"><span class="toc-number">1.1.</span> <span class="toc-text">环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本地环境"><span class="toc-number">1.1.1.</span> <span class="toc-text">本地环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装git"><span class="toc-number">1.1.2.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Hexo"><span class="toc-number">1.1.3.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初步预览"><span class="toc-number">1.1.4.</span> <span class="toc-text">初步预览</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置git并发布"><span class="toc-number">1.2.</span> <span class="toc-text">配置git并发布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#免密码ssh公钥设置"><span class="toc-number">1.3.</span> <span class="toc-text">免密码ssh公钥设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#待完善"><span class="toc-number">1.4.</span> <span class="toc-text">待完善</span></a></li></ol></li></ol>
  
   </div>
 
