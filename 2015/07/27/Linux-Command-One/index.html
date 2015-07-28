@@ -4,23 +4,38 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Tmux 使用简记 | Arvon&#39;s Blog</title>
+    <title>Linux系统命令（一） | Arvon&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Arvon">
     
 
     
-    <meta name="description" content="简述：tmux是指通过一个终端登录远程主机并运行后，在其中可以开启多个控制台的终端复用软件。tmux是一个优秀的终端复用软件，类似GNU Screen，但来自于OpenBSD，采用BSD授权。使用它最直观的好处就是，通过一个终端登录远程主机并运行tmux后，在其中可以开启多个控制台而无需再“浪费”多余的终端来连接这台远程主机；个人更注重工作环境的连续性，可以进行会话保持(保证可以在网络情况不佳的情">
+    <meta name="description" content="Command包含：磁盘空间、内存、修改主机名、find
+查看磁盘空间
+常用命令df -hl 查看磁盘剩余空间df -h 查看每个根路径的分区大小du -sh [目录名] 返回该目录的大小du -sm [文件夹] 返回该文件夹总M数
+
+命令演示
+1[root@cloud ~]# cat /proc/cpuinfo&amp;#9;#&amp;#26597;&amp;#30475;cpu&amp;#30340;&amp;#26680;&amp;#2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tmux 使用简记">
-<meta property="og:url" content="http://yoursite.com/2015/07/22/Tmux-使用简记/index.html">
+<meta property="og:title" content="Linux系统命令（一）">
+<meta property="og:url" content="http://yoursite.com/2015/07/27/Linux-Command-One/index.html">
 <meta property="og:site_name" content="Arvon's Blog">
-<meta property="og:description" content="简述：tmux是指通过一个终端登录远程主机并运行后，在其中可以开启多个控制台的终端复用软件。tmux是一个优秀的终端复用软件，类似GNU Screen，但来自于OpenBSD，采用BSD授权。使用它最直观的好处就是，通过一个终端登录远程主机并运行tmux后，在其中可以开启多个控制台而无需再“浪费”多余的终端来连接这台远程主机；个人更注重工作环境的连续性，可以进行会话保持(保证可以在网络情况不佳的情">
-<meta property="og:updated_time" content="2015-07-22T08:12:43.194Z">
+<meta property="og:description" content="Command包含：磁盘空间、内存、修改主机名、find
+查看磁盘空间
+常用命令df -hl 查看磁盘剩余空间df -h 查看每个根路径的分区大小du -sh [目录名] 返回该目录的大小du -sm [文件夹] 返回该文件夹总M数
+
+命令演示
+1[root@cloud ~]# cat /proc/cpuinfo&amp;#9;#&amp;#26597;&amp;#30475;cpu&amp;#30340;&amp;#26680;&amp;#2">
+<meta property="og:updated_time" content="2015-07-28T06:17:23.830Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tmux 使用简记">
-<meta name="twitter:description" content="简述：tmux是指通过一个终端登录远程主机并运行后，在其中可以开启多个控制台的终端复用软件。tmux是一个优秀的终端复用软件，类似GNU Screen，但来自于OpenBSD，采用BSD授权。使用它最直观的好处就是，通过一个终端登录远程主机并运行tmux后，在其中可以开启多个控制台而无需再“浪费”多余的终端来连接这台远程主机；个人更注重工作环境的连续性，可以进行会话保持(保证可以在网络情况不佳的情">
+<meta name="twitter:title" content="Linux系统命令（一）">
+<meta name="twitter:description" content="Command包含：磁盘空间、内存、修改主机名、find
+查看磁盘空间
+常用命令df -hl 查看磁盘剩余空间df -h 查看每个根路径的分区大小du -sh [目录名] 返回该目录的大小du -sm [文件夹] 返回该文件夹总M数
+
+命令演示
+1[root@cloud ~]# cat /proc/cpuinfo&amp;#9;#&amp;#26597;&amp;#30475;cpu&amp;#30340;&amp;#26680;&amp;#2">
 
     
     <link rel="alternative" href="/atom.xml" title="Arvon&#39;s Blog" type="application/atom+xml">
@@ -76,14 +91,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/22/Tmux-使用简记/" title="Tmux 使用简记" itemprop="url">Tmux 使用简记</a>
+      <a href="/2015/07/27/Linux-Command-One/" title="Linux系统命令（一）" itemprop="url">Linux系统命令（一）</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-22T01:49:22.000Z" itemprop="datePublished"> 发表于 2015-07-22</time>
+    <time datetime="2015-07-27T02:49:08.000Z" itemprop="datePublished"> 发表于 2015-07-27</time>
     
   </p>
 </header>
@@ -92,22 +107,35 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用操作"><span class="toc-number">1.</span> <span class="toc-text">常用操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷键操作"><span class="toc-number">2.</span> <span class="toc-text">快捷键操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考教程"><span class="toc-number">3.</span> <span class="toc-text">参考教程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tmux源码安装"><span class="toc-number">4.</span> <span class="toc-text">Tmux源码安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置手册"><span class="toc-number">5.</span> <span class="toc-text">配置手册</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看磁盘空间"><span class="toc-number">1.</span> <span class="toc-text">查看磁盘空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看cpu使用率"><span class="toc-number">2.</span> <span class="toc-text">查看cpu使用率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Find命令"><span class="toc-number">3.</span> <span class="toc-text">Find命令</span></a></li></ol>
 		
 		</div>
 		
-		<p>简述：tmux是指通过一个终端登录远程主机并运行后，在其中可以开启多个控制台的终端复用软件。tmux是一个优秀的终端复用软件，类似GNU Screen，但来自<br>于OpenBSD，采用BSD授权。使用它最直观的好处就是，通过一个终端登录远程主机并运行tmux后，在其中可以开启多个控制台而无需再“浪费”多余的终端来连接<br>这台远程主机；个人更注重工作环境的连续性，可以进行会话保持(保证可以在网络情况不佳的情况下工作现场不丢失)。</p>
-<h3 id="常用操作">常用操作</h3><blockquote>
-<p>tmux new-session -s session-name    #创建一个新的tmux对话<br>tmux ls    #列出已有的tmux列表，相当于Ctrl-B s<br>tmux attach-session -t sessionname = tmux a -t sessionname（支持缩写匹配）    #进入一个tmux会话窗<br>使用Ctrl-B d返回主shell界面，tmux仍旧在后台运行，里面的命令也保持运行状态<br>tmux kill-session -t session-name    #关闭开启在后台的终端；在终端下也可以使用exit进行退出</p>
-</blockquote>
-<h3 id="快捷键操作">快捷键操作</h3><blockquote>
-<p>C-b c    #创建一个新的窗口<br>C-b n    #切换到下一个窗口<br>C-b p    #切换到上一个窗口<br>C-b d    #临时断开会话，还可以连上的<br>C-b pageup/pagedown    #向上或向下翻页</p>
-</blockquote>
-<h3 id="参考教程">参考教程</h3><p><a href="http://my.oschina.net/cshell/blog/135261" target="_blank" rel="external">使用大全（桔子空间）</a><br><a href="http://coolshell.cn/articles/7829.html" target="_blank" rel="external">不明觉厉（命令行神器）</a></p>
-<h3 id="Tmux源码安装">Tmux源码安装</h3><blockquote>
-<p>yum install tmux -y    #<br>wget <a href="http://downloads.sourceforge.net/tmux/tmux-1.6.tar.gz" target="_blank" rel="external">http://downloads.sourceforge.net/tmux/tmux-1.6.tar.gz</a><br>cd tmux-1.6<br>./configure<br>make<br>make install</p>
-</blockquote>
-<h3 id="配置手册">配置手册</h3><p><a href="http://www.doc88.com/p-386623377619.html" target="_blank" rel="external">个性配置参考</a><br><a href="http://www.doc88.com/p-386623377619.html" target="_blank" rel="external">配置地址二</a></p>
+		<p><strong>Command包含：</strong>磁盘空间、内存、修改主机名、find</p>
+<h3 id="查看磁盘空间">查看磁盘空间</h3><ul>
+<li><p>常用命令<br>df -hl 查看磁盘剩余空间<br>df -h 查看每个根路径的分区大小<br>du -sh [目录名] 返回该目录的大小<br>du -sm [文件夹] 返回该文件夹总M数</p>
+</li>
+<li><p>命令演示</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# cat /proc/cpuinfo&#9;#&#26597;&#30475;cpu&#30340;&#26680;&#24515;&#25968;&#10;&#10;[root@cloud ~]# df -h&#9;#&#30913;&#30424;&#20351;&#29992;&#24773;&#20917;&#10;[root@cloud ~]# df -hl&#10;Filesystem      Size  Used Avail Use% Mounted on&#10;/dev/sda1       9.1G  2.2G  6.4G  26% /&#10;tmpfs           487M     0  487M   0% /dev/shm&#10;/dev/sdb1       4.5G  1.9M  4.3G   1% /data&#10;&#10;[root@cloud ~]# du --max-depth=1 -h&#9;#&#26597;&#30475;&#24403;&#21069;&#25991;&#20214;&#22841;&#19979;&#30340;&#30913;&#30424;&#20351;&#29992;&#24773;&#20917;&#10;25M&#9;./.nvm&#10;8.0K&#9;./.pki&#10;4.0K&#9;./Blog&#10;25M&#9;.&#10;&#10;[root@cloud ~]# du -sh&#9;#&#26174;&#31034;&#24403;&#21069;&#30446;&#24405;&#30340;&#22823;&#23567;&#10;25M&#9;.&#10;&#10;[root@cloud ~]# du -sh /opt/&#9;#&#26174;&#31034;&#25351;&#23450;&#36335;&#24452;&#30340;&#22823;&#23567;&#10;4.0K&#9;/opt/&#9;&#10;&#10;[root@cloud ~]# du -h test.txt&#9;#&#26174;&#31034;&#25351;&#23450;&#25991;&#20214;&#30340;&#22823;&#23567; &#10;0&#9;test.txt&#10;```&#9;&#10;&#10;###&#26597;&#30475;&#20869;&#23384;&#10;* &#24120;&#29992;&#21629;&#20196;&#10;cat /proc/meminfo&#9;#&#26597;&#30475;&#20869;&#23384;&#20351;&#29992;&#20449;&#24687;&#10;&#10;&#10;* &#21629;&#20196;&#23454;&#20363;&#10;&#31354;&#38386;&#20869;&#23384; =free+buffers+cached =total-used&#10;```shell&#10;[root@cloud ~]# free -m&#9;#&#26597;&#30475;&#20869;&#23384;&#20351;&#29992;&#29366;&#20917;&#10;             total       used       free     shared    buffers     cached&#10;Mem:           972        667        304          0         41        497&#10;-/+ buffers/cache:        128        843&#10;Swap:          999          0        999&#10;&#35828;&#26126;&#65306;&#9; shared&#65306;&#22810;&#20010;&#36827;&#31243;&#20849;&#20139;&#30340;&#20869;&#23384;&#24635;&#39069;&#10;&#9;&#9;Buffers/cached&#9;&#9;&#10;&#10;[root@cloud ~]# cat /proc/meminfo &#10;MemTotal:         995648 kB&#10;MemFree:          312228 kB&#10;Buffers:           42836 kB&#10;Cached:           509164 kB&#10;SwapCached:          352 kB&#10;Active:           413060 kB&#10;Inactive:         145136 kB&#9;&#9;&#10;&#10;[root@cloud ~]# ll -h /proc/kcore&#9;#&#26597;&#30475;/proc/kcore&#25991;&#20214;&#30340;&#22823;&#23567;&#65288;&#20869;&#23384;&#38236;&#20687;&#65289;&#10;-r-------- 1 root root 4.0K Jul 27 16:31 /proc/kcore</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="查看cpu使用率">查看cpu使用率</h3><ul>
+<li><p>使用top命令<br>具体介绍：[top命输出解释]<a href="http://www.cnblogs.com/xd502djj/archive/2011/03/01/1968041.html" target="_blank" rel="external">1</a></p>
+</li>
+<li><p>产看内核信息</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# uname -a&#10;Linux cloud 2.6.32-504.1.3.el6.x86_64 #1 SMP Tue Nov 11 17:57:25 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看发行版信息</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# cat /etc/issue&#10;CentOS release 6.6 (Final)&#10;Kernel \r on an \m</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Find命令">Find命令</h3><ul>
+<li><p>命令实例</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# find / -name fstab&#10;/etc/fstab&#10;&#10;[root@cloud ~]# find / -name access_log 2&#62;/dev/null&#9;&#9;#&#26080;&#38169;&#35823;&#26597;&#25214;&#10;&#10;[root@cloud ~]# find / etc -name &#39;*fst*&#39;&#9;#&#27169;&#31946;&#26597;&#25214;&#65292;&#25903;&#25345;&#36890;&#37197;&#31526;&#10;/lib/udev/fstab_import&#10;/lib/udev/rules.d/79-fstab_import.rules&#10;/etc/fstab&#10;/usr/bin/psfstriptable&#10;&#10;find  /home  -size  +512k&#9;#&#26597;&#22823;&#20110;512k&#30340;&#25991;&#26723;&#10;&#10;$ find logs -type f -mtime +5 -exec  -ok  rm &#123;&#125; \;&#9;#&#22312;/ l o g s&#30446;&#24405;&#20013;&#26597;&#25214;&#26356;&#25913;&#26102;&#38388;&#22312;5&#26085;&#20197;&#21069;&#30340;&#25991;&#26723;&#24182;&#21024;&#38500;&#20182;&#20204;&#65306;&#10;&#10;# A=`find ./ -name &#34;*php&#34;` |  ls -l --full-time $A 2&#62;/dev/null | grep &#34;2004-11-30 16:36:37&#34;&#9;&#9;#&#26597;&#25214;2004-11-30 16:36:37&#26102;&#26356;&#25913;&#36807;&#30340;&#25991;&#26723;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参考网址<br><a href="http://linux.chinaunix.net/techdoc/system/2008/07/25/1020339.shtml" target="_blank" rel="external">参考实例</a><br><a href="http://www.chinaz.com/server/2009/0807/85796.shtml" target="_blank" rel="external">与或非的find介绍</a></p>
+</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -116,7 +144,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Tmux/">Tmux</a>
+  <span></span> <a href="/tags/Linux，-Command/">Linux， Command</a>
   </div>
 
 </div>
@@ -125,7 +153,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/07/22/Tmux-使用简记/" data-title="Tmux 使用简记 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/07/27/Linux-Command-One/" data-title="Linux系统命令（一） | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -138,19 +166,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/07/22/mysql自用命令手册/" title="Mysql自用命令手册">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Mysql自用命令手册</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/07/21/salt简明使用手册/"  title="SaltStack使用简明手册">
+<a href="/2015/07/23/Linux下hexo+github搭建Blog/"  title="Linux下hexo+github组建Blog">
  <strong>下一篇：</strong><br/> 
- <span>SaltStack使用简明手册
+ <span>Linux下hexo+github组建Blog
 </span>
 </a>
 </div>
@@ -165,7 +185,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用操作"><span class="toc-number">1.</span> <span class="toc-text">常用操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷键操作"><span class="toc-number">2.</span> <span class="toc-text">快捷键操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考教程"><span class="toc-number">3.</span> <span class="toc-text">参考教程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tmux源码安装"><span class="toc-number">4.</span> <span class="toc-text">Tmux源码安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置手册"><span class="toc-number">5.</span> <span class="toc-text">配置手册</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看磁盘空间"><span class="toc-number">1.</span> <span class="toc-text">查看磁盘空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看cpu使用率"><span class="toc-number">2.</span> <span class="toc-text">查看cpu使用率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Find命令"><span class="toc-number">3.</span> <span class="toc-text">Find命令</span></a></li></ol>
  
   </div>
 

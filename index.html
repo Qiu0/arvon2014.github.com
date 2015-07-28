@@ -77,6 +77,85 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/07/27/Linux-Command-One/" title="Linux系统命令（一）" itemprop="url">Linux系统命令（一）</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-27T02:49:08.000Z" itemprop="datePublished"> 发表于 2015-07-27</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><strong>Command包含：</strong>磁盘空间、内存、修改主机名、find</p>
+<h3 id="查看磁盘空间">查看磁盘空间</h3><ul>
+<li><p>常用命令<br>df -hl 查看磁盘剩余空间<br>df -h 查看每个根路径的分区大小<br>du -sh [目录名] 返回该目录的大小<br>du -sm [文件夹] 返回该文件夹总M数</p>
+</li>
+<li><p>命令演示</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# cat /proc/cpuinfo&#9;#&#26597;&#30475;cpu&#30340;&#26680;&#24515;&#25968;&#10;&#10;[root@cloud ~]# df -h&#9;#&#30913;&#30424;&#20351;&#29992;&#24773;&#20917;&#10;[root@cloud ~]# df -hl&#10;Filesystem      Size  Used Avail Use% Mounted on&#10;/dev/sda1       9.1G  2.2G  6.4G  26% /&#10;tmpfs           487M     0  487M   0% /dev/shm&#10;/dev/sdb1       4.5G  1.9M  4.3G   1% /data&#10;&#10;[root@cloud ~]# du --max-depth=1 -h&#9;#&#26597;&#30475;&#24403;&#21069;&#25991;&#20214;&#22841;&#19979;&#30340;&#30913;&#30424;&#20351;&#29992;&#24773;&#20917;&#10;25M&#9;./.nvm&#10;8.0K&#9;./.pki&#10;4.0K&#9;./Blog&#10;25M&#9;.&#10;&#10;[root@cloud ~]# du -sh&#9;#&#26174;&#31034;&#24403;&#21069;&#30446;&#24405;&#30340;&#22823;&#23567;&#10;25M&#9;.&#10;&#10;[root@cloud ~]# du -sh /opt/&#9;#&#26174;&#31034;&#25351;&#23450;&#36335;&#24452;&#30340;&#22823;&#23567;&#10;4.0K&#9;/opt/&#9;&#10;&#10;[root@cloud ~]# du -h test.txt&#9;#&#26174;&#31034;&#25351;&#23450;&#25991;&#20214;&#30340;&#22823;&#23567; &#10;0&#9;test.txt&#10;```&#9;&#10;&#10;###&#26597;&#30475;&#20869;&#23384;&#10;* &#24120;&#29992;&#21629;&#20196;&#10;cat /proc/meminfo&#9;#&#26597;&#30475;&#20869;&#23384;&#20351;&#29992;&#20449;&#24687;&#10;&#10;&#10;* &#21629;&#20196;&#23454;&#20363;&#10;&#31354;&#38386;&#20869;&#23384; =free+buffers+cached =total-used&#10;```shell&#10;[root@cloud ~]# free -m&#9;#&#26597;&#30475;&#20869;&#23384;&#20351;&#29992;&#29366;&#20917;&#10;             total       used       free     shared    buffers     cached&#10;Mem:           972        667        304          0         41        497&#10;-/+ buffers/cache:        128        843&#10;Swap:          999          0        999&#10;&#35828;&#26126;&#65306;&#9; shared&#65306;&#22810;&#20010;&#36827;&#31243;&#20849;&#20139;&#30340;&#20869;&#23384;&#24635;&#39069;&#10;&#9;&#9;Buffers/cached&#9;&#9;&#10;&#10;[root@cloud ~]# cat /proc/meminfo &#10;MemTotal:         995648 kB&#10;MemFree:          312228 kB&#10;Buffers:           42836 kB&#10;Cached:           509164 kB&#10;SwapCached:          352 kB&#10;Active:           413060 kB&#10;Inactive:         145136 kB&#9;&#9;&#10;&#10;[root@cloud ~]# ll -h /proc/kcore&#9;#&#26597;&#30475;/proc/kcore&#25991;&#20214;&#30340;&#22823;&#23567;&#65288;&#20869;&#23384;&#38236;&#20687;&#65289;&#10;-r-------- 1 root root 4.0K Jul 27 16:31 /proc/kcore</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="查看cpu使用率">查看cpu使用率</h3><ul>
+<li><p>使用top命令<br>具体介绍：[top命输出解释]<a href="http://www.cnblogs.com/xd502djj/archive/2011/03/01/1968041.html" target="_blank" rel="external">1</a></p>
+</li>
+<li><p>产看内核信息</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# uname -a&#10;Linux cloud 2.6.32-504.1.3.el6.x86_64 #1 SMP Tue Nov 11 17:57:25 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看发行版信息</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# cat /etc/issue&#10;CentOS release 6.6 (Final)&#10;Kernel \r on an \m</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Find命令">Find命令</h3><ul>
+<li><p>命令实例</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# find / -name fstab&#10;/etc/fstab&#10;&#10;[root@cloud ~]# find / -name access_log 2&#62;/dev/null&#9;&#9;#&#26080;&#38169;&#35823;&#26597;&#25214;&#10;&#10;[root@cloud ~]# find / etc -name &#39;*fst*&#39;&#9;#&#27169;&#31946;&#26597;&#25214;&#65292;&#25903;&#25345;&#36890;&#37197;&#31526;&#10;/lib/udev/fstab_import&#10;/lib/udev/rules.d/79-fstab_import.rules&#10;/etc/fstab&#10;/usr/bin/psfstriptable&#10;&#10;find  /home  -size  +512k&#9;#&#26597;&#22823;&#20110;512k&#30340;&#25991;&#26723;&#10;&#10;$ find logs -type f -mtime +5 -exec  -ok  rm &#123;&#125; \;&#9;#&#22312;/ l o g s&#30446;&#24405;&#20013;&#26597;&#25214;&#26356;&#25913;&#26102;&#38388;&#22312;5&#26085;&#20197;&#21069;&#30340;&#25991;&#26723;&#24182;&#21024;&#38500;&#20182;&#20204;&#65306;&#10;&#10;# A=`find ./ -name &#34;*php&#34;` |  ls -l --full-time $A 2&#62;/dev/null | grep &#34;2004-11-30 16:36:37&#34;&#9;&#9;#&#26597;&#25214;2004-11-30 16:36:37&#26102;&#26356;&#25913;&#36807;&#30340;&#25991;&#26723;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参考网址<br><a href="http://linux.chinaunix.net/techdoc/system/2008/07/25/1020339.shtml" target="_blank" rel="external">参考实例</a><br><a href="http://www.chinaz.com/server/2009/0807/85796.shtml" target="_blank" rel="external">与或非的find介绍</a></p>
+</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Linux，-Command/">Linux， Command</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/07/23/Linux下hexo+github搭建Blog/" title="Linux下hexo+github组建Blog" itemprop="url">Linux下hexo+github组建Blog</a>
   </h1>
   <p class="article-author">By
@@ -286,15 +365,20 @@ $ npm --<span class="keyword">registry</span> <span class="keyword">http</span>:
 </li>
 </ol>
 <h3 id="备份恢复数据库">备份恢复数据库</h3><ol>
-<li>备份数据库<blockquote>
+<li><p>备份数据库</p>
+<blockquote>
 <p>mysqldump -uroot -p test_db &gt; test_db.sql </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -h$&#123;ipaddr&#125; -u$&#123;username&#125; -p$&#123;password&#125; --default-character-set=utf8 \&#10;--comments=FALSE --tables --no-create-info=FALSE --add-drop-table=TRUE --no-data=FALSE \&#10;$&#123;area&#125; | sed &#39;s/AUTO_INCREMENT=[0-9]*\s//g&#39; &#62;$&#123;dest_dir&#125;/$&#123;area&#125;.sql</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
-<li>恢复数据库<blockquote>
+<li><p>恢复数据库</p>
+<blockquote>
 <p>mysql -uroot -p test_db &lt; test_db.sql </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h$&#123;ipaddr&#125; -u$&#123;username&#125; -p$&#123;password&#125; --default-character-set=utf8 --execute=&#34;DROP DATABASE IF EXISTS  $&#123;area&#125;&#34;;&#10;mysql -h$&#123;ipaddr&#125; -u$&#123;username&#125; -p$&#123;password&#125; --default-character-set=utf8 --execute=&#34;CREATE DATABASE IF NOT EXISTS  $&#123;area&#125; DEFAULT CHARACTER SET utf8&#34;;&#10;mysql -h$&#123;ipaddr&#125; -u$&#123;username&#125; -p$&#123;password&#125; --default-character-set=utf8 --database= $&#123;area&#125; &#60;$&#123;area&#125;.sql;</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
-<li>创建权限<blockquote>
+<li><p>创建权限</p>
+<blockquote>
 <p>grant all privileges on test_db.* to test_db@’localhost’ identified by ‘123456’;<br>兼容4.1之前的版本：<br>update mysql.user set password=old_password(‘123456’) where user=’test_db’; </p>
 </blockquote>
 </li>
@@ -648,7 +732,7 @@ $ npm --<span class="keyword">registry</span> <span class="keyword">http</span>:
 <p>Reference-style 引用方式：<br>[link text][id]<br>[id]: <a href="https://www.mozilla.org" target="_blank" rel="external">https://www.mozilla.org</a> “title text”</p>
 <p>Relative reference to a repository file 引用存储文件：<br>[link text](../path/file/readme.text “title text”)</p>
 <p>还能这样使用：<br>[link text][]<br>[link text]: <a href="http://www.reddit.com" target="_blank" rel="external">http://www.reddit.com</a></p>
-<p>Email 邮件：<br><a href="&#109;&#97;&#x69;&#x6c;&#116;&#111;&#58;&#101;&#x78;&#97;&#x6d;&#x70;&#x6c;&#x65;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#101;&#x78;&#97;&#x6d;&#x70;&#x6c;&#x65;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+<p>Email 邮件：<br><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#101;&#120;&#x61;&#x6d;&#112;&#108;&#x65;&#x40;&#x65;&#x78;&#x61;&#109;&#112;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#101;&#120;&#x61;&#x6d;&#112;&#108;&#x65;&#x40;&#x65;&#x78;&#x61;&#109;&#112;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
 </blockquote>
 <h3 id="images图片链接">images图片链接</h3><blockquote>
 <p>Inline-style 内嵌方式：<br>![alt text](<a href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" target="_blank" rel="external">https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png</a> “title text”)</p>
@@ -907,6 +991,12 @@ $ npm --<span class="keyword">registry</span> <span class="keyword">http</span>:
 		
 			
 				<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux，-Command/" title="Linux， Command">Linux， Command<sup>1</sup></a></li>
+			
+		
 			
 		
 		</ul>
