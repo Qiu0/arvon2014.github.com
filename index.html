@@ -90,7 +90,7 @@
 </header>
     <div class="article-content">
         
-        <p><strong>Command包含：</strong>磁盘空间、内存、修改主机名、find</p>
+        <p><strong>Command Include：</strong>disk、memory、hostname、find</p>
 <h3 id="查看磁盘空间">查看磁盘空间</h3><ul>
 <li><p>常用命令<br>df -hl 查看磁盘剩余空间<br>df -h 查看每个根路径的分区大小<br>du -sh [目录名] 返回该目录的大小<br>du -sm [文件夹] 返回该文件夹总M数</p>
 </li>
@@ -113,6 +113,10 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# find / -name fstab&#10;/etc/fstab&#10;&#10;[root@cloud ~]# find / -name access_log 2&#62;/dev/null&#9;&#9;#&#26080;&#38169;&#35823;&#26597;&#25214;&#10;&#10;[root@cloud ~]# find / etc -name &#39;*fst*&#39;&#9;#&#27169;&#31946;&#26597;&#25214;&#65292;&#25903;&#25345;&#36890;&#37197;&#31526;&#10;/lib/udev/fstab_import&#10;/lib/udev/rules.d/79-fstab_import.rules&#10;/etc/fstab&#10;/usr/bin/psfstriptable&#10;&#10;find  /home  -size  +512k&#9;#&#26597;&#22823;&#20110;512k&#30340;&#25991;&#26723;&#10;&#10;$ find logs -type f -mtime +5 -exec  -ok  rm &#123;&#125; \;&#9;#&#22312;/ l o g s&#30446;&#24405;&#20013;&#26597;&#25214;&#26356;&#25913;&#26102;&#38388;&#22312;5&#26085;&#20197;&#21069;&#30340;&#25991;&#26723;&#24182;&#21024;&#38500;&#20182;&#20204;&#65306;&#10;&#10;# A=`find ./ -name &#34;*php&#34;` |  ls -l --full-time $A 2&#62;/dev/null | grep &#34;2004-11-30 16:36:37&#34;&#9;&#9;#&#26597;&#25214;2004-11-30 16:36:37&#26102;&#26356;&#25913;&#36807;&#30340;&#25991;&#26723;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>参考网址<br><a href="http://linux.chinaunix.net/techdoc/system/2008/07/25/1020339.shtml" target="_blank" rel="external">参考实例</a><br><a href="http://www.chinaz.com/server/2009/0807/85796.shtml" target="_blank" rel="external">与或非的find介绍</a></p>
+</li>
+</ul>
+<h3 id="修改常见配置">修改常见配置</h3><ul>
+<li>修改主机名<br>参考这里:[北南南北的博客，修改Linux主机名]<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# hostname Mo&#9;&#9;#&#20020;&#26102;&#20462;&#25913;hostname&#10;&#10;[root@Mo ~]# vim /etc/sysconfig/network&#9;&#9;#&#20004;&#20010;&#37117;&#35201;&#25913;&#10;[root@Mo ~]# vim /etc/hosts&#10;&#10;[root@linuxsir01 ~]# hostname -i&#9;#&#26174;&#31034;&#20027;&#26426;&#21517;&#30340;IP</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -732,7 +736,7 @@ $ npm --<span class="keyword">registry</span> <span class="keyword">http</span>:
 <p>Reference-style 引用方式：<br>[link text][id]<br>[id]: <a href="https://www.mozilla.org" target="_blank" rel="external">https://www.mozilla.org</a> “title text”</p>
 <p>Relative reference to a repository file 引用存储文件：<br>[link text](../path/file/readme.text “title text”)</p>
 <p>还能这样使用：<br>[link text][]<br>[link text]: <a href="http://www.reddit.com" target="_blank" rel="external">http://www.reddit.com</a></p>
-<p>Email 邮件：<br><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#101;&#120;&#x61;&#x6d;&#112;&#108;&#x65;&#x40;&#x65;&#x78;&#x61;&#109;&#112;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#101;&#120;&#x61;&#x6d;&#112;&#108;&#x65;&#x40;&#x65;&#x78;&#x61;&#109;&#112;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+<p>Email 邮件：<br><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#x65;&#120;&#97;&#109;&#x70;&#108;&#101;&#x40;&#x65;&#120;&#97;&#109;&#x70;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#x6d;">&#x65;&#120;&#97;&#109;&#x70;&#108;&#101;&#x40;&#x65;&#120;&#97;&#109;&#x70;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#x6d;</a></p>
 </blockquote>
 <h3 id="images图片链接">images图片链接</h3><blockquote>
 <p>Inline-style 内嵌方式：<br>![alt text](<a href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" target="_blank" rel="external">https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png</a> “title text”)</p>
