@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/07/28/Linux下搭建vsftp服务器/index.html">
 <meta property="og:site_name" content="Arvon's Blog">
 <meta property="og:description" content="简介：VSFTP（Very Secure FTP）是一个基于GPL发布的类Unix系统上使用的FTP服务器软件，设计者的初衷是代码的安全，另外速度在使用ASCII代码的模式下在数据时，VSFTP的速度为Wu-FTp的两倍，如果Linux主机使用2.4.x的内核，在千兆以太网的下的下载速度可以达到86MB/S。而且很稳定，在单机上支持4000以上的并发用户同时连接，根据RedHat和Ftp服务器的数">
-<meta property="og:updated_time" content="2015-07-28T10:13:27.408Z">
+<meta property="og:updated_time" content="2015-07-28T10:32:34.602Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux下搭建VSFTP服务器">
 <meta name="twitter:description" content="简介：VSFTP（Very Secure FTP）是一个基于GPL发布的类Unix系统上使用的FTP服务器软件，设计者的初衷是代码的安全，另外速度在使用ASCII代码的模式下在数据时，VSFTP的速度为Wu-FTp的两倍，如果Linux主机使用2.4.x的内核，在千兆以太网的下的下载速度可以达到86MB/S。而且很稳定，在单机上支持4000以上的并发用户同时连接，根据RedHat和Ftp服务器的数">
@@ -124,13 +124,11 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Mo ~]# rpm -q vsftpd&#10;package vsftpd is not installed</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装vsftp服务</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Mo ~]# yum install -y vsftpd db4-utils&#9;#&#23433;&#35013;vsftpd&#26381;&#21153;&#10;[root@Mo ~]# rpm -q vsftpd &#9;&#9;#vsftpd&#26381;&#21153;&#24050;&#23433;&#35013;&#10;vsftpd-2.2.2-13.el6_6.1.x86_64</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Mo ~]# yum install -y vsftpd db4-utils&#9;#&#23433;&#35013;vsftpd&#26381;&#21153;&#10;[root@Mo ~]# rpm -q vsftpd &#9;&#9;#vsftpd&#26381;&#21153;&#24050;&#23433;&#35013;&#10;vsftpd-2.2.2-13.el6_6.1.x86_64&#10;&#10;[root@Mo vsftp]# yum install lrzsz&#9;&#9;#&#23433;&#35013;&#21518;&#21487;&#20197;&#25226;windows&#30340;&#25991;&#20214;&#30452;&#25509;&#36890;&#36807;xshell&#25289;&#21040;&#30446;&#26631;&#20027;&#26426;</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<p>安装<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Mo vsftp]# yum install lrzsz&#9;&#9;#&#23433;&#35013;&#21518;&#21487;&#20197;&#25226;windows&#30340;&#25991;&#20214;&#30452;&#25509;&#36890;&#36807;xshell&#25289;&#21040;&#30446;&#26631;&#20027;&#26426;</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>vsftp配置文件<ul>
-<li>官方wiki有处理脚本：[地址]</li>
+<li><p>vsftp配置文件</p>
+<ul>
+<li>官方wiki有处理脚本：<a href="http://wiki.centos.org/HowTos/Chroot_Vsftpd_with_non-system_users" target="_blank" rel="external">脚本地址</a></li>
 <li>将脚本放至linux主机，然后执行该脚本</li>
 </ul>
 </li>
