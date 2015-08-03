@@ -77,6 +77,220 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/07/31/zabbix添加web监控/" title="zabbix添加web监控" itemprop="url">zabbix添加web监控</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-31T10:07:40.000Z" itemprop="datePublished"> 发表于 2015-07-31</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="zabbix监控web服务">zabbix监控web服务</h3><ol>
+<li>选择一个主机（zabbix含有zabbix client的主机），由这台主机上的client对目标url发起访问。<br><img src="C:\Users\kod\hexo-lcx\source\_posts\image_for_blog" alt="&quot;第一个&quot;" title="第一个"></li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/zabbix/">zabbix</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/30/Python学习笔记/" title="简明Python读书笔记" itemprop="url">简明Python读书笔记</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-30T03:25:39.000Z" itemprop="datePublished"> 发表于 2015-07-30</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="更新记录">更新记录</h1><ul>
+<li>20150730总结介绍</li>
+<li>20150731控制流</li>
+</ul>
+<h1 id="介绍">介绍</h1><h2 id="简记">简记</h2><ul>
+<li>这里使用的是CentOS release 6.6 (Final)</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Mo ~]# python -V&#9;&#9;#&#26597;&#30475;python&#30340;&#29256;&#26412;&#10;Python 2.6.6&#9;&#10;&#10;[root@Mo arvon_python]# which python&#9;#&#26597;&#30475;python&#21629;&#20196;&#30340;&#23433;&#35013;&#30340;&#20301;&#32622;&#10;/usr/bin/python&#10;&#10;[root@Mo arvon_python]# echo $PATH&#9;&#9;#&#26597;&#30475;$PATH&#21464;&#37327;&#65292;&#21487;&#20197;&#36890;&#36807;which&#21629;&#20196;&#26597;&#30475;&#19968;&#20010;&#21629;&#20196;&#30340;&#20301;&#32622;&#10;/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin&#10;&#10;&#9;#&#32553;&#36827;&#21487;&#20197;&#20351;&#29992;Tab&#12289;2&#20010;&#31354;&#26684;&#12289;4&#20010;&#31354;&#26684;&#65292;&#36873;&#25321;&#19968;&#20010;&#38271;&#26399;&#29992;&#19979;&#21435;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#the script is about expression</span></span><br><span class="line">length = float(raw_input(<span class="string">"Enter the length:"</span>))</span><br><span class="line">breadth = float(raw_input(<span class="string">"Enter the breadth:"</span>))</span><br><span class="line">area = length * breadth</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Area is'</span>, area</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Perimeter is'</span>, <span class="number">2</span>* (length + breadth)</span><br></pre></td></tr></table></figure>
+<h2 id="控制流">控制流</h2><h3 id="简介">简介</h3><ul>
+<li>在python中有三种控制流语句if、for、while</li>
+</ul>
+<h4 id="if语句实例">if语句实例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: show how to use if</span></span><br><span class="line"><span class="comment">#number = int(raw_input("Input a number:"))</span></span><br><span class="line">number = <span class="number">25</span></span><br><span class="line">guess = int(input(<span class="string">"Enter a number which you are think:"</span>))</span><br><span class="line"><span class="keyword">print</span> guess</span><br><span class="line"><span class="keyword">print</span> number</span><br><span class="line"><span class="keyword">if</span> guess == number:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Your number is right"</span></span><br><span class="line"><span class="keyword">elif</span> guess &gt; <span class="number">25</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Your number is:"</span>, guess, <span class="string">"It,s too big"</span></span><br><span class="line"><span class="keyword">elif</span> guess &lt; <span class="number">25</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"You number is:"</span>, guess, <span class="string">"is small"</span></span><br></pre></td></tr></table></figure>
+<h4 id="while语句实例">while语句实例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: while</span></span><br><span class="line">number=<span class="number">23</span></span><br><span class="line">running=<span class="keyword">True</span></span><br><span class="line"><span class="keyword">while</span> running:</span><br><span class="line">    guess=int(raw_input(<span class="string">'Enteraninteger:'</span>))</span><br><span class="line">    <span class="keyword">if</span> guess == number:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'Congratulations, you guessed it.'</span></span><br><span class="line">        running = <span class="keyword">False</span> <span class="comment">#this causes the while loop to stop</span></span><br><span class="line">    <span class="keyword">elif</span> guess &lt; number:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'No, it is a litte higher than that'</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'No, it is a little lower than that'</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'The while loop is over.'</span></span><br><span class="line">    <span class="comment">#Do anything else you want to do here </span></span><br><span class="line"><span class="keyword">print</span> <span class="string">'done'</span></span><br></pre></td></tr></table></figure>
+<h4 id="for语句">for语句</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">15</span>, <span class="number">2</span>):</span><br><span class="line">    <span class="keyword">print</span> i</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'THe for loop is over'</span></span><br></pre></td></tr></table></figure>
+<h4 id="break语句">break语句</h4><ul>
+<li>break语句是用来终止循环语句的，哪怕循环条件没有称为False或序列还没有被完全递归，也停止执行循环语句。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: break.py</span></span><br><span class="line">runing = <span class="string">'True'</span></span><br><span class="line"><span class="keyword">while</span> runing:</span><br><span class="line">    s = raw_input(<span class="string">'Enter your name:'</span>)</span><br><span class="line">    <span class="keyword">if</span> s == <span class="string">'quit'</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Length of the string is'</span>, len(s)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Done'</span></span><br></pre></td></tr></table></figure>
+<h4 id="continue语句">continue语句</h4><ul>
+<li>跳过当前循环块中的剩余语句，然后进行下一轮循环。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line">runing = <span class="keyword">True</span></span><br><span class="line"><span class="keyword">while</span> runing:</span><br><span class="line">    s = raw_input(<span class="string">'Enter something:'</span>)</span><br><span class="line">    <span class="keyword">if</span> s == <span class="string">'quit'</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> len(s) &lt; <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Input is of sufficient length'</span></span><br></pre></td></tr></table></figure>
+<h2 id="函数">函数</h2><ul>
+<li>函数是重用的程序段。它们允许你给一块语句一个名称，然后你可以在你的程序的任何地方使用这个名称任意多次<br>地运行这个语句块，这称为调用函数。函数通过def关键字定义。def关键字后跟一个函数的标识符名称，然后跟一对<br>圆括号。圆括号可以包括一些变量名，该行以冒号结尾，接下来的是一块语句，它们是函数体。</li>
+</ul>
+<h3 id="定义函数">定义函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sayHello</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Hello World！'</span><span class="comment">#block belonging to the function</span></span><br><span class="line">sayHello()<span class="comment">#call the function</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用函数形参">使用函数形参</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Filename:func_param.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printMax</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> a&gt;b:</span><br><span class="line">        <span class="keyword">print</span> a, <span class="string">'is max number'</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> b, <span class="string">'is max number'</span></span><br><span class="line">printMax(<span class="number">3</span>,<span class="number">4</span>)<span class="comment">#directly give litter values</span></span><br><span class="line">x = <span class="number">5</span></span><br><span class="line">y = <span class="number">7</span></span><br><span class="line">printMax(x,y)<span class="comment">#give variables as arguments</span></span><br></pre></td></tr></table></figure>
+<h3 id="局部变量">局部变量</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#Filename: func_local.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'x is'</span>, x</span><br><span class="line">    x = <span class="number">2</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Changed local x to'</span>, x</span><br><span class="line">x = <span class="number">50</span></span><br><span class="line">func(x)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'x is still'</span>, x</span><br></pre></td></tr></table></figure>
+<h3 id="global语句">global语句</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: func_global.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> x</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'x is'</span>, x</span><br><span class="line">    x = <span class="number">2</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Changed local x to'</span>, x</span><br><span class="line">x = <span class="number">50</span></span><br><span class="line">func()</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Value of x is'</span>, x</span><br></pre></td></tr></table></figure>
+<h3 id="使用默认参数值">使用默认参数值</h3><ul>
+<li>默认参数值是一个参数，默认参数值应该是不可变的，只有在形参表末尾的那些参数可以有默认参数值，即<br>你不能在声明函数形参的时候，先声明有默认值的形参而后声明没有默认值的形参，例如：def func（a，b=5）<br>是有效地，但是def func（a=5， b）是无效的</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8</span></span><br><span class="line"><span class="comment">#Todo: func_default.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say</span> <span class="params">(message, times=<span class="number">1</span>)</span>:</span></span><br><span class="line">    <span class="keyword">print</span> message*times</span><br><span class="line">say(<span class="string">'Hello'</span>)</span><br><span class="line">say(<span class="string">'World'</span>,<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="关键参数">关键参数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(a,b = <span class="number">5</span>, c=<span class="number">10</span>)</span>:</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'a is'</span>, a, <span class="string">'and b is'</span>, b, <span class="string">'and c is'</span>, c</span><br><span class="line">func(<span class="number">3</span>, <span class="number">7</span>)</span><br><span class="line">func(<span class="number">25</span>, c=<span class="number">24</span>)</span><br><span class="line">func(c= <span class="number">50</span>, a= <span class="number">100</span>)</span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="decorator">@Mo arvon_python]# python func_key.py </span></span><br><span class="line">a <span class="keyword">is</span> <span class="number">3</span> <span class="keyword">and</span> b <span class="keyword">is</span> <span class="number">7</span> <span class="keyword">and</span> c <span class="keyword">is</span> <span class="number">10</span></span><br><span class="line">a <span class="keyword">is</span> <span class="number">25</span> <span class="keyword">and</span> b <span class="keyword">is</span> <span class="number">5</span> <span class="keyword">and</span> c <span class="keyword">is</span> <span class="number">24</span></span><br><span class="line">a <span class="keyword">is</span> <span class="number">100</span> <span class="keyword">and</span> b <span class="keyword">is</span> <span class="number">5</span> <span class="keyword">and</span> c <span class="keyword">is</span> <span class="number">50</span></span><br></pre></td></tr></table></figure>
+<h3 id="return语句">return语句</h3><ul>
+<li>return语句用来从一个函数返回即跳出函数。也可选函数返回一个值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: func_return.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">maximum</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;y:</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> y</span><br><span class="line"><span class="keyword">print</span> maximum(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="decorator">@Mo arvon_python]# python func_return.py </span></span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h3 id="文档字符串（DocStrings）">文档字符串（DocStrings）</h3><ul>
+<li>在函数的第一个逻辑行的字符串是这个函数的文档那个字符串 </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: func_doc.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printMax</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="string">'''Prints the max num of tow numbers.</span><br><span class="line">    The two values must be in tetgers.'''</span></span><br><span class="line">    x = int(x)<span class="comment">#convert to in tegers, if possible</span></span><br><span class="line">    y = int(y)</span><br><span class="line">    <span class="keyword">if</span> x&gt;y:</span><br><span class="line">        <span class="keyword">print</span> x, <span class="string">'is max num'</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> y, <span class="string">'is max num'</span></span><br><span class="line">printMax(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="keyword">print</span> printMax.__doc__</span><br><span class="line"><span class="comment">###Out put</span></span><br><span class="line">[root<span class="decorator">@Mo arvon_python]# python func_doc.py </span></span><br><span class="line"><span class="number">5</span> <span class="keyword">is</span> max num</span><br><span class="line">Prints the max num of tow numbers.</span><br><span class="line">    The two values must be <span class="keyword">in</span> tetgers.</span><br></pre></td></tr></table></figure>
+<h2 id="模块">模块</h2><h3 id="使用sys模块">使用sys模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: using_sys.py</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">print</span> <span class="string">'The command line arguments are:'</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> sys.argv:</span><br><span class="line">    <span class="keyword">print</span> i</span><br><span class="line"><span class="keyword">print</span> <span class="string">'\n\nThe PYTHON PATH is'</span>, sys.path, <span class="string">'\n'</span></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="decorator">@Mo arvon_python]# python using_sys.py </span></span><br><span class="line">The command line arguments are:</span><br><span class="line">using_sys.py</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">The PYTHON PATH <span class="keyword">is</span> [<span class="string">'/root/arvon_python'</span>, <span class="string">'/usr/lib64/python26.zip'</span>, <span class="string">'/usr/lib64/python2.6'</span>, <span class="string">'/usr/lib64/python2.6/plat-linux2'</span>, <span class="string">'/usr/lib64/python2.6/lib-tk'</span>, <span class="string">'/usr/lib64/python2.6/lib-old'</span>, <span class="string">'/usr/lib64/python2.6/lib-dynload'</span>, <span class="string">'/usr/lib64/python2.6/site-packages'</span>, <span class="string">'/usr/lib/python2.6/site-packages'</span>]</span><br></pre></td></tr></table></figure>
+<p>[1]:<br>[2]:<br>[3]:<br>[4]:<br>[5]:</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Python/">Python</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/29/awk用法实例/" title="awk用法实例" itemprop="url">awk用法实例</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-29T02:45:33.000Z" itemprop="datePublished"> 发表于 2015-07-29</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><strong>简介：</strong>awk一种优秀的文本处理工具，Linux和Unix环境中现有的功能最强大的数据处理引擎之一。这个编程及数据操作语言其名称得自于它的创始人阿尔佛雷德·艾侯、彼得·温伯格和布莱恩·柯林汉姓氏的首个字母。<br>awk的处理文本和数据的方式是这样的，它逐行扫描文件，从第一行到最后一行，寻找匹配的特定模式的行，并在这些行上进行你想要的操作。如果没有指定处理动作，则把匹配的行显示到标准输出(屏幕)，如果没有指定<br>模式，则所有被操作所指定的行都被处理</p>
+<h3 id="常用命令选项">常用命令选项</h3><ul>
+<li></li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/awk/">awk</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/07/28/SA运维资源/" title="SA运维资源" itemprop="url">SA运维资源</a>
   </h1>
   <p class="article-author">By
@@ -380,26 +594,13 @@
 </blockquote>
 </li>
 </ul>
-<h3 id="安装git">安装git</h3><p>&gt;</p>
+<h3 id="安装git">安装git</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;</span><br></pre></td></tr></table></figure>
 <h3 id="安装Hexo">安装Hexo</h3><blockquote>
 <p>npm install -g hexo    #使用npm安装hexo(此处安装并未完成)<br>如果显示command not found，就重启终端，然后使用nvm ls检查当前版本，如果没有使用命令<br>nvm use 0.10    #即使用方才装的版本（使用此命令后安装成功）<br>或使用一下命令直接设置全局默认的node.js版本<br>nvm alias default 0.10.26</p>
 </blockquote>
 <ul>
 <li><p>安装失败的原因可能是无法连接到官方服务器，或者是GFW（Great Firewall，中国国家防火墙或长城防火墙）的问题。需<br>  修改npm镜像源<br>  使用config命令</p>
-<blockquote>
-<p>$ npm config set registry <a href="http://registry.cnpmjs.org" target="_blank" rel="external">http://registry.cnpmjs.org</a><br>$ npm info underscore (如果上面配置成功，使用这个命令会有以下提示)<br>$ npm http GET <a href="http://registry.cnpmjs.org/underscore" target="_blank" rel="external">http://registry.cnpmjs.org/underscore</a><br>$ npm http 200 <a href="http://registry.cnpmjs.org/underscore" target="_blank" rel="external">http://registry.cnpmjs.org/underscore</a>  </p>
-<pre><code>命令行指定  
-```Shell 
-$ npm --<span class="keyword">registry</span> <span class="keyword">http</span>://<span class="keyword">registry</span>.cnpmjs.org <span class="keyword">info</span> underscore
-</code></pre><p>编辑 ~/.npmrc 加入以下内容可以使配置永久生效，就不用每次npm安装时都要运行指定源命令了  </p>
-<pre><code class="Shell">$ registry = http://registry.cnpmjs.org
-</code></pre>
-</blockquote>
-</li>
-<li><p>使用以下命令对hexo进行初始化（这里我位于~目录，而且我想把我的个人博客放在~/hexo目录，需要放在其他目录直接改一下自己需要的目录就可以了）  </p>
-<blockquote>
-<p>```Shell<br>$ hexo install hexo —save<br>$ hexo init hexo</p>
-</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config set registry http://registry.cnpmjs.org  &#10;$ npm info underscore (&#22914;&#26524;&#19978;&#38754;&#37197;&#32622;&#25104;&#21151;&#65292;&#20351;&#29992;&#36825;&#20010;&#21629;&#20196;&#20250;&#26377;&#20197;&#19979;&#25552;&#31034;)  &#10;$ npm http GET http://registry.cnpmjs.org/underscore  &#10;$ npm http 200 http://registry.cnpmjs.org/underscore  &#10; ``` &#10;&#21629;&#20196;&#34892;&#25351;&#23450;  &#10;```Shell &#10;$ npm --registry http://registry.cnpmjs.org info underscore   &#10;&#32534;&#36753; ~/.npmrc &#21152;&#20837;&#20197;&#19979;&#20869;&#23481;&#21487;&#20197;&#20351;&#37197;&#32622;&#27704;&#20037;&#29983;&#25928;&#65292;&#23601;&#19981;&#29992;&#27599;&#27425;npm&#23433;&#35013;&#26102;&#37117;&#35201;&#36816;&#34892;&#25351;&#23450;&#28304;&#21629;&#20196;&#20102;  &#10;$ registry = http://registry.cnpmjs.org  &#10; ``` &#10;&#10;- &#20351;&#29992;&#20197;&#19979;&#21629;&#20196;&#23545;hexo&#36827;&#34892;&#21021;&#22987;&#21270;&#65288;&#36825;&#37324;&#25105;&#20301;&#20110;~&#30446;&#24405;&#65292;&#32780;&#19988;&#25105;&#24819;&#25226;&#25105;&#30340;&#20010;&#20154;&#21338;&#23458;&#25918;&#22312;~/hexo&#30446;&#24405;&#65292;&#38656;&#35201;&#25918;&#22312;&#20854;&#20182;&#30446;&#24405;&#30452;&#25509;&#25913;&#19968;&#19979;&#33258;&#24049;&#38656;&#35201;&#30340;&#30446;&#24405;&#23601;&#21487;&#20197;&#20102;&#65289;  &#10;```Shell &#10;$ hexo install hexo --save&#10;$ hexo init hexo</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>本地环境到此结束，有木有很easy</p>
 </li>
@@ -747,355 +948,6 @@ $ npm --<span class="keyword">registry</span> <span class="keyword">http</span>:
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/07/21/使用Hexo和Github搭建Blog/" title="使用Hexo和Github搭建Blog" itemprop="url">使用Hexo和Github搭建Blog</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-21T00:20:02.656Z" itemprop="datePublished"> 发表于 2015-07-21</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Tips：最近几天都在折腾这个东西，网上有很多的教程，但终究还是有点费劲，在这里总结一下。我是在win7上做的，我尽可能把我<br>出问题的地方着重描述，希望让有兴趣玩这个伙伴们可以顺利点，嘻嘻。特别鸣谢陈素封的博客，帮助很大，话不多说，开始整理。<br>win上多有不便，还会在linux上进行搭建。</p>
-<h1 id="更新记录">更新记录</h1><p> 2015/07/17第一次记录，因对markdown语法不熟练，Blog功能尚不完善，所以待补充修改</p>
-<h1 id="准备工作">准备工作</h1><ol>
-<li>github账户设置<br>平台为win，需注册<a href="http://www.github.com" title="github account" target="_blank" rel="external">github account</a>登陆github后需要创建一个repository,然后就写个REpositoryname，<strong>注意要和Owner的name<br>一致</strong>（注意），然后勾选那个Initaalize this…什么的选项，然后就这样成了，不然就是像我一样不停的犯错，为何还有待考量，反<br>正现在听话就ok。</li>
-<li>软件设置<br>需要的软件有node.js和git，实际最好再来个Visual Studio Code，你会发现有语法高亮就是舒心</li>
-<li>待补充昂<br>为了可以清晰一点，决定把Markdown和这个Blog分开记录。恩，就是这样</li>
-</ol>
-<h1 id="开始搭建">开始搭建</h1><h3 id="安装node-js软件">安装node.js软件</h3><p>下载地址戳：<a href="http://www.nodejs.org/download/" title="node.js" target="_blank" rel="external">node.js</a>,然后就开始一路下一步吧，然后你的发现带cmd多了一条np</p>
-<h3 id="安装git软件">安装git软件</h3><p>下载地址戳：<a href="http://git-scm.com/download/" title="git" target="_blank" rel="external">git</a>,依旧下一步到底。昨天做着的时候没记录，真是一大败笔</p>
-<h3 id="安装Hexo">安装Hexo</h3><ol>
-<li>进入Git bash,输入命令<blockquote>
-<p>npm install -g hexo    #hexo表示全局安装hexo<br>#创建hexo文件夹，如/user/arvon/hexo-lxc<br>hexo init    #初始化hexo<br>npm install<br>npm generate<br>npm server</p>
-</blockquote>
-</li>
-<li>然后可以通过访问localhost查看预览http：//localhost:4000/</li>
-</ol>
-<h3 id="部署">部署</h3><ol>
-<li>将在github上创建的Repository，找到https那个url将其复制</li>
-<li>然后编辑位于你创建的文件夹下的文件，例如我就是：/user/arvon/hexo-lxc/_config.yml<blockquote>
-<p>deploy:<br> type: git<br> repository: <a href="https://github.com/arvon2014/arvon2014.github.com" target="_blank" rel="external">https://github.com/arvon2014/arvon2014.github.com</a><br> branch: master<br>#github上的地址：<a href="https://github.com/Arvon2014/arvon2014.github.com.git" target="_blank" rel="external">https://github.com/Arvon2014/arvon2014.github.com.git</a><br>#web上访问的为：<a href="http://arvon2014.github.io" target="_blank" rel="external">http://arvon2014.github.io</a></p>
-</blockquote>
-</li>
-<li>设置ssh免密码访问</li>
-</ol>
-<ul>
-<li>先查看本地是否已经存在ssh文件，如不存在直接跳过下面第二步</li>
-<li>删除已有的ssh的文件</li>
-<li>输入命令<blockquote>
-<p>ssh-keygen -t rsa -C “邮件地址@youremail.com” Generating public/private rsa key pair. Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):<br>Enter passphrase (empty for no passphrase):&lt;输入加密串&gt; Enter same passphrase again:&lt;再次输入加密串&gt;<br>ssh -T git@github.com    #测试<br>The authenticity of host ‘github.com (207.97.227.239)’ can’t be established. RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48. Are you sure you want to continue connecting (yes/no)?    #说明成功<br>$ git config —global user.name “你的名字” $ git config —global user.email “your_email@youremail.com”    #设置你的信息</p>
-</blockquote>
-</li>
-<li>现在已经可以顺利将环境搭建完毕</li>
-<li>进入你的Hexo目录，开始试验吧<blockquote>
-<p>hexo generate = hexo g<br>hexo server = hexo s    #部署本地预览<br>hexo deploy = hexo d    #生成部署     </p>
-</blockquote>
-</li>
-</ul>
-<h3 id="主题更换">主题更换</h3><ol>
-<li>模板获取</li>
-<li>更改设置</li>
-</ol>
-<h3 id="插件添加">插件添加</h3><ol>
-<li>待更新</li>
-<li>待更新</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Blog/">Blog</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/07/21/Markdown-Introduction/" title="Markdown Introduction" itemprop="url">Markdown Introduction</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-21T00:17:54.000Z" itemprop="datePublished"> 发表于 2015-07-21</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><strong>简介：</strong>Markdown是一个web上使用的文本到HTML的转换工具，目前github、Stackoverflow等网站均支持这种格式，还有简书也是<br>很支持的呦。它存在的宗旨就是实现易读易写，称为适用于网络的书写语言。自我感觉也确实不错，很适合做IT的人记笔记用。</p>
-<h1 id="语法介绍">语法介绍</h1><h3 id="基本介绍">基本介绍</h3><ul>
-<li>在Markdown中，<em>、-、+3个符号的效果一致，称为Markdown符号，我习惯用\</em>号</li>
-<li>空白行表示另起一个段落</li>
-<li>-是表示inline代码，tab是用来标记代码段，分别对应html的code、pre标签</li>
-</ul>
-<h3 id="标题">标题</h3><ul>
-<li>可以用#、-、=一样的效果，个人偏爱#</li>
-<li>#    一级标题</li>
-<li>##    二级标题        </li>
-<li>…    以此类推</li>
-<li>######    六级标题</li>
-</ul>
-<h3 id="文本强调">文本强调</h3><ul>
-<li><em>斜体</em> or <em>强调</em></li>
-<li><strong>加粗</strong> or <strong>加粗</strong></li>
-<li><strong><em>粗斜体</em></strong> or <strong><em>粗斜体</em></strong></li>
-</ul>
-<h3 id="List列表">List列表</h3><ul>
-<li>*无序列表（unordered）</li>
-</ul>
-<ul>
-<li>+无序列表</li>
-</ul>
-<ul>
-<li>-无序列表</li>
-</ul>
-<ol>
-<li><ol>
-<li>第一行（ordered有序列表）</li>
-</ol>
-</li>
-<li>2.或- 第二行</li>
-<li>3.或- 第三行</li>
-</ol>
-<h3 id="删除线">删除线</h3><p>~~文字~~   效果为   <del>文字</del></p>
-<h3 id="组合用法">组合用法</h3><ul>
-<li>产品介绍（子项目符号）<br>  此时子项，要以一个制表符或者四个空格缩进</li>
-</ul>
-<ul>
-<li>产品特点<ol>
-<li>特点1</li>
-</ol>
-<ul>
-<li>特点2</li>
-<li>特点3</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>产品功能<ol>
-<li>功能1</li>
-</ol>
-<ul>
-<li>功能2</li>
-<li>功能3</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>可能有时会出现这样的情况，首行内容是以日期或数字开头：2013.公司的年度目标，为了避免也转换成有序列表，可以在.前面<br>加上\:2013. 公司的年度目标</li>
-</ul>
-<h3 id="Links网站链接">Links网站链接</h3><blockquote>
-<p>Inline-style 内嵌方式：<br>[link text](<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a> “title text”)</p>
-<p>Reference-style 引用方式：<br>[link text][id]<br>[id]: <a href="https://www.mozilla.org" target="_blank" rel="external">https://www.mozilla.org</a> “title text”</p>
-<p>Relative reference to a repository file 引用存储文件：<br>[link text](../path/file/readme.text “title text”)</p>
-<p>还能这样使用：<br>[link text][]<br>[link text]: <a href="http://www.reddit.com" target="_blank" rel="external">http://www.reddit.com</a></p>
-<p>Email 邮件：<br><a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#x65;&#64;&#x65;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#x6d;">&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#x65;&#64;&#x65;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#x6d;</a></p>
-</blockquote>
-<h3 id="images图片链接">images图片链接</h3><blockquote>
-<p>Inline-style 内嵌方式：<br>![alt text](<a href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" target="_blank" rel="external">https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png</a> “title text”)</p>
-<p>Reference-style 引用方式：<br>![alt text][logo]<br>[logo]: <a href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" target="_blank" rel="external">https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png</a> “title text”<br>Inline-style 内嵌方式：<br><img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="alt text" title="title text"></p>
-<p>Reference-style 引用方式：<br>![alt text][logo]</p>
-<p>[logo]: <a href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" target="_blank" rel="external">https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png</a> “title text”</p>
-<h3 id="code_and_Syntax_HIghlighting_代码语法高亮：">code and Syntax HIghlighting 代码语法高亮：</h3><ul>
-<li>使用`` 包裹起来 ``效果为： <code>包裹起来</code></li>
-</ul>
-</blockquote>
-<ul>
-<li>语法高亮</li>
-<li><p>例如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">"Python syntax highlighting"</span></span><br><span class="line"><span class="keyword">print</span> s</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Block Code代码分组（代码区块）：<br>在该行开头缩进4个空格或一个制表符(tab)</p>
-</li>
-</ul>
-<p><strong>Blockquotes 引用：</strong></p>
-<blockquote>
-<p>Email-style angle brackets<br>are used for blockquotes.</p>
-<blockquote>
-<p>And, they can be nested.</p>
-<h4 id="Headers_in_blockquotes">Headers in blockquotes</h4><ul>
-<li>You can quote a list.</li>
-<li>Etc.</li>
-</ul>
-</blockquote>
-</blockquote>
-<h3 id="Hard_LIne_Breaks换行：">Hard LIne Breaks换行：</h3><p>在一行的结尾处加上2个或2个以上的空格，也可以使用标签<br>第一行文字，<br>第二行文字</p>
-<h3 id="水平分割线：">水平分割线：</h3><p>*<em>*<br>\</em> <em> </em><br>- - -</p>
-<h3 id="Escape_charecter转义符（反斜杠）：">Escape charecter转义符（反斜杠）：</h3><p>Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号，例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠：<br>*literal asterisks*<br>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：<br>\反斜杠  `反引号  *星号  _下划线  {}花括号  []方括号  ()括弧  #井字号  +加号  -减号  .英文句 !感叹号</p>
-<h3 id="参考文档">参考文档</h3><p><a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="external">Markdown官网</a><br><a href="http://www.markdown.cn/" target="_blank" rel="external">Markdown语法说明</a><br><a href="http://www.bluesdream.com/blog/markdown-cheatsheet-syntax-manual.html" target="_blank" rel="external">参照地址</a><br><a href="http://blog.maxwi.com/2014/03/20/learn-mardown-in-5-minutes/" target="_blank" rel="external">good</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Markdown/">Markdown</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/07/20/Hexo简明/" title="Hexo简明" itemprop="url">Hexo简明</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-20T08:42:47.000Z" itemprop="datePublished"> 发表于 2015-07-20</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><strong>简介</strong>：出自台湾某大学生之手，说是叫tommy351，感觉是叼了个扎天。是一个基于Node.js的静态博客程序，其<br>编译上百篇文字只需要几秒。hexo生成静态网页可以直接放到Github Pages，BAE，SAE等平台上。</p>
-<h3 id="常用的命令">常用的命令</h3><ul>
-<li>hexo n “我的博客” == hexo new “我的博客”    #新建文章</li>
-<li>hexo p == hexo publish    #将_drafts下的文件放到_post下，也就是发布草稿</li>
-<li>hexo g == hexo generate    #生成静态网页</li>
-<li>hexo d == hexo deploy    #发布到远程服务器，开启—generate选项可以在deploy前自动generate</li>
-</ul>
-<h3 id="服务器命令">服务器命令</h3><ul>
-<li>hexo server #Hexo 会监视文件变动并自动更新，您无须重启服务器。</li>
-<li>hexo server -s #静态模式</li>
-<li>hexo server -p 5000 #更改端口</li>
-<li>hexo server -i 192.168.1.1 #自定义 IP</li>
-<li>hexo clean #清除缓存 网页正常情况下可以忽略此条命令</li>
-<li>hexo g #生成静态网页</li>
-<li>hexo d #开始部署</li>
-</ul>
-<h3 id="监视文件是否变动">监视文件是否变动</h3><ul>
-<li>hexo generate    #使hexo生成静态文件快速而且简单</li>
-<li>hexo generate —watch    #监视文件变动</li>
-</ul>
-<h3 id="完成后部署">完成后部署</h3><ul>
-<li>hexo deploy -g 或hexo server -g</li>
-<li>hexo henerate —deploy 或hexo deploy —generate</li>
-</ul>
-<h3 id="草稿">草稿</h3><ul>
-<li>hexo publish [layout]<title></title></li>
-</ul>
-<h3 id="模板">模板</h3><ul>
-<li>hexo new “postName” #新建文章</li>
-<li>hexo new page “pageName” #新建页面</li>
-<li>hexo generate #生成静态页面至public目录</li>
-<li>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</li>
-<li>hexo deploy #将.deploy目录部署到GitHub</li>
-<li>hexo new [layout] <title></title></li>
-<li>hexo new photo “My Gallery”</li>
-<li>hexo new “Hello World” —lang tw</li>
-</ul>
-<h3 id="摘抄地址">摘抄地址</h3><ul>
-<li>地址一：<a href="https://segmentfault.com/a/1190000002632530" title="hexo命令详解" target="_blank" rel="external">Hexo命令详解</a></li>
-<li>地址二：<a href="http://c4fun.cn/blog/2014/03/03/use-hexo-blog/" title="##可以不加的嘿嘿##" target="_blank" rel="external">Hexo搭建博客</a></li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Hexo/">Hexo</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -1120,11 +972,15 @@ $ npm --<span class="keyword">registry</span> <span class="keyword">http</span>:
 			
 		
 			
+				<li><a href="/tags/awk/" title="awk">awk<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Pikachu/" title="Pikachu">Pikachu<sup>1</sup></a></li>
+				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>1</sup></a></li>
 			
 		
 			
@@ -1136,11 +992,19 @@ $ npm --<span class="keyword">registry</span> <span class="keyword">http</span>:
 			
 		
 			
+				<li><a href="/tags/Pikachu/" title="Pikachu">Pikachu<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Tmux/" title="Tmux">Tmux<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/skills/" title="skills">skills<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
 			
 		
 			

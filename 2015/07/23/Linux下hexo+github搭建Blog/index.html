@@ -31,7 +31,7 @@ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh    #下�
 
 安装nvm软件
 nvm install 0.10    #选择Node.js的安装版本nvm ls">
-<meta property="og:updated_time" content="2015-07-24T10:34:05.983Z">
+<meta property="og:updated_time" content="2015-07-30T03:06:20.208Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux下hexo+github组建Blog">
 <meta name="twitter:description" content="配置流程环境准备本地环境
@@ -128,26 +128,13 @@ nvm install 0.10    #选择Node.js的安装版本nvm ls">
 </blockquote>
 </li>
 </ul>
-<h3 id="安装git">安装git</h3><p>&gt;</p>
+<h3 id="安装git">安装git</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;</span><br></pre></td></tr></table></figure>
 <h3 id="安装Hexo">安装Hexo</h3><blockquote>
 <p>npm install -g hexo    #使用npm安装hexo(此处安装并未完成)<br>如果显示command not found，就重启终端，然后使用nvm ls检查当前版本，如果没有使用命令<br>nvm use 0.10    #即使用方才装的版本（使用此命令后安装成功）<br>或使用一下命令直接设置全局默认的node.js版本<br>nvm alias default 0.10.26</p>
 </blockquote>
 <ul>
 <li><p>安装失败的原因可能是无法连接到官方服务器，或者是GFW（Great Firewall，中国国家防火墙或长城防火墙）的问题。需<br>  修改npm镜像源<br>  使用config命令</p>
-<blockquote>
-<p>$ npm config set registry <a href="http://registry.cnpmjs.org" target="_blank" rel="external">http://registry.cnpmjs.org</a><br>$ npm info underscore (如果上面配置成功，使用这个命令会有以下提示)<br>$ npm http GET <a href="http://registry.cnpmjs.org/underscore" target="_blank" rel="external">http://registry.cnpmjs.org/underscore</a><br>$ npm http 200 <a href="http://registry.cnpmjs.org/underscore" target="_blank" rel="external">http://registry.cnpmjs.org/underscore</a>  </p>
-<pre><code>命令行指定  
-```Shell 
-$ npm --<span class="keyword">registry</span> <span class="keyword">http</span>://<span class="keyword">registry</span>.cnpmjs.org <span class="keyword">info</span> underscore
-</code></pre><p>编辑 ~/.npmrc 加入以下内容可以使配置永久生效，就不用每次npm安装时都要运行指定源命令了  </p>
-<pre><code class="Shell">$ registry = http://registry.cnpmjs.org
-</code></pre>
-</blockquote>
-</li>
-<li><p>使用以下命令对hexo进行初始化（这里我位于~目录，而且我想把我的个人博客放在~/hexo目录，需要放在其他目录直接改一下自己需要的目录就可以了）  </p>
-<blockquote>
-<p>```Shell<br>$ hexo install hexo —save<br>$ hexo init hexo</p>
-</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config set registry http://registry.cnpmjs.org  &#10;$ npm info underscore (&#22914;&#26524;&#19978;&#38754;&#37197;&#32622;&#25104;&#21151;&#65292;&#20351;&#29992;&#36825;&#20010;&#21629;&#20196;&#20250;&#26377;&#20197;&#19979;&#25552;&#31034;)  &#10;$ npm http GET http://registry.cnpmjs.org/underscore  &#10;$ npm http 200 http://registry.cnpmjs.org/underscore  &#10; ``` &#10;&#21629;&#20196;&#34892;&#25351;&#23450;  &#10;```Shell &#10;$ npm --registry http://registry.cnpmjs.org info underscore   &#10;&#32534;&#36753; ~/.npmrc &#21152;&#20837;&#20197;&#19979;&#20869;&#23481;&#21487;&#20197;&#20351;&#37197;&#32622;&#27704;&#20037;&#29983;&#25928;&#65292;&#23601;&#19981;&#29992;&#27599;&#27425;npm&#23433;&#35013;&#26102;&#37117;&#35201;&#36816;&#34892;&#25351;&#23450;&#28304;&#21629;&#20196;&#20102;  &#10;$ registry = http://registry.cnpmjs.org  &#10; ``` &#10;&#10;- &#20351;&#29992;&#20197;&#19979;&#21629;&#20196;&#23545;hexo&#36827;&#34892;&#21021;&#22987;&#21270;&#65288;&#36825;&#37324;&#25105;&#20301;&#20110;~&#30446;&#24405;&#65292;&#32780;&#19988;&#25105;&#24819;&#25226;&#25105;&#30340;&#20010;&#20154;&#21338;&#23458;&#25918;&#22312;~/hexo&#30446;&#24405;&#65292;&#38656;&#35201;&#25918;&#22312;&#20854;&#20182;&#30446;&#24405;&#30452;&#25509;&#25913;&#19968;&#19979;&#33258;&#24049;&#38656;&#35201;&#30340;&#30446;&#24405;&#23601;&#21487;&#20197;&#20102;&#65289;  &#10;```Shell &#10;$ hexo install hexo --save&#10;$ hexo init hexo</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>本地环境到此结束，有木有很easy</p>
 </li>
@@ -264,11 +251,15 @@ $ npm --<span class="keyword">registry</span> <span class="keyword">http</span>:
 			
 		
 			
+				<li><a href="/tags/awk/" title="awk">awk<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Pikachu/" title="Pikachu">Pikachu<sup>1</sup></a></li>
+				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>1</sup></a></li>
 			
 		
 			
@@ -280,11 +271,19 @@ $ npm --<span class="keyword">registry</span> <span class="keyword">http</span>:
 			
 		
 			
+				<li><a href="/tags/Pikachu/" title="Pikachu">Pikachu<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Tmux/" title="Tmux">Tmux<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/skills/" title="skills">skills<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
 			
 		
 			

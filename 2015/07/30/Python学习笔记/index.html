@@ -1,0 +1,546 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>简明Python读书笔记 | Arvon&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Arvon">
+    
+
+    
+    <meta name="description" content="更新记录
+20150730总结介绍
+20150731控制流
+
+介绍简记
+这里使用的是CentOS release 6.6 (Final)
+
+1[root@Mo ~]# python -V&amp;#9;&amp;#9;#&amp;#26597;&amp;#30475;python&amp;#30340;&amp;#29256;&amp;#26412;&amp;#10;Python 2.6.6&amp;#9;&amp;#10;&amp;#10;[root@Mo arvon_python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简明Python读书笔记">
+<meta property="og:url" content="http://yoursite.com/2015/07/30/Python学习笔记/index.html">
+<meta property="og:site_name" content="Arvon's Blog">
+<meta property="og:description" content="更新记录
+20150730总结介绍
+20150731控制流
+
+介绍简记
+这里使用的是CentOS release 6.6 (Final)
+
+1[root@Mo ~]# python -V&amp;#9;&amp;#9;#&amp;#26597;&amp;#30475;python&amp;#30340;&amp;#29256;&amp;#26412;&amp;#10;Python 2.6.6&amp;#9;&amp;#10;&amp;#10;[root@Mo arvon_python">
+<meta property="og:updated_time" content="2015-07-31T10:05:54.599Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简明Python读书笔记">
+<meta name="twitter:description" content="更新记录
+20150730总结介绍
+20150731控制流
+
+介绍简记
+这里使用的是CentOS release 6.6 (Final)
+
+1[root@Mo ~]# python -V&amp;#9;&amp;#9;#&amp;#26597;&amp;#30475;python&amp;#30340;&amp;#29256;&amp;#26412;&amp;#10;Python 2.6.6&amp;#9;&amp;#10;&amp;#10;[root@Mo arvon_python">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Arvon&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/arvon.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/arvon.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Arvon&#39;s Blog">Arvon&#39;s Blog</a></h1>
+				<h2 class="blog-motto">清醒时做事，糊涂时读书，大怒时睡觉，独处时思考</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/30/Python学习笔记/" title="简明Python读书笔记" itemprop="url">简明Python读书笔记</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-30T03:25:39.000Z" itemprop="datePublished"> 发表于 2015-07-30</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#更新记录"><span class="toc-number">1.</span> <span class="toc-text">更新记录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-number">2.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简记"><span class="toc-number">2.1.</span> <span class="toc-text">简记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#控制流"><span class="toc-number">2.2.</span> <span class="toc-text">控制流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">2.2.1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#if语句实例"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">if语句实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#while语句实例"><span class="toc-number">2.2.1.2.</span> <span class="toc-text">while语句实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for语句"><span class="toc-number">2.2.1.3.</span> <span class="toc-text">for语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#break语句"><span class="toc-number">2.2.1.4.</span> <span class="toc-text">break语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#continue语句"><span class="toc-number">2.2.1.5.</span> <span class="toc-text">continue语句</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数"><span class="toc-number">2.3.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义函数"><span class="toc-number">2.3.1.</span> <span class="toc-text">定义函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用函数形参"><span class="toc-number">2.3.2.</span> <span class="toc-text">使用函数形参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#局部变量"><span class="toc-number">2.3.3.</span> <span class="toc-text">局部变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#global语句"><span class="toc-number">2.3.4.</span> <span class="toc-text">global语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用默认参数值"><span class="toc-number">2.3.5.</span> <span class="toc-text">使用默认参数值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关键参数"><span class="toc-number">2.3.6.</span> <span class="toc-text">关键参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#return语句"><span class="toc-number">2.3.7.</span> <span class="toc-text">return语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文档字符串（DocStrings）"><span class="toc-number">2.3.8.</span> <span class="toc-text">文档字符串（DocStrings）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块"><span class="toc-number">2.4.</span> <span class="toc-text">模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用sys模块"><span class="toc-number">2.4.1.</span> <span class="toc-text">使用sys模块</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="更新记录">更新记录</h1><ul>
+<li>20150730总结介绍</li>
+<li>20150731控制流</li>
+</ul>
+<h1 id="介绍">介绍</h1><h2 id="简记">简记</h2><ul>
+<li>这里使用的是CentOS release 6.6 (Final)</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Mo ~]# python -V&#9;&#9;#&#26597;&#30475;python&#30340;&#29256;&#26412;&#10;Python 2.6.6&#9;&#10;&#10;[root@Mo arvon_python]# which python&#9;#&#26597;&#30475;python&#21629;&#20196;&#30340;&#23433;&#35013;&#30340;&#20301;&#32622;&#10;/usr/bin/python&#10;&#10;[root@Mo arvon_python]# echo $PATH&#9;&#9;#&#26597;&#30475;$PATH&#21464;&#37327;&#65292;&#21487;&#20197;&#36890;&#36807;which&#21629;&#20196;&#26597;&#30475;&#19968;&#20010;&#21629;&#20196;&#30340;&#20301;&#32622;&#10;/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin&#10;&#10;&#9;#&#32553;&#36827;&#21487;&#20197;&#20351;&#29992;Tab&#12289;2&#20010;&#31354;&#26684;&#12289;4&#20010;&#31354;&#26684;&#65292;&#36873;&#25321;&#19968;&#20010;&#38271;&#26399;&#29992;&#19979;&#21435;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#the script is about expression</span></span><br><span class="line">length = float(raw_input(<span class="string">"Enter the length:"</span>))</span><br><span class="line">breadth = float(raw_input(<span class="string">"Enter the breadth:"</span>))</span><br><span class="line">area = length * breadth</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Area is'</span>, area</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Perimeter is'</span>, <span class="number">2</span>* (length + breadth)</span><br></pre></td></tr></table></figure>
+<h2 id="控制流">控制流</h2><h3 id="简介">简介</h3><ul>
+<li>在python中有三种控制流语句if、for、while</li>
+</ul>
+<h4 id="if语句实例">if语句实例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: show how to use if</span></span><br><span class="line"><span class="comment">#number = int(raw_input("Input a number:"))</span></span><br><span class="line">number = <span class="number">25</span></span><br><span class="line">guess = int(input(<span class="string">"Enter a number which you are think:"</span>))</span><br><span class="line"><span class="keyword">print</span> guess</span><br><span class="line"><span class="keyword">print</span> number</span><br><span class="line"><span class="keyword">if</span> guess == number:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Your number is right"</span></span><br><span class="line"><span class="keyword">elif</span> guess &gt; <span class="number">25</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Your number is:"</span>, guess, <span class="string">"It,s too big"</span></span><br><span class="line"><span class="keyword">elif</span> guess &lt; <span class="number">25</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"You number is:"</span>, guess, <span class="string">"is small"</span></span><br></pre></td></tr></table></figure>
+<h4 id="while语句实例">while语句实例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: while</span></span><br><span class="line">number=<span class="number">23</span></span><br><span class="line">running=<span class="keyword">True</span></span><br><span class="line"><span class="keyword">while</span> running:</span><br><span class="line">    guess=int(raw_input(<span class="string">'Enteraninteger:'</span>))</span><br><span class="line">    <span class="keyword">if</span> guess == number:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'Congratulations, you guessed it.'</span></span><br><span class="line">        running = <span class="keyword">False</span> <span class="comment">#this causes the while loop to stop</span></span><br><span class="line">    <span class="keyword">elif</span> guess &lt; number:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'No, it is a litte higher than that'</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'No, it is a little lower than that'</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'The while loop is over.'</span></span><br><span class="line">    <span class="comment">#Do anything else you want to do here </span></span><br><span class="line"><span class="keyword">print</span> <span class="string">'done'</span></span><br></pre></td></tr></table></figure>
+<h4 id="for语句">for语句</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">15</span>, <span class="number">2</span>):</span><br><span class="line">    <span class="keyword">print</span> i</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'THe for loop is over'</span></span><br></pre></td></tr></table></figure>
+<h4 id="break语句">break语句</h4><ul>
+<li>break语句是用来终止循环语句的，哪怕循环条件没有称为False或序列还没有被完全递归，也停止执行循环语句。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: break.py</span></span><br><span class="line">runing = <span class="string">'True'</span></span><br><span class="line"><span class="keyword">while</span> runing:</span><br><span class="line">    s = raw_input(<span class="string">'Enter your name:'</span>)</span><br><span class="line">    <span class="keyword">if</span> s == <span class="string">'quit'</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Length of the string is'</span>, len(s)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Done'</span></span><br></pre></td></tr></table></figure>
+<h4 id="continue语句">continue语句</h4><ul>
+<li>跳过当前循环块中的剩余语句，然后进行下一轮循环。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line">runing = <span class="keyword">True</span></span><br><span class="line"><span class="keyword">while</span> runing:</span><br><span class="line">    s = raw_input(<span class="string">'Enter something:'</span>)</span><br><span class="line">    <span class="keyword">if</span> s == <span class="string">'quit'</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> len(s) &lt; <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Input is of sufficient length'</span></span><br></pre></td></tr></table></figure>
+<h2 id="函数">函数</h2><ul>
+<li>函数是重用的程序段。它们允许你给一块语句一个名称，然后你可以在你的程序的任何地方使用这个名称任意多次<br>地运行这个语句块，这称为调用函数。函数通过def关键字定义。def关键字后跟一个函数的标识符名称，然后跟一对<br>圆括号。圆括号可以包括一些变量名，该行以冒号结尾，接下来的是一块语句，它们是函数体。</li>
+</ul>
+<h3 id="定义函数">定义函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sayHello</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Hello World！'</span><span class="comment">#block belonging to the function</span></span><br><span class="line">sayHello()<span class="comment">#call the function</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用函数形参">使用函数形参</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Filename:func_param.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printMax</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> a&gt;b:</span><br><span class="line">        <span class="keyword">print</span> a, <span class="string">'is max number'</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> b, <span class="string">'is max number'</span></span><br><span class="line">printMax(<span class="number">3</span>,<span class="number">4</span>)<span class="comment">#directly give litter values</span></span><br><span class="line">x = <span class="number">5</span></span><br><span class="line">y = <span class="number">7</span></span><br><span class="line">printMax(x,y)<span class="comment">#give variables as arguments</span></span><br></pre></td></tr></table></figure>
+<h3 id="局部变量">局部变量</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#Filename: func_local.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'x is'</span>, x</span><br><span class="line">    x = <span class="number">2</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Changed local x to'</span>, x</span><br><span class="line">x = <span class="number">50</span></span><br><span class="line">func(x)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'x is still'</span>, x</span><br></pre></td></tr></table></figure>
+<h3 id="global语句">global语句</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: func_global.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> x</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'x is'</span>, x</span><br><span class="line">    x = <span class="number">2</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Changed local x to'</span>, x</span><br><span class="line">x = <span class="number">50</span></span><br><span class="line">func()</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Value of x is'</span>, x</span><br></pre></td></tr></table></figure>
+<h3 id="使用默认参数值">使用默认参数值</h3><ul>
+<li>默认参数值是一个参数，默认参数值应该是不可变的，只有在形参表末尾的那些参数可以有默认参数值，即<br>你不能在声明函数形参的时候，先声明有默认值的形参而后声明没有默认值的形参，例如：def func（a，b=5）<br>是有效地，但是def func（a=5， b）是无效的</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8</span></span><br><span class="line"><span class="comment">#Todo: func_default.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say</span> <span class="params">(message, times=<span class="number">1</span>)</span>:</span></span><br><span class="line">    <span class="keyword">print</span> message*times</span><br><span class="line">say(<span class="string">'Hello'</span>)</span><br><span class="line">say(<span class="string">'World'</span>,<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="关键参数">关键参数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(a,b = <span class="number">5</span>, c=<span class="number">10</span>)</span>:</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'a is'</span>, a, <span class="string">'and b is'</span>, b, <span class="string">'and c is'</span>, c</span><br><span class="line">func(<span class="number">3</span>, <span class="number">7</span>)</span><br><span class="line">func(<span class="number">25</span>, c=<span class="number">24</span>)</span><br><span class="line">func(c= <span class="number">50</span>, a= <span class="number">100</span>)</span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="decorator">@Mo arvon_python]# python func_key.py </span></span><br><span class="line">a <span class="keyword">is</span> <span class="number">3</span> <span class="keyword">and</span> b <span class="keyword">is</span> <span class="number">7</span> <span class="keyword">and</span> c <span class="keyword">is</span> <span class="number">10</span></span><br><span class="line">a <span class="keyword">is</span> <span class="number">25</span> <span class="keyword">and</span> b <span class="keyword">is</span> <span class="number">5</span> <span class="keyword">and</span> c <span class="keyword">is</span> <span class="number">24</span></span><br><span class="line">a <span class="keyword">is</span> <span class="number">100</span> <span class="keyword">and</span> b <span class="keyword">is</span> <span class="number">5</span> <span class="keyword">and</span> c <span class="keyword">is</span> <span class="number">50</span></span><br></pre></td></tr></table></figure>
+<h3 id="return语句">return语句</h3><ul>
+<li>return语句用来从一个函数返回即跳出函数。也可选函数返回一个值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: func_return.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">maximum</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;y:</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> y</span><br><span class="line"><span class="keyword">print</span> maximum(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="decorator">@Mo arvon_python]# python func_return.py </span></span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h3 id="文档字符串（DocStrings）">文档字符串（DocStrings）</h3><ul>
+<li>在函数的第一个逻辑行的字符串是这个函数的文档那个字符串 </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: func_doc.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printMax</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="string">'''Prints the max num of tow numbers.</span><br><span class="line">    The two values must be in tetgers.'''</span></span><br><span class="line">    x = int(x)<span class="comment">#convert to in tegers, if possible</span></span><br><span class="line">    y = int(y)</span><br><span class="line">    <span class="keyword">if</span> x&gt;y:</span><br><span class="line">        <span class="keyword">print</span> x, <span class="string">'is max num'</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> y, <span class="string">'is max num'</span></span><br><span class="line">printMax(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="keyword">print</span> printMax.__doc__</span><br><span class="line"><span class="comment">###Out put</span></span><br><span class="line">[root<span class="decorator">@Mo arvon_python]# python func_doc.py </span></span><br><span class="line"><span class="number">5</span> <span class="keyword">is</span> max num</span><br><span class="line">Prints the max num of tow numbers.</span><br><span class="line">    The two values must be <span class="keyword">in</span> tetgers.</span><br></pre></td></tr></table></figure>
+<h2 id="模块">模块</h2><h3 id="使用sys模块">使用sys模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: using_sys.py</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">print</span> <span class="string">'The command line arguments are:'</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> sys.argv:</span><br><span class="line">    <span class="keyword">print</span> i</span><br><span class="line"><span class="keyword">print</span> <span class="string">'\n\nThe PYTHON PATH is'</span>, sys.path, <span class="string">'\n'</span></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="decorator">@Mo arvon_python]# python using_sys.py </span></span><br><span class="line">The command line arguments are:</span><br><span class="line">using_sys.py</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">The PYTHON PATH <span class="keyword">is</span> [<span class="string">'/root/arvon_python'</span>, <span class="string">'/usr/lib64/python26.zip'</span>, <span class="string">'/usr/lib64/python2.6'</span>, <span class="string">'/usr/lib64/python2.6/plat-linux2'</span>, <span class="string">'/usr/lib64/python2.6/lib-tk'</span>, <span class="string">'/usr/lib64/python2.6/lib-old'</span>, <span class="string">'/usr/lib64/python2.6/lib-dynload'</span>, <span class="string">'/usr/lib64/python2.6/site-packages'</span>, <span class="string">'/usr/lib/python2.6/site-packages'</span>]</span><br></pre></td></tr></table></figure>
+<p>[1]:<br>[2]:<br>[3]:<br>[4]:<br>[5]:</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Python/">Python</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/07/30/Python学习笔记/" data-title="简明Python读书笔记 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/07/31/zabbix添加web监控/" title="zabbix添加web监控">
+  <strong>上一篇：</strong><br/>
+  <span>
+  zabbix添加web监控</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/07/29/awk用法实例/"  title="awk用法实例">
+ <strong>下一篇：</strong><br/> 
+ <span>awk用法实例
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#更新记录"><span class="toc-number">1.</span> <span class="toc-text">更新记录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-number">2.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简记"><span class="toc-number">2.1.</span> <span class="toc-text">简记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#控制流"><span class="toc-number">2.2.</span> <span class="toc-text">控制流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">2.2.1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#if语句实例"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">if语句实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#while语句实例"><span class="toc-number">2.2.1.2.</span> <span class="toc-text">while语句实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for语句"><span class="toc-number">2.2.1.3.</span> <span class="toc-text">for语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#break语句"><span class="toc-number">2.2.1.4.</span> <span class="toc-text">break语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#continue语句"><span class="toc-number">2.2.1.5.</span> <span class="toc-text">continue语句</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数"><span class="toc-number">2.3.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义函数"><span class="toc-number">2.3.1.</span> <span class="toc-text">定义函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用函数形参"><span class="toc-number">2.3.2.</span> <span class="toc-text">使用函数形参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#局部变量"><span class="toc-number">2.3.3.</span> <span class="toc-text">局部变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#global语句"><span class="toc-number">2.3.4.</span> <span class="toc-text">global语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用默认参数值"><span class="toc-number">2.3.5.</span> <span class="toc-text">使用默认参数值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关键参数"><span class="toc-number">2.3.6.</span> <span class="toc-text">关键参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#return语句"><span class="toc-number">2.3.7.</span> <span class="toc-text">return语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文档字符串（DocStrings）"><span class="toc-number">2.3.8.</span> <span class="toc-text">文档字符串（DocStrings）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块"><span class="toc-number">2.4.</span> <span class="toc-text">模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用sys模块"><span class="toc-number">2.4.1.</span> <span class="toc-text">使用sys模块</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Blog/" title="Blog">Blog<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/awk/" title="awk">awk<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Salt/" title="Salt">Salt<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Pikachu/" title="Pikachu">Pikachu<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tmux/" title="Tmux">Tmux<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/skills/" title="skills">skills<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/FTP/" title="FTP">FTP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> My name I have forgot. <br/>
+			Her name is Pikachu.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Arvon">Arvon</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
