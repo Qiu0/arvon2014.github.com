@@ -77,6 +77,62 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/08/03/Linux系统命令（二）/" title="Linux系统命令（二）" itemprop="url">Linux系统命令（二）</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-03T06:47:19.000Z" itemprop="datePublished"> 发表于 2015-08-03</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><strong>主要记录：</strong>Linux下的常用命令实例</p>
+<h3 id="实例（一）">实例（一）</h3><p><strong>descript：</strong>将一个excel表格导入到linux文本中，对文本的Ip进行统计处理</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;</span><br></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Linux/">Linux</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/07/31/zabbix添加web监控/" title="zabbix添加web监控" itemprop="url">zabbix添加web监控</a>
   </h1>
   <p class="article-author">By
@@ -150,6 +206,7 @@
         <h1 id="更新记录">更新记录</h1><ul>
 <li>20150730总结介绍</li>
 <li>20150731控制流</li>
+<li>20150804 module</li>
 </ul>
 <h1 id="介绍">介绍</h1><h2 id="简记">简记</h2><ul>
 <li>这里使用的是CentOS release 6.6 (Final)</li>
@@ -190,7 +247,41 @@
 <li>在函数的第一个逻辑行的字符串是这个函数的文档那个字符串 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: func_doc.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printMax</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="string">'''Prints the max num of tow numbers.</span><br><span class="line">    The two values must be in tetgers.'''</span></span><br><span class="line">    x = int(x)<span class="comment">#convert to in tegers, if possible</span></span><br><span class="line">    y = int(y)</span><br><span class="line">    <span class="keyword">if</span> x&gt;y:</span><br><span class="line">        <span class="keyword">print</span> x, <span class="string">'is max num'</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> y, <span class="string">'is max num'</span></span><br><span class="line">printMax(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="keyword">print</span> printMax.__doc__</span><br><span class="line"><span class="comment">###Out put</span></span><br><span class="line">[root<span class="decorator">@Mo arvon_python]# python func_doc.py </span></span><br><span class="line"><span class="number">5</span> <span class="keyword">is</span> max num</span><br><span class="line">Prints the max num of tow numbers.</span><br><span class="line">    The two values must be <span class="keyword">in</span> tetgers.</span><br></pre></td></tr></table></figure>
-<h2 id="模块">模块</h2><h3 id="使用sys模块">使用sys模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: using_sys.py</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">print</span> <span class="string">'The command line arguments are:'</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> sys.argv:</span><br><span class="line">    <span class="keyword">print</span> i</span><br><span class="line"><span class="keyword">print</span> <span class="string">'\n\nThe PYTHON PATH is'</span>, sys.path, <span class="string">'\n'</span></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="decorator">@Mo arvon_python]# python using_sys.py </span></span><br><span class="line">The command line arguments are:</span><br><span class="line">using_sys.py</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">The PYTHON PATH <span class="keyword">is</span> [<span class="string">'/root/arvon_python'</span>, <span class="string">'/usr/lib64/python26.zip'</span>, <span class="string">'/usr/lib64/python2.6'</span>, <span class="string">'/usr/lib64/python2.6/plat-linux2'</span>, <span class="string">'/usr/lib64/python2.6/lib-tk'</span>, <span class="string">'/usr/lib64/python2.6/lib-old'</span>, <span class="string">'/usr/lib64/python2.6/lib-dynload'</span>, <span class="string">'/usr/lib64/python2.6/site-packages'</span>, <span class="string">'/usr/lib/python2.6/site-packages'</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="模块">模块</h2><h3 id="模块概述">模块概述</h3><ul>
+<li>模块的用处在于它能为你在别的程序中重用它提供的服务和功能。Python附带的标准库就是这<br>样一组模块的例子。</li>
+</ul>
+<h3 id="使用sys模块">使用sys模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: using_sys.py</span></span><br><span class="line"><span class="keyword">import</span> sys  <span class="comment">#sys是system的缩写</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">'The command line arguments are:'</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> sys.argv:</span><br><span class="line"><span class="comment">#脚本的名称总是sys.argv列表的第一个参数</span></span><br><span class="line">    <span class="keyword">print</span> i</span><br><span class="line"><span class="keyword">print</span> <span class="string">'\n\nThe PYTHON PATH is'</span>, sys.path, <span class="string">'\n'</span></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="decorator">@Mo arvon_python]# python using_sys.py </span></span><br><span class="line">The command line arguments are:</span><br><span class="line">using_sys.py</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">The PYTHON PATH <span class="keyword">is</span> [<span class="string">'/root/arvon_python'</span>, <span class="string">'/usr/lib64/python26.zip'</span>, <span class="string">'/usr/lib64/python2.6'</span>, <span class="string">'/usr/lib64/python2.6/plat-linux2'</span>, <span class="string">'/usr/lib64/python2.6/lib-tk'</span>, <span class="string">'/usr/lib64/python2.6/lib-old'</span>, <span class="string">'/usr/lib64/python2.6/lib-dynload'</span>, <span class="string">'/usr/lib64/python2.6/site-packages'</span>, <span class="string">'/usr/lib/python2.6/site-packages'</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="字节编译的-pyc文件">字节编译的.pyc文件</h3><ul>
+<li>输入一个模块相对来说是一个比较费时的事情，所以Python做了一些技巧，以便使输入模块更<br>加快一些。一种方法是创建 字节编译的文件 ，这些文件以.pyc作为扩展名。字节编译的文件与<br>Python变换程序的中间状态有关（是否还记得Python如何工作的介绍？）。当你在下次从别的<br>程序输入这个模块的时候，.pyc文件是十分有用的——它会快得多，因为一部分输入模块所需<br>的处理已经完成了。另外，这些字节编译的文件也是与平台无关的。所以，现在你知道了那<br>些.pyc文件事实上是什么了。</li>
+</ul>
+<h3 id="from-import语句">from..import语句</h3><ul>
+<li><p>如果你想要直接输入argv变量到你的程序中（避免在每次使用它时打sys.），那么你可以使用<br>from sys import argv语句。如果你想要输入所有sys模块使用的名字，那么你可以使用from sys<br>import *语句。这对于所有模块都适用。一般说来，应该避免使用from..import而使用import语<br>句，因为这样可以使你的程序更加易读，也可以避免名称的冲突。</p>
+</li>
+<li><p>不建议使用，尽量使用sys.argv这样的</p>
+</li>
+</ul>
+<h3 id="模块的name(这里左右都是两个下划线)">模块的<strong>name</strong>(这里左右都是两个下划线)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">' __main__ '</span>:</span><br><span class="line"><span class="comment">#模块是对象，并且所有的模块都有一个内置属性 __name__。一个模块的 __name__ 的值取决于您如何应用模块。如果 import 一个模块，那么模块__name__ 的值通常为模块文件名，不带路径或者文件扩展名。但是您也可以像一个标准的程序样直接运行模块，在这 种情况下, __name__ 的值将是一个特别缺省"__main__"</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'This program is being run by itself'</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'I am being imorted form another module'</span></span><br></pre></td></tr></table></figure>
+<h3 id="创造自己的module">创造自己的module</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: creat own module.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sayHi</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Hi, this is my wife pikachu.'</span></span><br><span class="line">version = <span class="string">'0.1'</span></span><br><span class="line"><span class="comment">#End of  my module.py</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python   #使用自己创建的模块</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: use my own module</span></span><br><span class="line"><span class="keyword">import</span> myModule</span><br><span class="line">myModule.sayHi()</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Version'</span>,myModule.version</span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="decorator">@Mo arvon_python]# python usemyModule.py </span></span><br><span class="line">Hi, this <span class="keyword">is</span> my wife pikachu.</span><br><span class="line">Version <span class="number">0.1</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用dir函数">使用dir函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">import</span> sys</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>dir(sys)</span><br><span class="line">[<span class="string">'__displayhook__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__excepthook__'</span>, <span class="string">'__name__'</span>, <span class="string">'__package__'</span>, <span class="string">'__stderr__'</span>, <span class="string">'__stdin__'</span>, <span class="string">'__stdout__'</span>, <span class="string">'_clear_type_cache'</span>, <span class="string">'_current_frames'</span>, <span class="string">'_getframe'</span>, <span class="string">'api_version'</span>, <span class="string">'argv'</span>, <span class="string">'builtin_module_names'</span>, <span class="string">'byteorder'</span>, <span class="string">'call_tracing'</span>, <span class="string">'callstats'</span>, <span class="string">'copyright'</span>, <span class="string">'displayhook'</span>, <span class="string">'dont_write_bytecode'</span>, <span class="string">'exc_clear'</span>, <span class="string">'exc_info'</span>, <span class="string">'exc_type'</span>, <span class="string">'excepthook'</span>, <span class="string">'exec_prefix'</span>, <span class="string">'executable'</span>, <span class="string">'exit'</span>, <span class="string">'flags'</span>, <span class="string">'float_info'</span>, <span class="string">'getcheckinterval'</span>, <span class="string">'getdefaultencoding'</span>, <span class="string">'getdlopenflags'</span>, <span class="string">'getfilesystemencoding'</span>, <span class="string">'getprofile'</span>, <span class="string">'getrecursionlimit'</span>, <span class="string">'getrefcount'</span>, <span class="string">'getsizeof'</span>, <span class="string">'gettrace'</span>, <span class="string">'hexversion'</span>, <span class="string">'maxint'</span>, <span class="string">'maxsize'</span>, <span class="string">'maxunicode'</span>, <span class="string">'meta_path'</span>, <span class="string">'modules'</span>, <span class="string">'path'</span>, <span class="string">'path_hooks'</span>, <span class="string">'path_importer_cache'</span>, <span class="string">'platform'</span>, <span class="string">'prefix'</span>, <span class="string">'ps1'</span>, <span class="string">'ps2'</span>, <span class="string">'py3kwarning'</span>, <span class="string">'setcheckinterval'</span>, <span class="string">'setdlopenflags'</span>, <span class="string">'setprofile'</span>, <span class="string">'setrecursionlimit'</span>, <span class="string">'settrace'</span>, <span class="string">'stderr'</span>, <span class="string">'stdin'</span>, <span class="string">'stdout'</span>, <span class="string">'subversion'</span>, <span class="string">'version'</span>, <span class="string">'version_info'</span>, <span class="string">'warnoptions'</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>dir()</span><br><span class="line">[<span class="string">'__builtins__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__name__'</span>, <span class="string">'__package__'</span>, <span class="string">'sys'</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>dir()</span><br><span class="line">[<span class="string">'__builtins__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__name__'</span>, <span class="string">'__package__'</span>, <span class="string">'a'</span>, <span class="string">'sys'</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>dela</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">NameError: name <span class="string">'dela'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>dir()</span><br><span class="line">[<span class="string">'__builtins__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__name__'</span>, <span class="string">'__package__'</span>, <span class="string">'a'</span>, <span class="string">'sys'</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">del</span> a</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>dir ()</span><br><span class="line">[<span class="string">'__builtins__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__name__'</span>, <span class="string">'__package__'</span>, <span class="string">'sys'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">###说明</span></span><br><span class="line"><span class="comment">#首先，我们来看一下在输入的sys模块上使用dir。我们看到它包含一个庞大的属性列表。</span></span><br><span class="line"><span class="comment">#接下来，我们不给dir函数传递参数而使用它——默认地，它返回当前模块的属性列表。注</span></span><br><span class="line"><span class="comment">#意，输入的模块同样是列表的一部分。</span></span><br><span class="line"><span class="comment">#为了观察dir的作用，我们定义一个新的变量a并且给它赋一个值，然后检验dir，我们观察到在</span></span><br><span class="line"><span class="comment">#列表中增加了以上相同的值。我们使用del语句删除当前模块中的变量/属性，这个变化再一次</span></span><br><span class="line"><span class="comment">#反映在dir的输出中。</span></span><br><span class="line"><span class="comment">#关于del的一点注释——这个语句在运行后被用来 删除 一个变量/名称。在这个例子中，del a，</span></span><br><span class="line"><span class="comment">#你将无法再使用变量a——它就好像从来没有存在过一样。</span></span><br></pre></td></tr></table></figure>
+<h2 id="数据结构">数据结构</h2><h3 id="简介-1">简介</h3><ul>
+<li>数据结构基本上就是它们可以处理一些数据的结构，或说，它们是用来存储一组相关数据的。<br>在Python中有三种内建的数据结构——列表、元组和字典。</li>
+</ul>
+<h3 id="列表">列表</h3><ul>
+<li><p>list是处理一组有序项目的数据结构，即你可以在一个列表中存储一个 序列 的项目。假想你有<br>一个购物列表，上面记载着你要买的东西，你就容易理解列表了。只不过在你的购物表上，可<br>能每样东西都独自占有一行，而在Python中，你在每个项目之间用逗号分割。<br>列表中的项目应该包括在方括号中，这样Python就知道你是在指明一个列表。一旦你创建了一<br>个列表，你可以添加、删除或是搜索列表中的项目。由于你可以增加或删除项目，我们说列表<br>是 可变的 数据类型，即这种类型是可以被改变的。</p>
+</li>
+<li><p>eggs:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#Todo: using_list.py</span></span><br><span class="line">likelist = [<span class="string">'apple'</span>, <span class="string">'mango'</span>, <span class="string">'pikachu'</span>, <span class="string">'mo'</span>]</span><br><span class="line"><span class="keyword">print</span> <span class="string">'I have'</span>, len(likelist), <span class="string">'Just do.'</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">'These things include:'</span>,</span><br><span class="line"><span class="keyword">for</span> eachone <span class="keyword">in</span> likelist:</span><br><span class="line">    <span class="keyword">print</span> eachone,</span><br><span class="line"><span class="keyword">print</span> <span class="string">'\nI just like live with her.'</span></span><br><span class="line">likelist.append(<span class="string">'Arvon'</span>)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'My life now is include:'</span>, likelist</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">'I want sort mylist now'</span></span><br><span class="line">likelist.sort()</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Have done, Now the list is:'</span>, likelist</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">'The first item now is'</span>, likelist[<span class="number">0</span>]</span><br><span class="line">oldlist = likelist[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">del</span> likelist[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">print</span> <span class="string">'I am'</span>, oldlist</span><br><span class="line"><span class="keyword">print</span> <span class="string">'My list now is:'</span>, likelist</span><br><span class="line"></span><br><span class="line"><span class="comment">##[root@Mo arvon_python]# python useing_list.py </span></span><br><span class="line">I have <span class="number">4</span> Just do.</span><br><span class="line">These things include: apple mango pikachu mo </span><br><span class="line">I just like live <span class="keyword">with</span> her.</span><br><span class="line">My life now <span class="keyword">is</span> include: [<span class="string">'apple'</span>, <span class="string">'mango'</span>, <span class="string">'pikachu'</span>, <span class="string">'mo'</span>, <span class="string">'Arvon'</span>]</span><br><span class="line">I want sort mylist now</span><br><span class="line">Have done, Now the list <span class="keyword">is</span>: [<span class="string">'Arvon'</span>, <span class="string">'apple'</span>, <span class="string">'mango'</span>, <span class="string">'mo'</span>, <span class="string">'pikachu'</span>]</span><br><span class="line">The first item now <span class="keyword">is</span> Arvon</span><br><span class="line">I am Arvon</span><br><span class="line">My list now <span class="keyword">is</span>: [<span class="string">'apple'</span>, <span class="string">'mango'</span>, <span class="string">'mo'</span>, <span class="string">'pikachu'</span>]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="对象和类简介">对象和类简介</h3><ul>
+<li>列表是使用对象和类的一个例子。当你使用变量i并给它赋值的时候，比如赋整数5，你可以认<br>为你创建了一个类（类型）int的对象（实例）i。事实上，你可以看一下help(int)以更好地理解<br>这一点。<br>类也有方法，即仅仅为类而定义地函数。仅仅在你有一个该类的对象的时候，你才可以使用这<br>些功能。例如，Python为list类提供了append方法，这个方法让你在列表尾添加一个项目。例如<br>mylist.append(‘an item’)列表mylist中增加那个字符串。注意，使用点号来使用对象的方法。<br>一个类也有域，它是仅仅为类而定义的变量。仅仅在你有一个该类的对象的时候，你才可以使<br>用这些变量/名称。类也通过点号使用，例如mylist.field。</li>
+</ul>
+<h3 id="元组">元组</h3><ul>
+<li>元组和列表十分类似，只不过元组和字符串一样是 不可变的 即你不能修改元组。元组通过圆<br>括号中用逗号分割的项目定义。元组通常用在使语句或用户定义的函数能够安全地采用一组值<br>的时候，即被使用的元组的值不会改变。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line">home = (<span class="string">'Mo'</span>, <span class="string">'Arvon'</span>, <span class="string">'Pikachu'</span>)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Numble of home is'</span>, len(home)</span><br><span class="line">ourhome = (<span class="string">'Mo'</span>, <span class="string">'Arvon'</span>, <span class="string">'SmallArvon'</span>)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Number of ourhome is'</span>, len(ourhome)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'All member in ourhome are'</span>, ourhome</span><br><span class="line"><span class="keyword">print</span> <span class="string">'come here in later'</span>, ourhome[<span class="number">2</span>]</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Last member is'</span>, ourhome[<span class="number">2</span>][<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">root<span class="decorator">@Mo arvon_python]# python using_tuple.py </span></span><br><span class="line">Numble of home <span class="keyword">is</span> <span class="number">3</span></span><br><span class="line">Number of ourhome <span class="keyword">is</span> <span class="number">3</span></span><br><span class="line">All member <span class="keyword">in</span> ourhome are (<span class="string">'Mo'</span>, <span class="string">'Arvon'</span>, <span class="string">'SmallArvon'</span>)</span><br><span class="line">come here <span class="keyword">in</span> later SmallArvon</span><br><span class="line">Last member <span class="keyword">is</span> a</span><br></pre></td></tr></table></figure>
+<h4 id="元组与打印语句">元组与打印语句</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">#-*- coding: utf-8 -*-</span><br><span class="line">#Todo: print_tuple.py</span><br><span class="line">age = 23</span><br><span class="line">name = 'Arvon'</span><br><span class="line">print '%s is %d years lold' % (name, age)</span><br><span class="line">#print语句可以使用跟着%符号的项目元组的字符串。这些字符串具备定制的功能。定制让输出</span><br><span class="line">#满足某种特定的格式。定制可以是%s表示字符串或%d表示整数。元组必须按照相同的顺序来</span><br><span class="line">#对应这些定制。</span><br><span class="line">print 'Why is %s playing with that python?' % name</span><br><span class="line"></span><br><span class="line">###Output</span><br><span class="line">[root@Mo arvon_python]# python print_tuple.py </span><br><span class="line">Arvon is 23 years lold</span><br><span class="line">Why is Arvon playing with that python?</span><br></pre></td></tr></table></figure>
 <p>[1]:<br>[2]:<br>[3]:<br>[4]:<br>[5]:</p>
 
         
@@ -487,7 +578,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/27/Linux-Command-One/" title="Linux系统命令（一）" itemprop="url">Linux系统命令（一）</a>
+      <a href="/2015/07/27/Linux系统命令（一）/" title="Linux系统命令（一）" itemprop="url">Linux系统命令（一）</a>
   </h1>
   <p class="article-author">By
        
@@ -887,67 +978,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/07/21/salt简明使用手册/" title="SaltStack使用简明手册" itemprop="url">SaltStack使用简明手册</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-21T09:29:40.000Z" itemprop="datePublished"> 发表于 2015-07-21</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>介绍：salt是一种基础设施管理方式，部署简单，在几分钟内便可运行起来，扩展性好，很容易管理上万台服务器，速度够快，服务器之间秒级通讯。salt底层采用动态链接总线，使其可以用于编配，远程执行，配置管理等。</p>
-<h3 id="常用命令">常用命令</h3><blockquote>
-<p>salt ‘主机（支持通配符匹配）’ cmd.run ‘command’<br>eggs： salt ‘gs*’ cmd.run ‘ps aux|grep -i java|grep -v grep|wc -l’<br>salt-key -a 添加单一主机<br>salt-key -d 删除单一主机<br>salt-key -A 接受全部主机<br>salt-key -L 列出所有主机</p>
-</blockquote>
-<h3 id="配置流程">配置流程</h3><ul>
-<li>待补充</li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Salt/">Salt</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -972,11 +1002,11 @@
 			
 		
 			
-				<li><a href="/tags/awk/" title="awk">awk<sup>1</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+				<li><a href="/tags/awk/" title="awk">awk<sup>1</sup></a></li>
 			
 		
 			
@@ -1012,11 +1042,11 @@
 			
 		
 			
-				<li><a href="/tags/FTP/" title="FTP">FTP<sup>1</sup></a></li>
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
+				<li><a href="/tags/FTP/" title="FTP">FTP<sup>1</sup></a></li>
 			
 		
 		</ul>
