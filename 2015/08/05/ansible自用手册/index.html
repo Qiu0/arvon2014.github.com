@@ -4,23 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>awk用法实例 | Arvon&#39;s Blog</title>
+    <title>ansible自用手册 | Arvon&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Arvon">
     
 
     
-    <meta name="description" content="简介：awk一种优秀的文本处理工具，Linux和Unix环境中现有的功能最强大的数据处理引擎之一。这个编程及数据操作语言其名称得自于它的创始人阿尔佛雷德·艾侯、彼得·温伯格和布莱恩·柯林汉姓氏的首个字母。awk的处理文本和数据的方式是这样的，它逐行扫描文件，从第一行到最后一行，寻找匹配的特定模式的行，并在这些行上进行你想要的操作。如果没有指定处理动作，则把匹配的行显示到标准输出(屏幕)，如果没有指">
+    <meta name="description" content="简介：ansible是与puppet、saltstack类似的集群管理工具，其优点是仅需要ssh和Python即可使用，而不像puppet、saltstack那样都需要客户端。与puppet类似，ansible也支持丰富的功能：
+
+批量执行支持模块化，支持playbook（相比puppet还是弱些）上手容易（puppet上手有门槛）权限控制
+
+自用例子1234567ansible -i hosts">
 <meta property="og:type" content="article">
-<meta property="og:title" content="awk用法实例">
-<meta property="og:url" content="http://yoursite.com/2015/07/29/awk用法实例/index.html">
+<meta property="og:title" content="ansible自用手册">
+<meta property="og:url" content="http://yoursite.com/2015/08/05/ansible自用手册/index.html">
 <meta property="og:site_name" content="Arvon's Blog">
-<meta property="og:description" content="简介：awk一种优秀的文本处理工具，Linux和Unix环境中现有的功能最强大的数据处理引擎之一。这个编程及数据操作语言其名称得自于它的创始人阿尔佛雷德·艾侯、彼得·温伯格和布莱恩·柯林汉姓氏的首个字母。awk的处理文本和数据的方式是这样的，它逐行扫描文件，从第一行到最后一行，寻找匹配的特定模式的行，并在这些行上进行你想要的操作。如果没有指定处理动作，则把匹配的行显示到标准输出(屏幕)，如果没有指">
-<meta property="og:updated_time" content="2015-07-29T06:08:18.770Z">
+<meta property="og:description" content="简介：ansible是与puppet、saltstack类似的集群管理工具，其优点是仅需要ssh和Python即可使用，而不像puppet、saltstack那样都需要客户端。与puppet类似，ansible也支持丰富的功能：
+
+批量执行支持模块化，支持playbook（相比puppet还是弱些）上手容易（puppet上手有门槛）权限控制
+
+自用例子1234567ansible -i hosts">
+<meta property="og:updated_time" content="2015-08-06T03:19:14.289Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="awk用法实例">
-<meta name="twitter:description" content="简介：awk一种优秀的文本处理工具，Linux和Unix环境中现有的功能最强大的数据处理引擎之一。这个编程及数据操作语言其名称得自于它的创始人阿尔佛雷德·艾侯、彼得·温伯格和布莱恩·柯林汉姓氏的首个字母。awk的处理文本和数据的方式是这样的，它逐行扫描文件，从第一行到最后一行，寻找匹配的特定模式的行，并在这些行上进行你想要的操作。如果没有指定处理动作，则把匹配的行显示到标准输出(屏幕)，如果没有指">
+<meta name="twitter:title" content="ansible自用手册">
+<meta name="twitter:description" content="简介：ansible是与puppet、saltstack类似的集群管理工具，其优点是仅需要ssh和Python即可使用，而不像puppet、saltstack那样都需要客户端。与puppet类似，ansible也支持丰富的功能：
+
+批量执行支持模块化，支持playbook（相比puppet还是弱些）上手容易（puppet上手有门槛）权限控制
+
+自用例子1234567ansible -i hosts">
 
     
     <link rel="alternative" href="/atom.xml" title="Arvon&#39;s Blog" type="application/atom+xml">
@@ -76,14 +88,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/29/awk用法实例/" title="awk用法实例" itemprop="url">awk用法实例</a>
+      <a href="/2015/08/05/ansible自用手册/" title="ansible自用手册" itemprop="url">ansible自用手册</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-29T02:45:33.000Z" itemprop="datePublished"> 发表于 2015-07-29</time>
+    <time datetime="2015-08-05T05:42:15.000Z" itemprop="datePublished"> 发表于 2015-08-05</time>
     
   </p>
 </header>
@@ -92,15 +104,16 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命令选项"><span class="toc-number">1.</span> <span class="toc-text">常用命令选项</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自用例子"><span class="toc-number">1.</span> <span class="toc-text">自用例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置使用手册"><span class="toc-number">2.</span> <span class="toc-text">配置使用手册</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">2.2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">2.3.</span> <span class="toc-text">测试</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p><strong>简介：</strong>awk一种优秀的文本处理工具，Linux和Unix环境中现有的功能最强大的数据处理引擎之一。这个编程及数据操作语言其名称得自于它的创始人阿尔佛雷德·艾侯、彼得·温伯格和布莱恩·柯林汉姓氏的首个字母。<br>awk的处理文本和数据的方式是这样的，它逐行扫描文件，从第一行到最后一行，寻找匹配的特定模式的行，并在这些行上进行你想要的操作。如果没有指定处理动作，则把匹配的行显示到标准输出(屏幕)，如果没有指定<br>模式，则所有被操作所指定的行都被处理</p>
-<h3 id="常用命令选项">常用命令选项</h3><ul>
-<li></li>
-</ul>
-  
+		<p><strong>简介：</strong>ansible是与puppet、saltstack类似的集群管理工具，其优点是仅需要ssh和Python即可使用，而不像puppet、saltstack那样都需要客户端。与puppet类似，ansible也支持丰富的功能：</p>
+<blockquote>
+<p>批量执行<br>支持模块化，支持playbook（相比puppet还是弱些）<br>上手容易（puppet上手有门槛）<br>权限控制</p>
+</blockquote>
+<h2 id="自用例子">自用例子</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ansible -i hosts all -a <span class="string">'date -R'</span> --private-key=$&#123;PRIVATE_KEY_FILE&#125;</span><br><span class="line">ansible -i hosts all -a <span class="string">'ntpdate vn.pool.ntp.org'</span> --private-key=$&#123;PRIVATE_KEY_FILE&#125;</span><br><span class="line"><span class="comment">#ansible -i hosts gsservers -a 'sudo yum install -y telnet' --private-key=$&#123;PRIVATE_KEY_FILE&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###example two</span></span><br><span class="line">ansible-playbook -i hosts list.yml --list-hosts	<span class="comment">#列出主机信息</span></span><br><span class="line">ansible-playbook -i hosts list.yml -v	<span class="comment">#显示详细过程</span></span><br></pre></td></tr></table></figure>
+<h2 id="配置使用手册">配置使用手册</h2><h3 id="安装">安装</h3><h3 id="配置">配置</h3><h3 id="测试">测试</h3>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -108,7 +121,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/awk/">awk</a>
+  <span></span> <a href="/tags/ansible/">ansible</a>
   </div>
 
 </div>
@@ -117,7 +130,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/07/29/awk用法实例/" data-title="awk用法实例 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/08/05/ansible自用手册/" data-title="ansible自用手册 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -130,19 +143,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/07/30/Python学习笔记/" title="简明Python读书笔记">
-  <strong>上一篇：</strong><br/>
-  <span>
-  简明Python读书笔记</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/07/28/SA运维资源/"  title="SA运维资源">
+<a href="/2015/08/03/Linux系统命令（二）/"  title="Linux系统命令（二）">
  <strong>下一篇：</strong><br/> 
- <span>SA运维资源
+ <span>Linux系统命令（二）
 </span>
 </a>
 </div>
@@ -157,7 +162,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命令选项"><span class="toc-number">1.</span> <span class="toc-text">常用命令选项</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自用例子"><span class="toc-number">1.</span> <span class="toc-text">自用例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置使用手册"><span class="toc-number">2.</span> <span class="toc-text">配置使用手册</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">2.2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">2.3.</span> <span class="toc-text">测试</span></a></li></ol></li></ol>
  
   </div>
 
