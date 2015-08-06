@@ -25,7 +25,7 @@
 批量执行支持模块化，支持playbook（相比puppet还是弱些）上手容易（puppet上手有门槛）权限控制
 
 自用例子1234567ansible -i hosts">
-<meta property="og:updated_time" content="2015-08-06T03:19:14.289Z">
+<meta property="og:updated_time" content="2015-08-06T03:22:19.720Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ansible自用手册">
 <meta name="twitter:description" content="简介：ansible是与puppet、saltstack类似的集群管理工具，其优点是仅需要ssh和Python即可使用，而不像puppet、saltstack那样都需要客户端。与puppet类似，ansible也支持丰富的功能：
@@ -104,7 +104,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自用例子"><span class="toc-number">1.</span> <span class="toc-text">自用例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置使用手册"><span class="toc-number">2.</span> <span class="toc-text">配置使用手册</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">2.2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">2.3.</span> <span class="toc-text">测试</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自用例子"><span class="toc-number">1.</span> <span class="toc-text">自用例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置使用手册"><span class="toc-number">2.</span> <span class="toc-text">配置使用手册</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">2.2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">2.3.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文档"><span class="toc-number">3.</span> <span class="toc-text">参考文档</span></a></li></ol>
 		
 		</div>
 		
@@ -113,7 +113,8 @@
 <p>批量执行<br>支持模块化，支持playbook（相比puppet还是弱些）<br>上手容易（puppet上手有门槛）<br>权限控制</p>
 </blockquote>
 <h2 id="自用例子">自用例子</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ansible -i hosts all -a <span class="string">'date -R'</span> --private-key=$&#123;PRIVATE_KEY_FILE&#125;</span><br><span class="line">ansible -i hosts all -a <span class="string">'ntpdate vn.pool.ntp.org'</span> --private-key=$&#123;PRIVATE_KEY_FILE&#125;</span><br><span class="line"><span class="comment">#ansible -i hosts gsservers -a 'sudo yum install -y telnet' --private-key=$&#123;PRIVATE_KEY_FILE&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###example two</span></span><br><span class="line">ansible-playbook -i hosts list.yml --list-hosts	<span class="comment">#列出主机信息</span></span><br><span class="line">ansible-playbook -i hosts list.yml -v	<span class="comment">#显示详细过程</span></span><br></pre></td></tr></table></figure>
-<h2 id="配置使用手册">配置使用手册</h2><h3 id="安装">安装</h3><h3 id="配置">配置</h3><h3 id="测试">测试</h3>  
+<h2 id="配置使用手册">配置使用手册</h2><h3 id="安装">安装</h3><h3 id="配置">配置</h3><h3 id="测试">测试</h3><h2 id="参考文档">参考文档</h2><p><a href="http://www.tuicool.com/articles/2EVBJjv" target="_blank" rel="external">集群工具ansible使用方法</a><br>[Ansible快速上手]</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -162,7 +163,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自用例子"><span class="toc-number">1.</span> <span class="toc-text">自用例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置使用手册"><span class="toc-number">2.</span> <span class="toc-text">配置使用手册</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">2.2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">2.3.</span> <span class="toc-text">测试</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自用例子"><span class="toc-number">1.</span> <span class="toc-text">自用例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置使用手册"><span class="toc-number">2.</span> <span class="toc-text">配置使用手册</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">2.2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">2.3.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文档"><span class="toc-number">3.</span> <span class="toc-text">参考文档</span></a></li></ol>
  
   </div>
 
