@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Linux挂载LVM分区 | Arvon&#39;s Blog</title>
+    <title>Perl语言入门（6th）课后习题 | Arvon&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Arvon">
     
 
     
-    <meta name="description" content="简介：LVM是 Logical Volume Manager（逻辑卷管理）的简写，它是Linux环境下对磁盘分区进行管理的一种机制，它由Heinz Mauelshagen在Linux 2.4内核上实现，目前最新版本为：稳定版1.0.5，开发版 1.1.0-rc2，以及LVM2开发版。Linux用户安装Linux操作系统时遇到的一个常见的难以决定的问题就是如何正确地评估各分区大小，以分配合适的硬盘空">
+    <meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux挂载LVM分区">
-<meta property="og:url" content="http://yoursite.com/2015/08/07/Linux挂载LVM分区/index.html">
+<meta property="og:title" content="Perl语言入门（6th）课后习题">
+<meta property="og:url" content="http://yoursite.com/2015/08/12/Perl语言入门（6th）课后习题/index.html">
 <meta property="og:site_name" content="Arvon's Blog">
-<meta property="og:description" content="简介：LVM是 Logical Volume Manager（逻辑卷管理）的简写，它是Linux环境下对磁盘分区进行管理的一种机制，它由Heinz Mauelshagen在Linux 2.4内核上实现，目前最新版本为：稳定版1.0.5，开发版 1.1.0-rc2，以及LVM2开发版。Linux用户安装Linux操作系统时遇到的一个常见的难以决定的问题就是如何正确地评估各分区大小，以分配合适的硬盘空">
-<meta property="og:updated_time" content="2015-08-07T10:26:45.081Z">
+<meta property="og:description">
+<meta property="og:updated_time" content="2015-08-12T08:00:21.875Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux挂载LVM分区">
-<meta name="twitter:description" content="简介：LVM是 Logical Volume Manager（逻辑卷管理）的简写，它是Linux环境下对磁盘分区进行管理的一种机制，它由Heinz Mauelshagen在Linux 2.4内核上实现，目前最新版本为：稳定版1.0.5，开发版 1.1.0-rc2，以及LVM2开发版。Linux用户安装Linux操作系统时遇到的一个常见的难以决定的问题就是如何正确地评估各分区大小，以分配合适的硬盘空">
+<meta name="twitter:title" content="Perl语言入门（6th）课后习题">
+<meta name="twitter:description">
 
     
     <link rel="alternative" href="/atom.xml" title="Arvon&#39;s Blog" type="application/atom+xml">
@@ -76,14 +76,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/07/Linux挂载LVM分区/" title="Linux挂载LVM分区" itemprop="url">Linux挂载LVM分区</a>
+      <a href="/2015/08/12/Perl语言入门（6th）课后习题/" title="Perl语言入门（6th）课后习题" itemprop="url">Perl语言入门（6th）课后习题</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-07T10:02:24.000Z" itemprop="datePublished"> 发表于 2015-08-07</time>
+    <time datetime="2015-08-12T08:00:21.000Z" itemprop="datePublished"> 发表于 2015-08-12</time>
     
   </p>
 </header>
@@ -92,22 +92,15 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#手动将LVM挂载至linux系统"><span class="toc-number">1.</span> <span class="toc-text">手动将LVM挂载至linux系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LVM配置"><span class="toc-number">1.1.</span> <span class="toc-text">LVM配置</span></a></li></ol></li></ol>
+			
 		
 		</div>
 		
-		<p><strong>简介：</strong>LVM是 Logical Volume Manager（逻辑卷管理）的简写，它是Linux环境下对磁盘分区进行管理的一种机制，它由Heinz Mauelshagen在Linux 2.4内核上实现，目前最新版本为：稳定版1.0.5，开发版 1.1.0-rc2，以及LVM2开发版。Linux用户安装Linux操作系统时遇到的一个常见的难以决定的问题就是如何正确地评估各分区大小，以分配合适的硬盘空间。普通的磁盘分区管理方式在逻辑分区划分好之后就无法改变其大小，当一个逻辑分区存放不下某个文件时，这个文件因为受上层文件系统的限制，也不能跨越多个分区来存放，所以也不能同时放到别的磁盘上。而遇到出现某个分区空间耗尽时，解决的方法通常是使用符号链接，或者使用调整分区大小的工具，但这只是暂时解决办法，没有从根本上解决问题。随着Linux的逻辑卷管理功能的出现，这些问题都迎刃而解，用户在无需停机的情况下可以方便地调整各个分区大小。</p>
-<h2 id="手动将LVM挂载至linux系统">手动将LVM挂载至linux系统</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa lvm2</span><br><span class="line"><span class="comment">#查看是否安装了lvm</span></span><br><span class="line">yum install lvm2</span><br><span class="line"><span class="comment">#安装lvm软件</span></span><br><span class="line">vgscan</span><br><span class="line"><span class="comment">#查找并显示系统中存在的LVN卷组</span></span><br><span class="line">lvscan</span><br><span class="line"><span class="comment">#查看系统中存在哪些卷组以及它们的激活状态（注意：如果有两个卷组名一样，其中一个是无法挂载的，要想挂载，需要重命名一个卷组）</span></span><br><span class="line">vgdisplay LVMname | more</span><br><span class="line"><span class="comment">#显示所有名为LVMname卷组的详细信息，请记住你将要挂载卷组的 VG UUID。</span></span><br><span class="line">	vgrename o236o6-MGAQ-erKG-k6cH-<span class="number">12</span>Zs-<span class="number">8</span>NwX-CCqPG3 vgNewName</span><br><span class="line">	<span class="comment">#卷组重新命名为vgNewName</span></span><br><span class="line">vgchange -ay /dev/vgNewName</span><br><span class="line"><span class="comment">#激活卷组vsNewName，此时你也并不能使用，需要挂载</span></span><br><span class="line">lvscan</span><br><span class="line"><span class="comment">#查看现在的激活状态</span></span><br><span class="line">mount /dev/vgNewName /somePoint</span><br><span class="line"><span class="comment">#挂载LVM到挂载点，这样就可以访问了</span></span><br><span class="line">umount /dev/vgNewName<span class="comment"># or usr 'umount /somePoint'</span></span><br><span class="line"><span class="comment">#卸载LVM卷组</span></span><br><span class="line">vgchange -an /dev/vgNewName</span><br><span class="line"><span class="comment">#将卷组修改成不激活状态</span></span><br></pre></td></tr></table></figure>
-<h3 id="LVM配置">LVM配置</h3>  
+		  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/LVM/">LVM</a>
-  </div>
 
 </div>
 
@@ -115,7 +108,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/08/07/Linux挂载LVM分区/" data-title="Linux挂载LVM分区 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/08/12/Perl语言入门（6th）课后习题/" data-title="Perl语言入门（6th）课后习题 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -128,19 +121,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/08/10/Prel语言入门读书笔记/" title="Perl语言入门(第六版)读书笔记">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Perl语言入门(第六版)读书笔记</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/08/05/ansible自用手册/"  title="ansible自用手册">
+<a href="/2015/08/10/Prel语言入门读书笔记/"  title="Perl语言入门(第六版)读书笔记">
  <strong>下一篇：</strong><br/> 
- <span>ansible自用手册
+ <span>Perl语言入门(第六版)读书笔记
 </span>
 </a>
 </div>
@@ -155,7 +140,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#手动将LVM挂载至linux系统"><span class="toc-number">1.</span> <span class="toc-text">手动将LVM挂载至linux系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LVM配置"><span class="toc-number">1.1.</span> <span class="toc-text">LVM配置</span></a></li></ol></li></ol>
+ 
  
   </div>
 

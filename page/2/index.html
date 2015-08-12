@@ -77,6 +77,200 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/07/27/Linux系统命令（一）/" title="Linux系统命令（一）" itemprop="url">Linux系统命令（一）</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-27T02:49:08.000Z" itemprop="datePublished"> 发表于 2015-07-27</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><strong>Command Include：</strong>disk、memory、hostname、find</p>
+<h3 id="查看磁盘空间">查看磁盘空间</h3><ul>
+<li><p>常用命令<br>df -hl 查看磁盘剩余空间<br>df -h 查看每个根路径的分区大小<br>du -sh [目录名] 返回该目录的大小<br>du -sm [文件夹] 返回该文件夹总M数</p>
+</li>
+<li><p>命令演示</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# cat /proc/cpuinfo&#9;#&#26597;&#30475;cpu&#30340;&#26680;&#24515;&#25968;&#10;&#10;[root@cloud ~]# df -h&#9;#&#30913;&#30424;&#20351;&#29992;&#24773;&#20917;&#10;[root@cloud ~]# df -hl&#10;Filesystem      Size  Used Avail Use% Mounted on&#10;/dev/sda1       9.1G  2.2G  6.4G  26% /&#10;tmpfs           487M     0  487M   0% /dev/shm&#10;/dev/sdb1       4.5G  1.9M  4.3G   1% /data&#10;&#10;[root@cloud ~]# du --max-depth=1 -h&#9;#&#26597;&#30475;&#24403;&#21069;&#25991;&#20214;&#22841;&#19979;&#30340;&#30913;&#30424;&#20351;&#29992;&#24773;&#20917;&#10;25M&#9;./.nvm&#10;8.0K&#9;./.pki&#10;4.0K&#9;./Blog&#10;25M&#9;&#9;.&#10;&#10;[root@cloud ~]# du -sh&#9;#&#26174;&#31034;&#24403;&#21069;&#30446;&#24405;&#30340;&#22823;&#23567;&#10;25M&#9;.&#10;&#10;[root@cloud ~]# du -sh /opt/&#9;#&#26174;&#31034;&#25351;&#23450;&#36335;&#24452;&#30340;&#22823;&#23567;&#10;4.0K&#9;/opt/&#9;&#10;&#10;[root@cloud ~]# du -h test.txt&#9;#&#26174;&#31034;&#25351;&#23450;&#25991;&#20214;&#30340;&#22823;&#23567; &#10;0&#9;test.txt&#10;```&#9;&#10;&#10;###&#26597;&#30475;&#20869;&#23384;&#10;* &#24120;&#29992;&#21629;&#20196;&#10;cat /proc/meminfo&#9;#&#26597;&#30475;&#20869;&#23384;&#20351;&#29992;&#20449;&#24687;&#10;&#10;&#10;* &#21629;&#20196;&#23454;&#20363;&#10;&#31354;&#38386;&#20869;&#23384; =free+buffers+cached =total-used&#10;```shell&#10;[root@cloud ~]# free -m&#9;#&#26597;&#30475;&#20869;&#23384;&#20351;&#29992;&#29366;&#20917;&#10;             total       used       free     shared    buffers     cached&#10;Mem:           972        667        304          0         41        497&#10;-/+ buffers/cache:        128        843&#10;Swap:          999          0        999&#10;&#35828;&#26126;&#65306;&#9; shared&#65306;&#22810;&#20010;&#36827;&#31243;&#20849;&#20139;&#30340;&#20869;&#23384;&#24635;&#39069;&#10;&#9;&#9;Buffers/cached&#9;&#9;&#10;&#10;[root@cloud ~]# cat /proc/meminfo &#10;MemTotal:         995648 kB&#10;MemFree:          312228 kB&#10;Buffers:           42836 kB&#10;Cached:           509164 kB&#10;SwapCached:          352 kB&#10;Active:           413060 kB&#10;Inactive:         145136 kB&#9;&#9;&#10;&#10;[root@cloud ~]# ll -h /proc/kcore&#9;#&#26597;&#30475;/proc/kcore&#25991;&#20214;&#30340;&#22823;&#23567;&#65288;&#20869;&#23384;&#38236;&#20687;&#65289;&#10;-r-------- 1 root root 4.0K Jul 27 16:31 /proc/kcore</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="查看cpu使用率">查看cpu使用率</h3><ul>
+<li><p>使用top命令<br>具体介绍：<a href="http://www.cnblogs.com/xd502djj/archive/2011/03/01/1968041.html" target="_blank" rel="external">top命输出解释</a></p>
+</li>
+<li><p>产看内核信息</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# uname -a&#10;Linux cloud 2.6.32-504.1.3.el6.x86_64 #1 SMP Tue Nov 11 17:57:25 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看发行版信息</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# cat /etc/issue&#10;CentOS release 6.6 (Final)&#10;Kernel \r on an \m</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Find命令">Find命令</h3><ul>
+<li><p>命令实例</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# find / -name fstab&#10;/etc/fstab&#10;&#10;[root@cloud ~]# find / -name access_log 2&#62;/dev/null&#9;&#9;#&#26080;&#38169;&#35823;&#26597;&#25214;&#10;&#10;[root@cloud ~]# find / etc -name &#39;*fst*&#39;&#9;#&#27169;&#31946;&#26597;&#25214;&#65292;&#25903;&#25345;&#36890;&#37197;&#31526;&#10;/lib/udev/fstab_import&#10;/lib/udev/rules.d/79-fstab_import.rules&#10;/etc/fstab&#10;/usr/bin/psfstriptable&#10;&#10;find  /home  -size  +512k&#9;#&#26597;&#22823;&#20110;512k&#30340;&#25991;&#26723;&#10;&#10;$ find logs -type f -mtime +5 -exec  -ok  rm &#123;&#125; \;&#9;#&#22312;/ l o g s&#30446;&#24405;&#20013;&#26597;&#25214;&#26356;&#25913;&#26102;&#38388;&#22312;5&#26085;&#20197;&#21069;&#30340;&#25991;&#26723;&#24182;&#21024;&#38500;&#20182;&#20204;&#65306;&#10;&#10;# A=`find ./ -name &#34;*php&#34;` |  ls -l --full-time $A 2&#62;/dev/null | grep &#34;2004-11-30 16:36:37&#34;&#9;&#9;#&#26597;&#25214;2004-11-30 16:36:37&#26102;&#26356;&#25913;&#36807;&#30340;&#25991;&#26723;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参考网址<br><a href="http://linux.chinaunix.net/techdoc/system/2008/07/25/1020339.shtml" target="_blank" rel="external">参考实例</a><br><a href="http://www.chinaz.com/server/2009/0807/85796.shtml" target="_blank" rel="external">与或非的find介绍</a></p>
+</li>
+</ul>
+<h3 id="修改常见配置">修改常见配置</h3><ul>
+<li>修改主机名<br>参考这里:[北南南北的博客，修改Linux主机名]<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# hostname Mo&#9;&#9;#&#20020;&#26102;&#20462;&#25913;hostname&#10;&#10;[root@Mo ~]# vim /etc/sysconfig/network&#9;&#9;#&#20004;&#20010;&#37117;&#35201;&#25913;&#10;[root@Mo ~]# vim /etc/hosts&#10;&#10;[root@linuxsir01 ~]# hostname -i&#9;#&#26174;&#31034;&#20027;&#26426;&#21517;&#30340;IP</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Linux/">Linux</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/23/Linux下hexo+github搭建Blog/" title="Linux下hexo+github组建Blog" itemprop="url">Linux下hexo+github组建Blog</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-22T16:00:00.000Z" itemprop="datePublished"> 发表于 2015-07-23</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="配置流程">配置流程</h1><h2 id="环境准备">环境准备</h2><h3 id="本地环境">本地环境</h3><ul>
+<li>CentOS6</li>
+<li>下载nvm（Node.js的版本管理器）软件<blockquote>
+<p>wget -qO- <a href="https://raw.github.com/creationix/nvm/master/install.sh" target="_blank" rel="external">https://raw.github.com/creationix/nvm/master/install.sh</a> | sh    #下载安装nvm（安装目录在/root/.nvm/）</p>
+</blockquote>
+</li>
+<li>安装nvm软件<blockquote>
+<p>nvm install 0.10    #选择Node.js的安装版本<br>nvm ls    #查看node.js的版本</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="安装git">安装git</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;</span><br></pre></td></tr></table></figure>
+<h3 id="安装Hexo">安装Hexo</h3><blockquote>
+<p>npm install -g hexo    #使用npm安装hexo(此处安装并未完成)<br>如果显示command not found，就重启终端，然后使用nvm ls检查当前版本，如果没有使用命令<br>nvm use 0.10    #即使用方才装的版本（使用此命令后安装成功）<br>或使用一下命令直接设置全局默认的node.js版本<br>nvm alias default 0.10.26</p>
+</blockquote>
+<ul>
+<li><p>安装失败的原因可能是无法连接到官方服务器，或者是GFW（Great Firewall，中国国家防火墙或长城防火墙）的问题。需<br>  修改npm镜像源<br>  使用config命令</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config set registry http://registry.cnpmjs.org  &#10;$ npm info underscore (&#22914;&#26524;&#19978;&#38754;&#37197;&#32622;&#25104;&#21151;&#65292;&#20351;&#29992;&#36825;&#20010;&#21629;&#20196;&#20250;&#26377;&#20197;&#19979;&#25552;&#31034;)  &#10;$ npm http GET http://registry.cnpmjs.org/underscore  &#10;$ npm http 200 http://registry.cnpmjs.org/underscore  &#10; ``` &#10;&#21629;&#20196;&#34892;&#25351;&#23450;  &#10;```Shell &#10;$ npm --registry http://registry.cnpmjs.org info underscore   &#10;&#32534;&#36753; ~/.npmrc &#21152;&#20837;&#20197;&#19979;&#20869;&#23481;&#21487;&#20197;&#20351;&#37197;&#32622;&#27704;&#20037;&#29983;&#25928;&#65292;&#23601;&#19981;&#29992;&#27599;&#27425;npm&#23433;&#35013;&#26102;&#37117;&#35201;&#36816;&#34892;&#25351;&#23450;&#28304;&#21629;&#20196;&#20102;  &#10;$ registry = http://registry.cnpmjs.org  &#10; ``` &#10;&#10;- &#20351;&#29992;&#20197;&#19979;&#21629;&#20196;&#23545;hexo&#36827;&#34892;&#21021;&#22987;&#21270;&#65288;&#36825;&#37324;&#25105;&#20301;&#20110;~&#30446;&#24405;&#65292;&#32780;&#19988;&#25105;&#24819;&#25226;&#25105;&#30340;&#20010;&#20154;&#21338;&#23458;&#25918;&#22312;~/hexo&#30446;&#24405;&#65292;&#38656;&#35201;&#25918;&#22312;&#20854;&#20182;&#30446;&#24405;&#30452;&#25509;&#25913;&#19968;&#19979;&#33258;&#24049;&#38656;&#35201;&#30340;&#30446;&#24405;&#23601;&#21487;&#20197;&#20102;&#65289;  &#10;```Shell &#10;$ hexo install hexo --save&#10;$ hexo init hexo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>本地环境到此结束，有木有很easy</p>
+</li>
+</ul>
+<h3 id="初步预览">初步预览</h3><blockquote>
+<p>hexo generate 或 hexo g    #生成静态文件<br>hexo server 或 hexo s    #打开本地预览（http:localhost:4000）</p>
+</blockquote>
+<h2 id="配置git并发布">配置git并发布</h2><p>配置git并发布基于hexo和github的个人博客<br>首先编辑个人安装目录的_config.yml文件，找到一下内容并修改为git</p>
+<blockquote>
+<p>deploy:<br>type: git<br>repository: <a href="https://github.com/Arvon2014/arvon2014.github.com.git(直接将github上的https项复制并粘贴" target="_blank" rel="external">https://github.com/Arvon2014/arvon2014.github.com.git(直接将github上的https项复制并粘贴</a>)<br>branch: master</p>
+</blockquote>
+<p>运行以下命令设置git全局变量，即设置用户名和邮箱(需要先和github建立免密码登陆)</p>
+<blockquote>
+<p>git config —global user.name “Arvon”<br>git config —global user.email “yafeng2011@126.com”</p>
+</blockquote>
+<h2 id="免密码ssh公钥设置">免密码ssh公钥设置</h2><ol>
+<li><p>是否安装了ssh，未装执行</p>
+<blockquote>
+<p>yum install ssh</p>
+</blockquote>
+</li>
+<li><p>检查公钥</p>
+<blockquote>
+<p>cd ~/.ssh    #存在就删了</p>
+</blockquote>
+</li>
+<li><p>生成公钥私钥对</p>
+<blockquote>
+<p>ssh-keygen -t rsa -C “you_email@youremail.com”<br>cd ~/.ssh    #验证</p>
+</blockquote>
+</li>
+<li><p>添加ssh公钥到github<br>将公钥（pub）的内容复制到Deploykeys里面</p>
+</li>
+<li><p>测试是否生效</p>
+<blockquote>
+<p>ssh -T git@github.com</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="待完善">待完善</h2>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Blog/">Blog</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/07/22/mysql自用命令手册/" title="Mysql自用命令手册" itemprop="url">Mysql自用命令手册</a>
   </h1>
   <p class="article-author">By
@@ -529,7 +723,7 @@
 <p>Reference-style 引用方式：<br>[link text][id]<br>[id]: <a href="https://www.mozilla.org" target="_blank" rel="external">https://www.mozilla.org</a> “title text”</p>
 <p>Relative reference to a repository file 引用存储文件：<br>[link text](../path/file/readme.text “title text”)</p>
 <p>还能这样使用：<br>[link text][]<br>[link text]: <a href="http://www.reddit.com" target="_blank" rel="external">http://www.reddit.com</a></p>
-<p>Email 邮件：<br><a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#x65;&#120;&#97;&#x6d;&#112;&#108;&#101;&#x40;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#46;&#x63;&#111;&#x6d;">&#x65;&#120;&#97;&#x6d;&#112;&#108;&#101;&#x40;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#46;&#x63;&#111;&#x6d;</a></p>
+<p>Email 邮件：<br><a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#x65;&#120;&#x61;&#109;&#112;&#x6c;&#101;&#64;&#101;&#120;&#97;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#111;&#109;">&#x65;&#120;&#x61;&#109;&#112;&#x6c;&#101;&#64;&#101;&#120;&#97;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#111;&#109;</a></p>
 </blockquote>
 <h3 id="images图片链接">images图片链接</h3><blockquote>
 <p>Inline-style 内嵌方式：<br>![alt text](<a href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" target="_blank" rel="external">https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png</a> “title text”)</p>
@@ -699,7 +893,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/17/皮卡邱/" title="皮卡邱" itemprop="url">皮卡邱</a>
+      <a href="/2015/07/17/皮卡邱/" title="Pikachu" itemprop="url">Pikachu</a>
   </h1>
   <p class="article-author">By
        
@@ -712,7 +906,16 @@
 </header>
     <div class="article-content">
         
-        <h1 id="记录Pikachu">记录Pikachu</h1>
+        <h3 id="Eat">Eat</h3><p><strong>like：</strong>虾、牛蛙、不咸的蚕豆、鸭翅、不二家的果味糖（葡萄味）、芒果、葡萄味的饮料、涮羊肉、炸鸡、<br><strong>unlike：</strong>豆腐、粉</p>
+<h3 id="Thing">Thing</h3><p><strong>like：</strong>一切尽在掌握（旅游的话提前计划）、看进度条（真奇葩）<br><strong>unlike：</strong>手足无措（到地方不知道怎么玩去哪玩）、</p>
+<h3 id="Play">Play</h3><p><strong>like：</strong>唱歌、游泳、<br><strong>unlike：</strong></p>
+<h3 id="Music">Music</h3><p><strong>like：</strong>别想他、张信哲、王菲、<br><strong>unlike：</strong></p>
+<h3 id="Gift">Gift</h3><p><strong>like：</strong>水晶球、埃菲尔铁塔、<br><strong>unlike：</strong></p>
+<h3 id="Movie">Movie</h3><p><strong>like：</strong>动漫、文艺爱情片、<br><strong>unlike：</strong></p>
+<h3 id="Travel">Travel</h3><p><strong>WantGo:</strong><br><strong>HadDone:</strong>洛阳、开封、香港、澳门、泰山、</p>
+<h3 id="Home">Home</h3><p><strong>WantHave：</strong>指压板、木地板、索菲亚定制衣柜、<br><strong>Unlike：</strong></p>
+<h3 id="Animal">Animal</h3><p><strong>like:</strong>小猫、小狗、长颈鹿、水母、<br><strong>unlike:</strong></p>
+
         
         
         <p class="article-more-link">
@@ -779,6 +982,10 @@
 			
 		
 			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>1</sup></a></li>
 			
 		
@@ -795,7 +1002,7 @@
 			
 		
 			
-				<li><a href="/tags/Pikachu/" title="Pikachu">Pikachu<sup>1</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
 			
 		
 			
@@ -807,7 +1014,7 @@
 			
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+				<li><a href="/tags/Perl/" title="Perl">Perl<sup>1</sup></a></li>
 			
 		
 			
@@ -815,7 +1022,7 @@
 			
 		
 			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+				<li><a href="/tags/Pikachu/" title="Pikachu">Pikachu<sup>1</sup></a></li>
 			
 		
 			

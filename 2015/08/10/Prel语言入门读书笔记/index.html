@@ -1,0 +1,699 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Perl语言入门(第六版)读书笔记 | Arvon&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Arvon">
+    
+
+    
+    <meta name="description" content="更新记录：
+
+2015/08/10 DonePage45
+2015/08/11 
+
+前言杂记
+适合管理员使用的语言
+12use 5.014;#该脚本需要在Perl 5.14或更高版本才能正常运行perl -v#查看perl的版本
+
+Hello，World
+1234#!/usr/bin/perlprintf &quot;Hello, world!\n&quot;;use 5.010;say &quot;Hello, world!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Perl语言入门(第六版)读书笔记">
+<meta property="og:url" content="http://yoursite.com/2015/08/10/Prel语言入门读书笔记/index.html">
+<meta property="og:site_name" content="Arvon's Blog">
+<meta property="og:description" content="更新记录：
+
+2015/08/10 DonePage45
+2015/08/11 
+
+前言杂记
+适合管理员使用的语言
+12use 5.014;#该脚本需要在Perl 5.14或更高版本才能正常运行perl -v#查看perl的版本
+
+Hello，World
+1234#!/usr/bin/perlprintf &quot;Hello, world!\n&quot;;use 5.010;say &quot;Hello, world!">
+<meta property="og:updated_time" content="2015-08-12T07:57:52.480Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Perl语言入门(第六版)读书笔记">
+<meta name="twitter:description" content="更新记录：
+
+2015/08/10 DonePage45
+2015/08/11 
+
+前言杂记
+适合管理员使用的语言
+12use 5.014;#该脚本需要在Perl 5.14或更高版本才能正常运行perl -v#查看perl的版本
+
+Hello，World
+1234#!/usr/bin/perlprintf &quot;Hello, world!\n&quot;;use 5.010;say &quot;Hello, world!">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Arvon&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/arvon.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/arvon.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Arvon&#39;s Blog">Arvon&#39;s Blog</a></h1>
+				<h2 class="blog-motto">清醒时做事，糊涂时读书，大怒时睡觉，独处时思考</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/08/10/Prel语言入门读书笔记/" title="Perl语言入门(第六版)读书笔记" itemprop="url">Perl语言入门(第六版)读书笔记</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-10T06:55:36.000Z" itemprop="datePublished"> 发表于 2015-08-10</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言杂记"><span class="toc-number">1.</span> <span class="toc-text">前言杂记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标量数据"><span class="toc-number">2.</span> <span class="toc-text">标量数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数字"><span class="toc-number">2.1.</span> <span class="toc-text">数字</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#所有数字的内部格式都相同"><span class="toc-number">2.1.1.</span> <span class="toc-text">所有数字的内部格式都相同</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浮点数直接量"><span class="toc-number">2.1.2.</span> <span class="toc-text">浮点数直接量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#整数直接量"><span class="toc-number">2.1.3.</span> <span class="toc-text">整数直接量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#非十进制的整数直接量"><span class="toc-number">2.1.4.</span> <span class="toc-text">非十进制的整数直接量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数字操作符"><span class="toc-number">2.1.5.</span> <span class="toc-text">数字操作符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串"><span class="toc-number">2.2.</span> <span class="toc-text">字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#单引号内的字符串直接量"><span class="toc-number">2.2.1.</span> <span class="toc-text">单引号内的字符串直接量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#双引号内的字符串直接量"><span class="toc-number">2.2.2.</span> <span class="toc-text">双引号内的字符串直接量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串操作符"><span class="toc-number">2.2.3.</span> <span class="toc-text">字符串操作符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数字与字符串之间的自动转换"><span class="toc-number">2.2.4.</span> <span class="toc-text">数字与字符串之间的自动转换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perl的内置警告信息"><span class="toc-number">2.3.</span> <span class="toc-text">Perl的内置警告信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标量变量"><span class="toc-number">2.4.</span> <span class="toc-text">标量变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标量的赋值（assignment）"><span class="toc-number">2.5.</span> <span class="toc-text">标量的赋值（assignment）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#双目赋值的操作符"><span class="toc-number">2.5.1.</span> <span class="toc-text">双目赋值的操作符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作符的优先级与结合性"><span class="toc-number">2.6.</span> <span class="toc-text">操作符的优先级与结合性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较操作符"><span class="toc-number">2.7.</span> <span class="toc-text">比较操作符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#控制结构"><span class="toc-number">3.</span> <span class="toc-text">控制结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#if控制结构"><span class="toc-number">3.1.</span> <span class="toc-text">if控制结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例子"><span class="toc-number">3.1.1.</span> <span class="toc-text">例子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#布尔值"><span class="toc-number">3.1.2.</span> <span class="toc-text">布尔值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取用户输入"><span class="toc-number">3.2.</span> <span class="toc-text">获取用户输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chomp操作符"><span class="toc-number">3.3.</span> <span class="toc-text">chomp操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#while控制结构"><span class="toc-number">3.4.</span> <span class="toc-text">while控制结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undef值"><span class="toc-number">3.5.</span> <span class="toc-text">undef值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#definded函数"><span class="toc-number">3.6.</span> <span class="toc-text">definded函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="##"><span class="toc-number">4.</span> <span class="toc-text">#</span></a></li></ol>
+		
+		</div>
+		
+		<p><strong>更新记录：</strong></p>
+<ul>
+<li>2015/08/10 DonePage45</li>
+<li>2015/08/11 </li>
+</ul>
+<h2 id="前言杂记">前言杂记</h2><ul>
+<li><p>适合管理员使用的语言</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="number">5.014</span>;<span class="comment">#该脚本需要在Perl 5.14或更高版本才能正常运行</span></span><br><span class="line">perl -v<span class="comment">#查看perl的版本</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Hello，World</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">printf</span> <span class="string">"Hello, world!\n"</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="keyword">say</span> <span class="string">"Hello, world!"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>替换字符演示</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="variable">@lines</span> = <span class="string">`perldoc -u -fatan2`</span>;</span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">@lines</span>)&#123;</span><br><span class="line">    <span class="regexp">s/\w&lt;([^&gt;]+)&gt;/\U$1/g</span>;</span><br><span class="line">        <span class="keyword">print</span>;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="标量数据">标量数据</h2><ul>
+<li>标量数据是Perl里面最简单的一种数据类型。对大部分标量来说，它要么是数字（如123或3.25e23），要<br>么是由字符组成的序列（如hello）。对Perl来说，数字和字符串大多情况下是可以在内部转换的。可以用操<br>作符对标量进行操作（如加法或字符串连接），产生的结果通常也是一个标量。标量可以存储在标量变量里，<br>也可以从文件和设备读取或写入这些位置。</li>
+</ul>
+<h3 id="数字">数字</h3><h4 id="所有数字的内部格式都相同">所有数字的内部格式都相同</h4><ul>
+<li>Perl内部，总是按“双精度浮点数（double-precision floating-point）”的要求来保存数字并进行运算<br>的。也就是说，Perl内部并不存在整数值—程序中用到的整数型常量会被转换成等效的浮点数值。</li>
+</ul>
+<h4 id="浮点数直接量">浮点数直接量</h4><ul>
+<li>直接量（literal）是指某个数字在Perl源代码中的写法。直接量并非运算结果，也不是I/O（输入/输出）<br>操作的结果，它只是直接键入源程序代码中的数据。</li>
+<li>Perl浮点数直接量的写法，小数点与前置的正负号都是可选的，数字后面也可以加上用“e”表示的10的次方<br>表示符（即指数表示法）。</li>
+<li>如下列写法<blockquote>
+<p>1.25<br>255.000<br>255.0<br>7.25e45    #7.25乘以10的45次方，其中e可以大写<br>-6.5e123</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="整数直接量">整数直接量</h4><ul>
+<li>整数直接量：<blockquote>
+<p>0<br>1234<br>-4321<br>41023789873    #可以写成41_023_789_873,Perl允许在整数直接量插入下划线，方便辨认</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="非十进制的整数直接量">非十进制的整数直接量</h4><ul>
+<li>Perl语言和其他许多程序语言一样，允许使用十进制（decimal）意外的其他进制表示数字。八进制（octal）<br>直接量以0开头，十六进制（hexadecimal）直接量以ox开头，二进制（binary）直接量以ob开头。十六进制的<br>A到F（可以写成小写的a到f，来代表十进制的10到15）。例如<blockquote>
+<p>o377    #八进制的377，等于十进制的255<br>0xff    #十六进制的FF，等于十进制的255<br>ob11111111    #二进制的，等于十进制的255</p>
+</blockquote>
+</li>
+<li>这三个数字虽然看起来不同，但对Perl来说都是同一个数字</li>
+</ul>
+<h4 id="数字操作符">数字操作符</h4><ul>
+<li>Perl提供了各种常见的数字操作符，如加、减、乘、除、取模、次方。例如：<blockquote>
+<p>2+3<br>5.1-2.4<br>3<em>12<br>14/2<br>10.2/0.3<br>10/3<br>10%3    #取模，结果为1<br>2*</em>3    #次方，结果为8</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="字符串">字符串</h3><ul>
+<li>字符串就是一个字符序列，如hello。字符串可以各种字符任意组合而成。最短的字符串不包含任何字符，也<br>叫做空字符串。最长的字符串的长度没有限制。这符合Perl遵守的“无内置限制（nobuilt-inlimits）”的原则。<br>字符串通常是由可输出地字母、数字及标点符号组成，其范围介于ASCII编码的32到126之间。由于字符串可以<br>包含任何字符，所以可用它来创建、扫描或操控二进制数据，这是许多其他工具语言望尘莫及的。例如：你可以<br>将一个图形文件或编译过的可执行文件读进Perl的字符串变变量，修改它的内容再写回去。</li>
+<li><p>Perl完全支持Unicode，所以在字符串中可以使用任意一个合法的Unicode字符。不过由于Perl的历史原因<br>它不会自动将程序源代码当做Unicode编码的文本读入，所以如果你想要在源代码中使用Unicode书写直接量<br>的话，需手工加上utf8编译指令：</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> utf8;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>和数字一样，字符串也有直接量记法，也就是Perl程序中字符串的书写方式。包括单引号内的字符串和双引号<br>内的字符串。</p>
+</li>
+</ul>
+<h4 id="单引号内的字符串直接量">单引号内的字符串直接量</h4><ul>
+<li>除了单引号和反斜线之外，单引号内所有的字符串都代表他们自己。<blockquote>
+<p>‘fred’<br>‘hello’<br>‘’<br>‘#$@%’<br>‘Don\’t let me go!’<br>‘the last character is a backslash:\‘<br>‘\’\‘    #单引号后面紧接着反斜线<br>‘hi\n’    #单引号内的\n并不是换行符，而是表示字面上的两个字符</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="双引号内的字符串直接量">双引号内的字符串直接量</h4><ul>
+<li>双引号中的反斜线更为强大<blockquote>
+<p>“hi\n”        #换行符<br>“love\tyou”        #水平制表符<br>“\r”    #回车<br>“\f”    #换页符<br>“\b”    #退格<br>“\e”    #Esc（ASCII编码的转义字符）<br>“\cC”    #控制符，就是COntrol键的代码（此例表示同时按下Ctrl和c键的返回码）<br>“\l”    #将下个字母转换为小写<br>“\L”    #将它后面的所有字母都转换为小写的，直到\E为止<br>“\u”    #将下个字符转换为大写<br>“\U”    #将它后面所有的字母都转换为大写，直到\E为止<br>“\E”    #结束\L、\U和\Q开始的作用范围</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="字符串操作符">字符串操作符</h4><ul>
+<li>字符串可以用.操作符链接起来<blockquote>
+<p>“hello”.”world”    #等同于”helloworld”<br>“hello” . ‘ ‘ . “world”    #等同于’hello world’<br>‘hello world’ . “\n”    #等同于”hello world\n”</p>
+</blockquote>
+</li>
+<li><code>注意</code>：链接运算符必须显示使用连接操作符（concatenation operator），而不是像其他一些语言<br>只需要把两个字符串放在一起就行。</li>
+<li><code>特殊的重复操作符，小写字母x</code>，此操作符会将其左边的操作数与它本身重复连接，重复次数由右边的<br>操作数（某个数字）指定。例子：<blockquote>
+<p>“fred” x 3    #得到“fredfredfred”<br>“barney” x (4+1)    #得到“barneybarneybarneybarneybarney”<br>5 x 4.8    #相当于5乘以4，它会把4.8当做4，因为这里是小写字母x而不是*</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="数字与字符串之间的自动转换">数字与字符串之间的自动转换</h4><ul>
+<li>Perl根据操作符来确定你需要的是数字还是字符串。如操作符（比如+号）需要的是数字，Perl会将操作<br>数视为数字；在操作符（比如.）需要字符串时，Perl便会将数视为字符串。<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="comment">#Todo: concatenation operator</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="keyword">printf</span> <span class="string">"5*4.8\n"</span>;</span><br><span class="line"><span class="keyword">printf</span> <span class="number">5</span> * <span class="number">4.8</span> . <span class="string">"\n"</span>;</span><br><span class="line"><span class="keyword">printf</span> <span class="number">5</span> <span class="keyword">x</span> <span class="number">4.8</span> . <span class="string">"\n"</span>;</span><br><span class="line"><span class="keyword">printf</span> <span class="string">"z"</span> . <span class="number">5</span>*<span class="number">7</span> . <span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="variable">@Mo</span> arvon_perl]<span class="comment"># perl string_repetition </span></span><br><span class="line"><span class="number">5</span>*<span class="number">4.8</span></span><br><span class="line"><span class="number">24</span></span><br><span class="line"><span class="number">5555</span></span><br><span class="line">z35</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Perl的内置警告信息">Perl的内置警告信息</h3><ul>
+<li><p>从Perl的5.6版本开始，可以通过编译指令开启警告功能</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> warnings;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>也可以在命令行上使用-w选项对要运行的程序开启警告功能</p>
+<blockquote>
+<p>$ perl -w program.pl</p>
+</blockquote>
+</li>
+<li><p>还可以在shebang行上指定命令行选项</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl -w</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果看不懂某个警告信息，可以利用diagnostics这个编译命令报告更为详尽的问题描述。在perdiag文档<br>中列有简要警告信息和详细诊断说明，该文档时理解diagnostics输出信息的最佳参考：</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> diagnostics;	<span class="comment">#会使程序变慢，如果熟悉，尽量不使用</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="标量变量">标量变量</h3><ul>
+<li>变量（variable）就是存储一个或多个值的容器的名称。而标量变量就是单单存储一个值的变量。变量的<br>名称在整个程序中保持不变，但它所持有的值是可以在程序运行时不断修改变化的。</li>
+<li>标量变量存储的是单个标量值。标量变量的名称是以$开头的，这个符号也称为魔符（sigil），然后是变<br>量Perl的标识符：由一个字母或下划线开头，后接多个字母、数字、下划线。标识符是区分大小写的：$Fred<br>和$fred是完全不同的变量。<blockquote>
+<p>$name<br>$Name<br>$NAME<br>$a_very_long_variable_that_ends_in_i</p>
+</blockquote>
+</li>
+<li>Perl通过变量标识符的魔符来区分它是什么类型的变量。所以不管取什么名字，都不会和Perl自带的函数<br>或操作符的写法相冲突。$的确切意思是“取单个东西”或者“取标量”。</li>
+<li>给变量取个好名字，例如：$my_name or $myName</li>
+</ul>
+<h3 id="标量的赋值（assignment）">标量的赋值（assignment）</h3><ul>
+<li>和其他程序语言差不多，Perl的赋值操作符为等号，等号的左边是变量名称，右边为某个表达式。<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$fred</span> = <span class="number">17</span>;</span><br><span class="line"><span class="variable">$barney</span> = <span class="string">'hello'</span>;</span><br><span class="line"><span class="variable">$barney</span> = <span class="variable">$fred</span>+<span class="number">3</span>;</span><br><span class="line"><span class="variable">$barney</span> = <span class="variable">$barney</span>*<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="双目赋值的操作符">双目赋值的操作符</h4><ul>
+<li><p>例子一</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$fred</span> = <span class="variable">$fred</span> + <span class="number">5</span>;	<span class="comment">#相当于$fred += 5;</span></span><br><span class="line"><span class="variable">$barney</span> = <span class="variable">$barney</span> * <span class="number">3</span>;	<span class="comment">#相当于$barney *= 3;</span></span><br><span class="line"><span class="variable">$str</span> = <span class="variable">$str</span>. <span class="string">" "</span>;	<span class="comment">#相当于$str .= "";</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>例子二</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="variable">$fred</span> = <span class="number">1</span>;</span><br><span class="line"><span class="variable">$fred</span> = <span class="variable">$fred</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">printf</span> <span class="string">"now + 5 fred is "</span> . <span class="variable">$fred</span> . <span class="string">"\n"</span>;</span><br><span class="line"><span class="variable">$fred</span> += <span class="number">2</span>;</span><br><span class="line"><span class="keyword">printf</span> <span class="string">"then + 2 fred is "</span> . <span class="variable">$fred</span> . <span class="string">"\n"</span>;</span><br><span class="line"><span class="variable">$str</span> = <span class="string">'hello'</span>;</span><br><span class="line"><span class="variable">$str</span> = <span class="variable">$str</span> . <span class="string">" "</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"the string \$str is "</span> . <span class="variable">$str</span> . <span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">root<span class="variable">@Mo</span> arvon_perl]<span class="comment"># perl double.pl </span></span><br><span class="line">now + <span class="number">5</span> fred is <span class="number">6</span></span><br><span class="line">then + <span class="number">2</span> fred is <span class="number">8</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符串中的标量变量内插</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="variable">$meal</span> = <span class="string">"love"</span>;</span><br><span class="line"><span class="variable">$things</span> = <span class="string">"arvon <span class="variable">$meal</span> mo"</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"<span class="variable">$things</span>\n"</span>;</span><br><span class="line"><span class="variable">$newThings</span> = <span class="string">' arvon '</span> . <span class="variable">$meal</span> . <span class="string">' mo'</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">'now the $newThings is'</span> . <span class="variable">$newThings</span> . <span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">###Output[root@Mo arvon_perl]# perl varInsert.pl </span></span><br><span class="line">arvon love mo</span><br><span class="line">now the <span class="variable">$newThings</span> is arvon love mo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果变量从未被赋值过，就会用空字符串来替换</p>
+</li>
+<li><p>如果只是打印这个变量值，则不必使用变量内插的方式：</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> <span class="string">"<span class="variable">$fred</span>"</span>；</span><br><span class="line"><span class="keyword">print</span> <span class="variable">$fred</span>；	<span class="comment">#用这个比较好</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以直接键入一些字符的代码点(code point)，再通过chr（）函数转换成对应字符,反过来我们可以通过<br>ord（）函数把字符转换为代码点</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$alef</span> = <span class="keyword">chr</span>( <span class="number">0x05D</span>o ）；</span><br><span class="line"><span class="variable">$codePoint</span> = <span class="keyword">ord</span>(<span class="string">'?'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="操作符的优先级与结合性">操作符的优先级与结合性</h3><ul>
+<li>在复杂的表达式里，先执行哪个操作再执行哪个操作，取决于操作符的优先级。在Perl里乘法的优先级高于<br>加法，可以使用括号改变执行的优先级</li>
+<li>当两个优先级相同的操作符抢着使用三个操作数时，优先级便交由结合性解决：<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> ** <span class="number">3</span> ** <span class="number">2</span> <span class="comment">#4 ** (3 ** 2),得4 ** 9，向右结合</span></span><br><span class="line"><span class="number">72</span> / <span class="number">12</span> / <span class="number">3</span><span class="comment">#(72 / 12） / 3,得6 / 3，向左结合</span></span><br><span class="line"><span class="number">36</span> / <span class="number">6</span> * <span class="number">3</span>	<span class="comment">#(36 / 6) * 3</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="比较操作符">比较操作符</h3><ul>
+<li>perl的比较操作符类似于代数系统：&lt;,&lt;=,==,&gt;=,&gt;,!=。这些操作符的返回值要么是true要么是false。</li>
+<li>字符串比较时，使用lt、le、eq、ge、gt、ne。<code>注意:</code>字符在ASCII编码中的顺序并不总是对应于字<br>符本身意义上的顺序。</li>
+</ul>
+<h2 id="控制结构">控制结构</h2><h3 id="if控制结构">if控制结构</h3><h4 id="例子">例子</h4><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="comment">#$name = 'fred';</span></span><br><span class="line"><span class="variable">$name</span> = <span class="string">'Nfred'</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$name</span> eq <span class="string">"fred"</span>)&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"'<span class="variable">$name</span>' is 'fred' in\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"'<span class="variable">$name</span>' is not 'fred' is <span class="variable">$name</span>\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="布尔值">布尔值</h4><ul>
+<li><p>任何标量值都可以成为if控制结构里的判断条件。如果把表达式返回的真假值保存到变量中，那在判断时可以<br>直接检查该变量的值，读起来也方便：</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="comment">#$name = 'fred';</span></span><br><span class="line"><span class="variable">$name</span> = <span class="string">'Nfred'</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$name</span> eq <span class="string">"fred"</span>)&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"'<span class="variable">$name</span>' is 'fred' in\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"'<span class="variable">$name</span>' is not 'fred' is <span class="variable">$name</span>\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="variable">@Mo</span> arvon_perl]<span class="comment"># perl Boolean_value.pl </span></span><br><span class="line">hello, world</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Perl和其他语言不同，Perl并没有专用的“布尔（boolean）”数据类型，它是靠一些简单的规则来判断的：</p>
+<blockquote>
+<ul>
+<li>如果是数字，0为假，所有其他数字都为真</li>
+<li>如果是字符串，空字符串（’’)为假；所有其他字符串为真。</li>
+<li>如果既不是数字也不是字符串，那就先转换成数字或字符串再进行判断。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="获取用户输入">获取用户输入</h3><ul>
+<li>用户输入的例子<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Input something please: "</span>;</span><br><span class="line"><span class="variable">$line</span> = &lt;STDIN&gt;;</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$line</span> eq <span class="string">"\n"</span>)&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"That was just a blank line!\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"That line of input was: <span class="variable">$line</span>"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="variable">@Mo</span> arvon_perl]<span class="comment"># perl stdin01.pl </span></span><br><span class="line">Input something please: </span><br><span class="line">That was just a blank line!</span><br><span class="line">[root<span class="variable">@Mo</span> arvon_perl]<span class="comment"># perl stdin01.pl ]</span></span><br><span class="line">Input something please: hello</span><br><span class="line">That line of input was: hello</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="chomp操作符">chomp操作符</h3><ul>
+<li><p>chomp（）操作符只能用于单个变量，且该变量的内容必须为字符串，如果该字符串的末尾是换行符，chomp（）<br>的任务就是去掉它。</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="variable">$text</span> = <span class="string">"a line of text\n"</span>;     <span class="comment">#or input by &lt;STDIN&gt;</span></span><br><span class="line"><span class="keyword">chomp</span>(<span class="variable">$text</span>);   <span class="comment">#remove the \n</span></span><br><span class="line"><span class="keyword">print</span> <span class="variable">$text</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="variable">@Mo</span> arvon_perl]<span class="comment"># perl chompTraining.pl </span></span><br><span class="line">a line of text[root<span class="variable">@Mo</span> arvon_perl]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>处理字符串变量</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">chomp</span>(<span class="variable">$text</span> = &lt;STDIN&gt;); <span class="comment">#读入文字，略过最后的换行符</span></span><br><span class="line"><span class="comment">#$text = &lt;STDIN&gt;;       #等同于上面的写法</span></span><br><span class="line"><span class="comment">#chomp($text):</span></span><br><span class="line"><span class="keyword">print</span> <span class="variable">$text</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="variable">@Mo</span> arvon_perl]<span class="comment"># perl chompTraining02.pl </span></span><br><span class="line">hello,world</span><br><span class="line">hello,world[root<span class="variable">@Mo</span> arvon_perl]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="while控制结构">while控制结构</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="variable">$count</span> = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (<span class="variable">$count</span> &lt;  <span class="number">10</span>)&#123;</span><br><span class="line">    <span class="variable">$count</span> += <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Now the number is <span class="variable">$count</span>\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="variable">@Mo</span> arvon_perl]<span class="comment"># perl whileCount.pl </span></span><br><span class="line">Now the number is <span class="number">2</span></span><br><span class="line">Now the number is <span class="number">4</span></span><br><span class="line">Now the number is <span class="number">6</span></span><br><span class="line">Now the number is <span class="number">8</span></span><br><span class="line">Now the number is <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<h3 id="undef值">undef值</h3><ul>
+<li>我们未赋值时就用到了某个不存在标量变量，并不会让程序停止运行，当成数字使用，它会表现的像0；当<br>做字符串使用，它会表现的像空字符串。<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="comment">#累加奇数</span></span><br><span class="line"><span class="variable">$n</span> = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (<span class="variable">$n</span> &lt; <span class="number">10</span>)&#123;</span><br><span class="line">    <span class="variable">$sum</span> += <span class="variable">$n</span>;</span><br><span class="line">    <span class="variable">$n</span> += <span class="number">2</span>;<span class="comment">#准备奇数</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"The total was <span class="variable">$sum</span>.\n"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="variable">@Mo</span> arvon_perl]<span class="comment"># perl accumulation.pl </span></span><br><span class="line">The total was <span class="number">25</span>.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="definded函数">definded函数</h3><ul>
+<li>行输入操作符<stdin>有时候会返回undef。要判断某个字符串是undef而不是空字符串，可以使用defined<br>函数。如果是undef，该函数返回假，否则返回真：<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="variable">$madonna</span> = &lt;STDIN&gt;;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">defined</span>(<span class="variable">$madonna</span>))&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"The input was <span class="variable">$madonna</span>"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"No input available\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#$madonna = undef;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="variable">@Mo</span> arvon_perl]<span class="comment"># perl undef01.pl </span></span><br><span class="line">No input available</span><br><span class="line">[root<span class="variable">@Mo</span> arvon_perl]<span class="comment"># perl undef01.pl </span></span><br><span class="line">Mo</span><br><span class="line">The input was Mo</span><br><span class="line">[root<span class="variable">@Mo</span> arvon_perl]<span class="comment"># perl undef01.pl </span></span><br><span class="line"></span><br><span class="line">The input was</span><br></pre></td></tr></table></figure>
+</stdin></li>
+</ul>
+<h2 id="#">#</h2>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Perl/">Perl</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/08/10/Prel语言入门读书笔记/" data-title="Perl语言入门(第六版)读书笔记 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/08/12/Perl语言入门（6th）课后习题/" title="Perl语言入门（6th）课后习题">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Perl语言入门（6th）课后习题</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/08/07/Linux挂载LVM分区/"  title="Linux挂载LVM分区">
+ <strong>下一篇：</strong><br/> 
+ <span>Linux挂载LVM分区
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言杂记"><span class="toc-number">1.</span> <span class="toc-text">前言杂记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标量数据"><span class="toc-number">2.</span> <span class="toc-text">标量数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数字"><span class="toc-number">2.1.</span> <span class="toc-text">数字</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#所有数字的内部格式都相同"><span class="toc-number">2.1.1.</span> <span class="toc-text">所有数字的内部格式都相同</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浮点数直接量"><span class="toc-number">2.1.2.</span> <span class="toc-text">浮点数直接量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#整数直接量"><span class="toc-number">2.1.3.</span> <span class="toc-text">整数直接量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#非十进制的整数直接量"><span class="toc-number">2.1.4.</span> <span class="toc-text">非十进制的整数直接量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数字操作符"><span class="toc-number">2.1.5.</span> <span class="toc-text">数字操作符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串"><span class="toc-number">2.2.</span> <span class="toc-text">字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#单引号内的字符串直接量"><span class="toc-number">2.2.1.</span> <span class="toc-text">单引号内的字符串直接量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#双引号内的字符串直接量"><span class="toc-number">2.2.2.</span> <span class="toc-text">双引号内的字符串直接量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串操作符"><span class="toc-number">2.2.3.</span> <span class="toc-text">字符串操作符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数字与字符串之间的自动转换"><span class="toc-number">2.2.4.</span> <span class="toc-text">数字与字符串之间的自动转换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perl的内置警告信息"><span class="toc-number">2.3.</span> <span class="toc-text">Perl的内置警告信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标量变量"><span class="toc-number">2.4.</span> <span class="toc-text">标量变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标量的赋值（assignment）"><span class="toc-number">2.5.</span> <span class="toc-text">标量的赋值（assignment）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#双目赋值的操作符"><span class="toc-number">2.5.1.</span> <span class="toc-text">双目赋值的操作符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作符的优先级与结合性"><span class="toc-number">2.6.</span> <span class="toc-text">操作符的优先级与结合性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较操作符"><span class="toc-number">2.7.</span> <span class="toc-text">比较操作符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#控制结构"><span class="toc-number">3.</span> <span class="toc-text">控制结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#if控制结构"><span class="toc-number">3.1.</span> <span class="toc-text">if控制结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例子"><span class="toc-number">3.1.1.</span> <span class="toc-text">例子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#布尔值"><span class="toc-number">3.1.2.</span> <span class="toc-text">布尔值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取用户输入"><span class="toc-number">3.2.</span> <span class="toc-text">获取用户输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chomp操作符"><span class="toc-number">3.3.</span> <span class="toc-text">chomp操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#while控制结构"><span class="toc-number">3.4.</span> <span class="toc-text">while控制结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undef值"><span class="toc-number">3.5.</span> <span class="toc-text">undef值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#definded函数"><span class="toc-number">3.6.</span> <span class="toc-text">definded函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="##"><span class="toc-number">4.</span> <span class="toc-text">#</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Blog/" title="Blog">Blog<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ansible/" title="ansible">ansible<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Salt/" title="Salt">Salt<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/awk/" title="awk">awk<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tmux/" title="Tmux">Tmux<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/skills/" title="skills">skills<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Perl/" title="Perl">Perl<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Pikachu/" title="Pikachu">Pikachu<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/LVM/" title="LVM">LVM<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/FTP/" title="FTP">FTP<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> My name I have forgot. <br/>
+			Her name is Pikachu.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Arvon">Arvon</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
