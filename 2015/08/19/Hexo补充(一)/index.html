@@ -4,29 +4,32 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Perl语言入门（6th）课后习题 | Arvon&#39;s Blog</title>
+    <title>Hexo补充（一） | Arvon&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Arvon">
     
 
     
-    <meta name="description" content="个人感觉课后习题单独分出来比较方便，这里有可能的话会多放些例子，ok，go
-Chapter one
-计算半径为12.5的园的周长，可自行输入，小于0输出为012345#!/usr/bin/perlprint &quot;Please input a number: &quot;;$inputNumber = &amp;lt;STDIN&amp;gt;;$perimeter = $inputNumber * 2 * 3.14;prin">
+    <meta name="description" content="Question：如何设置首页的卡片摘要效果Answer:将_config.yml文件中的index：下的expand设置为false，然后在文中添加&amp;lt;!—more—&amp;gt;字段来截取摘要
+
+Question:出现了很大的问题，描述：本人准备做一个看起来很厉害的简历，but我按教程做的结果是hexo反复报错报错如下
+1234567891011121314151617181920FATAL S">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Perl语言入门（6th）课后习题">
-<meta property="og:url" content="http://yoursite.com/2015/08/12/Perl语言入门（6th）课后习题/index.html">
+<meta property="og:title" content="Hexo补充（一）">
+<meta property="og:url" content="http://yoursite.com/2015/08/19/Hexo补充(一)/index.html">
 <meta property="og:site_name" content="Arvon's Blog">
-<meta property="og:description" content="个人感觉课后习题单独分出来比较方便，这里有可能的话会多放些例子，ok，go
-Chapter one
-计算半径为12.5的园的周长，可自行输入，小于0输出为012345#!/usr/bin/perlprint &quot;Please input a number: &quot;;$inputNumber = &amp;lt;STDIN&amp;gt;;$perimeter = $inputNumber * 2 * 3.14;prin">
-<meta property="og:updated_time" content="2015-08-12T10:59:51.994Z">
+<meta property="og:description" content="Question：如何设置首页的卡片摘要效果Answer:将_config.yml文件中的index：下的expand设置为false，然后在文中添加&amp;lt;!—more—&amp;gt;字段来截取摘要
+
+Question:出现了很大的问题，描述：本人准备做一个看起来很厉害的简历，but我按教程做的结果是hexo反复报错报错如下
+1234567891011121314151617181920FATAL S">
+<meta property="og:updated_time" content="2015-08-19T07:22:33.328Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Perl语言入门（6th）课后习题">
-<meta name="twitter:description" content="个人感觉课后习题单独分出来比较方便，这里有可能的话会多放些例子，ok，go
-Chapter one
-计算半径为12.5的园的周长，可自行输入，小于0输出为012345#!/usr/bin/perlprint &quot;Please input a number: &quot;;$inputNumber = &amp;lt;STDIN&amp;gt;;$perimeter = $inputNumber * 2 * 3.14;prin">
+<meta name="twitter:title" content="Hexo补充（一）">
+<meta name="twitter:description" content="Question：如何设置首页的卡片摘要效果Answer:将_config.yml文件中的index：下的expand设置为false，然后在文中添加&amp;lt;!—more—&amp;gt;字段来截取摘要
+
+Question:出现了很大的问题，描述：本人准备做一个看起来很厉害的简历，but我按教程做的结果是hexo反复报错报错如下
+1234567891011121314151617181920FATAL S">
 
     
     
@@ -80,14 +83,14 @@ Chapter one
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/12/Perl语言入门（6th）课后习题/" title="Perl语言入门（6th）课后习题" itemprop="url">Perl语言入门（6th）课后习题</a>
+      <a href="/2015/08/19/Hexo补充(一)/" title="Hexo补充（一）" itemprop="url">Hexo补充（一）</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-12T08:00:21.000Z" itemprop="datePublished"> 发表于 2015-08-12</time>
+    <time datetime="2015-08-19T03:13:57.000Z" itemprop="datePublished"> 发表于 2015-08-19</time>
     
   </p>
 </header>
@@ -96,15 +99,18 @@ Chapter one
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_one"><span class="toc-number">1.</span> <span class="toc-text">Chapter one</span></a></li></ol>
+			
 		
 		</div>
 		
-		<p>个人感觉课后习题单独分出来比较方便，这里有可能的话会多放些例子，ok，go</p>
-<h3 id="Chapter_one">Chapter one</h3><ol>
-<li>计算半径为12.5的园的周长，可自行输入，小于0输出为0<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Please input a number: "</span>;</span><br><span class="line"><span class="variable">$inputNumber</span> = &lt;STDIN&gt;;</span><br><span class="line"><span class="variable">$perimeter</span> = <span class="variable">$inputNumber</span> * <span class="number">2</span> * <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"The perimeter is <span class="variable">$perimeter</span>\n"</span>;</span><br></pre></td></tr></table></figure>
+		<ol>
+<li><p><strong>Question：</strong>如何设置首页的卡片摘要效果<br><code>Answer:</code>将_config.yml文件中的index：下的expand设置为false，然后在文中添加&lt;!—more—&gt;字段来截取摘要</p>
+</li>
+<li><p><strong>Question:</strong>出现了很大的问题，描述：本人准备做一个看起来很厉害的简历，but我按教程做的结果是hexo反复报错报错如下</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something<span class="string">'s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span><br><span class="line">Error: expected end of comment, got end of file</span><br><span class="line">    at Tokenizer.nextToken (/home/fenghao/blog/node_modules/hexo/node_modules/nunjucks/src/lexer.js:282:23)</span><br><span class="line">    at Object.extend.nextToken (/home/fenghao/blog/node_modules/hexo/node_modules/nunjucks/src/parser.js:32:27)</span><br><span class="line">    at Object.extend.peekToken (/home/fenghao/blog/node_modules/hexo/node_modules/nunjucks/src/parser.js:44:43)</span><br><span class="line">    at Object.extend.parseNodes (/home/fenghao/blog/node_modules/hexo/node_modules/nunjucks/src/parser.js:1124:38)</span><br><span class="line">    at Object.extend.parseAsRoot (/home/fenghao/blog/node_modules/hexo/node_modules/nunjucks/src/parser.js:1177:42)</span><br><span class="line">    at Object.module.exports.parse (/home/fenghao/blog/node_modules/hexo/node_modules/nunjucks/src/parser.js:1199:18)</span><br><span class="line">    at Object.module.exports.compile (/home/fenghao/blog/node_modules/hexo/node_modules/nunjucks/src/compiler.js:1118:48)</span><br><span class="line">    at Obj.extend._compile (/home/fenghao/blog/node_modules/hexo/node_modules/nunjucks/src/environment.js:444:35)</span><br><span class="line">    at Obj.extend.compile (/home/fenghao/blog/node_modules/hexo/node_modules/nunjucks/src/environment.js:433:18)</span><br><span class="line">    at null.&lt;anonymous&gt; (/home/fenghao/blog/node_modules/hexo/node_modules/nunjucks/src/environment.js:378:22)</span><br><span class="line">    at Object.exports.withPrettyErrors (/home/fenghao/blog/node_modules/hexo/node_modules/nunjucks/src/lib.js:24:16)</span><br><span class="line">    at Obj.extend.render (/home/fenghao/blog/node_modules/hexo/node_modules/nunjucks/src/environment.js:374:20)</span><br><span class="line">    at Obj.extend.renderString (/home/fenghao/blog/node_modules/hexo/node_modules/nunjucks/src/environment.js:261:21)</span><br><span class="line">    at /home/fenghao/blog/node_modules/hexo/lib/extend/tag.js:56:9</span><br><span class="line">    at tryCatcher (/home/fenghao/blog/node_modules/hexo/node_modules/bluebird/js/main/util.js:24:31)</span><br><span class="line">    at Promise._resolveFromResolver (/home/fenghao/blog/node_modules/hexo/node_modules/bluebird/js/main/promise.js:427:31)</span><br><span class="line">    at new Promise (/home/fenghao/blog/node_modules/hexo/node_modules/bluebird/js/main/promise.js:53:37)</span><br><span class="line">    at Tag.render (/home/fenghao/blog/node_modules/hexo/lib/extend/tag.js:55:10)</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<p>诸如此类报错，还原之前备份后再倒入md文件，问题依旧，也怪自己没想法，本该料到是markdown文件出错了的，ba~la~ba~la,最后还是google拯救了我，不得不吐槽一下某度，真不是东西，屁都查不出来、、、<br><code>解决方法</code>只要将一个markdown文件中的内容去掉以后就好了，好像是#的问题，真是邪了门了，我都打不出来，只能嵌在代码里了。他们讲版本2.8.3没有这个问题。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“Error $&#123;<span class="comment">#v0&#125; $&#123;#v1&#125;”</span></span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -113,7 +119,7 @@ Chapter one
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Perl/">Perl</a>
+  <span></span> <a href="/tags/Hexo/">Hexo</a>
   </div>
 
 </div>
@@ -122,7 +128,7 @@ Chapter one
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/08/12/Perl语言入门（6th）课后习题/" data-title="Perl语言入门（6th）课后习题 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/08/19/Hexo补充(一)/" data-title="Hexo补充（一） | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -136,18 +142,18 @@ Chapter one
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/08/17/Perl语言入门（二）/" title="Perl语言入门（二）">
+ <a href="/2015/08/19/pandoc使用简记/" title="pandoc使用简记">
   <strong>上一篇：</strong><br/>
   <span>
-  Perl语言入门（二）</span>
+  pandoc使用简记</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/08/10/Prel语言入门读书笔记/"  title="Perl语言入门（一）">
+<a href="/2015/08/17/Perl语言入门（二）/"  title="Perl语言入门（二）">
  <strong>下一篇：</strong><br/> 
- <span>Perl语言入门（一）
+ <span>Perl语言入门（二）
 </span>
 </a>
 </div>
@@ -162,7 +168,7 @@ Chapter one
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_one"><span class="toc-number">1.</span> <span class="toc-text">Chapter one</span></a></li></ol>
+ 
  
   </div>
 

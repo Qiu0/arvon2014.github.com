@@ -4,29 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Perl语言入门（6th）课后习题 | Arvon&#39;s Blog</title>
+    <title>pandoc使用简记 | Arvon&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Arvon">
     
 
     
-    <meta name="description" content="个人感觉课后习题单独分出来比较方便，这里有可能的话会多放些例子，ok，go
-Chapter one
-计算半径为12.5的园的周长，可自行输入，小于0输出为012345#!/usr/bin/perlprint &quot;Please input a number: &quot;;$inputNumber = &amp;lt;STDIN&amp;gt;;$perimeter = $inputNumber * 2 * 3.14;prin">
+    <meta name="description" content="简介：Pandoc是由John MacFarlane开发的标记语言转换工具，可实现不同标记语言间的格式转换，堪称该领域中的“瑞士军刀”。Pandoc使用Haskell语言编写，以命令行形式实现与用户的交互，可支持多种操作系统；Pandoc采用GNU GPL授权协议发布，属于自由软件。
+缘由
+Why我想起来看这个玩意实际上是看到了jack的的resume实在是亮，所以也很想跟风做个，然后就有了这个记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Perl语言入门（6th）课后习题">
-<meta property="og:url" content="http://yoursite.com/2015/08/12/Perl语言入门（6th）课后习题/index.html">
+<meta property="og:title" content="pandoc使用简记">
+<meta property="og:url" content="http://yoursite.com/2015/08/19/pandoc使用简记/index.html">
 <meta property="og:site_name" content="Arvon's Blog">
-<meta property="og:description" content="个人感觉课后习题单独分出来比较方便，这里有可能的话会多放些例子，ok，go
-Chapter one
-计算半径为12.5的园的周长，可自行输入，小于0输出为012345#!/usr/bin/perlprint &quot;Please input a number: &quot;;$inputNumber = &amp;lt;STDIN&amp;gt;;$perimeter = $inputNumber * 2 * 3.14;prin">
-<meta property="og:updated_time" content="2015-08-12T10:59:51.994Z">
+<meta property="og:description" content="简介：Pandoc是由John MacFarlane开发的标记语言转换工具，可实现不同标记语言间的格式转换，堪称该领域中的“瑞士军刀”。Pandoc使用Haskell语言编写，以命令行形式实现与用户的交互，可支持多种操作系统；Pandoc采用GNU GPL授权协议发布，属于自由软件。
+缘由
+Why我想起来看这个玩意实际上是看到了jack的的resume实在是亮，所以也很想跟风做个，然后就有了这个记">
+<meta property="og:updated_time" content="2015-08-19T05:47:41.587Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Perl语言入门（6th）课后习题">
-<meta name="twitter:description" content="个人感觉课后习题单独分出来比较方便，这里有可能的话会多放些例子，ok，go
-Chapter one
-计算半径为12.5的园的周长，可自行输入，小于0输出为012345#!/usr/bin/perlprint &quot;Please input a number: &quot;;$inputNumber = &amp;lt;STDIN&amp;gt;;$perimeter = $inputNumber * 2 * 3.14;prin">
+<meta name="twitter:title" content="pandoc使用简记">
+<meta name="twitter:description" content="简介：Pandoc是由John MacFarlane开发的标记语言转换工具，可实现不同标记语言间的格式转换，堪称该领域中的“瑞士军刀”。Pandoc使用Haskell语言编写，以命令行形式实现与用户的交互，可支持多种操作系统；Pandoc采用GNU GPL授权协议发布，属于自由软件。
+缘由
+Why我想起来看这个玩意实际上是看到了jack的的resume实在是亮，所以也很想跟风做个，然后就有了这个记">
 
     
     
@@ -80,14 +80,14 @@ Chapter one
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/12/Perl语言入门（6th）课后习题/" title="Perl语言入门（6th）课后习题" itemprop="url">Perl语言入门（6th）课后习题</a>
+      <a href="/2015/08/19/pandoc使用简记/" title="pandoc使用简记" itemprop="url">pandoc使用简记</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-12T08:00:21.000Z" itemprop="datePublished"> 发表于 2015-08-12</time>
+    <time datetime="2015-08-19T03:32:17.000Z" itemprop="datePublished"> 发表于 2015-08-19</time>
     
   </p>
 </header>
@@ -96,15 +96,26 @@ Chapter one
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_one"><span class="toc-number">1.</span> <span class="toc-text">Chapter one</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#缘由"><span class="toc-number">1.</span> <span class="toc-text">缘由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始配置吧"><span class="toc-number">2.</span> <span class="toc-text">开始配置吧</span></a></li></ol>
 		
 		</div>
 		
-		<p>个人感觉课后习题单独分出来比较方便，这里有可能的话会多放些例子，ok，go</p>
-<h3 id="Chapter_one">Chapter one</h3><ol>
-<li>计算半径为12.5的园的周长，可自行输入，小于0输出为0<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Please input a number: "</span>;</span><br><span class="line"><span class="variable">$inputNumber</span> = &lt;STDIN&gt;;</span><br><span class="line"><span class="variable">$perimeter</span> = <span class="variable">$inputNumber</span> * <span class="number">2</span> * <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"The perimeter is <span class="variable">$perimeter</span>\n"</span>;</span><br></pre></td></tr></table></figure>
+		<p><strong>简介：</strong>Pandoc是由John MacFarlane开发的标记语言转换工具，可实现不同标记语言间的格式转换，堪称该领域中的“瑞士军刀”。Pandoc使用Haskell语言编写，以命令行形式实现与用户的交互，可支持多种操作系统；Pandoc采用GNU GPL授权协议发布，属于自由软件。</p>
+<h3 id="缘由">缘由</h3><ul>
+<li><p>Why我想起来看这个玩意<br>实际上是看到了jack的的resume实在是亮，所以也很想跟风做个，然后就有了这个记录。嗯，就是这样的。</p>
 </li>
-</ol>
+<li><p>Why用了Pandoc<br>传说Markdown+Pandoc可以把自己写作的内容，变成世界上已有的任何格式的文件，包括我不懂但是很炫的slide、html5。反正先学一下Pandoc吧，谁让我已经喜欢上了Markdown呢</p>
+</li>
+</ul>
+<h3 id="开始配置吧">开始配置吧</h3><ul>
+<li><p>话不多说，下载软件吧<br>选择适合自己系统的版本:[戳我戳我][1]</p>
+</li>
+<li><p>安装，傻瓜安装一直下一步，这就是我们牛逼的win</p>
+</li>
+<li><p>然后就是转换了。。but换台了</p>
+</li>
+</ul>
+<p>[1]： <a href="https://github.com/jgm/pandoc/releases/tag/1.15.0.6" target="_blank" rel="external">https://github.com/jgm/pandoc/releases/tag/1.15.0.6</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -113,7 +124,7 @@ Chapter one
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Perl/">Perl</a>
+  <span></span> <a href="/tags/pandoc/">pandoc</a>
   </div>
 
 </div>
@@ -122,7 +133,7 @@ Chapter one
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/08/12/Perl语言入门（6th）课后习题/" data-title="Perl语言入门（6th）课后习题 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/08/19/pandoc使用简记/" data-title="pandoc使用简记 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -136,18 +147,18 @@ Chapter one
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/08/17/Perl语言入门（二）/" title="Perl语言入门（二）">
+ <a href="/2015/08/19/resume/" title="resume">
   <strong>上一篇：</strong><br/>
   <span>
-  Perl语言入门（二）</span>
+  resume</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/08/10/Prel语言入门读书笔记/"  title="Perl语言入门（一）">
+<a href="/2015/08/19/Hexo补充(一)/"  title="Hexo补充（一）">
  <strong>下一篇：</strong><br/> 
- <span>Perl语言入门（一）
+ <span>Hexo补充（一）
 </span>
 </a>
 </div>
@@ -162,7 +173,7 @@ Chapter one
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_one"><span class="toc-number">1.</span> <span class="toc-text">Chapter one</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#缘由"><span class="toc-number">1.</span> <span class="toc-text">缘由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始配置吧"><span class="toc-number">2.</span> <span class="toc-text">开始配置吧</span></a></li></ol>
  
   </div>
 

@@ -69,979 +69,266 @@
     <div id="container">
       <div id="main">
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/07/28/Linux下搭建vsftp服务器/" title="Linux下搭建VSFTP服务器" itemprop="url">Linux下搭建VSFTP服务器</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-28T07:04:06.000Z" itemprop="datePublished"> 发表于 2015-07-28</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><strong>简介：</strong>VSFTP（Very Secure FTP）是一个基于GPL发布的类Unix系统上使用的FTP服务器软件，设计者的初衷是代码的安全，<br>另外速度在使用ASCII代码的模式下在数据时，VSFTP的速度为Wu-FTp的两倍，如果Linux主机使用2.4.x的内核，在千兆以太网的<br>下的下载速度可以达到86MB/S。而且很稳定，在单机上支持4000以上的并发用户同时连接，根据RedHat和Ftp服务器的数据，VSFTP<br>服务器可以支持15000个并发用户</p>
-<h1 id="搭建VSFTP">搭建VSFTP</h1><h2 id="VSFTP的优缺点">VSFTP的优缺点</h2><h3 id="VSFTP的优点">VSFTP的优点</h3><ol>
-<li>它是一个安全、高速、稳定的FTP服务器；</li>
-<li>它可以做基于多个IP的虚拟FTP主机服务器；</li>
-<li>匿名服务设置十分方便；</li>
-<li>匿名FTP的根目录不需要任何特殊的目录结构，或系统程序或其它的系统文件；</li>
-<li>不执行任何外部程序，从而减少了安全隐患；</li>
-<li>支持虚拟用户，并且每个虚拟用户可以具有独立的属性配置；</li>
-<li>可以设置从inetd中启动，或者独立的FTP服务器两种运行方式；</li>
-<li>支持两种认证方式（PAP或xinetd/ tcp_wrappers）；</li>
-<li>支持带宽限制；<br>VSFTP市场应用十分广范，很多国际性的大公司和自由开源组织在使用，如：Red Hat, Suse，Debian，OpenBSD</li>
-</ol>
-<h3 id="VSFTP的缺点">VSFTP的缺点</h3><ol>
-<li>VSFTP从没有处理文件编码转换的windows客户端访问时有乱码现象</li>
-<li>解决方法：<ul>
-<li>使用vsftp的补丁</li>
-<li>转换服务器目录文件编码</li>
-</ul>
-</li>
-</ol>
-<h2 id="环境">环境</h2><ul>
-<li>CentOS release 6.6</li>
-</ul>
-<h2 id="搭建步骤">搭建步骤</h2><h3 id="安装VSFTP">安装VSFTP</h3><ol>
-<li><p>检查是否已安装vsftp服务</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Mo ~]# rpm -q vsftpd&#10;package vsftpd is not installed</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装vsftp服务</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Mo ~]# yum install -y vsftpd db4-utils&#9;#&#23433;&#35013;vsftpd&#26381;&#21153;&#10;[root@Mo ~]# rpm -q vsftpd &#9;&#9;#vsftpd&#26381;&#21153;&#24050;&#23433;&#35013;&#10;vsftpd-2.2.2-13.el6_6.1.x86_64&#10;&#10;[root@Mo vsftp]# yum install lrzsz&#9;&#9;#&#23433;&#35013;&#21518;&#21487;&#20197;&#25226;windows&#30340;&#25991;&#20214;&#30452;&#25509;&#36890;&#36807;xshell&#25289;&#21040;&#30446;&#26631;&#20027;&#26426;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>vsftp配置文件</p>
-<ul>
-<li>官方wiki有处理脚本：<a href="http://wiki.centos.org/HowTos/Chroot_Vsftpd_with_non-system_users" target="_blank" rel="external">脚本地址</a></li>
-<li>将脚本放至linux主机，然后执行该脚本</li>
-</ul>
-</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
   
-  <span></span> <a href="/tags/FTP/">FTP</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/07/27/Linux系统命令（一）/" title="Linux系统命令（一）" itemprop="url">Linux系统命令（一）</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-27T02:49:08.000Z" itemprop="datePublished"> 发表于 2015-07-27</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><strong>Command Include：</strong>disk、memory、hostname、find</p>
-<h3 id="查看磁盘空间">查看磁盘空间</h3><ul>
-<li><p>常用命令<br>df -hl 查看磁盘剩余空间<br>df -h 查看每个根路径的分区大小<br>du -sh [目录名] 返回该目录的大小<br>du -sm [文件夹] 返回该文件夹总M数</p>
-</li>
-<li><p>命令演示</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# cat /proc/cpuinfo&#9;#&#26597;&#30475;cpu&#30340;&#26680;&#24515;&#25968;&#10;&#10;[root@cloud ~]# df -h&#9;#&#30913;&#30424;&#20351;&#29992;&#24773;&#20917;&#10;[root@cloud ~]# df -hl&#10;Filesystem      Size  Used Avail Use% Mounted on&#10;/dev/sda1       9.1G  2.2G  6.4G  26% /&#10;tmpfs           487M     0  487M   0% /dev/shm&#10;/dev/sdb1       4.5G  1.9M  4.3G   1% /data&#10;&#10;[root@cloud ~]# du --max-depth=1 -h&#9;#&#26597;&#30475;&#24403;&#21069;&#25991;&#20214;&#22841;&#19979;&#30340;&#30913;&#30424;&#20351;&#29992;&#24773;&#20917;&#10;25M&#9;./.nvm&#10;8.0K&#9;./.pki&#10;4.0K&#9;./Blog&#10;25M&#9;&#9;.&#10;&#10;[root@cloud ~]# du -sh&#9;#&#26174;&#31034;&#24403;&#21069;&#30446;&#24405;&#30340;&#22823;&#23567;&#10;25M&#9;.&#10;&#10;[root@cloud ~]# du -sh /opt/&#9;#&#26174;&#31034;&#25351;&#23450;&#36335;&#24452;&#30340;&#22823;&#23567;&#10;4.0K&#9;/opt/&#9;&#10;&#10;[root@cloud ~]# du -h test.txt&#9;#&#26174;&#31034;&#25351;&#23450;&#25991;&#20214;&#30340;&#22823;&#23567; &#10;0&#9;test.txt&#10;```&#9;&#10;&#10;###&#26597;&#30475;&#20869;&#23384;&#10;* &#24120;&#29992;&#21629;&#20196;&#10;cat /proc/meminfo&#9;#&#26597;&#30475;&#20869;&#23384;&#20351;&#29992;&#20449;&#24687;&#10;&#10;&#10;* &#21629;&#20196;&#23454;&#20363;&#10;&#31354;&#38386;&#20869;&#23384; =free+buffers+cached =total-used&#10;```shell&#10;[root@cloud ~]# free -m&#9;#&#26597;&#30475;&#20869;&#23384;&#20351;&#29992;&#29366;&#20917;&#10;             total       used       free     shared    buffers     cached&#10;Mem:           972        667        304          0         41        497&#10;-/+ buffers/cache:        128        843&#10;Swap:          999          0        999&#10;&#35828;&#26126;&#65306;&#9; shared&#65306;&#22810;&#20010;&#36827;&#31243;&#20849;&#20139;&#30340;&#20869;&#23384;&#24635;&#39069;&#10;&#9;&#9;Buffers/cached&#9;&#9;&#10;&#10;[root@cloud ~]# cat /proc/meminfo &#10;MemTotal:         995648 kB&#10;MemFree:          312228 kB&#10;Buffers:           42836 kB&#10;Cached:           509164 kB&#10;SwapCached:          352 kB&#10;Active:           413060 kB&#10;Inactive:         145136 kB&#9;&#9;&#10;&#10;[root@cloud ~]# ll -h /proc/kcore&#9;#&#26597;&#30475;/proc/kcore&#25991;&#20214;&#30340;&#22823;&#23567;&#65288;&#20869;&#23384;&#38236;&#20687;&#65289;&#10;-r-------- 1 root root 4.0K Jul 27 16:31 /proc/kcore</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="查看cpu使用率">查看cpu使用率</h3><ul>
-<li><p>使用top命令<br>具体介绍：<a href="http://www.cnblogs.com/xd502djj/archive/2011/03/01/1968041.html" target="_blank" rel="external">top命输出解释</a></p>
-</li>
-<li><p>产看内核信息</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# uname -a&#10;Linux cloud 2.6.32-504.1.3.el6.x86_64 #1 SMP Tue Nov 11 17:57:25 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看发行版信息</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# cat /etc/issue&#10;CentOS release 6.6 (Final)&#10;Kernel \r on an \m</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="Find命令">Find命令</h3><ul>
-<li><p>命令实例</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# find / -name fstab&#10;/etc/fstab&#10;&#10;[root@cloud ~]# find / -name access_log 2&#62;/dev/null&#9;&#9;#&#26080;&#38169;&#35823;&#26597;&#25214;&#10;&#10;[root@cloud ~]# find / etc -name &#39;*fst*&#39;&#9;#&#27169;&#31946;&#26597;&#25214;&#65292;&#25903;&#25345;&#36890;&#37197;&#31526;&#10;/lib/udev/fstab_import&#10;/lib/udev/rules.d/79-fstab_import.rules&#10;/etc/fstab&#10;/usr/bin/psfstriptable&#10;&#10;find  /home  -size  +512k&#9;#&#26597;&#22823;&#20110;512k&#30340;&#25991;&#26723;&#10;&#10;$ find logs -type f -mtime +5 -exec  -ok  rm &#123;&#125; \;&#9;#&#22312;/ l o g s&#30446;&#24405;&#20013;&#26597;&#25214;&#26356;&#25913;&#26102;&#38388;&#22312;5&#26085;&#20197;&#21069;&#30340;&#25991;&#26723;&#24182;&#21024;&#38500;&#20182;&#20204;&#65306;&#10;&#10;# A=`find ./ -name &#34;*php&#34;` |  ls -l --full-time $A 2&#62;/dev/null | grep &#34;2004-11-30 16:36:37&#34;&#9;&#9;#&#26597;&#25214;2004-11-30 16:36:37&#26102;&#26356;&#25913;&#36807;&#30340;&#25991;&#26723;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>参考网址<br><a href="http://linux.chinaunix.net/techdoc/system/2008/07/25/1020339.shtml" target="_blank" rel="external">参考实例</a><br><a href="http://www.chinaz.com/server/2009/0807/85796.shtml" target="_blank" rel="external">与或非的find介绍</a></p>
-</li>
-</ul>
-<h3 id="修改常见配置">修改常见配置</h3><ul>
-<li>修改主机名<br>参考这里:[北南南北的博客，修改Linux主机名]<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud ~]# hostname Mo&#9;&#9;#&#20020;&#26102;&#20462;&#25913;hostname&#10;&#10;[root@Mo ~]# vim /etc/sysconfig/network&#9;&#9;#&#20004;&#20010;&#37117;&#35201;&#25913;&#10;[root@Mo ~]# vim /etc/hosts&#10;&#10;[root@linuxsir01 ~]# hostname -i&#9;#&#26174;&#31034;&#20027;&#26426;&#21517;&#30340;IP</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
+<section class="post" itemscope itemprop="blogitem">
   
-  <span></span> <a href="/tags/Linux/">Linux</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/07/23/Linux下hexo+github搭建Blog/" title="Linux下hexo+github组建Blog" itemprop="url">Linux下hexo+github组建Blog</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-22T16:00:00.000Z" itemprop="datePublished"> 发表于 2015-07-23</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="配置流程">配置流程</h1><h2 id="环境准备">环境准备</h2><h3 id="本地环境">本地环境</h3><ul>
-<li>CentOS6</li>
-<li>下载nvm（Node.js的版本管理器）软件<blockquote>
-<p>wget -qO- <a href="https://raw.github.com/creationix/nvm/master/install.sh" target="_blank" rel="external">https://raw.github.com/creationix/nvm/master/install.sh</a> | sh    #下载安装nvm（安装目录在/root/.nvm/）</p>
-</blockquote>
-</li>
-<li>安装nvm软件<blockquote>
-<p>nvm install 0.10    #选择Node.js的安装版本<br>nvm ls    #查看node.js的版本</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="安装git">安装git</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;</span><br></pre></td></tr></table></figure>
-<h3 id="安装Hexo">安装Hexo</h3><blockquote>
-<p>npm install -g hexo    #使用npm安装hexo(此处安装并未完成)<br>如果显示command not found，就重启终端，然后使用nvm ls检查当前版本，如果没有使用命令<br>nvm use 0.10    #即使用方才装的版本（使用此命令后安装成功）<br>或使用一下命令直接设置全局默认的node.js版本<br>nvm alias default 0.10.26</p>
-</blockquote>
-<ul>
-<li><p>安装失败的原因可能是无法连接到官方服务器，或者是GFW（Great Firewall，中国国家防火墙或长城防火墙）的问题。需<br>  修改npm镜像源<br>  使用config命令</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config set registry http://registry.cnpmjs.org  &#10;$ npm info underscore (&#22914;&#26524;&#19978;&#38754;&#37197;&#32622;&#25104;&#21151;&#65292;&#20351;&#29992;&#36825;&#20010;&#21629;&#20196;&#20250;&#26377;&#20197;&#19979;&#25552;&#31034;)  &#10;$ npm http GET http://registry.cnpmjs.org/underscore  &#10;$ npm http 200 http://registry.cnpmjs.org/underscore  &#10; ``` &#10;&#21629;&#20196;&#34892;&#25351;&#23450;  &#10;```Shell &#10;$ npm --registry http://registry.cnpmjs.org info underscore   &#10;&#32534;&#36753; ~/.npmrc &#21152;&#20837;&#20197;&#19979;&#20869;&#23481;&#21487;&#20197;&#20351;&#37197;&#32622;&#27704;&#20037;&#29983;&#25928;&#65292;&#23601;&#19981;&#29992;&#27599;&#27425;npm&#23433;&#35013;&#26102;&#37117;&#35201;&#36816;&#34892;&#25351;&#23450;&#28304;&#21629;&#20196;&#20102;  &#10;$ registry = http://registry.cnpmjs.org  &#10; ``` &#10;&#10;- &#20351;&#29992;&#20197;&#19979;&#21629;&#20196;&#23545;hexo&#36827;&#34892;&#21021;&#22987;&#21270;&#65288;&#36825;&#37324;&#25105;&#20301;&#20110;~&#30446;&#24405;&#65292;&#32780;&#19988;&#25105;&#24819;&#25226;&#25105;&#30340;&#20010;&#20154;&#21338;&#23458;&#25918;&#22312;~/hexo&#30446;&#24405;&#65292;&#38656;&#35201;&#25918;&#22312;&#20854;&#20182;&#30446;&#24405;&#30452;&#25509;&#25913;&#19968;&#19979;&#33258;&#24049;&#38656;&#35201;&#30340;&#30446;&#24405;&#23601;&#21487;&#20197;&#20102;&#65289;  &#10;```Shell &#10;$ hexo install hexo --save&#10;$ hexo init hexo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>本地环境到此结束，有木有很easy</p>
-</li>
-</ul>
-<h3 id="初步预览">初步预览</h3><blockquote>
-<p>hexo generate 或 hexo g    #生成静态文件<br>hexo server 或 hexo s    #打开本地预览（http:localhost:4000）</p>
-</blockquote>
-<h2 id="配置git并发布">配置git并发布</h2><p>配置git并发布基于hexo和github的个人博客<br>首先编辑个人安装目录的_config.yml文件，找到一下内容并修改为git</p>
-<blockquote>
-<p>deploy:<br>type: git<br>repository: <a href="https://github.com/Arvon2014/arvon2014.github.com.git(直接将github上的https项复制并粘贴" target="_blank" rel="external">https://github.com/Arvon2014/arvon2014.github.com.git(直接将github上的https项复制并粘贴</a>)<br>branch: master</p>
-</blockquote>
-<p>运行以下命令设置git全局变量，即设置用户名和邮箱(需要先和github建立免密码登陆)</p>
-<blockquote>
-<p>git config —global user.name “Arvon”<br>git config —global user.email “yafeng2011@126.com”</p>
-</blockquote>
-<h2 id="免密码ssh公钥设置">免密码ssh公钥设置</h2><ol>
-<li><p>是否安装了ssh，未装执行</p>
-<blockquote>
-<p>yum install ssh</p>
-</blockquote>
-</li>
-<li><p>检查公钥</p>
-<blockquote>
-<p>cd ~/.ssh    #存在就删了</p>
-</blockquote>
-</li>
-<li><p>生成公钥私钥对</p>
-<blockquote>
-<p>ssh-keygen -t rsa -C “you_email@youremail.com”<br>cd ~/.ssh    #验证</p>
-</blockquote>
-</li>
-<li><p>添加ssh公钥到github<br>将公钥（pub）的内容复制到Deploykeys里面</p>
-</li>
-<li><p>测试是否生效</p>
-<blockquote>
-<p>ssh -T git@github.com</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="待完善">待完善</h2>
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
+    <a href="/2015/07/30/简明Python学习笔记/" title="简明Python读书笔记" itemprop="url">
   
-  <span></span> <a href="/tags/Blog/">Blog</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
+    <h1 itemprop="name">简明Python读书笔记</h1>
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
+     
+           <p itemprop="description" >更新记录
+20150730 总结介绍
+20150731 控制流
+20150804 module
+20150806 脚本练手
+20150807 模块方法
+20150810 是时候结束了
+
+介绍简记
+这里使用的是CentOS release 6.6 (Final)
+
+1[root@M</p>
+        
     
-      <a href="/2015/07/22/mysql自用命令手册/" title="Mysql自用命令手册" itemprop="url">Mysql自用命令手册</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-22T08:10:15.000Z" itemprop="datePublished"> 发表于 2015-07-22</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><strong>摘要：</strong>Mysql这一块是真心太庞大了，就列几个我自个常用的命令，基本的增删改查备份还原还是应该有的</p>
-<h3 id="连接登录数据库">连接登录数据库</h3><blockquote>
-<p>mysql –u用户名 [–h主机名或者IP地址] –p密码<br>eggs: mysql -uusername -hIPaddress -p(password)</p>
-</blockquote>
-<p><strong>格式：</strong> mysql -h主机地址 -u用户名 －p用户密码</p>
-<ol>
-<li>连接到本机上的MYSQL。<br>首先打开DOS窗口，然后进入目录mysql\bin，再键入命令mysql -u root -p，回车后提示你输密码.注意用户名前可以有空格也可以没有空格，但是密码前必须没有空格，否则让你重新输入密码.<br>如果刚安装好MYSQL，超级用户root是没有密码的，故直接回车即可进入到MYSQL中了，MYSQL的提示符是： mysql&gt;</li>
-<li>连接到远程主机上的MYSQL。假设远程主机的IP为：110.110.110.110，用户名为root,密码为abcd123。则键入以下命令：<br>mysql -h110.110.110.110 -u root -p 123;（注:u与root之间可以不用加空格，其它也一样）</li>
-<li>退出MYSQL命令： exit （回车）</li>
-</ol>
-<h3 id="修改密码">修改密码</h3><p><strong>格式：</strong>mysqladmin -u用户名 -p旧密码 password 新密码(注：因为开始时root没有密码，所以-p旧密码一项就可以省略)</p>
-<blockquote>
-<p>mysqladmin -u root -password ab12<br>再将root的密码改为djg345<br>mysqladmin -u root -p ab12 password djg345</p>
-</blockquote>
-<h3 id="查看mysql数据库中所有用户及拥有的权限">查看mysql数据库中所有用户及拥有的权限</h3><blockquote>
-<p>SELECT DISTINCT CONCAT(‘User: ‘’’,user,’’’@’’’,host,’’’;’) AS query FROM mysql.user;</p>
-</blockquote>
-<h3 id="添加新用户">添加新用户</h3><p><strong>格式：</strong>grant select on 数据库.* to 用户名@登录主机 identified by “密码”</p>
-<ol>
-<li>增加一个用户test1密码为abc，让他可以在任何主机上登录，并对所有数据库有查询、插入、修改、删除的权限。首先用root用户连入MYSQL，然后键入以下命令：<blockquote>
-<p>grant select,insert,update,delete on <em>.</em> to test1@”%” Identified by “abc”;</p>
-</blockquote>
-</li>
-<li>增加一个用户test2密码为abc,让他只可以在localhost上登录，并可以对数据库mydb进行查询、插入、修改、删除的操作（localhost指本地主机，即MYSQL数据库所在的那台主机），<br>这样用户即使用知道test2的密码，他也无法从internet上直接访问数据库，只能通过MYSQL主机上的web页来访问了。<blockquote>
-<p>grant select,insert,update,delete on mydb.<em> to test2@localhost identified by “abc”;<br>如果你不想test2有密码，可以再打一个命令将密码消掉:<br>grant select,insert,update,delete on mydb.</em> to test2@localhost identified by “”;</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="删除用户">删除用户</h3><blockquote>
-<p>mysql -u root -p<br>密码<br>mysql&gt;Delete FROM user Where User=’test’ and Host=’localhost’;<br>mysql&gt;flush privileges;<br>mysql&gt;drop database testDB; //删除用户的数据库<br>删除账户及权限：&gt;drop user 用户名@’%’;</p>
-</blockquote>
-<p>　　　　　　　　>drop user 用户名@ localhost; </p>
-<h3 id="查看命令">查看命令</h3><ol>
-<li>mysql&gt; SHOW DATABASES;    #显示当前数据库服务器中的数据库列表(注意：mysql库里面有MYSQL的系统信息，我们改密码和新增用户，实际上就是用这个库进行操作。)<br>mysql&gt; USE 库名；    ##显示数据库中的数据表</li>
-<li>mysql&gt; SHOW TABLES;    </li>
-<li>mysql&gt; DESCRIBE 表名;    #显示数据表的结构</li>
-<li>mysql&gt; CREATE DATABASE 库名;    #建立数据库</li>
-<li>mysql&gt; USE 库名;    #;建立数据表<br>mysql&gt; CREATE TABLE 表名 (字段名 VARCHAR(20), 字段名 CHAR(1))</li>
-<li>mysql&gt; DROP DATABASE     #库名;删除数据库</li>
-<li>mysql&gt; DROP TABLE 表名；    #删除数据表</li>
-<li>mysql&gt; DELETE FROM 表名;    #将表中记录清空</li>
-<li>mysql&gt; SELECT * FROM 表名;    #显示表中的记录</li>
-<li>mysql&gt; INSERT INTO 表名 VALUES (”hyq”,”M”);    #往表中插入记录</li>
-<li>mysql-&gt; UPDATE 表名 SET 字段名1=’a’,字段名2=’b’ WHERE 字段名3=’c’;    #更新表中数据</li>
-<li>mysql&gt; LOAD DATA LOCAL INFILE “D:/mysql.txt” INTO TABLE 表名;    #用文本方式将数据装入数据表中</li>
-<li>mysql&gt; USE 数据库名;<br>mysql&gt; SOURCE d:/mysql.sql;    #导入.sql文件命令：</li>
-<li>mysql&gt; UPDATE mysql.user SET password=PASSWORD(‘新密码’) WHERE User=’root’;<br>mysql&gt; FLUSH PRIVILEGES;    #命令行修改root密码</li>
-<li>mysql&gt; SELECT DATABASE();    #显示use的数据库名</li>
-<li>mysql&gt; SELECT USER();    #显示当前的user</li>
-</ol>
-<h4 id="命令实例">命令实例</h4><blockquote>
-<p>drop database if exists school;    #如果存在SCHOOL则删除<br>create database school;    #建立库SCHOOL<br>use school;    #打开库SCHOOL<br>create table teacher;    #(进入SCHOOL库后)简历表teacher<br> (<br> id int(3) auto_increment not null primary key,<br> name char(10) not null,<br> address varchar(50) default ‘深圳’,<br> year date<br> );    #建表结束<br>insert into teacher values(”,’allen’,’大连一中’,’1976-10-10′);    #插入字段<br> insert into teacher values(”,’jack’,’大连二中’,’1975-12-23′);</p>
-</blockquote>
-<h3 id="导出数据库">导出数据库</h3><ol>
-<li>导出整个数据库（导出文件默认是存在mysql\bin目录下；在linux下为/var/lib/mysql）<blockquote>
-<p>mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名<br>mysqldump -u user_name -p123456 database_name &gt; outfile_name.sql</p>
-</blockquote>
-</li>
-<li>导出一个表<blockquote>
-<p>mysqldump -u 用户名 -p 数据库名 表名&gt; 导出的文件名<br>mysqldump -u user_name -p database_name table_name &gt; outfile_name.sql</p>
-</blockquote>
-</li>
-<li>导出一个数据库结构<blockquote>
-<p>mysqldump -u user_name -p -d –add-drop-table database_name &gt; outfile_name.sql<br>-d 没有数据 –add-drop-table 在每个create语句之前增加一个drop table</p>
-</blockquote>
-</li>
-<li>带语言参数导出<blockquote>
-<p>mysqldump -uroot -p –default-character-set=latin1 –set-charset=gbk –skip-opt database_name &gt; outfile_name.sql</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="备份恢复数据库">备份恢复数据库</h3><ol>
-<li><p>备份数据库</p>
-<blockquote>
-<p>mysqldump -uroot -p test_db &gt; test_db.sql </p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -h$&#123;ipaddr&#125; -u$&#123;username&#125; -p$&#123;password&#125; --default-character-set=utf8 \&#10;--comments=FALSE --tables --no-create-info=FALSE --add-drop-table=TRUE --no-data=FALSE \&#10;$&#123;area&#125; | sed &#39;s/AUTO_INCREMENT=[0-9]*\s//g&#39; &#62;$&#123;dest_dir&#125;/$&#123;area&#125;.sql</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>恢复数据库</p>
-<blockquote>
-<p>mysql -uroot -p test_db &lt; test_db.sql </p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h$&#123;ipaddr&#125; -u$&#123;username&#125; -p$&#123;password&#125; --default-character-set=utf8 --execute=&#34;DROP DATABASE IF EXISTS  $&#123;area&#125;&#34;;&#10;mysql -h$&#123;ipaddr&#125; -u$&#123;username&#125; -p$&#123;password&#125; --default-character-set=utf8 --execute=&#34;CREATE DATABASE IF NOT EXISTS  $&#123;area&#125; DEFAULT CHARACTER SET utf8&#34;;&#10;mysql -h$&#123;ipaddr&#125; -u$&#123;username&#125; -p$&#123;password&#125; --default-character-set=utf8 --database= $&#123;area&#125; &#60;$&#123;area&#125;.sql;</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>创建权限</p>
-<blockquote>
-<p>grant all privileges on test_db.* to test_db@’localhost’ identified by ‘123456’;<br>兼容4.1之前的版本：<br>update mysql.user set password=old_password(‘123456’) where user=’test_db’; </p>
-</blockquote>
-</li>
-<li>忘记密码<br>在“my.cnf”或“my.ini”文件的“mysqld”配置段添加“skip-grant-tables”，然后重新启动mysql即可登录修改root密码。</li>
-</ol>
-<h3 id="参考文档">参考文档</h3><p><a href="http://www.jb51.net/article/24345.htm" target="_blank" rel="external">mysql常用命令集锦</a><br><a href="http://www.jb51.net/article/25652.htm" target="_blank" rel="external">Mysql常用命令 详细整理版</a><br><a href="http://www.cnblogs.com/fly1988happy/archive/2011/12/15/2288554.html" target="_blank" rel="external">Mysql 用户权限</a><br><a href="http://www.cnblogs.com/fly1988happy/archive/2011/12/15/2288554.html" target="_blank" rel="external">Mysql 命令大全</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
+    <time datetime="2015-07-30T03:25:39.000Z" itemprop="datePublished">2015-07-30</time>
+  </a>
+</section>
 
 
-  <div class="article-tags">
+
+
+
+
   
-  <span></span> <a href="/tags/Mysql/">Mysql</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/07/22/Tmux-使用简记/" title="Tmux 使用简记" itemprop="url">Tmux 使用简记</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-22T01:49:22.000Z" itemprop="datePublished"> 发表于 2015-07-22</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>简述：tmux是指通过一个终端登录远程主机并运行后，在其中可以开启多个控制台的终端复用软件。tmux是一个优秀的终端复用软件，类似GNU Screen，但来自<br>于OpenBSD，采用BSD授权。使用它最直观的好处就是，通过一个终端登录远程主机并运行tmux后，在其中可以开启多个控制台而无需再“浪费”多余的终端来连接<br>这台远程主机；个人更注重工作环境的连续性，可以进行会话保持(保证可以在网络情况不佳的情况下工作现场不丢失)。</p>
-<h3 id="常用操作">常用操作</h3><blockquote>
-<p>tmux new-session -s session-name    #创建一个新的tmux对话<br>tmux ls    #列出已有的tmux列表，相当于Ctrl-B s<br>tmux attach-session -t sessionname = tmux a -t sessionname（支持缩写匹配）    #进入一个tmux会话窗<br>使用Ctrl-B d返回主shell界面，tmux仍旧在后台运行，里面的命令也保持运行状态<br>tmux kill-session -t session-name    #关闭开启在后台的终端；在终端下也可以使用exit进行退出</p>
-</blockquote>
-<h3 id="快捷键操作">快捷键操作</h3><blockquote>
-<p>C-b c    #创建一个新的窗口<br>C-b n    #切换到下一个窗口<br>C-b p    #切换到上一个窗口<br>C-b d    #临时断开会话，还可以连上的<br>C-b pageup/pagedown    #向上或向下翻页</p>
-</blockquote>
-<h3 id="参考教程">参考教程</h3><p><a href="http://my.oschina.net/cshell/blog/135261" target="_blank" rel="external">使用大全（桔子空间）</a><br><a href="http://coolshell.cn/articles/7829.html" target="_blank" rel="external">不明觉厉（命令行神器）</a></p>
-<h3 id="Tmux源码安装">Tmux源码安装</h3><blockquote>
-<p>yum install tmux -y    #<br>wget <a href="http://downloads.sourceforge.net/tmux/tmux-1.6.tar.gz" target="_blank" rel="external">http://downloads.sourceforge.net/tmux/tmux-1.6.tar.gz</a><br>cd tmux-1.6<br>./configure<br>make<br>make install</p>
-</blockquote>
-<h3 id="配置手册">配置手册</h3><p><a href="http://www.doc88.com/p-386623377619.html" target="_blank" rel="external">个性配置参考</a><br><a href="http://www.doc88.com/p-386623377619.html" target="_blank" rel="external">配置地址二</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
+<section class="post" itemscope itemprop="blogitem">
   
-  <span></span> <a href="/tags/Tmux/">Tmux</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/07/21/salt简明使用手册/" title="SaltStack使用简明手册" itemprop="url">SaltStack使用简明手册</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-21T09:29:40.000Z" itemprop="datePublished"> 发表于 2015-07-21</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>介绍：salt是一种基础设施管理方式，部署简单，在几分钟内便可运行起来，扩展性好，很容易管理上万台服务器，速度够快，服务器之间秒级通讯。salt底层采用动态链接总线，使其可以用于编配，远程执行，配置管理等。</p>
-<h3 id="常用命令">常用命令</h3><blockquote>
-<p>salt ‘主机（支持通配符匹配）’ cmd.run ‘command’<br>eggs： salt ‘gs*’ cmd.run ‘ps aux|grep -i java|grep -v grep|wc -l’<br>salt-key -a 添加单一主机<br>salt-key -d 删除单一主机<br>salt-key -A 接受全部主机<br>salt-key -L 列出所有主机</p>
-</blockquote>
-<h3 id="配置流程">配置流程</h3><ul>
-<li>待补充</li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
+    <a href="/2015/07/29/awk用法实例/" title="awk用法实例" itemprop="url">
   
-  <span></span> <a href="/tags/Salt/">Salt</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
+    <h1 itemprop="name">awk用法实例</h1>
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
+     
+           <p itemprop="description" >简介：awk一种优秀的文本处理工具，Linux和Unix环境中现有的功能最强大的数据处理引擎之一。这个编程及数据操作语言其名称得自于它的创始人阿尔佛雷德·艾侯、彼得·温伯格和布莱恩·柯林汉姓氏的首个字母。awk的处理文本和数据的方式是这样的，它逐行扫描文件，从第一行到最后一行，寻</p>
+        
     
-      <a href="/2015/07/21/使用Hexo和Github搭建Blog/" title="使用Hexo和Github搭建Blog" itemprop="url">使用Hexo和Github搭建Blog</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-21T00:20:02.656Z" itemprop="datePublished"> 发表于 2015-07-21</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Tips：最近几天都在折腾这个东西，网上有很多的教程，但终究还是有点费劲，在这里总结一下。我是在win7上做的，我尽可能把我<br>出问题的地方着重描述，希望让有兴趣玩这个伙伴们可以顺利点，嘻嘻。特别鸣谢陈素封的博客，帮助很大，话不多说，开始整理。<br>win上多有不便，还会在linux上进行搭建。</p>
-<h1 id="更新记录">更新记录</h1><p> 2015/07/17第一次记录，因对markdown语法不熟练，Blog功能尚不完善，所以待补充修改</p>
-<h1 id="准备工作">准备工作</h1><ol>
-<li>github账户设置<br>平台为win，需注册<a href="http://www.github.com" title="github account" target="_blank" rel="external">github account</a>登陆github后需要创建一个repository,然后就写个REpositoryname，<strong>注意要和Owner的name<br>一致</strong>（注意），然后勾选那个Initaalize this…什么的选项，然后就这样成了，不然就是像我一样不停的犯错，为何还有待考量，反<br>正现在听话就ok。</li>
-<li>软件设置<br>需要的软件有node.js和git，实际最好再来个Visual Studio Code，你会发现有语法高亮就是舒心</li>
-<li>待补充昂<br>为了可以清晰一点，决定把Markdown和这个Blog分开记录。恩，就是这样</li>
-</ol>
-<h1 id="开始搭建">开始搭建</h1><h3 id="安装node-js软件">安装node.js软件</h3><p>下载地址戳：<a href="http://www.nodejs.org/download/" title="node.js" target="_blank" rel="external">node.js</a>,然后就开始一路下一步吧，然后你的发现带cmd多了一条np</p>
-<h3 id="安装git软件">安装git软件</h3><p>下载地址戳：<a href="http://git-scm.com/download/" title="git" target="_blank" rel="external">git</a>,依旧下一步到底。昨天做着的时候没记录，真是一大败笔</p>
-<h3 id="安装Hexo">安装Hexo</h3><ol>
-<li>进入Git bash,输入命令<blockquote>
-<p>npm install -g hexo    #hexo表示全局安装hexo<br>#创建hexo文件夹，如/user/arvon/hexo-lxc<br>hexo init    #初始化hexo<br>npm install<br>npm generate<br>npm server</p>
-</blockquote>
-</li>
-<li>然后可以通过访问localhost查看预览http：//localhost:4000/</li>
-</ol>
-<h3 id="部署">部署</h3><ol>
-<li>将在github上创建的Repository，找到https那个url将其复制</li>
-<li>然后编辑位于你创建的文件夹下的文件，例如我就是：/user/arvon/hexo-lxc/_config.yml<blockquote>
-<p>deploy:<br> type: git<br> repository: <a href="https://github.com/arvon2014/arvon2014.github.com" target="_blank" rel="external">https://github.com/arvon2014/arvon2014.github.com</a><br> branch: master<br>#github上的地址：<a href="https://github.com/Arvon2014/arvon2014.github.com.git" target="_blank" rel="external">https://github.com/Arvon2014/arvon2014.github.com.git</a><br>#web上访问的为：<a href="http://arvon2014.github.io" target="_blank" rel="external">http://arvon2014.github.io</a></p>
-</blockquote>
-</li>
-<li>设置ssh免密码访问</li>
-</ol>
-<ul>
-<li>先查看本地是否已经存在ssh文件，如不存在直接跳过下面第二步</li>
-<li>删除已有的ssh的文件</li>
-<li>输入命令<blockquote>
-<p>ssh-keygen -t rsa -C “邮件地址@youremail.com” Generating public/private rsa key pair. Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):<br>Enter passphrase (empty for no passphrase):&lt;输入加密串&gt; Enter same passphrase again:&lt;再次输入加密串&gt;<br>ssh -T git@github.com    #测试<br>The authenticity of host ‘github.com (207.97.227.239)’ can’t be established. RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48. Are you sure you want to continue connecting (yes/no)?    #说明成功<br>$ git config —global user.name “你的名字” $ git config —global user.email “your_email@youremail.com”    #设置你的信息</p>
-</blockquote>
-</li>
-<li>现在已经可以顺利将环境搭建完毕</li>
-<li>进入你的Hexo目录，开始试验吧<blockquote>
-<p>hexo generate = hexo g<br>hexo server = hexo s    #部署本地预览<br>hexo deploy = hexo d    #生成部署     </p>
-</blockquote>
-</li>
-</ul>
-<h3 id="主题更换">主题更换</h3><ol>
-<li>模板获取</li>
-<li>更改设置</li>
-</ol>
-<h3 id="插件添加">插件添加</h3><ol>
-<li>待更新</li>
-<li>待更新</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
+    <time datetime="2015-07-29T02:45:33.000Z" itemprop="datePublished">2015-07-29</time>
+  </a>
+</section>
 
 
-  <div class="article-tags">
+
+
+
+
   
-  <span></span> <a href="/tags/Blog/">Blog</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/07/21/Markdown-Introduction/" title="Markdown Introduction" itemprop="url">Markdown Introduction</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-21T00:17:54.000Z" itemprop="datePublished"> 发表于 2015-07-21</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><strong>简介：</strong>Markdown是一个web上使用的文本到HTML的转换工具，目前github、Stackoverflow等网站均支持这种格式，还有简书也是<br>很支持的呦。它存在的宗旨就是实现易读易写，称为适用于网络的书写语言。自我感觉也确实不错，很适合做IT的人记笔记用。</p>
-<h1 id="语法介绍">语法介绍</h1><h3 id="基本介绍">基本介绍</h3><ul>
-<li>在Markdown中，<em>、-、+3个符号的效果一致，称为Markdown符号，我习惯用\</em>号</li>
-<li>空白行表示另起一个段落</li>
-<li>-是表示inline代码，tab是用来标记代码段，分别对应html的code、pre标签</li>
-</ul>
-<h3 id="标题">标题</h3><ul>
-<li>可以用#、-、=一样的效果，个人偏爱#</li>
-<li>#    一级标题</li>
-<li>##    二级标题        </li>
-<li>…    以此类推</li>
-<li>######    六级标题</li>
-</ul>
-<h3 id="文本强调">文本强调</h3><ul>
-<li><em>斜体</em> or <em>强调</em></li>
-<li><strong>加粗</strong> or <strong>加粗</strong></li>
-<li><strong><em>粗斜体</em></strong> or <strong><em>粗斜体</em></strong></li>
-</ul>
-<h3 id="List列表">List列表</h3><ul>
-<li>*无序列表（unordered）</li>
-</ul>
-<ul>
-<li>+无序列表</li>
-</ul>
-<ul>
-<li>-无序列表</li>
-</ul>
-<ol>
-<li><ol>
-<li>第一行（ordered有序列表）</li>
-</ol>
-</li>
-<li>2.或- 第二行</li>
-<li>3.或- 第三行</li>
-</ol>
-<h3 id="删除线">删除线</h3><p>~~文字~~   效果为   <del>文字</del></p>
-<h3 id="组合用法">组合用法</h3><ul>
-<li>产品介绍（子项目符号）<br>  此时子项，要以一个制表符或者四个空格缩进</li>
-</ul>
-<ul>
-<li>产品特点<ol>
-<li>特点1</li>
-</ol>
-<ul>
-<li>特点2</li>
-<li>特点3</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>产品功能<ol>
-<li>功能1</li>
-</ol>
-<ul>
-<li>功能2</li>
-<li>功能3</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>可能有时会出现这样的情况，首行内容是以日期或数字开头：2013.公司的年度目标，为了避免也转换成有序列表，可以在.前面<br>加上\:2013. 公司的年度目标</li>
-</ul>
-<h3 id="Links网站链接">Links网站链接</h3><blockquote>
-<p>Inline-style 内嵌方式：<br>[link text](<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a> “title text”)</p>
-<p>Reference-style 引用方式：<br>[link text][id]<br>[id]: <a href="https://www.mozilla.org" target="_blank" rel="external">https://www.mozilla.org</a> “title text”</p>
-<p>Relative reference to a repository file 引用存储文件：<br>[link text](../path/file/readme.text “title text”)</p>
-<p>还能这样使用：<br>[link text][]<br>[link text]: <a href="http://www.reddit.com" target="_blank" rel="external">http://www.reddit.com</a></p>
-<p>Email 邮件：<br><a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x65;&#x78;&#97;&#109;&#112;&#108;&#101;&#x40;&#101;&#120;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#x63;&#x6f;&#109;">&#x65;&#x78;&#97;&#109;&#112;&#108;&#101;&#x40;&#101;&#120;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#x63;&#x6f;&#109;</a></p>
-</blockquote>
-<h3 id="images图片链接">images图片链接</h3><blockquote>
-<p>Inline-style 内嵌方式：<br>![alt text](<a href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" target="_blank" rel="external">https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png</a> “title text”)</p>
-<p>Reference-style 引用方式：<br>![alt text][logo]<br>[logo]: <a href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" target="_blank" rel="external">https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png</a> “title text”<br>Inline-style 内嵌方式：<br><img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="alt text" title="title text"></p>
-<p>Reference-style 引用方式：<br>![alt text][logo]</p>
-<p>[logo]: <a href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" target="_blank" rel="external">https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png</a> “title text”</p>
-<h3 id="code_and_Syntax_HIghlighting_代码语法高亮：">code and Syntax HIghlighting 代码语法高亮：</h3><ul>
-<li>使用`` 包裹起来 ``效果为： <code>包裹起来</code></li>
-</ul>
-</blockquote>
-<ul>
-<li>语法高亮</li>
-<li><p>例如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">"Python syntax highlighting"</span></span><br><span class="line"><span class="keyword">print</span> s</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Block Code代码分组（代码区块）：<br>在该行开头缩进4个空格或一个制表符(tab)</p>
-</li>
-</ul>
-<p><strong>Blockquotes 引用：</strong></p>
-<blockquote>
-<p>Email-style angle brackets<br>are used for blockquotes.</p>
-<blockquote>
-<p>And, they can be nested.</p>
-<h4 id="Headers_in_blockquotes">Headers in blockquotes</h4><ul>
-<li>You can quote a list.</li>
-<li>Etc.</li>
-</ul>
-</blockquote>
-</blockquote>
-<h3 id="Hard_LIne_Breaks换行：">Hard LIne Breaks换行：</h3><p>在一行的结尾处加上2个或2个以上的空格，也可以使用标签<br>第一行文字，<br>第二行文字</p>
-<h3 id="水平分割线：">水平分割线：</h3><p>*<em>*<br>\</em> <em> </em><br>- - -</p>
-<h3 id="Escape_charecter转义符（反斜杠）：">Escape charecter转义符（反斜杠）：</h3><p>Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号，例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠：<br>*literal asterisks*<br>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：<br>\反斜杠  `反引号  *星号  _下划线  {}花括号  []方括号  ()括弧  #井字号  +加号  -减号  .英文句 !感叹号</p>
-<h3 id="参考文档">参考文档</h3><p><a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="external">Markdown官网</a><br><a href="http://www.markdown.cn/" target="_blank" rel="external">Markdown语法说明</a><br><a href="http://www.bluesdream.com/blog/markdown-cheatsheet-syntax-manual.html" target="_blank" rel="external">参照地址</a><br><a href="http://blog.maxwi.com/2014/03/20/learn-mardown-in-5-minutes/" target="_blank" rel="external">good</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
+<section class="post" itemscope itemprop="blogitem">
   
-  <span></span> <a href="/tags/Markdown/">Markdown</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/07/20/Hexo简明/" title="Hexo简明" itemprop="url">Hexo简明</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-20T08:42:47.000Z" itemprop="datePublished"> 发表于 2015-07-20</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><strong>简介</strong>：出自台湾某大学生之手，说是叫tommy351，感觉是叼了个扎天。是一个基于Node.js的静态博客程序，其<br>编译上百篇文字只需要几秒。hexo生成静态网页可以直接放到Github Pages，BAE，SAE等平台上。</p>
-<h3 id="常用的命令">常用的命令</h3><ul>
-<li>hexo n “我的博客” == hexo new “我的博客”    #新建文章</li>
-<li>hexo p == hexo publish    #将_drafts下的文件放到_post下，也就是发布草稿</li>
-<li>hexo g == hexo generate    #生成静态网页</li>
-<li>hexo d == hexo deploy    #发布到远程服务器，开启—generate选项可以在deploy前自动generate</li>
-</ul>
-<h3 id="服务器命令">服务器命令</h3><ul>
-<li>hexo server #Hexo 会监视文件变动并自动更新，您无须重启服务器。</li>
-<li>hexo server -s #静态模式</li>
-<li>hexo server -p 5000 #更改端口</li>
-<li>hexo server -i 192.168.1.1 #自定义 IP</li>
-<li>hexo clean #清除缓存 网页正常情况下可以忽略此条命令</li>
-<li>hexo g #生成静态网页</li>
-<li>hexo d #开始部署</li>
-</ul>
-<h3 id="监视文件是否变动">监视文件是否变动</h3><ul>
-<li>hexo generate    #使hexo生成静态文件快速而且简单</li>
-<li>hexo generate —watch    #监视文件变动</li>
-</ul>
-<h3 id="完成后部署">完成后部署</h3><ul>
-<li>hexo deploy -g 或hexo server -g</li>
-<li>hexo henerate —deploy 或hexo deploy —generate</li>
-</ul>
-<h3 id="草稿">草稿</h3><ul>
-<li>hexo publish [layout]<title></title></li>
-</ul>
-<h3 id="模板">模板</h3><ul>
-<li>hexo new “postName” #新建文章</li>
-<li>hexo new page “pageName” #新建页面</li>
-<li>hexo generate #生成静态页面至public目录</li>
-<li>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</li>
-<li>hexo deploy #将.deploy目录部署到GitHub</li>
-<li>hexo new [layout] <title></title></li>
-<li>hexo new photo “My Gallery”</li>
-<li>hexo new “Hello World” —lang tw</li>
-</ul>
-<h3 id="摘抄地址">摘抄地址</h3><ul>
-<li>地址一：<a href="https://segmentfault.com/a/1190000002632530" title="hexo命令详解" target="_blank" rel="external">Hexo命令详解</a></li>
-<li>地址二：<a href="http://c4fun.cn/blog/2014/03/03/use-hexo-blog/" title="##可以不加的嘿嘿##" target="_blank" rel="external">Hexo搭建博客</a></li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
+    <a href="/2015/07/28/SA运维资源/" title="SA运维资源" itemprop="url">
   
-  <span></span> <a href="/tags/Hexo/">Hexo</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
+    <h1 itemprop="name">SA运维资源</h1>
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
+     
+           <p itemprop="description" >需学习技能
+系统管理语言
+
+Shell脚本语言
+perl
+python
+
+
+监控工具
+
+zabbix
+nagios
+
+
+运维自动化工具
+
+saltstack
+Ansible
+puppet
+
+
+大数据
+
+云计算
+OPenStack
+Docker
+
+
+虚拟化
+KVM
+VMware
+
+</p>
+        
     
-      <a href="/2015/07/17/皮卡邱/" title="Pikachu" itemprop="url">Pikachu</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-17T04:07:11.000Z" itemprop="datePublished"> 发表于 2015-07-17</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="Eat">Eat</h3><p><strong>like：</strong>虾、牛蛙、不咸的蚕豆、鸭翅、不二家的果味糖（葡萄味）、芒果、葡萄味的饮料、涮羊肉、炸鸡、<br><strong>unlike：</strong>豆腐、粉</p>
-<h3 id="Thing">Thing</h3><p><strong>like：</strong>一切尽在掌握（旅游的话提前计划）、看进度条（真奇葩）<br><strong>unlike：</strong>手足无措（到地方不知道怎么玩去哪玩）、</p>
-<h3 id="Play">Play</h3><p><strong>like：</strong>唱歌、游泳、<br><strong>unlike：</strong></p>
-<h3 id="Music">Music</h3><p><strong>like：</strong>别想他、张信哲、王菲、<br><strong>unlike：</strong></p>
-<h3 id="Gift">Gift</h3><p><strong>like：</strong>水晶球、埃菲尔铁塔、<br><strong>unlike：</strong></p>
-<h3 id="Movie">Movie</h3><p><strong>like：</strong>动漫、文艺爱情片、<br><strong>unlike：</strong></p>
-<h3 id="Travel">Travel</h3><p><strong>WantGo:</strong><br><strong>HadDone:</strong>洛阳、开封、香港、澳门、泰山、</p>
-<h3 id="Home">Home</h3><p><strong>WantHave：</strong>指压板、木地板、索菲亚定制衣柜、<br><strong>Unlike：</strong></p>
-<h3 id="Animal">Animal</h3><p><strong>like:</strong>小猫、小狗、长颈鹿、水母、<br><strong>unlike:</strong></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
+    <time datetime="2015-07-28T08:07:50.000Z" itemprop="datePublished">2015-07-28</time>
+  </a>
+</section>
 
 
-  <div class="article-tags">
+
+
+
+
   
-  <span></span> <a href="/tags/Pikachu/">Pikachu</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/07/28/Linux下搭建vsftp服务器/" title="Linux下搭建VSFTP服务器" itemprop="url">
+  
+    <h1 itemprop="name">Linux下搭建VSFTP服务器</h1>
+    
+     
+           <p itemprop="description" >简介：VSFTP（Very Secure FTP）是一个基于GPL发布的类Unix系统上使用的FTP服务器软件，设计者的初衷是代码的安全，另外速度在使用ASCII代码的模式下在数据时，VSFTP的速度为Wu-FTp的两倍，如果Linux主机使用2.4.x的内核，在千兆以太网的下的</p>
+        
+    
+    <time datetime="2015-07-28T07:04:06.000Z" itemprop="datePublished">2015-07-28</time>
+  </a>
+</section>
 
 
 
 
 
 
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/07/27/Linux系统命令（一）/" title="Linux系统命令（一）" itemprop="url">
+  
+    <h1 itemprop="name">Linux系统命令（一）</h1>
+    
+     
+           <p itemprop="description" >Command Include：disk、memory、hostname、find
+查看磁盘空间
+常用命令df -hl 查看磁盘剩余空间df -h 查看每个根路径的分区大小du -sh [目录名] 返回该目录的大小du -sm [文件夹] 返回该文件夹总M数
 
-  <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+命令演示
+1[ro</p>
+        
+    
+    <time datetime="2015-07-27T02:49:08.000Z" itemprop="datePublished">2015-07-27</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/07/23/Linux下hexo+github搭建Blog/" title="Linux下hexo+github组建Blog" itemprop="url">
+  
+    <h1 itemprop="name">Linux下hexo+github组建Blog</h1>
+    
+     
+           <p itemprop="description" >配置流程环境准备本地环境
+CentOS6
+下载nvm（Node.js的版本管理器）软件
+wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh    #下载安装nvm（安装目录在/root/.n</p>
+        
+    
+    <time datetime="2015-07-22T16:00:00.000Z" itemprop="datePublished">2015-07-23</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/07/22/mysql自用命令手册/" title="Mysql自用命令手册" itemprop="url">
+  
+    <h1 itemprop="name">Mysql自用命令手册</h1>
+    
+     
+           <p itemprop="description" >摘要：Mysql这一块是真心太庞大了，就列几个我自个常用的命令，基本的增删改查备份还原还是应该有的
+连接登录数据库
+mysql –u用户名 [–h主机名或者IP地址] –p密码eggs: mysql -uusername -hIPaddress -p(password)
+
+格式：</p>
+        
+    
+    <time datetime="2015-07-22T08:10:15.000Z" itemprop="datePublished">2015-07-22</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/07/22/Tmux-使用简记/" title="Tmux 使用简记" itemprop="url">
+  
+    <h1 itemprop="name">Tmux 使用简记</h1>
+    
+     
+           <p itemprop="description" >简述：tmux是指通过一个终端登录远程主机并运行后，在其中可以开启多个控制台的终端复用软件。tmux是一个优秀的终端复用软件，类似GNU Screen，但来自于OpenBSD，采用BSD授权。使用它最直观的好处就是，通过一个终端登录远程主机并运行tmux后，在其中可以开启多个控制</p>
+        
+    
+    <time datetime="2015-07-22T01:49:22.000Z" itemprop="datePublished">2015-07-22</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/07/21/salt简明使用手册/" title="SaltStack使用简明手册" itemprop="url">
+  
+    <h1 itemprop="name">SaltStack使用简明手册</h1>
+    
+     
+           <p itemprop="description" >介绍：salt是一种基础设施管理方式，部署简单，在几分钟内便可运行起来，扩展性好，很容易管理上万台服务器，速度够快，服务器之间秒级通讯。salt底层采用动态链接总线，使其可以用于编配，远程执行，配置管理等。
+常用命令
+salt ‘主机（支持通配符匹配）’ cmd.run ‘com</p>
+        
+    
+    <time datetime="2015-07-21T09:29:40.000Z" itemprop="datePublished">2015-07-21</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/07/21/使用Hexo和Github搭建Blog/" title="使用Hexo和Github搭建Blog" itemprop="url">
+  
+    <h1 itemprop="name">使用Hexo和Github搭建Blog</h1>
+    
+     
+           <p itemprop="description" >Tips：最近几天都在折腾这个东西，网上有很多的教程，但终究还是有点费劲，在这里总结一下。我是在win7上做的，我尽可能把我出问题的地方着重描述，希望让有兴趣玩这个伙伴们可以顺利点，嘻嘻。特别鸣谢陈素封的博客，帮助很大，话不多说，开始整理。win上多有不便，还会在linux上进行</p>
+        
+    
+    <time datetime="2015-07-21T00:20:02.656Z" itemprop="datePublished">2015-07-21</time>
+  </a>
+</section>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix unexpand">
+    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
   </nav>
 
 </div>
@@ -1063,15 +350,15 @@
 			
 		
 			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Blog/" title="Blog">Blog<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Linux/" title="Linux">Linux<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ansible/" title="ansible">ansible<sup>1</sup></a></li>
 			
 		
 			
@@ -1083,15 +370,23 @@
 			
 		
 			
+				<li><a href="/tags/resume/" title="resume">resume<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/pandoc/" title="pandoc">pandoc<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/awk/" title="awk">awk<sup>1</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+				<li><a href="/tags/ansible/" title="ansible">ansible<sup>1</sup></a></li>
 			
 		
 			
@@ -1111,7 +406,7 @@
 			
 		
 			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+				<li><a href="/tags/FTP/" title="FTP">FTP<sup>1</sup></a></li>
 			
 		
 			
@@ -1119,7 +414,7 @@
 			
 		
 			
-				<li><a href="/tags/FTP/" title="FTP">FTP<sup>1</sup></a></li>
+				<li><a href="/tags/awk/" title="awk">awk<sup>1</sup></a></li>
 			
 		
 		</ul>
