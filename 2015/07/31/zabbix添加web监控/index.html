@@ -11,20 +11,23 @@
     
 
     
-    <meta name="description" content="zabbix监控web服务
-选择一个主机（zabbix含有zabbix client的主机），由这台主机上的client对目标url发起访问。">
+    <meta name="description" content="zabbix监控web服务在host列可以看到web(0),在以前的版本这项是独立出来的，这个主要实现zabbix对web性能的监控，通过它可以了解web站点的可用性以及性能。最终将各项指标绘制到图形中，这样我们可以了解到一个站点的下载速度、响应速度等。需要注意的是在安装zabbix server需要增加libcurl的支持。
+选择一个主机（zabbix含有zabbix client的主机），由这">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zabbix添加web监控">
 <meta property="og:url" content="http://yoursite.com/2015/07/31/zabbix添加web监控/index.html">
 <meta property="og:site_name" content="Arvon's Blog">
-<meta property="og:description" content="zabbix监控web服务
-选择一个主机（zabbix含有zabbix client的主机），由这台主机上的client对目标url发起访问。">
-<meta property="og:image" content="http://yoursite.com/C:\Users\kod\hexo-lcx\source\_posts\image_for_blog">
-<meta property="og:updated_time" content="2015-07-31T10:31:48.413Z">
+<meta property="og:description" content="zabbix监控web服务在host列可以看到web(0),在以前的版本这项是独立出来的，这个主要实现zabbix对web性能的监控，通过它可以了解web站点的可用性以及性能。最终将各项指标绘制到图形中，这样我们可以了解到一个站点的下载速度、响应速度等。需要注意的是在安装zabbix server需要增加libcurl的支持。
+选择一个主机（zabbix含有zabbix client的主机），由这">
+<meta property="og:image" content="http://i1.tietuku.com/be5500d50f015664.png">
+<meta property="og:image" content="http://i1.tietuku.com/af830eaf19c0b964.png">
+<meta property="og:image" content="http://i1.tietuku.com/40e6b5b9ae579c96.png">
+<meta property="og:image" content="http://i1.tietuku.com/1db102b06f16267f.png">
+<meta property="og:updated_time" content="2015-08-19T09:37:29.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zabbix添加web监控">
-<meta name="twitter:description" content="zabbix监控web服务
-选择一个主机（zabbix含有zabbix client的主机），由这台主机上的client对目标url发起访问。">
+<meta name="twitter:description" content="zabbix监控web服务在host列可以看到web(0),在以前的版本这项是独立出来的，这个主要实现zabbix对web性能的监控，通过它可以了解web站点的可用性以及性能。最终将各项指标绘制到图形中，这样我们可以了解到一个站点的下载速度、响应速度等。需要注意的是在安装zabbix server需要增加libcurl的支持。
+选择一个主机（zabbix含有zabbix client的主机），由这">
 
     
     
@@ -94,12 +97,23 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#zabbix监控web服务"><span class="toc-number">1.</span> <span class="toc-text">zabbix监控web服务</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#zabbix监控web服务"><span class="toc-number">1.</span> <span class="toc-text">zabbix监控web服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#步骤"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="zabbix监控web服务">zabbix监控web服务</h3><ol>
-<li>选择一个主机（zabbix含有zabbix client的主机），由这台主机上的client对目标url发起访问。<br><img src="C:\Users\kod\hexo-lcx\source\_posts\image_for_blog" alt="&quot;第一个&quot;" title="第一个"></li>
+		<h3 id="zabbix监控web服务">zabbix监控web服务</h3><p>在host列可以看到web(0),在以前的版本这项是独立出来的，这个主要实现zabbix对web性能的监控，通过它可以了解web站点的可用性以及性能。最终将各项指标绘制到图形中，这样我们可以了解到一个站点的下载速度、响应速度等。需要注意的是在安装zabbix server需要增加libcurl的支持。</p>
+<p>选择一个主机（zabbix含有zabbix client的主机），由这台主机上的client对目标url发起访问。</p>
+<h3 id="步骤">步骤</h3><ol>
+<li><p>先选定一个主机，需要含有clent<br><img src="http://i1.tietuku.com/be5500d50f015664.png" alt="Alt text"></p>
+</li>
+<li><p>点击创建create scenario<br><img src="http://i1.tietuku.com/af830eaf19c0b964.png" alt="Alt text"></p>
+</li>
+<li><p>填写scenario（方案）<br><img src="http://i1.tietuku.com/40e6b5b9ae579c96.png" alt="Alt text"></p>
+</li>
+<li><p>添加并填写steps<br><img src="http://i1.tietuku.com/1db102b06f16267f.png" alt="Alt text"></p>
+</li>
+<li><p>完成</p>
+</li>
 </ol>
   
 	</div>
@@ -158,7 +172,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#zabbix监控web服务"><span class="toc-number">1.</span> <span class="toc-text">zabbix监控web服务</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#zabbix监控web服务"><span class="toc-number">1.</span> <span class="toc-text">zabbix监控web服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#步骤"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a></li></ol>
  
   </div>
 
@@ -219,6 +233,10 @@
 		
 			
 				<li><a href="/tags/Tmux/" title="Tmux">Tmux<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/翻墙/" title="翻墙">翻墙<sup>1</sup></a></li>
 			
 		
 			
