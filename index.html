@@ -22,8 +22,6 @@
 <meta name="twitter:description">
 
     
-    <link rel="alternative" href="/atom.xml" title="Arvon&#39;s Blog" type="application/atom+xml">
-    
     
     <link rel="icon" href="/img/favicon.ico">
     
@@ -70,6 +68,104 @@
     </header>
     <div id="container">
       <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/08/17/Perl语言入门（二）/" title="Perl语言入门（二）" itemprop="url">Perl语言入门（二）</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-17T09:45:52.000Z" itemprop="datePublished"> 发表于 2015-08-17</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><strong>更新记录</strong><br>2015/08/17    拆开来记，start with foreach</p>
+<h3 id="foreach控制结构">foreach控制结构</h3><ul>
+<li>Example one<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="keyword">foreach</span> <span class="variable">$rock</span> (<span class="keyword">qw</span>/ <span class="keyword">my</span> girlfriend is Mo /)&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"One word is named <span class="variable">$rock</span>\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>arvon@Mo:~/arvon_perl&gt; perl foreach_one.pl<br>One word is named my<br>One word is named girlfriend<br>One word is named is<br>One word is named Mo</p>
+</blockquote>
+<ul>
+<li>Example two<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="variable">@rocks</span> = <span class="keyword">qw</span>/ hello world Mo /;</span><br><span class="line"><span class="keyword">foreach</span> <span class="variable">$rock</span>(<span class="variable">@rocks</span>)&#123;</span><br><span class="line">    <span class="variable">$rock</span> = <span class="string">"\t<span class="variable">$rock</span>"</span>;</span><br><span class="line">    <span class="variable">$rock</span> .= <span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"\$rock now is <span class="variable">$rock</span>"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>arvon@Mo:~/arvon_perl&gt; perl foreach_two.pl<br>$rock now is     hello<br>$rock now is     world<br>$rock now is     Mo</p>
+</blockquote>
+<h3 id="Perl的默认变量$">Perl的默认变量$</h3><ul>
+<li>Example one<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="keyword">foreach</span> (<span class="number">1</span>..<span class="number">10</span>)&#123;    <span class="comment">#使用了默认变量$_</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"I can count to <span class="variable">$_</span>!\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>arvon@Mo:~/arvon_perl&gt; perl variable_one.pl<br>I can count to 1!<br>I can count to 2!<br>I can count to 3!<br>I can count to 4!<br>I can count to 5!<br>I can count to 6!<br>I can count to 7!<br>I can count to 8!<br>I can count to 9!<br>I can count to 10!</p>
+</blockquote>
+<h3 id="reverse操作符">reverse操作符</h3><ul>
+<li>reverse操作符会读取列表的值，并按相反的次序返回该列表。<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="variable">@fred</span> = <span class="number">6</span>..<span class="number">10</span>;</span><br><span class="line"><span class="variable">@barney</span> = <span class="keyword">reverse</span>(<span class="variable">@fred</span>);</span><br><span class="line"><span class="variable">@wilma</span> = <span class="keyword">reverse</span> <span class="number">6</span>..<span class="number">10</span>;</span><br><span class="line"><span class="variable">@fred</span> = <span class="keyword">reverse</span> <span class="variable">@fred</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"<span class="variable">@fred</span>, <span class="variable">@barney</span>, <span class="variable">@wilma</span>, \n"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>arvon@Mo:~/arvon_perl&gt; perl reverse_array.pl<br>10 9 8 7 6, 10 9 8 7 6, 10 9 8 7 6,</p>
+</blockquote>
+<h3 id="sort操作符">sort操作符</h3><ul>
+<li>其实啊，就是排序<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="variable">@rocks</span> = <span class="keyword">qw</span>/ happy birthday to Mo /;</span><br><span class="line"><span class="variable">@sorted</span> = <span class="keyword">sort</span>(<span class="variable">@rocks</span>);</span><br><span class="line"><span class="variable">@back</span> = <span class="keyword">reverse</span> <span class="keyword">sort</span> <span class="variable">@rocks</span>;</span><br><span class="line"><span class="variable">@rocks</span> = <span class="keyword">sort</span> <span class="variable">@rocks</span>;</span><br><span class="line"><span class="variable">@numbers</span> = <span class="keyword">sort</span> <span class="number">97</span>..<span class="number">102</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"</span><br><span class="line">       <span class="variable">@rocks</span> \</span><br><span class="line">       <span class="variable">@sorted</span>\</span><br><span class="line">       <span class="variable">@back</span>\</span><br><span class="line">       <span class="variable">@rocks</span>\</span><br><span class="line">       <span class="variable">@numbers</span>"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>arvon@Mo:~/arvon_perl&gt; perl sort_string.pl </p>
+</blockquote>
+<pre><code>Mo birthday happy <span class="keyword">to</span> 
+Mo birthday happy <span class="keyword">to</span>
+<span class="keyword">to</span> happy birthday Mo
+Mo birthday happy <span class="keyword">to</span>
+<span class="number">100</span> <span class="number">101</span> <span class="number">102</span> <span class="number">97</span> <span class="number">98</span> <span class="number">99</span>
+</code></pre><h3 id="each操作符">each操作符</h3><ul>
+<li>每次对数组调用each，会返回数组中下一个元素所对应的两个值—该元素的索引以及该元素的值<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.012</span>;</span><br><span class="line"><span class="keyword">my</span> <span class="variable">@rocks</span> = <span class="keyword">qw</span>/ bedrock slate rubble granite /;</span><br><span class="line"><span class="keyword">while</span>( <span class="keyword">my</span>( <span class="variable">$index</span>, <span class="variable">$value</span> ) = <span class="keyword">each</span> <span class="variable">@rocks</span>)&#123;</span><br><span class="line">    <span class="keyword">say</span> <span class="string">"<span class="variable">$index</span>: <span class="variable">$value</span>"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">foreach</span> <span class="variable">$index</span>(<span class="number">0</span> .. <span class="variable">$#rocks</span> )&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"<span class="variable">$index</span>: <span class="variable">$rocks</span>[<span class="variable">$index</span>]\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Perl/">Perl</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
 
    
     
@@ -136,7 +232,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/10/Prel语言入门读书笔记/" title="Perl语言入门(第六版)读书笔记" itemprop="url">Perl语言入门(第六版)读书笔记</a>
+      <a href="/2015/08/10/Prel语言入门读书笔记/" title="Perl语言入门（一）" itemprop="url">Perl语言入门（一）</a>
   </h1>
   <p class="article-author">By
        
@@ -152,10 +248,13 @@
         <p><strong>更新记录：</strong></p>
 <ul>
 <li>2015/08/10 DonePage45</li>
-<li>2015/08/11 </li>
+<li>2015/08/11 DonePage68</li>
+<li>2015/08/17 Read list and array, do a new one.</li>
 </ul>
 <h2 id="前言杂记">前言杂记</h2><ul>
-<li><p>适合管理员使用的语言</p>
+<li>适合管理员使用的语言</li>
+<li>Arvon’s读书笔记</li>
+<li><p>sixth edtion for learning perl</p>
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="number">5.014</span>;<span class="comment">#该脚本需要在Perl 5.14或更高版本才能正常运行</span></span><br><span class="line">perl -v<span class="comment">#查看perl的版本</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Hello，World</p>
@@ -326,7 +425,60 @@
 <li>行输入操作符<stdin>有时候会返回undef。要判断某个字符串是undef而不是空字符串，可以使用defined<br>函数。如果是undef，该函数返回假，否则返回真：<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="variable">$madonna</span> = &lt;STDIN&gt;;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">defined</span>(<span class="variable">$madonna</span>))&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"The input was <span class="variable">$madonna</span>"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"No input available\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#$madonna = undef;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">[root<span class="variable">@Mo</span> arvon_perl]<span class="comment"># perl undef01.pl </span></span><br><span class="line">No input available</span><br><span class="line">[root<span class="variable">@Mo</span> arvon_perl]<span class="comment"># perl undef01.pl </span></span><br><span class="line">Mo</span><br><span class="line">The input was Mo</span><br><span class="line">[root<span class="variable">@Mo</span> arvon_perl]<span class="comment"># perl undef01.pl </span></span><br><span class="line"></span><br><span class="line">The input was</span><br></pre></td></tr></table></figure>
 </stdin></li>
 </ul>
-<h2 id="#">#</h2>
+<h2 id="列表和数组">列表和数组</h2><ul>
+<li>如果Perl的标量代表单数（singular），那么列表和数组就表示复数（plural）。</li>
+<li>列表（list）是标量的有序集合，而数组（array）则是存储列表的变量。列表指的是数据，而数组指的是变<br>量。列表里的值不一定放在数组里，但每个数组变量都包含一个列表（即便是不含任何元素的空列表。</li>
+<li>数组或列表中的每个元素 （element）都是单独的标量变量，拥有独立的标量值。这些值是有序的，从开始到<br>终止元素的先后次序是固定的。</li>
+</ul>
+<h3 id="访问数组中的元素">访问数组中的元素</h3><ul>
+<li>Example one<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="comment">#print "Hello world\n";</span></span><br><span class="line"><span class="variable">$fred</span>[<span class="number">0</span>] = <span class="string">"Hello"</span>;</span><br><span class="line"><span class="variable">$fred</span>[<span class="number">1</span>] = <span class="string">"My"</span>;</span><br><span class="line"><span class="variable">$fred</span>[<span class="number">2</span>] = <span class="string">"Name"</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"<span class="variable">$fred</span>[0]\n"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">&gt;arvon<span class="variable">@Mo</span>:~<span class="regexp">/arvon_perl&gt; perl array.pl </span><br><span class="line">Hello</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="特殊的数字索引">特殊的数字索引</h3><ul>
+<li>Example two<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="variable">$rocks</span>[<span class="number">0</span>] = <span class="string">'hello'</span>;</span><br><span class="line"><span class="variable">$rocks</span>[<span class="number">1</span>] = <span class="string">'list'</span>;</span><br><span class="line"><span class="variable">$rocks</span>[<span class="number">2</span>] = <span class="string">'array'</span>;</span><br><span class="line"><span class="variable">$rocks</span>[<span class="number">3</span>] = <span class="string">'element'</span>;</span><br><span class="line"><span class="variable">$rocks</span>[<span class="number">4</span>] = <span class="string">'four'</span>;</span><br><span class="line"><span class="variable">$rocks</span>[<span class="number">9</span>] = <span class="string">'nine'</span>;</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="variable">$end</span> = <span class="variable">$#rocks</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"\$end is <span class="variable">$end</span>\n"</span>;</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="variable">$number_of_rocks</span> = <span class="variable">$end</span> + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"The number is <span class="variable">$number_of_rocks</span>\n"</span>;</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="variable">$rocks</span>[ <span class="variable">$#rocks</span> ] = <span class="string">'hard rodk'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">arvon<span class="variable">@Mo</span>:~<span class="regexp">/arvon_perl&gt; perl array_print.pl </span><br><span class="line">$end is 9</span><br><span class="line">The number is 10</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="列表直接量">列表直接量</h3><ul>
+<li>列表直接量（list literal），可以由圆括号内用逗号隔开的一组数据表示，而这些数据就称为元素。<br>for example<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)  <span class="comment">#(1, 2, 3,)相同的逗号会被忽略</span></span><br><span class="line">(<span class="string">"fred"</span>, <span class="number">4.5</span>)   <span class="comment">#两个元素，'fred'和4.5</span></span><br><span class="line">()  <span class="comment">#空列表，0个元素</span></span><br><span class="line">(<span class="number">1</span>..<span class="number">100</span>)    <span class="comment">#100个整数组成的列表</span></span><br><span class="line">(<span class="number">1</span>..<span class="number">5</span>)  <span class="comment">#..是范围操作符（range operator）</span></span><br><span class="line">(<span class="number">1.7</span>..<span class="number">5.7</span>)  <span class="comment">#同上，但两个数字的小数部分会被去掉</span></span><br><span class="line">(<span class="number">5</span>..<span class="number">1</span>)  <span class="comment">#表示空列表，只能正向计数</span></span><br><span class="line">(<span class="variable">$m</span>..<span class="variable">$n</span>)    <span class="comment">#由$m和$n决定</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="qw简写"><code>qw简写</code></h3><ul>
+<li>在perl程序中，经常会需要建立简单的单词列表。使用qw简写，可以省去键入的引号。<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line">(<span class="string">"Mo"</span>, <span class="string">"have"</span>, <span class="string">"rose"</span>, <span class="string">"you"</span>, <span class="string">"known"</span>);</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="string">qw( Mo have rose you known )</span>;</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="string">qw(Mo</span><br><span class="line">hava    rose</span><br><span class="line">you known)</span>;</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="string">qw(</span><br><span class="line">    Mo</span><br><span class="line">    have</span><br><span class="line">    rose</span><br><span class="line">    you</span><br><span class="line">    known</span><br><span class="line">)</span>;</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">qw</span>! Mo have rose you known!;</span><br><span class="line"><span class="keyword">qw</span>/ Mo have rose you known/;</span><br><span class="line"><span class="keyword">qw</span><span class="comment"># Mo have rose you known#;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="列表的赋值">列表的赋值</h3><ul>
+<li>和标量赋值一样，列表值可以被赋值给变量<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line">(<span class="variable">$fred</span>, <span class="variable">$barney</span>, <span class="variable">$dino</span>) = (<span class="string">"flintstone"</span>, <span class="string">"rubble"</span>, <span class="keyword">undef</span>);</span><br><span class="line"><span class="comment">#左侧列表中的三个变量会依次被赋予右侧列表中对应的值，相当于分别做了三次独立的赋值操作；</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="pop和push操作符">pop和push操作符</h3><ul>
+<li>要增加元素到数组尾端时，只要将它存放到更高索引的新位置就可以了。<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="variable">@array</span> = <span class="number">5</span>..<span class="number">9</span>;</span><br><span class="line"><span class="variable">$mo</span> = <span class="keyword">pop</span>(<span class="variable">@array</span>);</span><br><span class="line"><span class="keyword">printf</span> <span class="string">"now \$mo is <span class="variable">$mo</span>\n"</span>;</span><br><span class="line"><span class="variable">$arvon</span> = <span class="keyword">pop</span>(<span class="variable">@array</span>);</span><br><span class="line"><span class="keyword">printf</span> <span class="string">"now \$arvon is <span class="variable">$arvon</span>\n"</span>;</span><br><span class="line"><span class="keyword">push</span>(<span class="variable">@array</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">printf</span> <span class="string">"now \@array is <span class="variable">@array</span>\n"</span>;</span><br><span class="line"><span class="keyword">push</span><span class="variable">@array</span>,<span class="number">3</span>;</span><br><span class="line"><span class="keyword">printf</span> <span class="string">"now \@array is <span class="variable">@array</span>\n"</span>;</span><br><span class="line"><span class="keyword">push</span><span class="variable">@array</span>,<span class="string">"Hello"</span>;</span><br><span class="line"><span class="keyword">printf</span> <span class="string">"now \@array is <span class="variable">@array</span>\n"</span>;</span><br><span class="line"><span class="variable">@newOne</span> = <span class="keyword">qw</span>/ <span class="keyword">my</span> name is arvon /;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"<span class="variable">@newOne</span>\n"</span>;</span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">arvon<span class="variable">@Mo</span>:~<span class="regexp">/arvon_perl&gt; perl assignment_array.pl </span><br><span class="line">now $mo is 9</span><br><span class="line">now $arvon is 8</span><br><span class="line">now @array is 5 6 7 0</span><br><span class="line">now @array is 5 6 7 0 3</span><br><span class="line">now @array is 5 6 7 0 3 Hello</span><br><span class="line">my name is arvon</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="shift和unshift操作符">shift和unshift操作符</h3><ul>
+<li>相反，unshift和shift操作符是对数组的开头进行处理<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="variable">@array</span> = <span class="keyword">qw</span>/ why are you so diao /;</span><br><span class="line"><span class="variable">$one</span> = <span class="keyword">shift</span><span class="variable">@array</span>;<span class="comment">#$one is "why", @array = are you so diao</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"<span class="variable">$one</span> is not <span class="variable">@array</span>\n"</span>;</span><br><span class="line"><span class="variable">$two</span> = <span class="keyword">shift</span>(<span class="variable">@array</span>);<span class="comment">#$two is "are", @array = you so diao</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"<span class="variable">$two</span> is not <span class="variable">@array</span>\n"</span>;</span><br><span class="line"><span class="variable">$three</span> = <span class="keyword">shift</span><span class="variable">@array</span>;<span class="comment">#$three is "you", @array= so diao</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"<span class="variable">$three</span> is not <span class="variable">@array</span>\n"</span>;</span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="keyword">unshift</span>(<span class="variable">@array</span>, <span class="number">4</span>);</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Now \@array is <span class="variable">@array</span>\n"</span>;</span><br><span class="line"><span class="keyword">unshift</span>(<span class="variable">@array</span>, <span class="number">5</span>);</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Now \@array is <span class="variable">@array</span>\n"</span>;</span><br><span class="line"><span class="variable">@others</span> = <span class="number">1</span>..<span class="number">3</span>;</span><br><span class="line"><span class="keyword">unshift</span> <span class="variable">@array</span>, <span class="variable">@others</span>; <span class="comment">#@array变成了(1, 2, 3, 4, 5, )</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"\@others is <span class="variable">@others</span>, But now \@array is already <span class="variable">@array</span>"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">arvon<span class="variable">@Mo</span>:~<span class="regexp">/arvon_perl&gt; perl unshift_str.pl </span><br><span class="line">why is not are you so diao</span><br><span class="line">are is not you so diao</span><br><span class="line">you is not so diao</span><br><span class="line">Now @array is 4 so diao</span><br><span class="line">Now @array is 5 4 so diao</span><br><span class="line">@others is 1 2 3, But now @array is already 1 2 3 5 4 so diao</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="splice操作符">splice操作符</h3><ul>
+<li>push-pop和shift-unshift操作符都是对数组首尾进行操作的，中间的话就用splice</li>
+<li><p>Example one</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="variable">@array</span> = <span class="string">qw( pebbles dino fred barney betty )</span>;</span><br><span class="line"><span class="variable">@removed</span> = <span class="keyword">splice</span> <span class="variable">@array</span>, <span class="number">2</span>;<span class="comment">#在原来的数组中删掉fred及其后的元素</span></span><br><span class="line"><span class="comment">#@removed变成qw（fred barney betty）</span></span><br><span class="line"><span class="comment">#而原来的@array则变成qw（pebbles dino）</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"\@array now is <span class="variable">@array</span>\n"</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"\@removed is <span class="variable">@removed</span>\n"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">arvon<span class="variable">@Mo</span>:~<span class="regexp">/arvon_perl&gt; perl splice_string.pl </span><br><span class="line">@array now is pebbles dino</span><br><span class="line">@removed is fred barney betty</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Example two</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="variable">@array</span> = <span class="string">qw( pebbles dino fred barney betty )</span>;</span><br><span class="line"><span class="comment">#@removed = splice @array, 2;#在原来的数组中删掉fred及其后的元素</span></span><br><span class="line"><span class="comment">##@removed变成qw（fred barney betty）</span></span><br><span class="line"><span class="comment">##而原来的@array则变成qw（pebbles dino）</span></span><br><span class="line"><span class="comment">#print "\@array now is @array\n";</span></span><br><span class="line"><span class="comment">#print "\@removed is @removed\n";</span></span><br><span class="line"><span class="comment">#@removed = splice @array, 1, 2;</span></span><br><span class="line"><span class="comment">##This time @removed is (pebbles, barney, betty )</span></span><br><span class="line"><span class="variable">@removed</span> = <span class="keyword">splice</span> <span class="variable">@array</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="string">qw(wilema)</span>;</span><br><span class="line"><span class="comment">##Just known @array is became (pebbles wilema dino fred barney betty)</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"now \@removed is <span class="variable">@removed</span>, and \@array is <span class="variable">@array</span>.\n"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">arvon<span class="variable">@Mo</span>:~<span class="regexp">/arvon_perl&gt; perl splice_string.pl </span><br><span class="line">now @removed is , and @array is pebbles wilema dino fred barney betty.</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="字符串的内插">字符串的内插</h3><ul>
+<li><p>和标量一样，数组的内容同样可以被内插到双引号中。内插时，会在数组的各个元素之间自动添加分隔用的空格</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="variable">@rocks</span> = <span class="keyword">qw</span>/ flintstone slate rubble /;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Quartz <span class="variable">@rocks</span> limestone\n"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###Output</span></span><br><span class="line">arvon<span class="variable">@Mo</span>:~<span class="regexp">/arvon_perl&gt; perl array_one.pl </span><br><span class="line">Quartz flintstone slate rubble limestone</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Example for index_expression</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="variable">@fred</span> = <span class="string">qw(eating rocks is wrong)</span>;</span><br><span class="line"><span class="variable">$fred</span> = <span class="string">"right"</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"This is <span class="variable">$fred</span>[3]\n"</span>;     <span class="comment">#just right</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"This is <span class="subst">$&#123;fred&#125;</span>[3]\n"</span>;   <span class="comment">#wrong</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"This is <span class="variable">$fred</span>"</span>.<span class="string">"[3]\n"</span>;  <span class="comment">#wrong</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"This is <span class="variable">$fred</span>\[3]\n"</span>;    <span class="comment">#still wrong</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="后续下一篇，太长了不方便查阅">后续下一篇，太长了不方便查阅</h2><ul>
+<li>So， Let’s go</li>
+</ul>
+
         
         
         <p class="article-more-link">
@@ -497,8 +649,15 @@
     <div class="article-content">
         
         <p><strong>主要记录：</strong>Linux下的常用命令实例</p>
-<h3 id="实例（一）">实例（一）</h3><p><strong>descript：</strong>将一个excel表格导入到linux文本中，对文本的Ip进行统计处理</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;</span><br></pre></td></tr></table></figure>
+<h3 id="实例">实例</h3><ul>
+<li><p>search where the software are installed</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arvon<span class="decorator">@Mo:~/arvon_perl&gt; whereis perl</span></span><br><span class="line">perl: /usr/bin/perl /usr/bin/X11/perl /usr/share/man/man1/perl.1.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Update the perl to 5.14</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">arvon<span class="decorator">@Mo:~/pkg&gt; wget http://www.cpan.org/src/5.0/perl-5.14.1.tar.gz</span></span><br><span class="line"><span class="comment">#download the package</span></span><br><span class="line">arvon<span class="decorator">@Mo:~/pkg/perl-5.14.1&gt; tar zxvf perl-5.14.1.tar.gz</span></span><br><span class="line"><span class="comment">#decompression the package</span></span><br><span class="line">arvon<span class="decorator">@Mo:~/pkg&gt; cd perl-5.14.1/</span></span><br><span class="line"><span class="comment">#access to the directgory</span></span><br><span class="line">arvon<span class="decorator">@Mo:~/pkg/perl-5.14.1&gt; vim README</span></span><br><span class="line"><span class="comment">#</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
         
         
         <p class="article-more-link">
@@ -954,7 +1113,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="资源网站">资源网站</h3><p><a href="http://www.osyunwei.com/" target="_blank" rel="external">系统运维之家</a><br>[][2]<br>[][3]<br>[][4]</p>
+<h3 id="资源网站">资源网站</h3><p><a href="http://www.osyunwei.com/" target="_blank" rel="external">系统运维之家</a><br><a href="http://www.lupaworld.com/article-242275-1.html" target="_blank" rel="external">兴趣看看</a><br><a href="http://linux.cn/" target="_blank" rel="external">中文Linux社区</a><br><a href="http://www.linux.com/" target="_blank" rel="external">英文版参考学习主站</a></p>
 
         
         
@@ -969,97 +1128,6 @@
   <div class="article-tags">
   
   <span></span> <a href="/tags/skills/">skills</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/07/28/Linux下搭建vsftp服务器/" title="Linux下搭建VSFTP服务器" itemprop="url">Linux下搭建VSFTP服务器</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-28T07:04:06.000Z" itemprop="datePublished"> 发表于 2015-07-28</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><strong>简介：</strong>VSFTP（Very Secure FTP）是一个基于GPL发布的类Unix系统上使用的FTP服务器软件，设计者的初衷是代码的安全，<br>另外速度在使用ASCII代码的模式下在数据时，VSFTP的速度为Wu-FTp的两倍，如果Linux主机使用2.4.x的内核，在千兆以太网的<br>下的下载速度可以达到86MB/S。而且很稳定，在单机上支持4000以上的并发用户同时连接，根据RedHat和Ftp服务器的数据，VSFTP<br>服务器可以支持15000个并发用户</p>
-<h1 id="搭建VSFTP">搭建VSFTP</h1><h2 id="VSFTP的优缺点">VSFTP的优缺点</h2><h3 id="VSFTP的优点">VSFTP的优点</h3><ol>
-<li>它是一个安全、高速、稳定的FTP服务器；</li>
-<li>它可以做基于多个IP的虚拟FTP主机服务器；</li>
-<li>匿名服务设置十分方便；</li>
-<li>匿名FTP的根目录不需要任何特殊的目录结构，或系统程序或其它的系统文件；</li>
-<li>不执行任何外部程序，从而减少了安全隐患；</li>
-<li>支持虚拟用户，并且每个虚拟用户可以具有独立的属性配置；</li>
-<li>可以设置从inetd中启动，或者独立的FTP服务器两种运行方式；</li>
-<li>支持两种认证方式（PAP或xinetd/ tcp_wrappers）；</li>
-<li>支持带宽限制；<br>VSFTP市场应用十分广范，很多国际性的大公司和自由开源组织在使用，如：Red Hat, Suse，Debian，OpenBSD</li>
-</ol>
-<h3 id="VSFTP的缺点">VSFTP的缺点</h3><ol>
-<li>VSFTP从没有处理文件编码转换的windows客户端访问时有乱码现象</li>
-<li>解决方法：<ul>
-<li>使用vsftp的补丁</li>
-<li>转换服务器目录文件编码</li>
-</ul>
-</li>
-</ol>
-<h2 id="环境">环境</h2><ul>
-<li>CentOS release 6.6</li>
-</ul>
-<h2 id="搭建步骤">搭建步骤</h2><h3 id="安装VSFTP">安装VSFTP</h3><ol>
-<li><p>检查是否已安装vsftp服务</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Mo ~]# rpm -q vsftpd&#10;package vsftpd is not installed</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装vsftp服务</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Mo ~]# yum install -y vsftpd db4-utils&#9;#&#23433;&#35013;vsftpd&#26381;&#21153;&#10;[root@Mo ~]# rpm -q vsftpd &#9;&#9;#vsftpd&#26381;&#21153;&#24050;&#23433;&#35013;&#10;vsftpd-2.2.2-13.el6_6.1.x86_64&#10;&#10;[root@Mo vsftp]# yum install lrzsz&#9;&#9;#&#23433;&#35013;&#21518;&#21487;&#20197;&#25226;windows&#30340;&#25991;&#20214;&#30452;&#25509;&#36890;&#36807;xshell&#25289;&#21040;&#30446;&#26631;&#20027;&#26426;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>vsftp配置文件</p>
-<ul>
-<li>官方wiki有处理脚本：<a href="http://wiki.centos.org/HowTos/Chroot_Vsftpd_with_non-system_users" target="_blank" rel="external">脚本地址</a></li>
-<li>将脚本放至linux主机，然后执行该脚本</li>
-</ul>
-</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/FTP/">FTP</a>
   </div>
 
 </div>
@@ -1101,11 +1169,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Blog/" title="Blog">Blog<sup>2</sup></a></li>
+				<li><a href="/tags/Perl/" title="Perl">Perl<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Perl/" title="Perl">Perl<sup>2</sup></a></li>
+				<li><a href="/tags/Blog/" title="Blog">Blog<sup>2</sup></a></li>
 			
 		
 			
@@ -1168,31 +1236,8 @@
 </div>
 
 
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-        
-          <li>
-            
-            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
-            
-          </li>
-        
-    </ul>
-</div>
-
   
 
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
 
 </aside>
 </div>

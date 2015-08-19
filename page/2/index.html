@@ -22,8 +22,6 @@
 <meta name="twitter:description">
 
     
-    <link rel="alternative" href="/atom.xml" title="Arvon&#39;s Blog" type="application/atom+xml">
-    
     
     <link rel="icon" href="/img/favicon.ico">
     
@@ -70,6 +68,97 @@
     </header>
     <div id="container">
       <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/28/Linux下搭建vsftp服务器/" title="Linux下搭建VSFTP服务器" itemprop="url">Linux下搭建VSFTP服务器</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-28T07:04:06.000Z" itemprop="datePublished"> 发表于 2015-07-28</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><strong>简介：</strong>VSFTP（Very Secure FTP）是一个基于GPL发布的类Unix系统上使用的FTP服务器软件，设计者的初衷是代码的安全，<br>另外速度在使用ASCII代码的模式下在数据时，VSFTP的速度为Wu-FTp的两倍，如果Linux主机使用2.4.x的内核，在千兆以太网的<br>下的下载速度可以达到86MB/S。而且很稳定，在单机上支持4000以上的并发用户同时连接，根据RedHat和Ftp服务器的数据，VSFTP<br>服务器可以支持15000个并发用户</p>
+<h1 id="搭建VSFTP">搭建VSFTP</h1><h2 id="VSFTP的优缺点">VSFTP的优缺点</h2><h3 id="VSFTP的优点">VSFTP的优点</h3><ol>
+<li>它是一个安全、高速、稳定的FTP服务器；</li>
+<li>它可以做基于多个IP的虚拟FTP主机服务器；</li>
+<li>匿名服务设置十分方便；</li>
+<li>匿名FTP的根目录不需要任何特殊的目录结构，或系统程序或其它的系统文件；</li>
+<li>不执行任何外部程序，从而减少了安全隐患；</li>
+<li>支持虚拟用户，并且每个虚拟用户可以具有独立的属性配置；</li>
+<li>可以设置从inetd中启动，或者独立的FTP服务器两种运行方式；</li>
+<li>支持两种认证方式（PAP或xinetd/ tcp_wrappers）；</li>
+<li>支持带宽限制；<br>VSFTP市场应用十分广范，很多国际性的大公司和自由开源组织在使用，如：Red Hat, Suse，Debian，OpenBSD</li>
+</ol>
+<h3 id="VSFTP的缺点">VSFTP的缺点</h3><ol>
+<li>VSFTP从没有处理文件编码转换的windows客户端访问时有乱码现象</li>
+<li>解决方法：<ul>
+<li>使用vsftp的补丁</li>
+<li>转换服务器目录文件编码</li>
+</ul>
+</li>
+</ol>
+<h2 id="环境">环境</h2><ul>
+<li>CentOS release 6.6</li>
+</ul>
+<h2 id="搭建步骤">搭建步骤</h2><h3 id="安装VSFTP">安装VSFTP</h3><ol>
+<li><p>检查是否已安装vsftp服务</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Mo ~]# rpm -q vsftpd&#10;package vsftpd is not installed</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装vsftp服务</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Mo ~]# yum install -y vsftpd db4-utils&#9;#&#23433;&#35013;vsftpd&#26381;&#21153;&#10;[root@Mo ~]# rpm -q vsftpd &#9;&#9;#vsftpd&#26381;&#21153;&#24050;&#23433;&#35013;&#10;vsftpd-2.2.2-13.el6_6.1.x86_64&#10;&#10;[root@Mo vsftp]# yum install lrzsz&#9;&#9;#&#23433;&#35013;&#21518;&#21487;&#20197;&#25226;windows&#30340;&#25991;&#20214;&#30452;&#25509;&#36890;&#36807;xshell&#25289;&#21040;&#30446;&#26631;&#20027;&#26426;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>vsftp配置文件</p>
+<ul>
+<li>官方wiki有处理脚本：<a href="http://wiki.centos.org/HowTos/Chroot_Vsftpd_with_non-system_users" target="_blank" rel="external">脚本地址</a></li>
+<li>将脚本放至linux主机，然后执行该脚本</li>
+</ul>
+</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/FTP/">FTP</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
 
    
     
@@ -723,7 +812,7 @@
 <p>Reference-style 引用方式：<br>[link text][id]<br>[id]: <a href="https://www.mozilla.org" target="_blank" rel="external">https://www.mozilla.org</a> “title text”</p>
 <p>Relative reference to a repository file 引用存储文件：<br>[link text](../path/file/readme.text “title text”)</p>
 <p>还能这样使用：<br>[link text][]<br>[link text]: <a href="http://www.reddit.com" target="_blank" rel="external">http://www.reddit.com</a></p>
-<p>Email 邮件：<br><a href="&#x6d;&#x61;&#105;&#108;&#x74;&#x6f;&#58;&#x65;&#120;&#97;&#109;&#112;&#x6c;&#101;&#64;&#x65;&#120;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;">&#x65;&#120;&#97;&#109;&#112;&#x6c;&#101;&#64;&#x65;&#120;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;</a></p>
+<p>Email 邮件：<br><a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#x40;&#101;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#101;&#46;&#x63;&#x6f;&#109;">&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#x40;&#101;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#101;&#46;&#x63;&#x6f;&#109;</a></p>
 </blockquote>
 <h3 id="images图片链接">images图片链接</h3><blockquote>
 <p>Inline-style 内嵌方式：<br>![alt text](<a href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" target="_blank" rel="external">https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png</a> “title text”)</p>
@@ -970,11 +1059,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Blog/" title="Blog">Blog<sup>2</sup></a></li>
+				<li><a href="/tags/Perl/" title="Perl">Perl<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Perl/" title="Perl">Perl<sup>2</sup></a></li>
+				<li><a href="/tags/Blog/" title="Blog">Blog<sup>2</sup></a></li>
 			
 		
 			
@@ -1037,31 +1126,8 @@
 </div>
 
 
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-        
-          <li>
-            
-            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
-            
-          </li>
-        
-    </ul>
-</div>
-
   
 
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
 
 </aside>
 </div>
