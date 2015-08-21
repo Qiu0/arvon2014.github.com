@@ -4,56 +4,37 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>SSH-Tunnel翻墙 | Arvon&#39;s Blog</title>
+    <title>Too many open files错误 | Arvon&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Arvon">
     
 
     
-    <meta name="description" content="世界这么大，我想到翻过墙头看看。社会主义的GWF，真真是极好的
-环境准备
-Firefox（推荐英文版）
-Foxyproxy(Firefox插件）
-Xshell
-海外服务器（当让你在那要有个可以ssh的用户)
+    <meta name="description" content="问题描述：今天看了监控，又一个agent unreachable，然后惯例我要去重启agent，but并没有什么卵用。看报错，查log，如下
 
-使用说明使用Xshell建立sshtunnel，Firefox通过插件代理设置开全局翻墙，翻墙期间需要xshell对话保持正常连接，只有这个浏览器可以实现翻墙功能。
-步骤&amp;amp;截图详解">
+通过google有了一些眉目,以下摘自google
+
+linux系统出现Too many open files 错误，这是因为文件描述符大小不够，或者有不正常的网络连接(Socket也是一种特殊的文件)、文件IO没有关闭并释放出文件描述符（文件句柄，Fil">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SSH-Tunnel翻墙">
-<meta property="og:url" content="http://yoursite.com/2015/08/19/SSH-Tunnel翻墙/index.html">
+<meta property="og:title" content="Too many open files错误">
+<meta property="og:url" content="http://yoursite.com/2015/08/21/Too-many-open-files错误/index.html">
 <meta property="og:site_name" content="Arvon's Blog">
-<meta property="og:description" content="世界这么大，我想到翻过墙头看看。社会主义的GWF，真真是极好的
-环境准备
-Firefox（推荐英文版）
-Foxyproxy(Firefox插件）
-Xshell
-海外服务器（当让你在那要有个可以ssh的用户)
+<meta property="og:description" content="问题描述：今天看了监控，又一个agent unreachable，然后惯例我要去重启agent，but并没有什么卵用。看报错，查log，如下
 
-使用说明使用Xshell建立sshtunnel，Firefox通过插件代理设置开全局翻墙，翻墙期间需要xshell对话保持正常连接，只有这个浏览器可以实现翻墙功能。
-步骤&amp;amp;截图详解">
-<meta property="og:image" content="http://i3.tietuku.com/0a4bea2b70af3dd6.png">
-<meta property="og:image" content="http://i3.tietuku.com/742820055e0e5ea1.png">
-<meta property="og:image" content="http://i3.tietuku.com/216adfa2f824c37f.png">
-<meta property="og:image" content="http://i3.tietuku.com/b377198ff0f99aaf.png">
-<meta property="og:image" content="http://i3.tietuku.com/cb3e5724b92e169d.png">
-<meta property="og:image" content="http://i3.tietuku.com/d32769d27e584944.png">
-<meta property="og:image" content="http://i3.tietuku.com/4132dcf2ff808d40.png">
-<meta property="og:image" content="http://i3.tietuku.com/651c54e55a6a57df.png">
-<meta property="og:image" content="http://i3.tietuku.com/4132dcf2ff808d40.png">
-<meta property="og:updated_time" content="2015-08-20T08:31:51.742Z">
+通过google有了一些眉目,以下摘自google
+
+linux系统出现Too many open files 错误，这是因为文件描述符大小不够，或者有不正常的网络连接(Socket也是一种特殊的文件)、文件IO没有关闭并释放出文件描述符（文件句柄，Fil">
+<meta property="og:image" content="http://i1.tietuku.com/b005b2a0ab63699d.png">
+<meta property="og:image" content="http://i1.tietuku.com/ac251c031bf640e8.png">
+<meta property="og:updated_time" content="2015-08-21T02:30:01.876Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SSH-Tunnel翻墙">
-<meta name="twitter:description" content="世界这么大，我想到翻过墙头看看。社会主义的GWF，真真是极好的
-环境准备
-Firefox（推荐英文版）
-Foxyproxy(Firefox插件）
-Xshell
-海外服务器（当让你在那要有个可以ssh的用户)
+<meta name="twitter:title" content="Too many open files错误">
+<meta name="twitter:description" content="问题描述：今天看了监控，又一个agent unreachable，然后惯例我要去重启agent，but并没有什么卵用。看报错，查log，如下
 
-使用说明使用Xshell建立sshtunnel，Firefox通过插件代理设置开全局翻墙，翻墙期间需要xshell对话保持正常连接，只有这个浏览器可以实现翻墙功能。
-步骤&amp;amp;截图详解">
+通过google有了一些眉目,以下摘自google
+
+linux系统出现Too many open files 错误，这是因为文件描述符大小不够，或者有不正常的网络连接(Socket也是一种特殊的文件)、文件IO没有关闭并释放出文件描述符（文件句柄，Fil">
 
     
     
@@ -107,14 +88,14 @@ Xshell
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/19/SSH-Tunnel翻墙/" title="SSH-Tunnel翻墙" itemprop="url">SSH-Tunnel翻墙</a>
+      <a href="/2015/08/21/Too-many-open-files错误/" title="Too many open files错误" itemprop="url">Too many open files错误</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-19T08:28:47.000Z" itemprop="datePublished"> 发表于 2015-08-19</time>
+    <time datetime="2015-08-21T02:10:18.000Z" itemprop="datePublished"> 发表于 2015-08-21</time>
     
   </p>
 </header>
@@ -123,43 +104,26 @@ Xshell
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境准备"><span class="toc-number">1.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用说明"><span class="toc-number">2.</span> <span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#步骤&截图详解"><span class="toc-number">3.</span> <span class="toc-text">步骤&截图详解</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
 		
 		</div>
 		
-		<p>世界这么大，我想到翻过墙头看看。社会主义的GWF，真真是极好的</p>
-<h3 id="环境准备">环境准备</h3><ul>
-<li><a href="http://www.firefox.com.cn/download/" target="_blank" rel="external">Firefox</a>（推荐英文版）</li>
-<li>Foxyproxy(Firefox插件）</li>
-<li><a href="http://xshell.en.softonic.com/download?ab=1#downloading" target="_blank" rel="external">Xshell</a></li>
-<li>海外服务器（当让你在那要有个可以ssh的用户)</li>
-</ul>
-<h3 id="使用说明">使用说明</h3><p>使用Xshell建立sshtunnel，Firefox通过插件代理设置开全局翻墙，翻墙期间需要xshell对话保持正常连接，只有这个浏览器可以实现翻墙功能。</p>
-<h3 id="步骤&amp;截图详解">步骤&amp;截图详解</h3><ol>
-<li>安装Firefox</li>
-<li><p>安装Xshell</p>
+		<p>问题描述：今天看了监控，又一个agent unreachable，然后惯例我要去重启agent，but并没有什么卵用。看报错，查log，如下<br><img src="http://i1.tietuku.com/b005b2a0ab63699d.png" alt=""></p>
+<h2 id=""><img src="http://i1.tietuku.com/ac251c031bf640e8.png" alt=""></h2><hr>
+<p>通过google有了一些眉目,以下摘自<a href="http://www.cnblogs.com/wgkgood/archive/2011/03/02/2066709.html" target="_blank" rel="external">google</a></p>
+<blockquote>
+<p>linux系统出现Too many open files 错误，这是因为文件描述符大小不够，或者有不正常的网络连接(Socket也是一种特殊的文件)、文件IO没有关闭并释放出文件描述符（文件句柄，File Operator）。<br>使用如下命令查看系统对允许打开最大文件描述符的配置：<br>ulimit -u 查看open files设置<br>ulimit -a 查看所有设置<br>ulimit -u 65535(新的open files 值)修改设置<br>ulimit -n 65536 设置用户可以同时打开的最大文件数（max open files）<br>　<br>如果本参数设置过小，对于并发访问量大的网站，可能会出现too many open files的错误 　<br>使用lsof -p pid [httpd进程的 pid、java的pid]来查看系统中apache进程和java运行时进程当前打开的文件资源，发现两者之和已经接近1024，大于了默认的设置。</p>
+<p>修改配置：</p>
+<p>修改/etc/security/limits.conf，在文件末加上</p>
 <ul>
-<li>新建会话</li>
-<li><p>连接会话<br><img src="http://i3.tietuku.com/0a4bea2b70af3dd6.png" alt=""></p>
-</li>
-<li><p>显示隧道窗格<br><img src="http://i3.tietuku.com/742820055e0e5ea1.png" alt=""></p>
-</li>
-<li><p>设置<br><img src="http://i3.tietuku.com/216adfa2f824c37f.png" alt=""><br><img src="http://i3.tietuku.com/b377198ff0f99aaf.png" alt=""></p>
-</li>
+<li>soft nofile 65536</li>
+<li>hard nofile 65536</li>
 </ul>
-</li>
-<li><p>安装Foxyproxy<br><img src="http://i3.tietuku.com/cb3e5724b92e169d.png" alt=""><br><img src="http://i3.tietuku.com/d32769d27e584944.png" alt=""></p>
+<p>系统级文件描述符极限还可以通过将以下三行添加到 /etc/rc.d/rc.local 启动脚本中来设置：</p>
 <ul>
-<li>安装Foxyproxy</li>
-<li><p>配置FoxyProxy，右键Froxyproxy图标（就是那个蓝色的狐狸标）<br><img src="http://i3.tietuku.com/4132dcf2ff808d40.png" alt=""><br><img src="http://i3.tietuku.com/651c54e55a6a57df.png" alt=""></p>
-</li>
-<li><p>右键FroxyProxy图标，选中Use Proxy ‘your mode’ for all URLS<br><img src="http://i3.tietuku.com/4132dcf2ff808d40.png" alt=""></p>
-</li>
+<li>Increase system-wide file descriptor limit.<br>echo 65536 &gt; /proc/sys/fs/file-max<br>echo 65536 &gt; /proc/sys/fs/inode-max</li>
 </ul>
-</li>
-<li><p>完成</p>
-</li>
-</ol>
+</blockquote>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -168,7 +132,7 @@ Xshell
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/翻墙/">翻墙</a>
+  <span></span> <a href="/tags/句柄/">句柄</a>
   </div>
 
 </div>
@@ -177,7 +141,7 @@ Xshell
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/08/19/SSH-Tunnel翻墙/" data-title="SSH-Tunnel翻墙 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/08/21/Too-many-open-files错误/" data-title="Too many open files错误 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -191,18 +155,18 @@ Xshell
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/08/19/使用Hexo和Github搭建Blog/" title="使用Hexo和Github搭建Blog">
+ <a href="/2015/08/21/lsof命令/" title="lsof命令">
   <strong>上一篇：</strong><br/>
   <span>
-  使用Hexo和Github搭建Blog</span>
+  lsof命令</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/08/19/pandoc使用简记/"  title="pandoc使用简记">
+<a href="/2015/08/20/sed-命令实例/"  title="sed 命令实例">
  <strong>下一篇：</strong><br/> 
- <span>pandoc使用简记
+ <span>sed 命令实例
 </span>
 </a>
 </div>
@@ -217,7 +181,7 @@ Xshell
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境准备"><span class="toc-number">1.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用说明"><span class="toc-number">2.</span> <span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#步骤&截图详解"><span class="toc-number">3.</span> <span class="toc-text">步骤&截图详解</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
  
   </div>
 
