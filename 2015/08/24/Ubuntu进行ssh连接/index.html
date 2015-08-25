@@ -4,35 +4,54 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Pikachu | Arvon&#39;s Blog</title>
+    <title>Ubuntu进行ssh连接 | Arvon&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Arvon">
     
 
     
-    <meta name="description" content="Eatlike：虾、牛蛙、不咸的蚕豆、鸭翅、不二家的果味糖（葡萄味）、芒果、葡萄味的饮料、涮羊肉、炸鸡、unlike：豆腐、粉
-Thinglike：一切尽在掌握（旅游的话提前计划）、看进度条（真奇葩）unlike：手足无措（到地方不知道怎么玩去哪玩）、
-Playlike：唱歌、游泳、unlike：
-Musiclike：别想他、张信哲、王菲、unlike：
-Giftlike：水晶球、埃菲尔铁塔、un">
+    <meta name="description" content="安装了Ubuntu进行测试，发现ssh连不上。发现没有ssh进程，so解决之
+步骤
+当然先看是不是已经有了ssh,有的话就算了
+1ps aux | grep ssh
+
+没有，就开个终端，装一个
+
+查看是否有了ssh进程
+
+然后就是进行连接了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pikachu">
-<meta property="og:url" content="http://yoursite.com/2015/07/17/皮卡邱/index.html">
+<meta property="og:title" content="Ubuntu进行ssh连接">
+<meta property="og:url" content="http://yoursite.com/2015/08/24/Ubuntu进行ssh连接/index.html">
 <meta property="og:site_name" content="Arvon's Blog">
-<meta property="og:description" content="Eatlike：虾、牛蛙、不咸的蚕豆、鸭翅、不二家的果味糖（葡萄味）、芒果、葡萄味的饮料、涮羊肉、炸鸡、unlike：豆腐、粉
-Thinglike：一切尽在掌握（旅游的话提前计划）、看进度条（真奇葩）unlike：手足无措（到地方不知道怎么玩去哪玩）、
-Playlike：唱歌、游泳、unlike：
-Musiclike：别想他、张信哲、王菲、unlike：
-Giftlike：水晶球、埃菲尔铁塔、un">
-<meta property="og:updated_time" content="2015-08-11T05:34:45.931Z">
+<meta property="og:description" content="安装了Ubuntu进行测试，发现ssh连不上。发现没有ssh进程，so解决之
+步骤
+当然先看是不是已经有了ssh,有的话就算了
+1ps aux | grep ssh
+
+没有，就开个终端，装一个
+
+查看是否有了ssh进程
+
+然后就是进行连接了">
+<meta property="og:image" content="http://i1.tietuku.com/0e3b11fdb4002e49.png">
+<meta property="og:image" content="http://i1.tietuku.com/6f17e8bdf2001a06.png">
+<meta property="og:image" content="http://i1.tietuku.com/09713a7df77b3306.png">
+<meta property="og:image" content="http://i1.tietuku.com/b61bac93f0ea20ca.png">
+<meta property="og:updated_time" content="2015-08-24T03:52:32.588Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pikachu">
-<meta name="twitter:description" content="Eatlike：虾、牛蛙、不咸的蚕豆、鸭翅、不二家的果味糖（葡萄味）、芒果、葡萄味的饮料、涮羊肉、炸鸡、unlike：豆腐、粉
-Thinglike：一切尽在掌握（旅游的话提前计划）、看进度条（真奇葩）unlike：手足无措（到地方不知道怎么玩去哪玩）、
-Playlike：唱歌、游泳、unlike：
-Musiclike：别想他、张信哲、王菲、unlike：
-Giftlike：水晶球、埃菲尔铁塔、un">
+<meta name="twitter:title" content="Ubuntu进行ssh连接">
+<meta name="twitter:description" content="安装了Ubuntu进行测试，发现ssh连不上。发现没有ssh进程，so解决之
+步骤
+当然先看是不是已经有了ssh,有的话就算了
+1ps aux | grep ssh
+
+没有，就开个终端，装一个
+
+查看是否有了ssh进程
+
+然后就是进行连接了">
 
     
     
@@ -86,14 +105,14 @@ Giftlike：水晶球、埃菲尔铁塔、un">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/17/皮卡邱/" title="Pikachu" itemprop="url">Pikachu</a>
+      <a href="/2015/08/24/Ubuntu进行ssh连接/" title="Ubuntu进行ssh连接" itemprop="url">Ubuntu进行ssh连接</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-17T04:07:11.000Z" itemprop="datePublished"> 发表于 2015-07-17</time>
+    <time datetime="2015-08-24T02:29:52.000Z" itemprop="datePublished"> 发表于 2015-08-24</time>
     
   </p>
 </header>
@@ -102,19 +121,22 @@ Giftlike：水晶球、埃菲尔铁塔、un">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Eat"><span class="toc-number">1.</span> <span class="toc-text">Eat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thing"><span class="toc-number">2.</span> <span class="toc-text">Thing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Play"><span class="toc-number">3.</span> <span class="toc-text">Play</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Music"><span class="toc-number">4.</span> <span class="toc-text">Music</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gift"><span class="toc-number">5.</span> <span class="toc-text">Gift</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Movie"><span class="toc-number">6.</span> <span class="toc-text">Movie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Travel"><span class="toc-number">7.</span> <span class="toc-text">Travel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Home"><span class="toc-number">8.</span> <span class="toc-text">Home</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Animal"><span class="toc-number">9.</span> <span class="toc-text">Animal</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#步骤"><span class="toc-number">1.</span> <span class="toc-text">步骤</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="Eat">Eat</h3><p><strong>like：</strong>虾、牛蛙、不咸的蚕豆、鸭翅、不二家的果味糖（葡萄味）、芒果、葡萄味的饮料、涮羊肉、炸鸡、<br><strong>unlike：</strong>豆腐、粉</p>
-<h3 id="Thing">Thing</h3><p><strong>like：</strong>一切尽在掌握（旅游的话提前计划）、看进度条（真奇葩）<br><strong>unlike：</strong>手足无措（到地方不知道怎么玩去哪玩）、</p>
-<h3 id="Play">Play</h3><p><strong>like：</strong>唱歌、游泳、<br><strong>unlike：</strong></p>
-<h3 id="Music">Music</h3><p><strong>like：</strong>别想他、张信哲、王菲、<br><strong>unlike：</strong></p>
-<h3 id="Gift">Gift</h3><p><strong>like：</strong>水晶球、埃菲尔铁塔、<br><strong>unlike：</strong></p>
-<h3 id="Movie">Movie</h3><p><strong>like：</strong>动漫、文艺爱情片、<br><strong>unlike：</strong></p>
-<h3 id="Travel">Travel</h3><p><strong>WantGo:</strong><br><strong>HadDone:</strong>洛阳、开封、香港、澳门、泰山、</p>
-<h3 id="Home">Home</h3><p><strong>WantHave：</strong>指压板、木地板、索菲亚定制衣柜、<br><strong>Unlike：</strong></p>
-<h3 id="Animal">Animal</h3><p><strong>like:</strong>小猫、小狗、长颈鹿、水母、<br><strong>unlike:</strong></p>
+		<p>安装了Ubuntu进行测试，发现ssh连不上。发现没有ssh进程，so解决之</p>
+<h3 id="步骤">步骤</h3><ul>
+<li><p>当然先看是不是已经有了ssh,有的话就算了</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | <span class="keyword">grep</span> ssh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>没有，就开个终端，装一个<br><img src="http://i1.tietuku.com/0e3b11fdb4002e49.png" alt=""><br><img src="http://i1.tietuku.com/6f17e8bdf2001a06.png" alt=""></p>
+</li>
+<li><p>查看是否有了ssh进程<br><img src="http://i1.tietuku.com/09713a7df77b3306.png" alt=""></p>
+</li>
+<li><p>然后就是进行连接了<br><img src="http://i1.tietuku.com/b61bac93f0ea20ca.png" alt=""></p>
+</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -123,7 +145,7 @@ Giftlike：水晶球、埃菲尔铁塔、un">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Pikachu/">Pikachu</a>
+  <span></span> <a href="/tags/Ubuntu/">Ubuntu</a><a href="/tags/ssh/">ssh</a>
   </div>
 
 </div>
@@ -132,7 +154,7 @@ Giftlike：水晶球、埃菲尔铁塔、un">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/07/17/皮卡邱/" data-title="Pikachu | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/08/24/Ubuntu进行ssh连接/" data-title="Ubuntu进行ssh连接 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -146,13 +168,21 @@ Giftlike：水晶球、埃菲尔铁塔、un">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/07/20/Hexo简明/" title="Hexo简明">
+ <a href="/2015/08/24/使用fio工具测试linux的磁盘性能/" title="使用fio工具测试linux的磁盘性能">
   <strong>上一篇：</strong><br/>
   <span>
-  Hexo简明</span>
+  使用fio工具测试linux的磁盘性能</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2015/08/21/yum源配置手册/"  title="yum源配置手册">
+ <strong>下一篇：</strong><br/> 
+ <span>yum源配置手册
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -164,7 +194,7 @@ Giftlike：水晶球、埃菲尔铁塔、un">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Eat"><span class="toc-number">1.</span> <span class="toc-text">Eat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thing"><span class="toc-number">2.</span> <span class="toc-text">Thing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Play"><span class="toc-number">3.</span> <span class="toc-text">Play</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Music"><span class="toc-number">4.</span> <span class="toc-text">Music</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gift"><span class="toc-number">5.</span> <span class="toc-text">Gift</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Movie"><span class="toc-number">6.</span> <span class="toc-text">Movie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Travel"><span class="toc-number">7.</span> <span class="toc-text">Travel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Home"><span class="toc-number">8.</span> <span class="toc-text">Home</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Animal"><span class="toc-number">9.</span> <span class="toc-text">Animal</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#步骤"><span class="toc-number">1.</span> <span class="toc-text">步骤</span></a></li></ol>
  
   </div>
 

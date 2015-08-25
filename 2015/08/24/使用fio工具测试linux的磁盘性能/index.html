@@ -4,35 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Pikachu | Arvon&#39;s Blog</title>
+    <title>使用fio工具测试linux的磁盘性能 | Arvon&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Arvon">
     
 
     
-    <meta name="description" content="Eatlike：虾、牛蛙、不咸的蚕豆、鸭翅、不二家的果味糖（葡萄味）、芒果、葡萄味的饮料、涮羊肉、炸鸡、unlike：豆腐、粉
-Thinglike：一切尽在掌握（旅游的话提前计划）、看进度条（真奇葩）unlike：手足无措（到地方不知道怎么玩去哪玩）、
-Playlike：唱歌、游泳、unlike：
-Musiclike：别想他、张信哲、王菲、unlike：
-Giftlike：水晶球、埃菲尔铁塔、un">
+    <meta name="description" content="很多时候我们需要对服务器的性能进行评估，这就少不了运用合适的工具。其中fio是测试iops的一款很好用的工具，用来对硬件进行压力测试和验证，支持13中不同的I/O引擎，包括：sync、mmap、libaio、posixaio、SG v3、splice、null、network、syslet、guasi、solarisaio等等
+简单测试写性能12dd if=/dev/zero of=testfil">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pikachu">
-<meta property="og:url" content="http://yoursite.com/2015/07/17/皮卡邱/index.html">
+<meta property="og:title" content="使用fio工具测试linux的磁盘性能">
+<meta property="og:url" content="http://yoursite.com/2015/08/24/使用fio工具测试linux的磁盘性能/index.html">
 <meta property="og:site_name" content="Arvon's Blog">
-<meta property="og:description" content="Eatlike：虾、牛蛙、不咸的蚕豆、鸭翅、不二家的果味糖（葡萄味）、芒果、葡萄味的饮料、涮羊肉、炸鸡、unlike：豆腐、粉
-Thinglike：一切尽在掌握（旅游的话提前计划）、看进度条（真奇葩）unlike：手足无措（到地方不知道怎么玩去哪玩）、
-Playlike：唱歌、游泳、unlike：
-Musiclike：别想他、张信哲、王菲、unlike：
-Giftlike：水晶球、埃菲尔铁塔、un">
-<meta property="og:updated_time" content="2015-08-11T05:34:45.931Z">
+<meta property="og:description" content="很多时候我们需要对服务器的性能进行评估，这就少不了运用合适的工具。其中fio是测试iops的一款很好用的工具，用来对硬件进行压力测试和验证，支持13中不同的I/O引擎，包括：sync、mmap、libaio、posixaio、SG v3、splice、null、network、syslet、guasi、solarisaio等等
+简单测试写性能12dd if=/dev/zero of=testfil">
+<meta property="og:updated_time" content="2015-08-25T02:07:20.060Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pikachu">
-<meta name="twitter:description" content="Eatlike：虾、牛蛙、不咸的蚕豆、鸭翅、不二家的果味糖（葡萄味）、芒果、葡萄味的饮料、涮羊肉、炸鸡、unlike：豆腐、粉
-Thinglike：一切尽在掌握（旅游的话提前计划）、看进度条（真奇葩）unlike：手足无措（到地方不知道怎么玩去哪玩）、
-Playlike：唱歌、游泳、unlike：
-Musiclike：别想他、张信哲、王菲、unlike：
-Giftlike：水晶球、埃菲尔铁塔、un">
+<meta name="twitter:title" content="使用fio工具测试linux的磁盘性能">
+<meta name="twitter:description" content="很多时候我们需要对服务器的性能进行评估，这就少不了运用合适的工具。其中fio是测试iops的一款很好用的工具，用来对硬件进行压力测试和验证，支持13中不同的I/O引擎，包括：sync、mmap、libaio、posixaio、SG v3、splice、null、network、syslet、guasi、solarisaio等等
+简单测试写性能12dd if=/dev/zero of=testfil">
 
     
     
@@ -86,14 +77,14 @@ Giftlike：水晶球、埃菲尔铁塔、un">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/17/皮卡邱/" title="Pikachu" itemprop="url">Pikachu</a>
+      <a href="/2015/08/24/使用fio工具测试linux的磁盘性能/" title="使用fio工具测试linux的磁盘性能" itemprop="url">使用fio工具测试linux的磁盘性能</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-17T04:07:11.000Z" itemprop="datePublished"> 发表于 2015-07-17</time>
+    <time datetime="2015-08-24T09:01:45.000Z" itemprop="datePublished"> 发表于 2015-08-24</time>
     
   </p>
 </header>
@@ -102,19 +93,27 @@ Giftlike：水晶球、埃菲尔铁塔、un">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Eat"><span class="toc-number">1.</span> <span class="toc-text">Eat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thing"><span class="toc-number">2.</span> <span class="toc-text">Thing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Play"><span class="toc-number">3.</span> <span class="toc-text">Play</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Music"><span class="toc-number">4.</span> <span class="toc-text">Music</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gift"><span class="toc-number">5.</span> <span class="toc-text">Gift</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Movie"><span class="toc-number">6.</span> <span class="toc-text">Movie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Travel"><span class="toc-number">7.</span> <span class="toc-text">Travel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Home"><span class="toc-number">8.</span> <span class="toc-text">Home</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Animal"><span class="toc-number">9.</span> <span class="toc-text">Animal</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单测试写性能"><span class="toc-number">1.</span> <span class="toc-text">简单测试写性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#准备&安装"><span class="toc-number">2.</span> <span class="toc-text">准备&安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用说明"><span class="toc-number">3.</span> <span class="toc-text">使用说明</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="Eat">Eat</h3><p><strong>like：</strong>虾、牛蛙、不咸的蚕豆、鸭翅、不二家的果味糖（葡萄味）、芒果、葡萄味的饮料、涮羊肉、炸鸡、<br><strong>unlike：</strong>豆腐、粉</p>
-<h3 id="Thing">Thing</h3><p><strong>like：</strong>一切尽在掌握（旅游的话提前计划）、看进度条（真奇葩）<br><strong>unlike：</strong>手足无措（到地方不知道怎么玩去哪玩）、</p>
-<h3 id="Play">Play</h3><p><strong>like：</strong>唱歌、游泳、<br><strong>unlike：</strong></p>
-<h3 id="Music">Music</h3><p><strong>like：</strong>别想他、张信哲、王菲、<br><strong>unlike：</strong></p>
-<h3 id="Gift">Gift</h3><p><strong>like：</strong>水晶球、埃菲尔铁塔、<br><strong>unlike：</strong></p>
-<h3 id="Movie">Movie</h3><p><strong>like：</strong>动漫、文艺爱情片、<br><strong>unlike：</strong></p>
-<h3 id="Travel">Travel</h3><p><strong>WantGo:</strong><br><strong>HadDone:</strong>洛阳、开封、香港、澳门、泰山、</p>
-<h3 id="Home">Home</h3><p><strong>WantHave：</strong>指压板、木地板、索菲亚定制衣柜、<br><strong>Unlike：</strong></p>
-<h3 id="Animal">Animal</h3><p><strong>like:</strong>小猫、小狗、长颈鹿、水母、<br><strong>unlike:</strong></p>
+		<p>很多时候我们需要对服务器的性能进行评估，这就少不了运用合适的工具。其中fio是测试iops的一款很好用的工具，用来对硬件进行压力测试和验证，支持13中不同的I/O引擎，包括：sync、mmap、libaio、posixaio、SG v3、splice、null、network、syslet、guasi、solarisaio等等</p>
+<h3 id="简单测试写性能">简单测试写性能</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=<span class="regexp">/dev/zero</span> of=testfile bs=<span class="number">1</span>M count=<span class="number">1024</span> oflag=dsync</span><br><span class="line"><span class="comment">#采用dd创建一个1G的文件的磁盘写速度，IO引擎为dsync</span></span><br></pre></td></tr></table></figure>
+<h3 id="准备&amp;安装">准备&amp;安装</h3><ul>
+<li><a href="http://freecode.com/projects/fio/" target="_blank" rel="external">FIO官网</a></li>
+<li>安装系统<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">wget http:<span class="regexp">//brick</span>.kernel.dk/snaps/fio-<span class="number">2.0</span>.<span class="number">7</span>.tar.gz</span><br><span class="line"><span class="comment">#download the software</span></span><br><span class="line">yum install libaio-devel</span><br><span class="line"><span class="comment">#安装依赖包</span></span><br><span class="line">tar -xvf fio-<span class="number">2.0</span>.<span class="number">7</span>.tar.gz</span><br><span class="line"><span class="comment">#decompression</span></span><br><span class="line">cd fio-<span class="number">2.0</span>.<span class="number">7</span></span><br><span class="line"><span class="comment">#进入解压目录</span></span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="使用说明">使用说明</h3><ul>
+<li><p>fio选项说明</p>
+<blockquote>
+<p>filename=/dev/sdb1       测试文件名称，通常选择需要测试的盘的data目录。<br>direct=1                 测试过程绕过机器自带的buffer。使测试结果更真实。<br>rw=randwrite             测试随机写的I/O<br>rw=randrw                测试随机写和读的I/O<br>bs=16k                   单次io的块文件大小为16k<br>bsrange=512-2048         同上，提定数据块的大小范围<br>size=5g    本次的测试文件大小为5g，以每次4k的io进行测试。<br>numjobs=30               本次的测试线程为30.<br>runtime=1000             测试时间为1000秒，如果不写则一直将5g文件分4k每次写完为止。<br>ioengine=psync           io引擎使用pync方式<br>rwmixwrite=30            在混合读写的模式下，写占30%<br>group_reporting          关于显示结果的，汇总每个进程的信息。<br>此外<br>lockmem=1g               只使用1g内存进行测试。<br>zero_buffers             用0初始化系统buffer。<br>nrfiles=8                每个进程生成文件的数量。</p>
+</blockquote>
+</li>
+<li><p>例子</p>
+</li>
+</ul>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#随机读</span></span><br><span class="line">fio -filename=<span class="regexp">/dev/vda</span>1 -direct=<span class="number">1</span> -iodepth <span class="number">1</span> -thread -rw=randread -ioengine=psync -bs=<span class="number">16</span>k -size=<span class="number">2</span>G -numjobs=<span class="number">10</span> -runtime=<span class="number">1000</span> -group_reporting -name=mytest</span><br><span class="line"><span class="comment">#顺序读</span></span><br><span class="line">fio -filename=<span class="regexp">/dev/vda</span>1 -direct=<span class="number">1</span> -iodepth <span class="number">1</span> -thread -rw=<span class="keyword">read</span> -ioengine=psync -bs=<span class="number">16</span>k -size=<span class="number">2</span>G -numjobs=<span class="number">30</span> -runtime=<span class="number">1000</span> -group_reporting -name=mytest</span><br><span class="line"><span class="comment">#随机写</span></span><br><span class="line">fio -filename=<span class="regexp">/dev/vda</span>1 -direct=<span class="number">1</span> -iodepth <span class="number">1</span> -thread -rw=randwrite -ioengine=psync -bs=<span class="number">16</span>k -size=<span class="number">2</span>G -numjobs=<span class="number">30</span> -runtime=<span class="number">1000</span> -group_reporting -name=mytest </span><br><span class="line"><span class="comment">#顺序写</span></span><br><span class="line">fio -filename=<span class="regexp">/dev/vda</span>1 -direct=<span class="number">1</span> -iodepth <span class="number">1</span> -thread -rw=<span class="keyword">write</span> -ioengine=psync -bs=<span class="number">16</span>k -size=<span class="number">2</span>G -numjobs=<span class="number">30</span> -runtime=<span class="number">1000</span> -group_reporting -name=mytest </span><br><span class="line"><span class="comment">#混合随机读写</span></span><br><span class="line">fio -filename=<span class="regexp">/dev/vda</span>1 -direct=<span class="number">1</span> -iodepth <span class="number">1</span> -thread -rw=randrw -rwmixread=<span class="number">70</span> -ioengine=psync -bs=<span class="number">16</span>k -size=<span class="number">2</span>G -numjobs=<span class="number">30</span> -runtime=<span class="number">100</span> -group_reporting -name=mytest -ioscheduler=noop</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -123,7 +122,7 @@ Giftlike：水晶球、埃菲尔铁塔、un">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Pikachu/">Pikachu</a>
+  <span></span> <a href="/tags/Linux/">Linux</a><a href="/tags/tools/">tools</a>
   </div>
 
 </div>
@@ -132,7 +131,7 @@ Giftlike：水晶球、埃菲尔铁塔、un">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/07/17/皮卡邱/" data-title="Pikachu | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/08/24/使用fio工具测试linux的磁盘性能/" data-title="使用fio工具测试linux的磁盘性能 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -145,14 +144,14 @@ Giftlike：水晶球、埃菲尔铁塔、un">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/07/20/Hexo简明/" title="Hexo简明">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Hexo简明</span>
+
+<div class="next">
+<a href="/2015/08/24/Ubuntu进行ssh连接/"  title="Ubuntu进行ssh连接">
+ <strong>下一篇：</strong><br/> 
+ <span>Ubuntu进行ssh连接
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -164,7 +163,7 @@ Giftlike：水晶球、埃菲尔铁塔、un">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Eat"><span class="toc-number">1.</span> <span class="toc-text">Eat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thing"><span class="toc-number">2.</span> <span class="toc-text">Thing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Play"><span class="toc-number">3.</span> <span class="toc-text">Play</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Music"><span class="toc-number">4.</span> <span class="toc-text">Music</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gift"><span class="toc-number">5.</span> <span class="toc-text">Gift</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Movie"><span class="toc-number">6.</span> <span class="toc-text">Movie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Travel"><span class="toc-number">7.</span> <span class="toc-text">Travel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Home"><span class="toc-number">8.</span> <span class="toc-text">Home</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Animal"><span class="toc-number">9.</span> <span class="toc-text">Animal</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单测试写性能"><span class="toc-number">1.</span> <span class="toc-text">简单测试写性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#准备&安装"><span class="toc-number">2.</span> <span class="toc-text">准备&安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用说明"><span class="toc-number">3.</span> <span class="toc-text">使用说明</span></a></li></ol>
  
   </div>
 

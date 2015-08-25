@@ -29,7 +29,7 @@ Example one12345#!/usr/bin/perluse 5.010;foreach $rock (qw/ my girlfriend is Mo 
 
 
 arvon@Mo:~">
-<meta property="og:updated_time" content="2015-08-18T10:56:45.944Z">
+<meta property="og:updated_time" content="2015-08-24T07:50:51.267Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Perl语言入门（二）">
 <meta name="twitter:description" content="更新记录2015/08/17    拆开来记，start with foreach
@@ -108,7 +108,7 @@ arvon@Mo:~">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#foreach控制结构"><span class="toc-number">1.</span> <span class="toc-text">foreach控制结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perl的默认变量$"><span class="toc-number">2.</span> <span class="toc-text">Perl的默认变量$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse操作符"><span class="toc-number">3.</span> <span class="toc-text">reverse操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort操作符"><span class="toc-number">4.</span> <span class="toc-text">sort操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#each操作符"><span class="toc-number">5.</span> <span class="toc-text">each操作符</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#foreach控制结构"><span class="toc-number">1.</span> <span class="toc-text">foreach控制结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perl的默认变量$"><span class="toc-number">2.</span> <span class="toc-text">Perl的默认变量$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse操作符"><span class="toc-number">3.</span> <span class="toc-text">reverse操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort操作符"><span class="toc-number">4.</span> <span class="toc-text">sort操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#each操作符"><span class="toc-number">5.</span> <span class="toc-text">each操作符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标量上下文和列表上下文（context）"><span class="toc-number"></span> <span class="toc-text">标量上下文和列表上下文（context）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#列表上下文中的"><span class="toc-number">1.</span> <span class="toc-text">列表上下文中的</span></a></li></ol>
 		
 		</div>
 		
@@ -154,7 +154,11 @@ Mo birthday happy <span class="keyword">to</span>
 Mo birthday happy <span class="keyword">to</span>
 <span class="number">100</span> <span class="number">101</span> <span class="number">102</span> <span class="number">97</span> <span class="number">98</span> <span class="number">99</span>
 </code></pre><h3 id="each操作符">each操作符</h3><ul>
-<li>每次对数组调用each，会返回数组中下一个元素所对应的两个值—该元素的索引以及该元素的值<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.012</span>;</span><br><span class="line"><span class="keyword">my</span> <span class="variable">@rocks</span> = <span class="keyword">qw</span>/ bedrock slate rubble granite /;</span><br><span class="line"><span class="keyword">while</span>( <span class="keyword">my</span>( <span class="variable">$index</span>, <span class="variable">$value</span> ) = <span class="keyword">each</span> <span class="variable">@rocks</span>)&#123;</span><br><span class="line">    <span class="keyword">say</span> <span class="string">"<span class="variable">$index</span>: <span class="variable">$value</span>"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">foreach</span> <span class="variable">$index</span>(<span class="number">0</span> .. <span class="variable">$#rocks</span> )&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"<span class="variable">$index</span>: <span class="variable">$rocks</span>[<span class="variable">$index</span>]\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>每次对数组调用each，会返回数组中下一个元素所对应的两个值—该元素的索引以及该元素的值<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.012</span>;</span><br><span class="line"><span class="keyword">my</span> <span class="variable">@rocks</span> = <span class="keyword">qw</span>/ bedrock slate rubble granite /;</span><br><span class="line"><span class="keyword">while</span>( <span class="keyword">my</span>( <span class="variable">$index</span>, <span class="variable">$value</span> ) = <span class="keyword">each</span> <span class="variable">@rocks</span>)&#123;</span><br><span class="line">    <span class="keyword">say</span> <span class="string">"<span class="variable">$index</span>: <span class="variable">$value</span>"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">foreach</span> <span class="variable">$index</span>(<span class="number">0</span> .. <span class="variable">$#rocks</span> )&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"<span class="variable">$index</span>: <span class="variable">$rocks</span>[<span class="variable">$index</span>]\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="标量上下文和列表上下文（context）">标量上下文和列表上下文（context）</h2><h3 id="列表上下文中的">列表上下文中的<stdin></stdin></h3><ul>
+<li></li>
 </ul>
   
 	</div>
@@ -213,7 +217,7 @@ Mo birthday happy <span class="keyword">to</span>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#foreach控制结构"><span class="toc-number">1.</span> <span class="toc-text">foreach控制结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perl的默认变量$"><span class="toc-number">2.</span> <span class="toc-text">Perl的默认变量$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse操作符"><span class="toc-number">3.</span> <span class="toc-text">reverse操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort操作符"><span class="toc-number">4.</span> <span class="toc-text">sort操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#each操作符"><span class="toc-number">5.</span> <span class="toc-text">each操作符</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#foreach控制结构"><span class="toc-number">1.</span> <span class="toc-text">foreach控制结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perl的默认变量$"><span class="toc-number">2.</span> <span class="toc-text">Perl的默认变量$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse操作符"><span class="toc-number">3.</span> <span class="toc-text">reverse操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort操作符"><span class="toc-number">4.</span> <span class="toc-text">sort操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#each操作符"><span class="toc-number">5.</span> <span class="toc-text">each操作符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标量上下文和列表上下文（context）"><span class="toc-number"></span> <span class="toc-text">标量上下文和列表上下文（context）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#列表上下文中的"><span class="toc-number">1.</span> <span class="toc-text">列表上下文中的</span></a></li></ol>
  
   </div>
 
@@ -229,7 +233,7 @@ Mo birthday happy <span class="keyword">to</span>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>4</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>5</sup></a></li>
 			
 		
 			
@@ -245,15 +249,19 @@ Mo birthday happy <span class="keyword">to</span>
 			
 		
 			
+				<li><a href="/tags/tools/" title="tools">tools<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Pikachu/" title="Pikachu">Pikachu<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/yum/" title="yum">yum<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Pikachu/" title="Pikachu">Pikachu<sup>1</sup></a></li>
 			
 		
 			
@@ -273,6 +281,10 @@ Mo birthday happy <span class="keyword">to</span>
 			
 		
 			
+				<li><a href="/tags/linux/" title="linux">linux<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
 			
 		
@@ -289,23 +301,15 @@ Mo birthday happy <span class="keyword">to</span>
 			
 		
 			
+				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ssh/" title="ssh">ssh<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/句柄/" title="句柄">句柄<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tmux/" title="Tmux">Tmux<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/翻墙/" title="翻墙">翻墙<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/skills/" title="skills">skills<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/FTP/" title="FTP">FTP<sup>1</sup></a></li>
 			
 		
 		</ul>
