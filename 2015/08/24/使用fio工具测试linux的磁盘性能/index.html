@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Arvon's Blog">
 <meta property="og:description" content="很多时候我们需要对服务器的性能进行评估，这就少不了运用合适的工具。其中fio是测试iops的一款很好用的工具，用来对硬件进行压力测试和验证，支持13中不同的I/O引擎，包括：sync、mmap、libaio、posixaio、SG v3、splice、null、network、syslet、guasi、solarisaio等等
 简单测试写性能12dd if=/dev/zero of=testfil">
-<meta property="og:updated_time" content="2015-08-25T02:07:20.060Z">
+<meta property="og:updated_time" content="2015-08-26T03:30:36.266Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用fio工具测试linux的磁盘性能">
 <meta name="twitter:description" content="很多时候我们需要对服务器的性能进行评估，这就少不了运用合适的工具。其中fio是测试iops的一款很好用的工具，用来对硬件进行压力测试和验证，支持13中不同的I/O引擎，包括：sync、mmap、libaio、posixaio、SG v3、splice、null、network、syslet、guasi、solarisaio等等
@@ -113,7 +113,7 @@
 <li><p>例子</p>
 </li>
 </ul>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#随机读</span></span><br><span class="line">fio -filename=<span class="regexp">/dev/vda</span>1 -direct=<span class="number">1</span> -iodepth <span class="number">1</span> -thread -rw=randread -ioengine=psync -bs=<span class="number">16</span>k -size=<span class="number">2</span>G -numjobs=<span class="number">10</span> -runtime=<span class="number">1000</span> -group_reporting -name=mytest</span><br><span class="line"><span class="comment">#顺序读</span></span><br><span class="line">fio -filename=<span class="regexp">/dev/vda</span>1 -direct=<span class="number">1</span> -iodepth <span class="number">1</span> -thread -rw=<span class="keyword">read</span> -ioengine=psync -bs=<span class="number">16</span>k -size=<span class="number">2</span>G -numjobs=<span class="number">30</span> -runtime=<span class="number">1000</span> -group_reporting -name=mytest</span><br><span class="line"><span class="comment">#随机写</span></span><br><span class="line">fio -filename=<span class="regexp">/dev/vda</span>1 -direct=<span class="number">1</span> -iodepth <span class="number">1</span> -thread -rw=randwrite -ioengine=psync -bs=<span class="number">16</span>k -size=<span class="number">2</span>G -numjobs=<span class="number">30</span> -runtime=<span class="number">1000</span> -group_reporting -name=mytest </span><br><span class="line"><span class="comment">#顺序写</span></span><br><span class="line">fio -filename=<span class="regexp">/dev/vda</span>1 -direct=<span class="number">1</span> -iodepth <span class="number">1</span> -thread -rw=<span class="keyword">write</span> -ioengine=psync -bs=<span class="number">16</span>k -size=<span class="number">2</span>G -numjobs=<span class="number">30</span> -runtime=<span class="number">1000</span> -group_reporting -name=mytest </span><br><span class="line"><span class="comment">#混合随机读写</span></span><br><span class="line">fio -filename=<span class="regexp">/dev/vda</span>1 -direct=<span class="number">1</span> -iodepth <span class="number">1</span> -thread -rw=randrw -rwmixread=<span class="number">70</span> -ioengine=psync -bs=<span class="number">16</span>k -size=<span class="number">2</span>G -numjobs=<span class="number">30</span> -runtime=<span class="number">100</span> -group_reporting -name=mytest -ioscheduler=noop</span><br></pre></td></tr></table></figure>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#随机读</span></span><br><span class="line">fio -filename=<span class="regexp">/root/filename</span> -direct=<span class="number">1</span> -iodepth <span class="number">1</span> -thread -rw=randread -ioengine=psync -bs=<span class="number">16</span>k -size=<span class="number">2</span>G -numjobs=<span class="number">10</span> -runtime=<span class="number">1000</span> -group_reporting -name=mytest</span><br><span class="line"><span class="comment">#顺序读</span></span><br><span class="line">fio -filename=filename -direct=<span class="number">1</span> -iodepth <span class="number">1</span> -thread -rw=<span class="keyword">read</span> -ioengine=psync -bs=<span class="number">16</span>k -size=<span class="number">2</span>G -numjobs=<span class="number">30</span> -runtime=<span class="number">1000</span> -group_reporting -name=mytest</span><br><span class="line"><span class="comment">#随机写</span></span><br><span class="line">fio -filename=filename -direct=<span class="number">1</span> -iodepth <span class="number">1</span> -thread -rw=randwrite -ioengine=psync -bs=<span class="number">16</span>k -size=<span class="number">2</span>G -numjobs=<span class="number">30</span> -runtime=<span class="number">1000</span> -group_reporting -name=mytest </span><br><span class="line"><span class="comment">#顺序写</span></span><br><span class="line">fio -filename=filename -direct=<span class="number">1</span> -iodepth <span class="number">1</span> -thread -rw=<span class="keyword">write</span> -ioengine=psync -bs=<span class="number">16</span>k -size=<span class="number">2</span>G -numjobs=<span class="number">30</span> -runtime=<span class="number">1000</span> -group_reporting -name=mytest </span><br><span class="line"><span class="comment">#混合随机读写</span></span><br><span class="line">fio -filename=filename -direct=<span class="number">1</span> -iodepth <span class="number">1</span> -thread -rw=randrw -rwmixread=<span class="number">70</span> -ioengine=psync -bs=<span class="number">16</span>k -size=<span class="number">2</span>G -numjobs=<span class="number">30</span> -runtime=<span class="number">100</span> -group_reporting -name=mytest -ioscheduler=noop</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -122,7 +122,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Linux/">Linux</a><a href="/tags/tools/">tools</a>
+  <span></span> <a href="/tags/linux/">linux</a><a href="/tags/tools/">tools</a>
   </div>
 
 </div>
@@ -144,6 +144,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2015/08/26/使用Hexo和Github搭建Blog/" title="使用Hexo和Github搭建Blog">
+  <strong>上一篇：</strong><br/>
+  <span>
+  使用Hexo和Github搭建Blog</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2015/08/24/Ubuntu进行ssh连接/"  title="Ubuntu进行ssh连接">
@@ -179,35 +187,35 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>5</sup></a></li>
+				<li><a href="/tags/linux/" title="linux">linux<sup>8</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Perl/" title="Perl">Perl<sup>3</sup></a></li>
+				<li><a href="/tags/tools/" title="tools">tools<sup>6</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>2</sup></a></li>
+				<li><a href="/tags/command/" title="command">command<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Blog/" title="Blog">Blog<sup>2</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/tools/" title="tools">tools<sup>1</sup></a></li>
+				<li><a href="/tags/perl/" title="perl">perl<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Pikachu/" title="Pikachu">Pikachu<sup>1</sup></a></li>
+				<li><a href="/tags/blog/" title="blog">blog<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>1</sup></a></li>
+				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/yum/" title="yum">yum<sup>1</sup></a></li>
+				<li><a href="/tags/arvon/" title="arvon">arvon<sup>2</sup></a></li>
 			
 		
 			
@@ -215,11 +223,15 @@
 			
 		
 			
-				<li><a href="/tags/Salt/" title="Salt">Salt<sup>1</sup></a></li>
+				<li><a href="/tags/ftp/" title="ftp">ftp<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/resume/" title="resume">resume<sup>1</sup></a></li>
+				<li><a href="/tags/salt/" title="salt">salt<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mo/" title="mo">mo<sup>1</sup></a></li>
 			
 		
 			
@@ -227,15 +239,7 @@
 			
 		
 			
-				<li><a href="/tags/linux/" title="linux">linux<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/command/" title="command">command<sup>1</sup></a></li>
+				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
 			
 		
 			
@@ -247,7 +251,7 @@
 			
 		
 			
-				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>1</sup></a></li>
+				<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
 			
 		
 			
@@ -256,6 +260,10 @@
 		
 			
 				<li><a href="/tags/句柄/" title="句柄">句柄<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tmux/" title="tmux">tmux<sup>1</sup></a></li>
 			
 		
 		</ul>
