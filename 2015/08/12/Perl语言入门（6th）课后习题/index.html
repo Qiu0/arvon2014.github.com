@@ -21,7 +21,7 @@ Chapter one
 <meta property="og:description" content="个人感觉课后习题单独分出来比较方便，这里有可能的话会多放些例子，ok，go
 Chapter one
 计算半径为12.5的园的周长，可自行输入，小于0输出为012345#!/usr/bin/perlprint &quot;Please input a number: &quot;;$inputNumber = &amp;lt;STDIN&amp;gt;;$perimeter = $inputNumber * 2 * 3.14;prin">
-<meta property="og:updated_time" content="2015-08-26T03:25:28.083Z">
+<meta property="og:updated_time" content="2015-09-02T06:34:16.149Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Perl语言入门（6th）课后习题">
 <meta name="twitter:description" content="个人感觉课后习题单独分出来比较方便，这里有可能的话会多放些例子，ok，go
@@ -96,7 +96,7 @@ Chapter one
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_one"><span class="toc-number">1.</span> <span class="toc-text">Chapter one</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_one"><span class="toc-number">1.</span> <span class="toc-text">Chapter one</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_two"><span class="toc-number">2.</span> <span class="toc-text">Chapter two</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_three"><span class="toc-number">3.</span> <span class="toc-text">Chapter three</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_four"><span class="toc-number">4.</span> <span class="toc-text">Chapter four</span></a></li></ol>
 		
 		</div>
 		
@@ -105,7 +105,35 @@ Chapter one
 <li>计算半径为12.5的园的周长，可自行输入，小于0输出为0<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Please input a number: "</span>;</span><br><span class="line"><span class="variable">$inputNumber</span> = &lt;STDIN&gt;;</span><br><span class="line"><span class="variable">$perimeter</span> = <span class="variable">$inputNumber</span> * <span class="number">2</span> * <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"The perimeter is <span class="variable">$perimeter</span>\n"</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-  
+<h3 id="Chapter_two">Chapter two</h3><ol>
+<li><p>半径12.5圆，求周长</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="variable">$pi</span> = <span class="number">3.141592654</span>;</span><br><span class="line"><span class="variable">$circ</span> = <span class="number">2</span> * <span class="variable">$pi</span> * <span class="number">12.5</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"The circumference of a circle of radius 12.5 is <span class="variable">$circ</span>.\n"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>交互算周长</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl -w</span></span><br><span class="line"><span class="variable">$pi</span> = <span class="number">3.141592654</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"What is the radius?\n"</span>;</span><br><span class="line"><span class="keyword">chomp</span>(<span class="variable">$radius</span> = &lt;STDIN&gt;);</span><br><span class="line"><span class="variable">$circ</span> = <span class="number">2</span> * <span class="variable">$pi</span> * <span class="variable">$radius</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"The circumference of a circlee of radius <span class="variable">$radius</span> is <span class="variable">$circ</span>.\n"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加验证的交互算周长</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="variable">$pi</span> = <span class="number">3.1415926</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"What is the radius?"</span>;</span><br><span class="line"><span class="keyword">chomp</span>(<span class="variable">$radius</span> = &lt;STDIN&gt;);</span><br><span class="line"><span class="variable">$circ</span> = <span class="number">2</span> * <span class="variable">$pi</span> * <span class="variable">$radius</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$radius</span> &lt; <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="variable">$circ</span> = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"The circumference of a circle of radius <span class="variable">$radius</span> is <span class="variable">$circ</span>.\n"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>交互求和</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Enter first number: "</span>;</span><br><span class="line"><span class="keyword">chomp</span>(<span class="variable">$one</span> = &lt;STDIN&gt;);</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Enter second number: "</span>;</span><br><span class="line"><span class="keyword">chomp</span>(<span class="variable">$two</span> = &lt;STDIN&gt;);</span><br><span class="line"><span class="variable">$result</span> = <span class="variable">$one</span> + <span class="variable">$two</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"The result is <span class="variable">$result</span>.\n"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符串重复术，中间的是小写字母x</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Enter a string: "</span>;</span><br><span class="line"><span class="variable">$str</span> = &lt;STDIN&gt;;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Enter a number of times: "</span>;</span><br><span class="line"><span class="keyword">chomp</span>(<span class="variable">$num</span> = &lt;STDIN&gt;);</span><br><span class="line"><span class="variable">$result</span> = <span class="variable">$str</span> <span class="keyword">x</span> <span class="variable">$num</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"The result is:\n<span class="variable">$result</span>"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="Chapter_three">Chapter three</h3><ol>
+<li><p>将输入的字符串倒序打印</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/binj/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Enter some lines, then press Ctrl-D:\n"</span>;<span class="comment">#or try Ctrl-Z</span></span><br><span class="line"><span class="variable">@lines</span> = &lt;STDIN&gt;;</span><br><span class="line"><span class="variable">@reverse_lines</span> = <span class="keyword">reverse</span> <span class="variable">@lines</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"<span class="variable">@reverse_lines</span>"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>键入数字，输出对应的name</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="variable">@names</span> = <span class="keyword">qw</span>/ guo qiu arvon mo love /;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Enter some number from 1 to 5, one per line, then press Ctrl-D:\n"</span>;</span><br><span class="line"><span class="comment">#print @names;</span></span><br><span class="line"><span class="keyword">chomp</span>(<span class="variable">@number</span> = &lt;STDIN&gt;);</span><br><span class="line"><span class="comment">#print "\@number is @number\n";</span></span><br><span class="line"><span class="keyword">foreach</span> <span class="variable">$num</span> (<span class="variable">@number</span>)&#123;</span><br><span class="line"><span class="comment">#    print "now \$num is $num";</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"<span class="variable">$names</span>[ <span class="variable">$num</span> -1 ]\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注释的是在一行输入输入的，没注释的分行显示</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="comment">#chomp(@lines = &lt;STDIN&gt;);</span></span><br><span class="line"><span class="comment">#@sorted = sort @lines;</span></span><br><span class="line"><span class="comment">#print "@sorted\n";</span></span><br><span class="line"><span class="keyword">print</span> <span class="keyword">sort</span> &lt;STDIN&gt;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="Chapter_four">Chapter four</h3>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -162,7 +190,7 @@ Chapter one
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_one"><span class="toc-number">1.</span> <span class="toc-text">Chapter one</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_one"><span class="toc-number">1.</span> <span class="toc-text">Chapter one</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_two"><span class="toc-number">2.</span> <span class="toc-text">Chapter two</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_three"><span class="toc-number">3.</span> <span class="toc-text">Chapter three</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_four"><span class="toc-number">4.</span> <span class="toc-text">Chapter four</span></a></li></ol>
  
   </div>
 
@@ -194,6 +222,10 @@ Chapter one
 			
 		
 			
+				<li><a href="/tags/arvon/" title="arvon">arvon<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/perl/" title="perl">perl<sup>3</sup></a></li>
 			
 		
@@ -206,7 +238,7 @@ Chapter one
 			
 		
 			
-				<li><a href="/tags/arvon/" title="arvon">arvon<sup>2</sup></a></li>
+				<li><a href="/tags/yum/" title="yum">yum<sup>1</sup></a></li>
 			
 		
 			
@@ -214,15 +246,11 @@ Chapter one
 			
 		
 			
-				<li><a href="/tags/ftp/" title="ftp">ftp<sup>1</sup></a></li>
+				<li><a href="/tags/mo/" title="mo">mo<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/salt/" title="salt">salt<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/mo/" title="mo">mo<sup>1</sup></a></li>
 			
 		
 			

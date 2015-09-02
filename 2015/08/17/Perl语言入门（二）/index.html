@@ -11,34 +11,22 @@
     
 
     
-    <meta name="description" content="更新记录2015/08/17    拆开来记，start with foreach
+    <meta name="description" content="更新记录2015/08/17    拆开来记，start with foreach2015/09/01 更新到子程序，最近有点懒惰了
 foreach控制结构
-Example one12345#!/usr/bin/perluse 5.010;foreach $rock (qw/ my girlfriend is Mo /)&amp;#123;    print &quot;One word is named $rock\n&quot;;&amp;#125;
-
-
-
-arvon@Mo:~">
+Example one12345#!/usr/bin/perluse 5.010;foreach $rock (qw/ my girlfriend is Mo /)&amp;#123;    print &quot;One word is named $roc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Perl语言入门（二）">
 <meta property="og:url" content="http://yoursite.com/2015/08/17/Perl语言入门（二）/index.html">
 <meta property="og:site_name" content="Arvon's Blog">
-<meta property="og:description" content="更新记录2015/08/17    拆开来记，start with foreach
+<meta property="og:description" content="更新记录2015/08/17    拆开来记，start with foreach2015/09/01 更新到子程序，最近有点懒惰了
 foreach控制结构
-Example one12345#!/usr/bin/perluse 5.010;foreach $rock (qw/ my girlfriend is Mo /)&amp;#123;    print &quot;One word is named $rock\n&quot;;&amp;#125;
-
-
-
-arvon@Mo:~">
-<meta property="og:updated_time" content="2015-08-26T03:30:18.913Z">
+Example one12345#!/usr/bin/perluse 5.010;foreach $rock (qw/ my girlfriend is Mo /)&amp;#123;    print &quot;One word is named $roc">
+<meta property="og:updated_time" content="2015-09-01T08:38:49.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Perl语言入门（二）">
-<meta name="twitter:description" content="更新记录2015/08/17    拆开来记，start with foreach
+<meta name="twitter:description" content="更新记录2015/08/17    拆开来记，start with foreach2015/09/01 更新到子程序，最近有点懒惰了
 foreach控制结构
-Example one12345#!/usr/bin/perluse 5.010;foreach $rock (qw/ my girlfriend is Mo /)&amp;#123;    print &quot;One word is named $rock\n&quot;;&amp;#125;
-
-
-
-arvon@Mo:~">
+Example one12345#!/usr/bin/perluse 5.010;foreach $rock (qw/ my girlfriend is Mo /)&amp;#123;    print &quot;One word is named $roc">
 
     
     
@@ -108,11 +96,11 @@ arvon@Mo:~">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#foreach控制结构"><span class="toc-number">1.</span> <span class="toc-text">foreach控制结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perl的默认变量$"><span class="toc-number">2.</span> <span class="toc-text">Perl的默认变量$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse操作符"><span class="toc-number">3.</span> <span class="toc-text">reverse操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort操作符"><span class="toc-number">4.</span> <span class="toc-text">sort操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#each操作符"><span class="toc-number">5.</span> <span class="toc-text">each操作符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标量上下文和列表上下文（context）"><span class="toc-number"></span> <span class="toc-text">标量上下文和列表上下文（context）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#列表上下文中的"><span class="toc-number">1.</span> <span class="toc-text">列表上下文中的</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#foreach控制结构"><span class="toc-number">1.</span> <span class="toc-text">foreach控制结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perl的默认变量$"><span class="toc-number">2.</span> <span class="toc-text">Perl的默认变量$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse操作符"><span class="toc-number">3.</span> <span class="toc-text">reverse操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort操作符"><span class="toc-number">4.</span> <span class="toc-text">sort操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#each操作符"><span class="toc-number">5.</span> <span class="toc-text">each操作符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子程序"><span class="toc-number"></span> <span class="toc-text">子程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义子程序"><span class="toc-number">1.</span> <span class="toc-text">定义子程序</span></a></li></ol>
 		
 		</div>
 		
-		<p><strong>更新记录</strong><br>2015/08/17    拆开来记，start with foreach</p>
+		<p><strong>更新记录</strong><br>2015/08/17    拆开来记，start with foreach<br>2015/09/01 更新到子程序，最近有点懒惰了</p>
 <h3 id="foreach控制结构">foreach控制结构</h3><ul>
 <li>Example one<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="keyword">foreach</span> <span class="variable">$rock</span> (<span class="keyword">qw</span>/ <span class="keyword">my</span> girlfriend is Mo /)&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"One word is named <span class="variable">$rock</span>\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -157,8 +145,12 @@ Mo birthday happy <span class="keyword">to</span>
 <li>每次对数组调用each，会返回数组中下一个元素所对应的两个值—该元素的索引以及该元素的值<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.012</span>;</span><br><span class="line"><span class="keyword">my</span> <span class="variable">@rocks</span> = <span class="keyword">qw</span>/ bedrock slate rubble granite /;</span><br><span class="line"><span class="keyword">while</span>( <span class="keyword">my</span>( <span class="variable">$index</span>, <span class="variable">$value</span> ) = <span class="keyword">each</span> <span class="variable">@rocks</span>)&#123;</span><br><span class="line">    <span class="keyword">say</span> <span class="string">"<span class="variable">$index</span>: <span class="variable">$value</span>"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">foreach</span> <span class="variable">$index</span>(<span class="number">0</span> .. <span class="variable">$#rocks</span> )&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"<span class="variable">$index</span>: <span class="variable">$rocks</span>[<span class="variable">$index</span>]\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="标量上下文和列表上下文（context）">标量上下文和列表上下文（context）</h2><h3 id="列表上下文中的">列表上下文中的<stdin></stdin></h3><ul>
-<li></li>
+<h2 id="子程序">子程序</h2><ul>
+<li>子程序名称<br>子程序名称以字母、数字、下划线组成，不能以数字开头，子程序名称属于独立的名字空间</li>
+</ul>
+<h3 id="定义子程序">定义子程序</h3><ul>
+<li>定义子程序用sub、子程序名以及花括号封闭起来的代码块，for example：<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="sub"><span class="keyword">sub</span> marine &#123;</span></span><br><span class="line">    <span class="variable">$n</span> += <span class="number">1</span>; <span class="comment">#全局变量$n</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Hello, sailor number <span class="variable">$n</span>!\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
   
 	</div>
@@ -217,7 +209,7 @@ Mo birthday happy <span class="keyword">to</span>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#foreach控制结构"><span class="toc-number">1.</span> <span class="toc-text">foreach控制结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perl的默认变量$"><span class="toc-number">2.</span> <span class="toc-text">Perl的默认变量$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse操作符"><span class="toc-number">3.</span> <span class="toc-text">reverse操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort操作符"><span class="toc-number">4.</span> <span class="toc-text">sort操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#each操作符"><span class="toc-number">5.</span> <span class="toc-text">each操作符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标量上下文和列表上下文（context）"><span class="toc-number"></span> <span class="toc-text">标量上下文和列表上下文（context）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#列表上下文中的"><span class="toc-number">1.</span> <span class="toc-text">列表上下文中的</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#foreach控制结构"><span class="toc-number">1.</span> <span class="toc-text">foreach控制结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perl的默认变量$"><span class="toc-number">2.</span> <span class="toc-text">Perl的默认变量$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse操作符"><span class="toc-number">3.</span> <span class="toc-text">reverse操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort操作符"><span class="toc-number">4.</span> <span class="toc-text">sort操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#each操作符"><span class="toc-number">5.</span> <span class="toc-text">each操作符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子程序"><span class="toc-number"></span> <span class="toc-text">子程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义子程序"><span class="toc-number">1.</span> <span class="toc-text">定义子程序</span></a></li></ol>
  
   </div>
 
@@ -249,6 +241,10 @@ Mo birthday happy <span class="keyword">to</span>
 			
 		
 			
+				<li><a href="/tags/arvon/" title="arvon">arvon<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/perl/" title="perl">perl<sup>3</sup></a></li>
 			
 		
@@ -261,7 +257,7 @@ Mo birthday happy <span class="keyword">to</span>
 			
 		
 			
-				<li><a href="/tags/arvon/" title="arvon">arvon<sup>2</sup></a></li>
+				<li><a href="/tags/yum/" title="yum">yum<sup>1</sup></a></li>
 			
 		
 			
@@ -269,15 +265,11 @@ Mo birthday happy <span class="keyword">to</span>
 			
 		
 			
-				<li><a href="/tags/ftp/" title="ftp">ftp<sup>1</sup></a></li>
+				<li><a href="/tags/mo/" title="mo">mo<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/salt/" title="salt">salt<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/mo/" title="mo">mo<sup>1</sup></a></li>
 			
 		
 			

@@ -23,7 +23,9 @@ yum updateyum -">
 常用命令
 升级系统
 yum updateyum -">
-<meta property="og:updated_time" content="2015-08-26T03:29:59.098Z">
+<meta property="og:image" content="http://i1.tietuku.com/90e4fa74d8a26695.png">
+<meta property="og:image" content="http://i1.tietuku.com/caaba96513485367.png">
+<meta property="og:updated_time" content="2015-09-02T06:30:38.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="yum源配置手册">
 <meta name="twitter:description" content="yum（yellow dog updater， modified）是一个在Fedora和RedHat以及SUSE中的Shell前端软件包管理器，能够从指定的服务器自动下载RPM包并安装，可以自动处理依赖关系，并且一次安装所有的依赖关系软件包。系统管理过程中，难免要找软件装软件，如果定制性不高的话，使用yum安装不失为一个好办法，废话少说，开始介绍
@@ -156,15 +158,20 @@ yum updateyum -">
 </li>
 </ul>
 <h3 id="常用的yum源站">常用的yum源站</h3><ul>
-<li>使用EPEL（Extra Packages for Enterprise Linux）源,<code>RHEL6</code>系列<blockquote>
+<li><p><a href="https://www.baidu.com/link?url=uVSP1-5Xhdvi2t9FFdRnRC01B7zqLZ6a9LAbUNOfsstMsGb33lKjW4zrqJBHmT1h&amp;wd=&amp;eqid=d8ee0a1d000162130000000355e69580" target="_blank" rel="external">epel的wiki</a><br><img src="http://i1.tietuku.com/90e4fa74d8a26695.png" alt=""><br><img src="http://i1.tietuku.com/caaba96513485367.png" alt=""></p>
+</li>
+<li><p>使用EPEL（Extra Packages for Enterprise Linux）源,<code>RHEL6</code>系列</p>
+<blockquote>
 <p>wget <a href="http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-5.noarch.rpm" target="_blank" rel="external">http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-5.noarch.rpm</a><br>rpm -ivh epel-release-6-5.noarch.rpm</p>
 </blockquote>
 </li>
-<li>EPEL的<code>RHEL5</code>系列<blockquote>
+<li><p>EPEL的<code>RHEL5</code>系列</p>
+<blockquote>
 <p>wget <a href="http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm" target="_blank" rel="external">http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm</a><br>rpm -ivh epel-release-5-4.noarch.rpm</p>
 </blockquote>
 </li>
-<li>EPEL手动配置源<blockquote>
+<li><p>EPEL手动配置源</p>
+<blockquote>
 <p>vi /etc/yum.repos.d/epel.repo<br>[epel]<br>name=epel<br>mirrorlist=<a href="http://mirrors.fedoraproject.org/mirrorlist?repo=epel-$releasever&amp;arch=$basearch" target="_blank" rel="external">http://mirrors.fedoraproject.org/mirrorlist?repo=epel-$releasever&amp;arch=$basearch</a><br>enabled=1<br>gpgcheck=0</p>
 </blockquote>
 </li>
@@ -275,6 +282,10 @@ yum updateyum -">
 			
 		
 			
+				<li><a href="/tags/arvon/" title="arvon">arvon<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/perl/" title="perl">perl<sup>3</sup></a></li>
 			
 		
@@ -287,7 +298,7 @@ yum updateyum -">
 			
 		
 			
-				<li><a href="/tags/arvon/" title="arvon">arvon<sup>2</sup></a></li>
+				<li><a href="/tags/yum/" title="yum">yum<sup>1</sup></a></li>
 			
 		
 			
@@ -295,15 +306,11 @@ yum updateyum -">
 			
 		
 			
-				<li><a href="/tags/ftp/" title="ftp">ftp<sup>1</sup></a></li>
+				<li><a href="/tags/mo/" title="mo">mo<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/salt/" title="salt">salt<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/mo/" title="mo">mo<sup>1</sup></a></li>
 			
 		
 			
