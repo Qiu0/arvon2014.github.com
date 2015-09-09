@@ -21,7 +21,7 @@ Chapter one
 <meta property="og:description" content="个人感觉课后习题单独分出来比较方便，这里有可能的话会多放些例子，ok，go
 Chapter one
 计算半径为12.5的园的周长，可自行输入，小于0输出为012345#!/usr/bin/perlprint &quot;Please input a number: &quot;;$inputNumber = &amp;lt;STDIN&amp;gt;;$perimeter = $inputNumber * 2 * 3.14;prin">
-<meta property="og:updated_time" content="2015-09-02T06:34:16.149Z">
+<meta property="og:updated_time" content="2015-09-07T03:20:43.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Perl语言入门（6th）课后习题">
 <meta name="twitter:description" content="个人感觉课后习题单独分出来比较方便，这里有可能的话会多放些例子，ok，go
@@ -96,7 +96,7 @@ Chapter one
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_one"><span class="toc-number">1.</span> <span class="toc-text">Chapter one</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_two"><span class="toc-number">2.</span> <span class="toc-text">Chapter two</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_three"><span class="toc-number">3.</span> <span class="toc-text">Chapter three</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_four"><span class="toc-number">4.</span> <span class="toc-text">Chapter four</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_one"><span class="toc-number">1.</span> <span class="toc-text">Chapter one</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_two"><span class="toc-number">2.</span> <span class="toc-text">Chapter two</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_three"><span class="toc-number">3.</span> <span class="toc-text">Chapter three</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_four"><span class="toc-number">4.</span> <span class="toc-text">Chapter four</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小代码块"><span class="toc-number">5.</span> <span class="toc-text">小代码块</span></a></li></ol>
 		
 		</div>
 		
@@ -133,7 +133,11 @@ Chapter one
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="comment">#chomp(@lines = &lt;STDIN&gt;);</span></span><br><span class="line"><span class="comment">#@sorted = sort @lines;</span></span><br><span class="line"><span class="comment">#print "@sorted\n";</span></span><br><span class="line"><span class="keyword">print</span> <span class="keyword">sort</span> &lt;STDIN&gt;;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="Chapter_four">Chapter four</h3>  
+<h3 id="Chapter_four">Chapter four</h3><h3 id="小代码块">小代码块</h3><ul>
+<li>检查参数个数是否正确<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="sub"><span class="keyword">sub</span> max &#123;</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">@_</span> != <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"WAENING! &amp;max should get exactly two argumnets!\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># follow</span></span><br><span class="line">    <span class="comment">#...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -190,7 +194,7 @@ Chapter one
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_one"><span class="toc-number">1.</span> <span class="toc-text">Chapter one</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_two"><span class="toc-number">2.</span> <span class="toc-text">Chapter two</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_three"><span class="toc-number">3.</span> <span class="toc-text">Chapter three</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_four"><span class="toc-number">4.</span> <span class="toc-text">Chapter four</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_one"><span class="toc-number">1.</span> <span class="toc-text">Chapter one</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_two"><span class="toc-number">2.</span> <span class="toc-text">Chapter two</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_three"><span class="toc-number">3.</span> <span class="toc-text">Chapter three</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter_four"><span class="toc-number">4.</span> <span class="toc-text">Chapter four</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小代码块"><span class="toc-number">5.</span> <span class="toc-text">小代码块</span></a></li></ol>
  
   </div>
 
@@ -230,23 +234,23 @@ Chapter one
 			
 		
 			
+				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/blog/" title="blog">blog<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/yum/" title="yum">yum<sup>1</sup></a></li>
+				<li><a href="/tags/ssh/" title="ssh">ssh<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/sed/" title="sed">sed<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/mo/" title="mo">mo<sup>1</sup></a></li>
 			
 		
 			
@@ -262,6 +266,10 @@ Chapter one
 			
 		
 			
+				<li><a href="/tags/keepalive/" title="keepalive">keepalive<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/awk/" title="awk">awk<sup>1</sup></a></li>
 			
 		
@@ -274,15 +282,11 @@ Chapter one
 			
 		
 			
-				<li><a href="/tags/ssh/" title="ssh">ssh<sup>1</sup></a></li>
+				<li><a href="/tags/yum/" title="yum">yum<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/句柄/" title="句柄">句柄<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tmux/" title="tmux">tmux<sup>1</sup></a></li>
 			
 		
 		</ul>

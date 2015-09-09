@@ -12,21 +12,21 @@
 
     
     <meta name="description" content="更新记录2015/08/17    拆开来记，start with foreach2015/09/01 更新到子程序，最近有点懒惰了
-foreach控制结构
-Example one12345#!/usr/bin/perluse 5.010;foreach $rock (qw/ my girlfriend is Mo /)&amp;#123;    print &quot;One word is named $roc">
+结构foreach控制结构
+Example one12345#!/usr/bin/perluse 5.010;foreach $rock (qw/ my girlfriend is Mo /)&amp;#123;    print &quot;One word is named $r">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Perl语言入门（二）">
 <meta property="og:url" content="http://yoursite.com/2015/08/17/Perl语言入门（二）/index.html">
 <meta property="og:site_name" content="Arvon's Blog">
 <meta property="og:description" content="更新记录2015/08/17    拆开来记，start with foreach2015/09/01 更新到子程序，最近有点懒惰了
-foreach控制结构
-Example one12345#!/usr/bin/perluse 5.010;foreach $rock (qw/ my girlfriend is Mo /)&amp;#123;    print &quot;One word is named $roc">
-<meta property="og:updated_time" content="2015-09-01T08:38:49.346Z">
+结构foreach控制结构
+Example one12345#!/usr/bin/perluse 5.010;foreach $rock (qw/ my girlfriend is Mo /)&amp;#123;    print &quot;One word is named $r">
+<meta property="og:updated_time" content="2015-09-07T07:28:56.931Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Perl语言入门（二）">
 <meta name="twitter:description" content="更新记录2015/08/17    拆开来记，start with foreach2015/09/01 更新到子程序，最近有点懒惰了
-foreach控制结构
-Example one12345#!/usr/bin/perluse 5.010;foreach $rock (qw/ my girlfriend is Mo /)&amp;#123;    print &quot;One word is named $roc">
+结构foreach控制结构
+Example one12345#!/usr/bin/perluse 5.010;foreach $rock (qw/ my girlfriend is Mo /)&amp;#123;    print &quot;One word is named $r">
 
     
     
@@ -96,12 +96,12 @@ Example one12345#!/usr/bin/perluse 5.010;foreach $rock (qw/ my girlfriend is Mo 
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#foreach控制结构"><span class="toc-number">1.</span> <span class="toc-text">foreach控制结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perl的默认变量$"><span class="toc-number">2.</span> <span class="toc-text">Perl的默认变量$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse操作符"><span class="toc-number">3.</span> <span class="toc-text">reverse操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort操作符"><span class="toc-number">4.</span> <span class="toc-text">sort操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#each操作符"><span class="toc-number">5.</span> <span class="toc-text">each操作符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子程序"><span class="toc-number"></span> <span class="toc-text">子程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义子程序"><span class="toc-number">1.</span> <span class="toc-text">定义子程序</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#结构"><span class="toc-number">1.</span> <span class="toc-text">结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#foreach控制结构"><span class="toc-number">1.1.</span> <span class="toc-text">foreach控制结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perl的默认变量$"><span class="toc-number">1.2.</span> <span class="toc-text">Perl的默认变量$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse操作符"><span class="toc-number">1.3.</span> <span class="toc-text">reverse操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort操作符"><span class="toc-number">1.4.</span> <span class="toc-text">sort操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#each操作符"><span class="toc-number">1.5.</span> <span class="toc-text">each操作符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子程序"><span class="toc-number">2.</span> <span class="toc-text">子程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义子程序"><span class="toc-number">2.1.</span> <span class="toc-text">定义子程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调用子程序"><span class="toc-number">2.2.</span> <span class="toc-text">调用子程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#返回值"><span class="toc-number">2.3.</span> <span class="toc-text">返回值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参数"><span class="toc-number">2.4.</span> <span class="toc-text">参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#子程序中的私有变量"><span class="toc-number">2.4.1.</span> <span class="toc-text">子程序中的私有变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#变长的参数列表"><span class="toc-number">2.4.2.</span> <span class="toc-text">变长的参数列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#空参数列表"><span class="toc-number">2.4.3.</span> <span class="toc-text">空参数列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关于词法（my）变量"><span class="toc-number">2.4.4.</span> <span class="toc-text">关于词法（my）变量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#use_strict编译指令（pragma）"><span class="toc-number">2.5.</span> <span class="toc-text">use strict编译指令（pragma）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#return操作符"><span class="toc-number">2.6.</span> <span class="toc-text">return操作符</span></a></li></ol></li></ol>
 		
 		</div>
 		
 		<p><strong>更新记录</strong><br>2015/08/17    拆开来记，start with foreach<br>2015/09/01 更新到子程序，最近有点懒惰了</p>
-<h3 id="foreach控制结构">foreach控制结构</h3><ul>
+<h2 id="结构">结构</h2><h3 id="foreach控制结构">foreach控制结构</h3><ul>
 <li>Example one<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> <span class="number">5.010</span>;</span><br><span class="line"><span class="keyword">foreach</span> <span class="variable">$rock</span> (<span class="keyword">qw</span>/ <span class="keyword">my</span> girlfriend is Mo /)&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"One word is named <span class="variable">$rock</span>\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -150,6 +150,52 @@ Mo birthday happy <span class="keyword">to</span>
 </ul>
 <h3 id="定义子程序">定义子程序</h3><ul>
 <li>定义子程序用sub、子程序名以及花括号封闭起来的代码块，for example：<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="sub"><span class="keyword">sub</span> marine &#123;</span></span><br><span class="line">    <span class="variable">$n</span> += <span class="number">1</span>; <span class="comment">#全局变量$n</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Hello, sailor number <span class="variable">$n</span>!\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="调用子程序">调用子程序</h3><ul>
+<li>在任意表达式中使用程序名（前面加上与号）来调用它<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="sub"><span class="keyword">sub</span> marine&#123;</span></span><br><span class="line">    <span class="variable">$n</span> += <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Hello, sailor number <span class="variable">$n</span>!\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line">&amp;marine;    <span class="comment">#打印hello，sailor number 1！</span></span><br><span class="line">&amp;marine;    <span class="comment">#打印hello，sailor number 2！</span></span><br><span class="line">&amp;marine;    <span class="comment">#打印hello，sailor number 3！</span></span><br><span class="line">&amp;marine;    <span class="comment">#打印hello，sailor number 4！</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="返回值">返回值</h3><ul>
+<li>任何的perl子程序都有返回值，但不是所有的返回值都是有用的，Larry将之简化，在子程序的执行过程中，它会不断进行运算，而最后一次运算的结果（不管是什么）都会被自动当成子程序的返回值。<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="variable">$fred</span> = <span class="number">2</span>;</span><br><span class="line"><span class="variable">$barney</span> = <span class="number">3</span>;</span><br><span class="line"><span class="variable">$wilma</span> = &amp;sum_of_fred_and_barney;</span><br><span class="line"><span class="sub"><span class="keyword">sub</span> sum_of_fred_and_barney&#123;</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Hey, you called the sum_of_fred_and_barney subroutine!\n"</span>;</span><br><span class="line">    <span class="variable">$fred</span> + <span class="variable">$barney</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#&amp;sum_of_fred_and_barney;</span></span><br><span class="line"><span class="variable">$betty</span> = <span class="number">3</span> * &amp;sum_of_fred_and_barney;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"\$wilma is <span class="variable">$wilma</span>.\n"</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"\$betty is <span class="variable">$betty</span>.\n"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="variable">$fred</span> = <span class="number">2</span>;</span><br><span class="line"><span class="variable">$barney</span> = <span class="number">3</span>;</span><br><span class="line"><span class="sub"><span class="keyword">sub</span> larger_of_fred_or_barney&#123;</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$fred</span> &gt; <span class="variable">$barney</span>)&#123;</span><br><span class="line">        <span class="variable">$fred</span>;</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"\$fred is <span class="variable">$fred</span>\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="variable">$barney</span>;</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"\$barney is <span class="variable">$barney</span>\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&amp;larger_of_fred_or_barney;</span><br></pre></td></tr></table></figure>
+<h3 id="参数">参数</h3><ul>
+<li>要传递参数列表到子程序里，只要在子程序调用的后面加上被括号圈引得列表表达式就可以了，for example：<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$n</span> = &amp;max(<span class="number">10</span>, <span class="number">15</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="sub"><span class="keyword">sub</span> max&#123;</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$_</span>[<span class="number">0</span>] &gt; <span class="variable">$_</span>[<span class="number">1</span>])&#123;</span><br><span class="line">        <span class="variable">$_</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"\$_[0] is <span class="variable">$_</span>[0]\n"</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="variable">$_</span>[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"\$_[1] is <span class="variable">$_</span>[1]\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$n</span> = &amp;max(<span class="number">3</span>, <span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="子程序中的私有变量">子程序中的私有变量</h4><ul>
+<li>默认情况下，perl里的所有变量都是全局变量，即在程序的任何地方都可以访问他们。随时可以借助my操作符来创建私有变量（lexical variable）<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="sub"><span class="keyword">sub</span> max &#123;</span></span><br><span class="line">    <span class="keyword">my</span>(<span class="variable">$m</span>, <span class="variable">$n</span>);</span><br><span class="line">    (<span class="variable">$m</span>, <span class="variable">$n_</span>) = <span class="variable">@_</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$m</span> &gt; <span class="variable">$n</span>)&#123; <span class="variable">$m</span> &#125; <span class="keyword">else</span> &#123; <span class="variable">$n</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="变长的参数列表">变长的参数列表</h4><ul>
+<li>打印最大值，“高水线（high-watermark）”算法<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="variable">$maximum</span> = &amp;max(<span class="number">3</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">4</span>, <span class="number">6</span>);</span><br><span class="line"><span class="sub"><span class="keyword">sub</span> max&#123;</span></span><br><span class="line">    <span class="keyword">my</span>(<span class="variable">$max_so_far</span>) = <span class="keyword">shift</span> <span class="variable">@_</span>;</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="variable">@_</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$_</span> &gt; <span class="variable">$max_so_far</span>)&#123;</span><br><span class="line">            <span class="variable">$max_so_far</span> = <span class="variable">$_</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable">$max_so_far</span>;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Max is <span class="variable">$max_so_far</span>\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="空参数列表">空参数列表</h4><h4 id="关于词法（my）变量">关于词法（my）变量</h4><ul>
+<li>词法变量可以用在任何语句块内，而不仅限于子程序语句块。比如说，它可以在if、while或foreach的语句块里使用</li>
+<li><p>求次方</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">foreach</span> (<span class="number">1</span>..<span class="number">10</span>)&#123;</span><br><span class="line">    <span class="keyword">my</span>(<span class="variable">$square</span>) = <span class="variable">$_</span> * <span class="variable">$_</span>;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"<span class="variable">$_</span> squared is <span class="variable">$square</span>.\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>my操作符不加括号时，只能用来声明单个词法变量</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">my</span> <span class="variable">$fred</span>, <span class="variable">$barney</span>;  <span class="comment">#只声明了fred这一个变量</span></span><br><span class="line"><span class="keyword">my</span>（<span class="variable">$fred</span>, <span class="variable">$barney</span>); <span class="comment">#两个都声明了</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在日常perl编程中，你最好对每个新变量都使用my声明，最好对每个新变量都使用my声明，让它保持在自己所在的词法作用域内。</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">foreach</span> <span class="keyword">my</span> <span class="variable">$rock</span> (<span class="keyword">qw</span>/bedrock slate lava /)&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"One rock is <span class="variable">$rock</span>.\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="use_strict编译指令（pragma）">use strict编译指令（pragma）</h3><ul>
+<li><p>告诉perl我愿意接受更严格的限制使用use strict这个编译指令放在程序开头</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> strict;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自perl5.12开始，如果使用编译指令指定最低perl版本号的话，就相当于隐式打开了约束指令</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="number">5.012</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="return操作符">return操作符</h3><ul>
+<li>return操作符可以让子程序执行到一半的时候停止执行<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl</span></span><br><span class="line"><span class="keyword">use</span> strict;</span><br><span class="line"><span class="keyword">my</span> <span class="variable">@names</span> = <span class="keyword">qw</span>/ fred barney betty dino wilma pebbles bamm-bam /;</span><br><span class="line"><span class="keyword">my</span> <span class="variable">$result</span> = &amp;which_element_is(<span class="string">"dino"</span>, <span class="variable">@names</span>);</span><br><span class="line"><span class="sub"><span class="keyword">sub</span> which_element_is&#123;</span></span><br><span class="line">    <span class="keyword">my</span>(<span class="variable">$what</span>, <span class="variable">@array</span>) = <span class="variable">@_</span>;</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="number">0</span>..<span class="variable">$#array</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$what</span> eq <span class="variable">$array</span>[<span class="variable">$_</span>])&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$_</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
   
@@ -209,7 +255,7 @@ Mo birthday happy <span class="keyword">to</span>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#foreach控制结构"><span class="toc-number">1.</span> <span class="toc-text">foreach控制结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perl的默认变量$"><span class="toc-number">2.</span> <span class="toc-text">Perl的默认变量$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse操作符"><span class="toc-number">3.</span> <span class="toc-text">reverse操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort操作符"><span class="toc-number">4.</span> <span class="toc-text">sort操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#each操作符"><span class="toc-number">5.</span> <span class="toc-text">each操作符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子程序"><span class="toc-number"></span> <span class="toc-text">子程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义子程序"><span class="toc-number">1.</span> <span class="toc-text">定义子程序</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#结构"><span class="toc-number">1.</span> <span class="toc-text">结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#foreach控制结构"><span class="toc-number">1.1.</span> <span class="toc-text">foreach控制结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perl的默认变量$"><span class="toc-number">1.2.</span> <span class="toc-text">Perl的默认变量$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse操作符"><span class="toc-number">1.3.</span> <span class="toc-text">reverse操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort操作符"><span class="toc-number">1.4.</span> <span class="toc-text">sort操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#each操作符"><span class="toc-number">1.5.</span> <span class="toc-text">each操作符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子程序"><span class="toc-number">2.</span> <span class="toc-text">子程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义子程序"><span class="toc-number">2.1.</span> <span class="toc-text">定义子程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调用子程序"><span class="toc-number">2.2.</span> <span class="toc-text">调用子程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#返回值"><span class="toc-number">2.3.</span> <span class="toc-text">返回值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参数"><span class="toc-number">2.4.</span> <span class="toc-text">参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#子程序中的私有变量"><span class="toc-number">2.4.1.</span> <span class="toc-text">子程序中的私有变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#变长的参数列表"><span class="toc-number">2.4.2.</span> <span class="toc-text">变长的参数列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#空参数列表"><span class="toc-number">2.4.3.</span> <span class="toc-text">空参数列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关于词法（my）变量"><span class="toc-number">2.4.4.</span> <span class="toc-text">关于词法（my）变量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#use_strict编译指令（pragma）"><span class="toc-number">2.5.</span> <span class="toc-text">use strict编译指令（pragma）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#return操作符"><span class="toc-number">2.6.</span> <span class="toc-text">return操作符</span></a></li></ol></li></ol>
  
   </div>
 
@@ -249,23 +295,23 @@ Mo birthday happy <span class="keyword">to</span>
 			
 		
 			
+				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/blog/" title="blog">blog<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/yum/" title="yum">yum<sup>1</sup></a></li>
+				<li><a href="/tags/ssh/" title="ssh">ssh<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/sed/" title="sed">sed<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/mo/" title="mo">mo<sup>1</sup></a></li>
 			
 		
 			
@@ -281,6 +327,10 @@ Mo birthday happy <span class="keyword">to</span>
 			
 		
 			
+				<li><a href="/tags/keepalive/" title="keepalive">keepalive<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/awk/" title="awk">awk<sup>1</sup></a></li>
 			
 		
@@ -293,15 +343,11 @@ Mo birthday happy <span class="keyword">to</span>
 			
 		
 			
-				<li><a href="/tags/ssh/" title="ssh">ssh<sup>1</sup></a></li>
+				<li><a href="/tags/yum/" title="yum">yum<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/句柄/" title="句柄">句柄<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tmux/" title="tmux">tmux<sup>1</sup></a></li>
 			
 		
 		</ul>
