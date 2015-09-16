@@ -25,13 +25,14 @@ install zabbix">
 <meta property="og:image" content="http://i1.tietuku.com/5c8029d4a5750557.png">
 <meta property="og:image" content="http://i1.tietuku.com/6eab8e80bb3eb1f1.png">
 <meta property="og:image" content="http://i1.tietuku.com/0d83e480b0e348c7.png">
+<meta property="og:image" content="http://i1.tietuku.com/75f80ce9269b455a.png">
 <meta property="og:image" content="http://i1.tietuku.com/3f75b678db942213.png">
 <meta property="og:image" content="http://i1.tietuku.com/b585f7995c14ad19.png">
 <meta property="og:image" content="http://i1.tietuku.com/c53075f14306cd61.png">
 <meta property="og:image" content="http://i1.tietuku.com/281d34ca6408ac6e.png">
 <meta property="og:image" content="http://i1.tietuku.com/21ba7ab71d649b6d.png">
 <meta property="og:image" content="http://i1.tietuku.com/263e79625c329936.png">
-<meta property="og:updated_time" content="2015-09-09T03:31:30.501Z">
+<meta property="og:updated_time" content="2015-09-14T10:17:56.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS环境搭建zabbix监控">
 <meta name="twitter:description" content="zabbix server配置yum源rpm -ivh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpmhttp://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
@@ -105,7 +106,7 @@ install zabbix">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#zabbix_server"><span class="toc-number">1.</span> <span class="toc-text">zabbix server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置yum源"><span class="toc-number">1.1.</span> <span class="toc-text">配置yum源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#install_zabbix_server"><span class="toc-number">1.2.</span> <span class="toc-text">install zabbix server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql_config"><span class="toc-number">1.3.</span> <span class="toc-text">mysql config</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#修改mysql配置文件"><span class="toc-number">1.3.1.</span> <span class="toc-text">修改mysql配置文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动mysql服务"><span class="toc-number">1.4.</span> <span class="toc-text">启动mysql服务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql设置"><span class="toc-number">1.4.1.</span> <span class="toc-text">mysql设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建zabbix的数据库"><span class="toc-number">1.5.</span> <span class="toc-text">创建zabbix的数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入zabbix的数据库"><span class="toc-number">1.6.</span> <span class="toc-text">导入zabbix的数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#进入数据库导入"><span class="toc-number">1.6.1.</span> <span class="toc-text">进入数据库导入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#倒入sql一定按顺序一定"><span class="toc-number">1.7.</span> <span class="toc-text">倒入sql一定按顺序一定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#在数据库外导入"><span class="toc-number">1.7.1.</span> <span class="toc-text">在数据库外导入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置zabbix_server-conf"><span class="toc-number">1.8.</span> <span class="toc-text">配置zabbix_server.conf</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iptables&Selinux设置"><span class="toc-number">1.8.1.</span> <span class="toc-text">iptables&Selinux设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动zabbix服务&http服务"><span class="toc-number">1.9.</span> <span class="toc-text">启动zabbix服务&http服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zabbix_agent"><span class="toc-number">2.</span> <span class="toc-text">zabbix agent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sofaware"><span class="toc-number">2.1.</span> <span class="toc-text">sofaware</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#configure"><span class="toc-number">2.2.</span> <span class="toc-text">configure</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iptables"><span class="toc-number">2.2.1.</span> <span class="toc-text">iptables</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix_agentd-conf"><span class="toc-number">2.2.2.</span> <span class="toc-text">zabbix_agentd.conf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动"><span class="toc-number">2.2.3.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix添加主机"><span class="toc-number">2.2.4.</span> <span class="toc-text">zabbix添加主机</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#手动添加"><span class="toc-number">2.2.4.1.</span> <span class="toc-text">手动添加</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#自动添加"><span class="toc-number">2.2.4.2.</span> <span class="toc-text">自动添加</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#报错解决"><span class="toc-number">3.</span> <span class="toc-text">报错解决</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#timezone问题"><span class="toc-number">3.0.1.</span> <span class="toc-text">timezone问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#web参数不满足要求问题"><span class="toc-number">3.0.2.</span> <span class="toc-text">web参数不满足要求问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#默认登陆账号密码"><span class="toc-number">3.0.3.</span> <span class="toc-text">默认登陆账号密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#报错贴图“table_not_exist”"><span class="toc-number">3.0.4.</span> <span class="toc-text">报错贴图“table not exist”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#epel源错误"><span class="toc-number">3.0.5.</span> <span class="toc-text">epel源错误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbixserver_web_报错“Zabbix_discoverer_processes_more_than_75%_busy”"><span class="toc-number">3.0.6.</span> <span class="toc-text">zabbixserver web 报错“Zabbix discoverer processes more than 75% busy”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix_server_is_not_running报错"><span class="toc-number">3.0.7.</span> <span class="toc-text">zabbix server is not running报错</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#zabbix_server"><span class="toc-number">1.</span> <span class="toc-text">zabbix server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置yum源"><span class="toc-number">1.1.</span> <span class="toc-text">配置yum源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#install_zabbix_server"><span class="toc-number">1.2.</span> <span class="toc-text">install zabbix server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql_config"><span class="toc-number">1.3.</span> <span class="toc-text">mysql config</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#修改mysql配置文件"><span class="toc-number">1.3.1.</span> <span class="toc-text">修改mysql配置文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动mysql服务"><span class="toc-number">1.4.</span> <span class="toc-text">启动mysql服务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql设置"><span class="toc-number">1.4.1.</span> <span class="toc-text">mysql设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建zabbix的数据库"><span class="toc-number">1.5.</span> <span class="toc-text">创建zabbix的数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入zabbix的数据库"><span class="toc-number">1.6.</span> <span class="toc-text">导入zabbix的数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#进入数据库导入"><span class="toc-number">1.6.1.</span> <span class="toc-text">进入数据库导入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#倒入sql一定按顺序一定"><span class="toc-number">1.7.</span> <span class="toc-text">倒入sql一定按顺序一定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#在数据库外导入"><span class="toc-number">1.7.1.</span> <span class="toc-text">在数据库外导入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置zabbix_server-conf"><span class="toc-number">1.8.</span> <span class="toc-text">配置zabbix_server.conf</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iptables&Selinux设置"><span class="toc-number">1.8.1.</span> <span class="toc-text">iptables&Selinux设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动zabbix服务&http服务"><span class="toc-number">1.9.</span> <span class="toc-text">启动zabbix服务&http服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zabbix_agent"><span class="toc-number">2.</span> <span class="toc-text">zabbix agent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sofaware"><span class="toc-number">2.1.</span> <span class="toc-text">sofaware</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#configure"><span class="toc-number">2.2.</span> <span class="toc-text">configure</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iptables"><span class="toc-number">2.2.1.</span> <span class="toc-text">iptables</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix_agentd-conf"><span class="toc-number">2.2.2.</span> <span class="toc-text">zabbix_agentd.conf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动"><span class="toc-number">2.2.3.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix添加主机"><span class="toc-number">2.2.4.</span> <span class="toc-text">zabbix添加主机</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#手动添加"><span class="toc-number">2.2.4.1.</span> <span class="toc-text">手动添加</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#自动添加"><span class="toc-number">2.2.4.2.</span> <span class="toc-text">自动添加</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#报错解决"><span class="toc-number">3.</span> <span class="toc-text">报错解决</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#timezone问题"><span class="toc-number">3.0.1.</span> <span class="toc-text">timezone问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#web参数不满足要求问题"><span class="toc-number">3.0.2.</span> <span class="toc-text">web参数不满足要求问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#默认登陆账号密码"><span class="toc-number">3.0.3.</span> <span class="toc-text">默认登陆账号密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix忘记密码，将旧密码修改为arvon"><span class="toc-number">3.0.4.</span> <span class="toc-text">zabbix忘记密码，将旧密码修改为arvon</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#报错贴图“table_not_exist”"><span class="toc-number">3.0.5.</span> <span class="toc-text">报错贴图“table not exist”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#epel源错误"><span class="toc-number">3.0.6.</span> <span class="toc-text">epel源错误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbixserver_web_报错“Zabbix_discoverer_processes_more_than_75%_busy”"><span class="toc-number">3.0.7.</span> <span class="toc-text">zabbixserver web 报错“Zabbix discoverer processes more than 75% busy”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix_server_is_not_running报错"><span class="toc-number">3.0.8.</span> <span class="toc-text">zabbix server is not running报错</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
@@ -165,6 +166,10 @@ install zabbix">
 <p><directory "="" usr="" share="" zabbix"=""><br>    Options FollowSymLinks<br>    AllowOverride None<br>    Order allow,deny<br>    Allow from all<br>    php_value date:timezone Asia/Shanghai<br>    php_value max_execution_time 300<br>    php_value post_max_size 16M<br>    php_value max_input_time 300<br>    php_value memory_limit 128M<br>    php_value upload_max_filesize 2M<br></directory><br>然后重启httpd服务</p>
 </blockquote>
 <h4 id="默认登陆账号密码">默认登陆账号密码</h4><p>账户：Admin<br>密码：zabbix</p>
+<h4 id="zabbix忘记密码，将旧密码修改为arvon">zabbix忘记密码，将旧密码修改为arvon</h4><p>登陆部署机数据库，修改数据库中的密码，步骤如下：<br>#echo -n arvon | openssl md5<br>(stdin)= 5c48aaaa95a1797ffb2dc32699b0c6c3</p>
+<blockquote>
+<p>>mysql -uname -ppassword<br>>use zabbix;<br>>select * from users;<br>#先在外面生成的md5码该用了<br>>update users set  passwd=’e2798af12a7a0f4f70b4d69efbc25f4d’ where userid = ‘1’;<br><img src="http://i1.tietuku.com/75f80ce9269b455a.png" alt=""></p>
+</blockquote>
 <h4 id="报错贴图“table_not_exist”">报错贴图“table not exist”</h4><p><img src="http://i1.tietuku.com/3f75b678db942213.png" alt=""><br><img src="http://i1.tietuku.com/b585f7995c14ad19.png" alt=""></p>
 <h4 id="epel源错误">epel源错误</h4><p><img src="http://i1.tietuku.com/c53075f14306cd61.png" alt=""><br>修改文件“/etc/yum.repos.d/epel.repo”， 第一项epel，将baseurl的注释取消， mirrorlist注释掉。即可</p>
 <h4 id="zabbixserver_web_报错“Zabbix_discoverer_processes_more_than_75%_busy”">zabbixserver web 报错“Zabbix discoverer processes more than 75% busy”</h4><p><img src="http://i1.tietuku.com/281d34ca6408ac6e.png" alt=""></p>
@@ -203,6 +208,14 @@ install zabbix">
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2015/09/14/虚拟机错误/" title="虚拟机错误">
+  <strong>上一篇：</strong><br/>
+  <span>
+  虚拟机错误</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2015/09/07/mysql-keepalive实现高可用/"  title="mysql + keepalive实现高可用">
@@ -222,7 +235,7 @@ install zabbix">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#zabbix_server"><span class="toc-number">1.</span> <span class="toc-text">zabbix server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置yum源"><span class="toc-number">1.1.</span> <span class="toc-text">配置yum源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#install_zabbix_server"><span class="toc-number">1.2.</span> <span class="toc-text">install zabbix server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql_config"><span class="toc-number">1.3.</span> <span class="toc-text">mysql config</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#修改mysql配置文件"><span class="toc-number">1.3.1.</span> <span class="toc-text">修改mysql配置文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动mysql服务"><span class="toc-number">1.4.</span> <span class="toc-text">启动mysql服务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql设置"><span class="toc-number">1.4.1.</span> <span class="toc-text">mysql设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建zabbix的数据库"><span class="toc-number">1.5.</span> <span class="toc-text">创建zabbix的数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入zabbix的数据库"><span class="toc-number">1.6.</span> <span class="toc-text">导入zabbix的数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#进入数据库导入"><span class="toc-number">1.6.1.</span> <span class="toc-text">进入数据库导入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#倒入sql一定按顺序一定"><span class="toc-number">1.7.</span> <span class="toc-text">倒入sql一定按顺序一定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#在数据库外导入"><span class="toc-number">1.7.1.</span> <span class="toc-text">在数据库外导入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置zabbix_server-conf"><span class="toc-number">1.8.</span> <span class="toc-text">配置zabbix_server.conf</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iptables&Selinux设置"><span class="toc-number">1.8.1.</span> <span class="toc-text">iptables&Selinux设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动zabbix服务&http服务"><span class="toc-number">1.9.</span> <span class="toc-text">启动zabbix服务&http服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zabbix_agent"><span class="toc-number">2.</span> <span class="toc-text">zabbix agent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sofaware"><span class="toc-number">2.1.</span> <span class="toc-text">sofaware</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#configure"><span class="toc-number">2.2.</span> <span class="toc-text">configure</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iptables"><span class="toc-number">2.2.1.</span> <span class="toc-text">iptables</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix_agentd-conf"><span class="toc-number">2.2.2.</span> <span class="toc-text">zabbix_agentd.conf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动"><span class="toc-number">2.2.3.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix添加主机"><span class="toc-number">2.2.4.</span> <span class="toc-text">zabbix添加主机</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#手动添加"><span class="toc-number">2.2.4.1.</span> <span class="toc-text">手动添加</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#自动添加"><span class="toc-number">2.2.4.2.</span> <span class="toc-text">自动添加</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#报错解决"><span class="toc-number">3.</span> <span class="toc-text">报错解决</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#timezone问题"><span class="toc-number">3.0.1.</span> <span class="toc-text">timezone问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#web参数不满足要求问题"><span class="toc-number">3.0.2.</span> <span class="toc-text">web参数不满足要求问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#默认登陆账号密码"><span class="toc-number">3.0.3.</span> <span class="toc-text">默认登陆账号密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#报错贴图“table_not_exist”"><span class="toc-number">3.0.4.</span> <span class="toc-text">报错贴图“table not exist”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#epel源错误"><span class="toc-number">3.0.5.</span> <span class="toc-text">epel源错误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbixserver_web_报错“Zabbix_discoverer_processes_more_than_75%_busy”"><span class="toc-number">3.0.6.</span> <span class="toc-text">zabbixserver web 报错“Zabbix discoverer processes more than 75% busy”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix_server_is_not_running报错"><span class="toc-number">3.0.7.</span> <span class="toc-text">zabbix server is not running报错</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#zabbix_server"><span class="toc-number">1.</span> <span class="toc-text">zabbix server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置yum源"><span class="toc-number">1.1.</span> <span class="toc-text">配置yum源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#install_zabbix_server"><span class="toc-number">1.2.</span> <span class="toc-text">install zabbix server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql_config"><span class="toc-number">1.3.</span> <span class="toc-text">mysql config</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#修改mysql配置文件"><span class="toc-number">1.3.1.</span> <span class="toc-text">修改mysql配置文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动mysql服务"><span class="toc-number">1.4.</span> <span class="toc-text">启动mysql服务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql设置"><span class="toc-number">1.4.1.</span> <span class="toc-text">mysql设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建zabbix的数据库"><span class="toc-number">1.5.</span> <span class="toc-text">创建zabbix的数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入zabbix的数据库"><span class="toc-number">1.6.</span> <span class="toc-text">导入zabbix的数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#进入数据库导入"><span class="toc-number">1.6.1.</span> <span class="toc-text">进入数据库导入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#倒入sql一定按顺序一定"><span class="toc-number">1.7.</span> <span class="toc-text">倒入sql一定按顺序一定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#在数据库外导入"><span class="toc-number">1.7.1.</span> <span class="toc-text">在数据库外导入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置zabbix_server-conf"><span class="toc-number">1.8.</span> <span class="toc-text">配置zabbix_server.conf</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iptables&Selinux设置"><span class="toc-number">1.8.1.</span> <span class="toc-text">iptables&Selinux设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动zabbix服务&http服务"><span class="toc-number">1.9.</span> <span class="toc-text">启动zabbix服务&http服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zabbix_agent"><span class="toc-number">2.</span> <span class="toc-text">zabbix agent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sofaware"><span class="toc-number">2.1.</span> <span class="toc-text">sofaware</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#configure"><span class="toc-number">2.2.</span> <span class="toc-text">configure</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iptables"><span class="toc-number">2.2.1.</span> <span class="toc-text">iptables</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix_agentd-conf"><span class="toc-number">2.2.2.</span> <span class="toc-text">zabbix_agentd.conf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动"><span class="toc-number">2.2.3.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix添加主机"><span class="toc-number">2.2.4.</span> <span class="toc-text">zabbix添加主机</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#手动添加"><span class="toc-number">2.2.4.1.</span> <span class="toc-text">手动添加</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#自动添加"><span class="toc-number">2.2.4.2.</span> <span class="toc-text">自动添加</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#报错解决"><span class="toc-number">3.</span> <span class="toc-text">报错解决</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#timezone问题"><span class="toc-number">3.0.1.</span> <span class="toc-text">timezone问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#web参数不满足要求问题"><span class="toc-number">3.0.2.</span> <span class="toc-text">web参数不满足要求问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#默认登陆账号密码"><span class="toc-number">3.0.3.</span> <span class="toc-text">默认登陆账号密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix忘记密码，将旧密码修改为arvon"><span class="toc-number">3.0.4.</span> <span class="toc-text">zabbix忘记密码，将旧密码修改为arvon</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#报错贴图“table_not_exist”"><span class="toc-number">3.0.5.</span> <span class="toc-text">报错贴图“table not exist”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#epel源错误"><span class="toc-number">3.0.6.</span> <span class="toc-text">epel源错误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbixserver_web_报错“Zabbix_discoverer_processes_more_than_75%_busy”"><span class="toc-number">3.0.7.</span> <span class="toc-text">zabbixserver web 报错“Zabbix discoverer processes more than 75% busy”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix_server_is_not_running报错"><span class="toc-number">3.0.8.</span> <span class="toc-text">zabbix server is not running报错</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -238,11 +251,11 @@ install zabbix">
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/linux/" title="linux">linux<sup>8</sup></a></li>
+				<li><a href="/tags/linux/" title="linux">linux<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/tools/" title="tools">tools<sup>6</sup></a></li>
+				<li><a href="/tags/tools/" title="tools">tools<sup>7</sup></a></li>
 			
 		
 			
@@ -254,7 +267,11 @@ install zabbix">
 			
 		
 			
-				<li><a href="/tags/arvon/" title="arvon">arvon<sup>3</sup></a></li>
+				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>3</sup></a></li>
 			
 		
 			
@@ -262,11 +279,7 @@ install zabbix">
 			
 		
 			
-				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/mysql/" title="mysql">mysql<sup>2</sup></a></li>
+				<li><a href="/tags/arvon/" title="arvon">arvon<sup>3</sup></a></li>
 			
 		
 			
@@ -274,11 +287,15 @@ install zabbix">
 			
 		
 			
-				<li><a href="/tags/ssh/" title="ssh">ssh<sup>1</sup></a></li>
+				<li><a href="/tags/ftp/" title="ftp">ftp<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/sed/" title="sed">sed<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mo/" title="mo">mo<sup>1</sup></a></li>
 			
 		
 			
@@ -298,15 +315,11 @@ install zabbix">
 			
 		
 			
+				<li><a href="/tags/crontab/" title="crontab">crontab<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/awk/" title="awk">awk<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ansible/" title="ansible">ansible<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
 			
 		
 			
@@ -314,7 +327,7 @@ install zabbix">
 			
 		
 			
-				<li><a href="/tags/句柄/" title="句柄">句柄<sup>1</sup></a></li>
+				<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
 			
 		
 		</ul>

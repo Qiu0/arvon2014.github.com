@@ -4,128 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>2015读书清单 | Arvon&#39;s Blog</title>
+    <title>crontab简记 | Arvon&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Arvon">
     
 
     
-    <meta name="description" content="没什么好说的
-课外读物
-从你的全世界路过
-
-追风筝的人
-
-百年孤独
-
-已入手
-
-
-活着
-
-txt版已阅
-
-
-
-课内读物
-Perl语言入门_中文版第六版
-
-pdf版进行中
-
-
-与孩子一起学编程
-
-已入手已阅
-
-
-简明python
-
-pdf版已阅
-
-
-TCP/IP详解卷1 协议
-
-已入手">
+    <meta name="description" content="今天刚好要备份线上的crontab，就顺便记下来，省得忘了以后还要去上网找。介绍:*crontab命令常见于Unix和类Unix的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。该词来源于希腊语 chronos(χρνο)，原意是时间。常，crontab储存的指令被守护进程激活， crond常常在后台运行，每一分钟检">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2015读书清单">
-<meta property="og:url" content="http://yoursite.com/2015/08/31/2015读书清单/index.html">
+<meta property="og:title" content="crontab简记">
+<meta property="og:url" content="http://yoursite.com/2015/09/16/crontab简记/index.html">
 <meta property="og:site_name" content="Arvon's Blog">
-<meta property="og:description" content="没什么好说的
-课外读物
-从你的全世界路过
-
-追风筝的人
-
-百年孤独
-
-已入手
-
-
-活着
-
-txt版已阅
-
-
-
-课内读物
-Perl语言入门_中文版第六版
-
-pdf版进行中
-
-
-与孩子一起学编程
-
-已入手已阅
-
-
-简明python
-
-pdf版已阅
-
-
-TCP/IP详解卷1 协议
-
-已入手">
-<meta property="og:updated_time" content="2015-09-06T04:00:54.711Z">
+<meta property="og:description" content="今天刚好要备份线上的crontab，就顺便记下来，省得忘了以后还要去上网找。介绍:*crontab命令常见于Unix和类Unix的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。该词来源于希腊语 chronos(χρνο)，原意是时间。常，crontab储存的指令被守护进程激活， crond常常在后台运行，每一分钟检">
+<meta property="og:updated_time" content="2015-09-16T09:19:45.924Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2015读书清单">
-<meta name="twitter:description" content="没什么好说的
-课外读物
-从你的全世界路过
-
-追风筝的人
-
-百年孤独
-
-已入手
-
-
-活着
-
-txt版已阅
-
-
-
-课内读物
-Perl语言入门_中文版第六版
-
-pdf版进行中
-
-
-与孩子一起学编程
-
-已入手已阅
-
-
-简明python
-
-pdf版已阅
-
-
-TCP/IP详解卷1 协议
-
-已入手">
+<meta name="twitter:title" content="crontab简记">
+<meta name="twitter:description" content="今天刚好要备份线上的crontab，就顺便记下来，省得忘了以后还要去上网找。介绍:*crontab命令常见于Unix和类Unix的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。该词来源于希腊语 chronos(χρνο)，原意是时间。常，crontab储存的指令被守护进程激活， crond常常在后台运行，每一分钟检">
 
     
     
@@ -179,14 +74,14 @@ TCP/IP详解卷1 协议
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/31/2015读书清单/" title="2015读书清单" itemprop="url">2015读书清单</a>
+      <a href="/2015/09/16/crontab简记/" title="crontab简记" itemprop="url">crontab简记</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-31T01:44:40.000Z" itemprop="datePublished"> 发表于 2015-08-31</time>
+    <time datetime="2015-09-16T09:01:58.000Z" itemprop="datePublished"> 发表于 2015-09-16</time>
     
   </p>
 </header>
@@ -195,46 +90,28 @@ TCP/IP详解卷1 协议
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#课外读物"><span class="toc-number">1.</span> <span class="toc-text">课外读物</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#课内读物"><span class="toc-number">2.</span> <span class="toc-text">课内读物</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#实例"><span class="toc-number">1.</span> <span class="toc-text">实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令介绍"><span class="toc-number">2.</span> <span class="toc-text">命令介绍</span></a></li></ol>
 		
 		</div>
 		
-		<p>没什么好说的</p>
-<h3 id="课外读物">课外读物</h3><ul>
-<li><p><a href="http://item.jd.com/11338771.html" target="_blank" rel="external">从你的全世界路过</a></p>
-</li>
-<li><p><a href="http://item.jd.com/11258976.html" target="_blank" rel="external">追风筝的人</a></p>
-</li>
-<li><p><a href="http://item.jd.com/10658646.html" target="_blank" rel="external">百年孤独</a></p>
-<blockquote>
-<p>已入手</p>
+		<p>今天刚好要备份线上的crontab，就顺便记下来，省得忘了以后还要去上网找。<br><strong>介绍:*</strong>crontab命令<em>常见于Unix和类Unix的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。该词来源于希腊语 chronos(χρνο)，原意是时间。常，crontab储存的指令被守护进程激活， crond常常在后台运行，每一分钟检查是否有预定的作业需要执行。这类作业一般称为cron jobs。</em>crontab文件*包含送交cron守护进程的一系列作业和指令。每个用户可以拥有自己的crontab文件；同时，操作系统保存一个针对整个系统的crontab文件，该文件通常存放于/etc或者/etc之下的子目录中，而这个文件只能由系统管理员来修改。<br>crontab文件的每一行均遵守特定的格式，由空格或tab分隔为数个领域，每个领域可以放置单一或多个数值。(ps:摘自百度百科)</p>
+<h2 id="实例">实例</h2><ul>
+<li>常用命令<blockquote>
+<p>crontab -e    #编辑，编辑后重启服务生效<br>/etc/init.d/crond restart（stop/start）    #重启服务<br>crontab -l    #查看<br>crontab -l&gt;/home/backup/crontab/crontab<code>date &#39;+%Y%m%d&#39;</code>.bak    #备份crontab</p>
 </blockquote>
 </li>
-<li><p><del><a href="http://item.jd.com/11353729.html" target="_blank" rel="external">活着</a></del></p>
-<blockquote>
-<p>txt版<br>已阅</p>
+<li>每分钟执行以下ls命令<blockquote>
+<p>0 <em> </em> <em> </em> /bin/ls</p>
+</blockquote>
+</li>
+<li>周一到周五每天17点发email给arvon<blockquote>
+<p>0 17 <em> </em> 1-5 mail -s “hi” alex@domain.name &lt; /tmp/maildata</p>
 </blockquote>
 </li>
 </ul>
-<h3 id="课内读物">课内读物</h3><ul>
-<li><p><a href="http://item.jd.com/10972653.html" target="_blank" rel="external">Perl语言入门_中文版第六版</a></p>
-<blockquote>
-<p>pdf版<br>进行中</p>
-</blockquote>
-</li>
-<li><p><del><a href="http://item.jd.com/10380541.html" target="_blank" rel="external">与孩子一起学编程</a></del></p>
-<blockquote>
-<p>已入手<br>已阅</p>
-</blockquote>
-</li>
-<li><p><del><a href="http://vdisk.weibo.com/s/rUcl_" target="_blank" rel="external">简明python</a></del></p>
-<blockquote>
-<p>pdf版<br>已阅</p>
-</blockquote>
-</li>
-<li><p><a href="http://item.jd.com/10057317.html?cu=true&amp;utm_source=baidu-search&amp;utm_medium=cpc&amp;utm_campaign=t_262767352_baidusearch&amp;utm_term=20001286675_0_a3731932b07e46b28c761397b2e6ca64" target="_blank" rel="external">TCP/IP详解卷1 协议</a></p>
-<blockquote>
-<p>已入手</p>
+<h2 id="命令介绍">命令介绍</h2><ul>
+<li>参照man手册<blockquote>
+<p>f1 f2 f3 f4 f5 cmd/script<br>　　其中 f1 是表示分钟，f2 表示小时，f3 表示一个月份中的第几日，f4 表示月份，f5 表示一个星期中的第几天。program 表示要执行的程式。<br>　　当 f1 为 <em> 时表示每分钟都要执行 program，f2 为 </em> 时表示每小时都要执行程式，其余类推<br>　　当 f1 为 a-b 时表示从第 a 分钟到第 b 分钟这段时间内要执行，f2 为 a-b 时表示从第 a 到第 b 小时都要执行，其余类推<br>　　当 f1 为 <em>/n 时表示每 n 分钟个时间间隔执行一次，f2 为 </em>/n 表示每 n 小时个时间间隔执行一次，其余类推<br>　　当 f1 为 a, b, c,… 时表示第 a, b, c,… 分钟要执行，f2 为 a, b, c,… 时表示第 a, b, c…个小时要执行，其余类推<br>　　使用者也可以将所有的设定先存放在档案 file 中，用 crontab file 的方式来设定时程表。<br>　　由于unix版本不一样，所以部分语法有差别，例如在hp unix aix 中设定间隔执行如果采用*/n 方式将出现语法错误，在这类unix中 ，间隔执行只能以列举方式，详请见例子。 使用方法:　　用VI编辑一个文件 cronfile，然后在这个文件中输入格式良好的时程表。编辑完成后，保存并退出。<br>　　在命令行输入<br>　　$: crontab cronfile<br>　　这样就将cronfile文件提交给c r o n进程，同时，新创建cronfile的一个副本已经被放在/ v a r / s p o o l / c r o n目录中，文件名就是用户名。</p>
 </blockquote>
 </li>
 </ul>
@@ -246,7 +123,7 @@ TCP/IP详解卷1 协议
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/arvon/">arvon</a>
+  <span></span> <a href="/tags/crontab/">crontab</a><a href="/tags/linux/">linux</a>
   </div>
 
 </div>
@@ -255,7 +132,7 @@ TCP/IP详解卷1 协议
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/08/31/2015读书清单/" data-title="2015读书清单 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/09/16/crontab简记/" data-title="crontab简记 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -268,19 +145,11 @@ TCP/IP详解卷1 协议
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/09/07/mysql-keepalive实现高可用/" title="mysql + keepalive实现高可用">
-  <strong>上一篇：</strong><br/>
-  <span>
-  mysql + keepalive实现高可用</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/08/26/使用Hexo和Github搭建Blog/"  title="使用Hexo和Github搭建Blog">
+<a href="/2015/09/14/Zabbix使用Percona组件监控Mysql/"  title="Zabbix使用Percona组件监控Mysql">
  <strong>下一篇：</strong><br/> 
- <span>使用Hexo和Github搭建Blog
+ <span>Zabbix使用Percona组件监控Mysql
 </span>
 </a>
 </div>
@@ -295,7 +164,7 @@ TCP/IP详解卷1 协议
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#课外读物"><span class="toc-number">1.</span> <span class="toc-text">课外读物</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#课内读物"><span class="toc-number">2.</span> <span class="toc-text">课内读物</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#实例"><span class="toc-number">1.</span> <span class="toc-text">实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令介绍"><span class="toc-number">2.</span> <span class="toc-text">命令介绍</span></a></li></ol>
  
   </div>
 
