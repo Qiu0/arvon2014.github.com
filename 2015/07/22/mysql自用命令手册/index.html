@@ -1,0 +1,593 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Mysql自用命令手册 | Arvon&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Arvon">
+    
+
+    
+    <meta name="description" content="摘要：Mysql这一块是真心太庞大了，就列几个我自个常用的命令，基本的增删改查备份还原还是应该有的
+连接登录数据库
+mysql –u用户名 [–h主机名或者IP地址] –p密码eggs: mysql -uusername -hIPaddress -p(password)
+
+格式： mysql -h主机地址 -u用户名 －p用户密码
+
+连接到本机上的MYSQL。首先打开DOS窗口，然后进入目录mys">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mysql自用命令手册">
+<meta property="og:url" content="http://yoursite.com/2015/07/22/mysql自用命令手册/index.html">
+<meta property="og:site_name" content="Arvon's Blog">
+<meta property="og:description" content="摘要：Mysql这一块是真心太庞大了，就列几个我自个常用的命令，基本的增删改查备份还原还是应该有的
+连接登录数据库
+mysql –u用户名 [–h主机名或者IP地址] –p密码eggs: mysql -uusername -hIPaddress -p(password)
+
+格式： mysql -h主机地址 -u用户名 －p用户密码
+
+连接到本机上的MYSQL。首先打开DOS窗口，然后进入目录mys">
+<meta property="og:updated_time" content="2015-08-26T10:17:01.006Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mysql自用命令手册">
+<meta name="twitter:description" content="摘要：Mysql这一块是真心太庞大了，就列几个我自个常用的命令，基本的增删改查备份还原还是应该有的
+连接登录数据库
+mysql –u用户名 [–h主机名或者IP地址] –p密码eggs: mysql -uusername -hIPaddress -p(password)
+
+格式： mysql -h主机地址 -u用户名 －p用户密码
+
+连接到本机上的MYSQL。首先打开DOS窗口，然后进入目录mys">
+
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/arvon.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/arvon.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Arvon&#39;s Blog">Arvon&#39;s Blog</a></h1>
+				<h2 class="blog-motto">清醒时做事，糊涂时读书，大怒时睡觉，独处时思考</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/22/mysql自用命令手册/" title="Mysql自用命令手册" itemprop="url">Mysql自用命令手册</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-22T08:10:15.000Z" itemprop="datePublished"> 发表于 2015-07-22</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#连接登录数据库"><span class="toc-number">1.</span> <span class="toc-text">连接登录数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改密码"><span class="toc-number">2.</span> <span class="toc-text">修改密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看mysql数据库中所有用户及拥有的权限"><span class="toc-number">3.</span> <span class="toc-text">查看mysql数据库中所有用户及拥有的权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加新用户"><span class="toc-number">4.</span> <span class="toc-text">添加新用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除用户"><span class="toc-number">5.</span> <span class="toc-text">删除用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看命令"><span class="toc-number">6.</span> <span class="toc-text">查看命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#命令实例"><span class="toc-number">6.1.</span> <span class="toc-text">命令实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导出数据库"><span class="toc-number">7.</span> <span class="toc-text">导出数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备份恢复数据库"><span class="toc-number">8.</span> <span class="toc-text">备份恢复数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文档"><span class="toc-number">9.</span> <span class="toc-text">参考文档</span></a></li></ol>
+		
+		</div>
+		
+		<p><strong>摘要：</strong>Mysql这一块是真心太庞大了，就列几个我自个常用的命令，基本的增删改查备份还原还是应该有的</p>
+<h3 id="连接登录数据库">连接登录数据库</h3><blockquote>
+<p>mysql –u用户名 [–h主机名或者IP地址] –p密码<br>eggs: mysql -uusername -hIPaddress -p(password)</p>
+</blockquote>
+<p><strong>格式：</strong> mysql -h主机地址 -u用户名 －p用户密码</p>
+<ol>
+<li>连接到本机上的MYSQL。<br>首先打开DOS窗口，然后进入目录mysql\bin，再键入命令mysql -u root -p，回车后提示你输密码.注意用户名前可以有空格也可以没有空格，但是密码前必须没有空格，否则让你重新输入密码.<br>如果刚安装好MYSQL，超级用户root是没有密码的，故直接回车即可进入到MYSQL中了，MYSQL的提示符是： mysql&gt;</li>
+<li>连接到远程主机上的MYSQL。假设远程主机的IP为：110.110.110.110，用户名为root,密码为abcd123。则键入以下命令：<br>mysql -h110.110.110.110 -u root -p 123;（注:u与root之间可以不用加空格，其它也一样）</li>
+<li>退出MYSQL命令： exit （回车）</li>
+</ol>
+<h3 id="修改密码">修改密码</h3><p><strong>格式：</strong>mysqladmin -u用户名 -p旧密码 password 新密码(注：因为开始时root没有密码，所以-p旧密码一项就可以省略)</p>
+<blockquote>
+<p>mysqladmin -u root -password ab12<br>再将root的密码改为djg345<br>mysqladmin -u root -p ab12 password djg345</p>
+</blockquote>
+<h3 id="查看mysql数据库中所有用户及拥有的权限">查看mysql数据库中所有用户及拥有的权限</h3><blockquote>
+<p>SELECT DISTINCT CONCAT(‘User: ‘’’,user,’’’@’’’,host,’’’;’) AS query FROM mysql.user;</p>
+</blockquote>
+<h3 id="添加新用户">添加新用户</h3><p><strong>格式：</strong>grant select on 数据库.* to 用户名@登录主机 identified by “密码”</p>
+<ol>
+<li>增加一个用户test1密码为abc，让他可以在任何主机上登录，并对所有数据库有查询、插入、修改、删除的权限。首先用root用户连入MYSQL，然后键入以下命令：<blockquote>
+<p>grant select,insert,update,delete on <em>.</em> to test1@”%” Identified by “abc”;</p>
+</blockquote>
+</li>
+<li>增加一个用户test2密码为abc,让他只可以在localhost上登录，并可以对数据库mydb进行查询、插入、修改、删除的操作（localhost指本地主机，即MYSQL数据库所在的那台主机），<br>这样用户即使用知道test2的密码，他也无法从internet上直接访问数据库，只能通过MYSQL主机上的web页来访问了。<blockquote>
+<p>grant select,insert,update,delete on mydb.<em> to test2@localhost identified by “abc”;<br>如果你不想test2有密码，可以再打一个命令将密码消掉:<br>grant select,insert,update,delete on mydb.</em> to test2@localhost identified by “”;</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="删除用户">删除用户</h3><blockquote>
+<p>mysql -u root -p<br>密码<br>mysql&gt;Delete FROM user Where User=’test’ and Host=’localhost’;<br>mysql&gt;flush privileges;<br>mysql&gt;drop database testDB; //删除用户的数据库<br>删除账户及权限：&gt;drop user 用户名@’%’;</p>
+</blockquote>
+<p>　　　　　　　　>drop user 用户名@ localhost; </p>
+<h3 id="查看命令">查看命令</h3><ol>
+<li>mysql&gt; SHOW DATABASES;    #显示当前数据库服务器中的数据库列表(注意：mysql库里面有MYSQL的系统信息，我们改密码和新增用户，实际上就是用这个库进行操作。)<br>mysql&gt; USE 库名；    ##显示数据库中的数据表</li>
+<li>mysql&gt; SHOW TABLES;    </li>
+<li>mysql&gt; DESCRIBE 表名;    #显示数据表的结构</li>
+<li>mysql&gt; CREATE DATABASE 库名;    #建立数据库</li>
+<li>mysql&gt; USE 库名;    #;建立数据表<br>mysql&gt; CREATE TABLE 表名 (字段名 VARCHAR(20), 字段名 CHAR(1))</li>
+<li>mysql&gt; DROP DATABASE     #库名;删除数据库</li>
+<li>mysql&gt; DROP TABLE 表名；    #删除数据表</li>
+<li>mysql&gt; DELETE FROM 表名;    #将表中记录清空</li>
+<li>mysql&gt; SELECT * FROM 表名;    #显示表中的记录</li>
+<li>mysql&gt; INSERT INTO 表名 VALUES (”hyq”,”M”);    #往表中插入记录</li>
+<li>mysql-&gt; UPDATE 表名 SET 字段名1=’a’,字段名2=’b’ WHERE 字段名3=’c’;    #更新表中数据</li>
+<li>mysql&gt; LOAD DATA LOCAL INFILE “D:/mysql.txt” INTO TABLE 表名;    #用文本方式将数据装入数据表中</li>
+<li>mysql&gt; USE 数据库名;<br>mysql&gt; SOURCE d:/mysql.sql;    #导入.sql文件命令：</li>
+<li>mysql&gt; UPDATE mysql.user SET password=PASSWORD(‘新密码’) WHERE User=’root’;<br>mysql&gt; FLUSH PRIVILEGES;    #命令行修改root密码</li>
+<li>mysql&gt; SELECT DATABASE();    #显示use的数据库名</li>
+<li>mysql&gt; SELECT USER();    #显示当前的user</li>
+</ol>
+<h4 id="命令实例">命令实例</h4><blockquote>
+<p>drop database if exists school;    #如果存在SCHOOL则删除<br>create database school;    #建立库SCHOOL<br>use school;    #打开库SCHOOL<br>create table teacher;    #(进入SCHOOL库后)简历表teacher<br> (<br> id int(3) auto_increment not null primary key,<br> name char(10) not null,<br> address varchar(50) default ‘深圳’,<br> year date<br> );    #建表结束<br>insert into teacher values(”,’allen’,’大连一中’,’1976-10-10′);    #插入字段<br> insert into teacher values(”,’jack’,’大连二中’,’1975-12-23′);</p>
+</blockquote>
+<h3 id="导出数据库">导出数据库</h3><ol>
+<li>导出整个数据库（导出文件默认是存在mysql\bin目录下；在linux下为/var/lib/mysql）<blockquote>
+<p>mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名<br>mysqldump -u user_name -p123456 database_name &gt; outfile_name.sql</p>
+</blockquote>
+</li>
+<li>导出一个表<blockquote>
+<p>mysqldump -u 用户名 -p 数据库名 表名&gt; 导出的文件名<br>mysqldump -u user_name -p database_name table_name &gt; outfile_name.sql</p>
+</blockquote>
+</li>
+<li>导出一个数据库结构<blockquote>
+<p>mysqldump -u user_name -p -d –add-drop-table database_name &gt; outfile_name.sql<br>-d 没有数据 –add-drop-table 在每个create语句之前增加一个drop table</p>
+</blockquote>
+</li>
+<li>带语言参数导出<blockquote>
+<p>mysqldump -uroot -p –default-character-set=latin1 –set-charset=gbk –skip-opt database_name &gt; outfile_name.sql</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="备份恢复数据库">备份恢复数据库</h3><ol>
+<li><p>备份数据库</p>
+<blockquote>
+<p>mysqldump -uroot -p test_db &gt; test_db.sql </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -h$&#123;ipaddr&#125; -u$&#123;username&#125; -p$&#123;password&#125; --default-character-set=utf8 \&#10;--comments=FALSE --tables --no-create-info=FALSE --add-drop-table=TRUE --no-data=FALSE \&#10;$&#123;area&#125; | sed &#39;s/AUTO_INCREMENT=[0-9]*\s//g&#39; &#62;$&#123;dest_dir&#125;/$&#123;area&#125;.sql</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>恢复数据库</p>
+<blockquote>
+<p>mysql -uroot -p test_db &lt; test_db.sql </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h$&#123;ipaddr&#125; -u$&#123;username&#125; -p$&#123;password&#125; --default-character-set=utf8 --execute=&#34;DROP DATABASE IF EXISTS  $&#123;area&#125;&#34;;&#10;mysql -h$&#123;ipaddr&#125; -u$&#123;username&#125; -p$&#123;password&#125; --default-character-set=utf8 --execute=&#34;CREATE DATABASE IF NOT EXISTS  $&#123;area&#125; DEFAULT CHARACTER SET utf8&#34;;&#10;mysql -h$&#123;ipaddr&#125; -u$&#123;username&#125; -p$&#123;password&#125; --default-character-set=utf8 --database= $&#123;area&#125; &#60;$&#123;area&#125;.sql;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>创建权限</p>
+<blockquote>
+<p>grant all privileges on test_db.* to test_db@’localhost’ identified by ‘123456’;<br>兼容4.1之前的版本：<br>update mysql.user set password=old_password(‘123456’) where user=’test_db’; </p>
+</blockquote>
+</li>
+<li>忘记密码<br>在“my.cnf”或“my.ini”文件的“mysqld”配置段添加“skip-grant-tables”，然后重新启动mysql即可登录修改root密码。</li>
+</ol>
+<h3 id="参考文档">参考文档</h3><p><a href="http://www.jb51.net/article/24345.htm" target="_blank" rel="external">mysql常用命令集锦</a><br><a href="http://www.jb51.net/article/25652.htm" target="_blank" rel="external">Mysql常用命令 详细整理版</a><br><a href="http://www.cnblogs.com/fly1988happy/archive/2011/12/15/2288554.html" target="_blank" rel="external">Mysql 用户权限</a><br><a href="http://www.cnblogs.com/fly1988happy/archive/2011/12/15/2288554.html" target="_blank" rel="external">Mysql 命令大全</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/linux/">linux</a><a href="/tags/mysql/">mysql</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/07/22/mysql自用命令手册/" data-title="Mysql自用命令手册 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/07/23/Linux下hexo+github搭建Blog/" title="Linux下hexo+github组建Blog">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Linux下hexo+github组建Blog</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/07/22/Tmux-使用简记/"  title="Tmux 使用简记">
+ <strong>下一篇：</strong><br/> 
+ <span>Tmux 使用简记
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#连接登录数据库"><span class="toc-number">1.</span> <span class="toc-text">连接登录数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改密码"><span class="toc-number">2.</span> <span class="toc-text">修改密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看mysql数据库中所有用户及拥有的权限"><span class="toc-number">3.</span> <span class="toc-text">查看mysql数据库中所有用户及拥有的权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加新用户"><span class="toc-number">4.</span> <span class="toc-text">添加新用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除用户"><span class="toc-number">5.</span> <span class="toc-text">删除用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看命令"><span class="toc-number">6.</span> <span class="toc-text">查看命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#命令实例"><span class="toc-number">6.1.</span> <span class="toc-text">命令实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导出数据库"><span class="toc-number">7.</span> <span class="toc-text">导出数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备份恢复数据库"><span class="toc-number">8.</span> <span class="toc-text">备份恢复数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文档"><span class="toc-number">9.</span> <span class="toc-text">参考文档</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/linux/" title="linux">linux<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tools/" title="tools">tools<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/command/" title="command">command<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/perl/" title="perl">perl<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/arvon/" title="arvon">arvon<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blog/" title="blog">blog<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ftp/" title="ftp">ftp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sed/" title="sed">sed<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mo/" title="mo">mo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/salt/" title="salt">salt<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/pandoc/" title="pandoc">pandoc<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/keepalive/" title="keepalive">keepalive<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/crontab/" title="crontab">crontab<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/awk/" title="awk">awk<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/yum/" title="yum">yum<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> My name I have forgot. <br/>
+			Her name is Pikachu.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Arvon">Arvon</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

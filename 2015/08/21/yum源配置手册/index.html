@@ -1,0 +1,582 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>yum源配置手册 | Arvon&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Arvon">
+    
+
+    
+    <meta name="description" content="yum（yellow dog updater， modified）是一个在Fedora和RedHat以及SUSE中的Shell前端软件包管理器，能够从指定的服务器自动下载RPM包并安装，可以自动处理依赖关系，并且一次安装所有的依赖关系软件包。系统管理过程中，难免要找软件装软件，如果定制性不高的话，使用yum安装不失为一个好办法，废话少说，开始介绍
+常用命令
+升级系统
+yum updateyum -">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yum源配置手册">
+<meta property="og:url" content="http://yoursite.com/2015/08/21/yum源配置手册/index.html">
+<meta property="og:site_name" content="Arvon's Blog">
+<meta property="og:description" content="yum（yellow dog updater， modified）是一个在Fedora和RedHat以及SUSE中的Shell前端软件包管理器，能够从指定的服务器自动下载RPM包并安装，可以自动处理依赖关系，并且一次安装所有的依赖关系软件包。系统管理过程中，难免要找软件装软件，如果定制性不高的话，使用yum安装不失为一个好办法，废话少说，开始介绍
+常用命令
+升级系统
+yum updateyum -">
+<meta property="og:image" content="http://i1.tietuku.com/90e4fa74d8a26695.png">
+<meta property="og:image" content="http://i1.tietuku.com/caaba96513485367.png">
+<meta property="og:updated_time" content="2015-09-02T06:30:38.264Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="yum源配置手册">
+<meta name="twitter:description" content="yum（yellow dog updater， modified）是一个在Fedora和RedHat以及SUSE中的Shell前端软件包管理器，能够从指定的服务器自动下载RPM包并安装，可以自动处理依赖关系，并且一次安装所有的依赖关系软件包。系统管理过程中，难免要找软件装软件，如果定制性不高的话，使用yum安装不失为一个好办法，废话少说，开始介绍
+常用命令
+升级系统
+yum updateyum -">
+
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/arvon.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/arvon.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Arvon&#39;s Blog">Arvon&#39;s Blog</a></h1>
+				<h2 class="blog-motto">清醒时做事，糊涂时读书，大怒时睡觉，独处时思考</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/08/21/yum源配置手册/" title="yum源配置手册" itemprop="url">yum源配置手册</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-21T07:07:07.000Z" itemprop="datePublished"> 发表于 2015-08-21</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命令"><span class="toc-number">1.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Repo配置文件"><span class="toc-number">2.</span> <span class="toc-text">Repo配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的yum源站"><span class="toc-number">3.</span> <span class="toc-text">常用的yum源站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可能错误"><span class="toc-number">4.</span> <span class="toc-text">可能错误</span></a></li></ol>
+		
+		</div>
+		
+		<p>yum（yellow dog updater， modified）是一个在Fedora和RedHat以及SUSE中的Shell前端软件包管理器，能够从指定的服务器自动下载RPM包并安装，可以自动处理依赖关系，并且一次安装所有的依赖关系软件包。<br>系统管理过程中，难免要找软件装软件，如果定制性不高的话，使用yum安装不失为一个好办法，废话少说，开始介绍</p>
+<h3 id="常用命令">常用命令</h3><ol>
+<li>升级系统<blockquote>
+<p>yum update<br>yum -y update mysql    #升级特定的软件</p>
+</blockquote>
+</li>
+<li>安装指定的软件包<blockquote>
+<p>yum -y install vsftpd</p>
+</blockquote>
+</li>
+<li>卸载指定的软件包<blockquote>
+<p>yum -y remore vsftpd mysql</p>
+</blockquote>
+</li>
+<li>查看系统中已经安装的和可用的软件组，对于可用的软件组，你可以选择安装<blockquote>
+<p>yum grouplist</p>
+</blockquote>
+</li>
+<li>清除缓存中的rpm 头文件和包文件<blockquote>
+<p>yum clean all</p>
+</blockquote>
+</li>
+<li>搜索相关的软件包<blockquote>
+<p> yum -y search Emacs</p>
+</blockquote>
+</li>
+<li>显示指定软件包的信息<blockquote>
+<p>yum info Emacs</p>
+</blockquote>
+</li>
+<li>查询指定软件包的依赖信息，emacs依赖的模块不少啊<blockquote>
+<p>yum deplist emacs</p>
+</blockquote>
+</li>
+<li>列出所有以 yum 开头的软件包<blockquote>
+<p>yum list yum*</p>
+</blockquote>
+</li>
+<li>列出已经安装的但是不包含在资源库中的rpm 包<blockquote>
+<p>yum list extras</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="Repo配置文件">Repo配置文件</h3><ul>
+<li>配置文件位于<code>/etc/yum.repos.d/*.repo</code>,扩展名都为Repo，要想不生效，可直接修改后缀，如改为*.reop_bak</li>
+<li><p>配置文件解释<br>arvon@Mo:~/arvon_work&gt; cat CentOS6-Base-163.repo | grep -v ‘^#’</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[base]</span><br><span class="line"><span class="comment">#表示标识名称</span></span><br><span class="line">name=CentOS-<span class="variable">$releasever</span> - Base - <span class="number">163</span>.com</span><br><span class="line"><span class="comment">#名字，其实可以随便起</span></span><br><span class="line">faliovermethod=priority</span><br><span class="line"><span class="comment">#priority是默认值表示从列出的baseurl中顺序选择镜像服务器地址，roundrobin表示随机选择</span></span><br><span class="line">exclude=compiz**compiz*fusion-icon*</span><br><span class="line"><span class="comment">#用来禁止这个仓库某些软件包的安装，可使用通配符，并以空格分隔。视情况添加</span></span><br><span class="line">baseurl=http:<span class="regexp">//mirrors</span>.<span class="number">163</span>.com/centos/<span class="variable">$releasever</span>/os/<span class="variable">$basearch</span>/</span><br><span class="line"><span class="comment">#引用的地址,http://网站  file://本地		ftp://文件服务器</span></span><br><span class="line">mirrorlist=http:<span class="regexp">//mirrors</span>.fedoraproject.org/mirrorlist?repo=fedora-<span class="variable">$releasever</span><span class="variable">$arch</span>=<span class="variable">$basearch</span></span><br><span class="line"><span class="comment">#是指一个镜像服务器地址列表，通常是开启的，在浏览器打开据说可以看到可用的镜像服务器列表</span></span><br><span class="line">enabled=<span class="number">1</span></span><br><span class="line"><span class="comment">#enabled=1为启用这个源，0为不启用这个源</span></span><br><span class="line">gpgcheck=<span class="number">1</span></span><br><span class="line"><span class="comment">#表示这个repo中下载的rpm将惊醒gpg校验，以确定rpm包的来源是有效和安全的</span></span><br><span class="line">gpgkey=http:<span class="regexp">//mirror</span>.centos.org/centos/RPM-GPG-KEY-CentOS-<span class="number">6</span></span><br><span class="line"><span class="comment">#定义用于校验的gpg密匙</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>粘贴可用的epel的yum源</p>
+<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[epel]</span><br><span class="line"><span class="literal">name</span>=<span class="constant">Extra</span> <span class="constant">Packages</span> for <span class="constant">Enterprise</span> <span class="constant">Linux</span> <span class="number">6</span> - $basearch</span><br><span class="line"><span class="comment">#baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch</span></span><br><span class="line"><span class="literal">mirrorlist</span>=https://mirrors.fedoraproject.org/<span class="literal">metalink</span>?repo=epel-<span class="number">6</span>&amp;arch=$basearch</span><br><span class="line"><span class="literal">failovermethod</span>=<span class="literal">priority</span></span><br><span class="line"><span class="literal">enabled</span>=<span class="number">1</span></span><br><span class="line"><span class="literal">gpgcheck</span>=<span class="number">1</span></span><br><span class="line"><span class="literal">gpgkey</span>=<span class="keyword">file</span>:///etc/pki/rpm-gpg/<span class="constant">R</span>PM-<span class="constant">G</span>PG-<span class="constant">K</span>EY-<span class="constant">E</span>PEL-<span class="number">6</span></span><br><span class="line"></span><br><span class="line">[epel-debuginfo]</span><br><span class="line"><span class="literal">name</span>=<span class="constant">Extra</span> <span class="constant">Packages</span> for <span class="constant">Enterprise</span> <span class="constant">Linux</span> <span class="number">6</span> - $basearch - <span class="constant">Debug</span></span><br><span class="line"><span class="comment">#baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch/debug</span></span><br><span class="line"><span class="literal">mirrorlist</span>=https://mirrors.fedoraproject.org/<span class="literal">metalink</span>?repo=epel-debug-<span class="number">6</span>&amp;arch=$basearch</span><br><span class="line"><span class="literal">failovermethod</span>=<span class="literal">priority</span></span><br><span class="line"><span class="literal">enabled</span>=<span class="number">0</span></span><br><span class="line"><span class="literal">gpgkey</span>=<span class="keyword">file</span>:///etc/pki/rpm-gpg/<span class="constant">R</span>PM-<span class="constant">G</span>PG-<span class="constant">K</span>EY-<span class="constant">E</span>PEL-<span class="number">6</span></span><br><span class="line"><span class="literal">gpgcheck</span>=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">[epel-<span class="literal">source</span>]</span><br><span class="line"><span class="literal">name</span>=<span class="constant">Extra</span> <span class="constant">Packages</span> for <span class="constant">Enterprise</span> <span class="constant">Linux</span> <span class="number">6</span> - $basearch - <span class="constant">Source</span></span><br><span class="line"><span class="comment">#baseurl=http://download.fedoraproject.org/pub/epel/6/SRPMS</span></span><br><span class="line"><span class="literal">mirrorlist</span>=https://mirrors.fedoraproject.org/<span class="literal">metalink</span>?repo=epel-<span class="literal">source</span>-<span class="number">6</span>&amp;arch=$basearch</span><br><span class="line"><span class="literal">failovermethod</span>=<span class="literal">priority</span></span><br><span class="line"><span class="literal">enabled</span>=<span class="number">0</span></span><br><span class="line"><span class="literal">gpgkey</span>=<span class="keyword">file</span>:///etc/pki/rpm-gpg/<span class="constant">R</span>PM-<span class="constant">G</span>PG-<span class="constant">K</span>EY-<span class="constant">E</span>PEL-<span class="number">6</span></span><br><span class="line"><span class="literal">gpgcheck</span>=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="常用的yum源站">常用的yum源站</h3><ul>
+<li><p><a href="https://www.baidu.com/link?url=uVSP1-5Xhdvi2t9FFdRnRC01B7zqLZ6a9LAbUNOfsstMsGb33lKjW4zrqJBHmT1h&amp;wd=&amp;eqid=d8ee0a1d000162130000000355e69580" target="_blank" rel="external">epel的wiki</a><br><img src="http://i1.tietuku.com/90e4fa74d8a26695.png" alt=""><br><img src="http://i1.tietuku.com/caaba96513485367.png" alt=""></p>
+</li>
+<li><p>使用EPEL（Extra Packages for Enterprise Linux）源,<code>RHEL6</code>系列</p>
+<blockquote>
+<p>wget <a href="http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-5.noarch.rpm" target="_blank" rel="external">http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-5.noarch.rpm</a><br>rpm -ivh epel-release-6-5.noarch.rpm</p>
+</blockquote>
+</li>
+<li><p>EPEL的<code>RHEL5</code>系列</p>
+<blockquote>
+<p>wget <a href="http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm" target="_blank" rel="external">http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm</a><br>rpm -ivh epel-release-5-4.noarch.rpm</p>
+</blockquote>
+</li>
+<li><p>EPEL手动配置源</p>
+<blockquote>
+<p>vi /etc/yum.repos.d/epel.repo<br>[epel]<br>name=epel<br>mirrorlist=<a href="http://mirrors.fedoraproject.org/mirrorlist?repo=epel-$releasever&amp;arch=$basearch" target="_blank" rel="external">http://mirrors.fedoraproject.org/mirrorlist?repo=epel-$releasever&amp;arch=$basearch</a><br>enabled=1<br>gpgcheck=0</p>
+</blockquote>
+</li>
+<li>网易的源163<blockquote>
+<p>wget <a href="http://mirrors.163.com/.help/CentOS-Base-163.repo" target="_blank" rel="external">http://mirrors.163.com/.help/CentOS-Base-163.repo</a></p>
+</blockquote>
+</li>
+<li>中科大的源<blockquote>
+<p>wget <a href="http://centos.ustc.edu.cn/CentOS-Base.repo" target="_blank" rel="external">http://centos.ustc.edu.cn/CentOS-Base.repo</a></p>
+</blockquote>
+</li>
+<li>sohu的源<blockquote>
+<p>wget <a href="http://mirrors.sohu.com/help/CentOS-Base-sohu.repo" target="_blank" rel="external">http://mirrors.sohu.com/help/CentOS-Base-sohu.repo</a></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="可能错误">可能错误</h3><ul>
+<li>有时候会出现错误，现象：<br>Loading “installonlyn” plugin<br>Existing lock /var/run/yum.pid: another copy is running. Aborting.</li>
+</ul>
+<hr>
+<p>这是因为yum在更新， 此时是kill不掉的该进程的， 正确的解决方法是让它停止更新即可。<br>可以直接输入 rm -f /var/run/yum.pid<br>也可以/etc/init.d/yum-updatesd stop </p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/linux/">linux</a><a href="/tags/yum/">yum</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/08/21/yum源配置手册/" data-title="yum源配置手册 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/08/24/Ubuntu进行ssh连接/" title="Ubuntu进行ssh连接">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Ubuntu进行ssh连接</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/08/21/lsof命令/"  title="lsof命令">
+ <strong>下一篇：</strong><br/> 
+ <span>lsof命令
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命令"><span class="toc-number">1.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Repo配置文件"><span class="toc-number">2.</span> <span class="toc-text">Repo配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的yum源站"><span class="toc-number">3.</span> <span class="toc-text">常用的yum源站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可能错误"><span class="toc-number">4.</span> <span class="toc-text">可能错误</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/linux/" title="linux">linux<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tools/" title="tools">tools<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/command/" title="command">command<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/perl/" title="perl">perl<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/arvon/" title="arvon">arvon<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blog/" title="blog">blog<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ftp/" title="ftp">ftp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sed/" title="sed">sed<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mo/" title="mo">mo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/salt/" title="salt">salt<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/pandoc/" title="pandoc">pandoc<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/keepalive/" title="keepalive">keepalive<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/crontab/" title="crontab">crontab<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/awk/" title="awk">awk<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/yum/" title="yum">yum<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> My name I have forgot. <br/>
+			Her name is Pikachu.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Arvon">Arvon</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

@@ -1,0 +1,567 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>CentOS环境搭建zabbix监控 | Arvon&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Arvon">
+    
+
+    
+    <meta name="description" content="zabbix server配置yum源rpm -ivh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpmhttp://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+install zabbix">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS环境搭建zabbix监控">
+<meta property="og:url" content="http://yoursite.com/2015/09/09/CentOS环境搭建zabbix监控/index.html">
+<meta property="og:site_name" content="Arvon's Blog">
+<meta property="og:description" content="zabbix server配置yum源rpm -ivh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpmhttp://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+install zabbix">
+<meta property="og:image" content="http://i1.tietuku.com/29ff780785f8142b.png">
+<meta property="og:image" content="http://i1.tietuku.com/a5071fd29e260241.png">
+<meta property="og:image" content="http://i1.tietuku.com/50818e58957d382a.png">
+<meta property="og:image" content="http://i1.tietuku.com/5c8029d4a5750557.png">
+<meta property="og:image" content="http://i1.tietuku.com/6eab8e80bb3eb1f1.png">
+<meta property="og:image" content="http://i1.tietuku.com/0d83e480b0e348c7.png">
+<meta property="og:image" content="http://i1.tietuku.com/75f80ce9269b455a.png">
+<meta property="og:image" content="http://i1.tietuku.com/3f75b678db942213.png">
+<meta property="og:image" content="http://i1.tietuku.com/b585f7995c14ad19.png">
+<meta property="og:image" content="http://i1.tietuku.com/c53075f14306cd61.png">
+<meta property="og:image" content="http://i1.tietuku.com/281d34ca6408ac6e.png">
+<meta property="og:image" content="http://i1.tietuku.com/21ba7ab71d649b6d.png">
+<meta property="og:image" content="http://i1.tietuku.com/263e79625c329936.png">
+<meta property="og:updated_time" content="2015-09-14T10:17:56.835Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CentOS环境搭建zabbix监控">
+<meta name="twitter:description" content="zabbix server配置yum源rpm -ivh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpmhttp://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+install zabbix">
+
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/arvon.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/arvon.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Arvon&#39;s Blog">Arvon&#39;s Blog</a></h1>
+				<h2 class="blog-motto">清醒时做事，糊涂时读书，大怒时睡觉，独处时思考</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/09/CentOS环境搭建zabbix监控/" title="CentOS环境搭建zabbix监控" itemprop="url">CentOS环境搭建zabbix监控</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-09T02:48:06.000Z" itemprop="datePublished"> 发表于 2015-09-09</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#zabbix_server"><span class="toc-number">1.</span> <span class="toc-text">zabbix server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置yum源"><span class="toc-number">1.1.</span> <span class="toc-text">配置yum源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#install_zabbix_server"><span class="toc-number">1.2.</span> <span class="toc-text">install zabbix server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql_config"><span class="toc-number">1.3.</span> <span class="toc-text">mysql config</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#修改mysql配置文件"><span class="toc-number">1.3.1.</span> <span class="toc-text">修改mysql配置文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动mysql服务"><span class="toc-number">1.4.</span> <span class="toc-text">启动mysql服务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql设置"><span class="toc-number">1.4.1.</span> <span class="toc-text">mysql设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建zabbix的数据库"><span class="toc-number">1.5.</span> <span class="toc-text">创建zabbix的数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入zabbix的数据库"><span class="toc-number">1.6.</span> <span class="toc-text">导入zabbix的数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#进入数据库导入"><span class="toc-number">1.6.1.</span> <span class="toc-text">进入数据库导入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#倒入sql一定按顺序一定"><span class="toc-number">1.7.</span> <span class="toc-text">倒入sql一定按顺序一定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#在数据库外导入"><span class="toc-number">1.7.1.</span> <span class="toc-text">在数据库外导入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置zabbix_server-conf"><span class="toc-number">1.8.</span> <span class="toc-text">配置zabbix_server.conf</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iptables&Selinux设置"><span class="toc-number">1.8.1.</span> <span class="toc-text">iptables&Selinux设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动zabbix服务&http服务"><span class="toc-number">1.9.</span> <span class="toc-text">启动zabbix服务&http服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zabbix_agent"><span class="toc-number">2.</span> <span class="toc-text">zabbix agent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sofaware"><span class="toc-number">2.1.</span> <span class="toc-text">sofaware</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#configure"><span class="toc-number">2.2.</span> <span class="toc-text">configure</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iptables"><span class="toc-number">2.2.1.</span> <span class="toc-text">iptables</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix_agentd-conf"><span class="toc-number">2.2.2.</span> <span class="toc-text">zabbix_agentd.conf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动"><span class="toc-number">2.2.3.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix添加主机"><span class="toc-number">2.2.4.</span> <span class="toc-text">zabbix添加主机</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#手动添加"><span class="toc-number">2.2.4.1.</span> <span class="toc-text">手动添加</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#自动添加"><span class="toc-number">2.2.4.2.</span> <span class="toc-text">自动添加</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#报错解决"><span class="toc-number">3.</span> <span class="toc-text">报错解决</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#timezone问题"><span class="toc-number">3.0.1.</span> <span class="toc-text">timezone问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#web参数不满足要求问题"><span class="toc-number">3.0.2.</span> <span class="toc-text">web参数不满足要求问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#默认登陆账号密码"><span class="toc-number">3.0.3.</span> <span class="toc-text">默认登陆账号密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix忘记密码，将旧密码修改为arvon"><span class="toc-number">3.0.4.</span> <span class="toc-text">zabbix忘记密码，将旧密码修改为arvon</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#报错贴图“table_not_exist”"><span class="toc-number">3.0.5.</span> <span class="toc-text">报错贴图“table not exist”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#epel源错误"><span class="toc-number">3.0.6.</span> <span class="toc-text">epel源错误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbixserver_web_报错“Zabbix_discoverer_processes_more_than_75%_busy”"><span class="toc-number">3.0.7.</span> <span class="toc-text">zabbixserver web 报错“Zabbix discoverer processes more than 75% busy”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix_server_is_not_running报错"><span class="toc-number">3.0.8.</span> <span class="toc-text">zabbix server is not running报错</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="zabbix_server">zabbix server</h2><h3 id="配置yum源">配置yum源</h3><p>rpm -ivh <a href="http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm" target="_blank" rel="external">http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm</a><br><a href="http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm" target="_blank" rel="external">http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm</a></p>
+<h3 id="install_zabbix_server">install zabbix server</h3><blockquote>
+<p>yum install -y zabbix zabbix-get zabbix-server zabbix-web-mysql zabbix-web zabbix-agent    #这个装出来是1.8的版本。所以重来</p>
+<ul>
+<li>下面是2.2版本的安装包<br>yum install -y zabbix22 zabbix22-web-mysql zabbix22-server zabbix22-agent zabbix22-web zabbix22-dbfiles-mysql zabbix22-server-mysql</li>
+</ul>
+</blockquote>
+<h3 id="mysql_config">mysql config</h3><p>yum install -y mysql-server</p>
+<h4 id="修改mysql配置文件">修改mysql配置文件</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/my.cnf /tmp&#10;egrep -v &#34;(^#|^$)&#34; &#9;#cat /etc/my.cnf | grep -v ^# | grep -v ^$&#10;vi /etc/my.cnf&#10;&#62;&#21442;&#29031;P27[Zabbix&#20225;&#19994;&#32423;&#20998;&#24067;&#24335;&#30417;&#25511;&#31995;&#32479;](http://item.jd.com/11522142.html?cu=true&#38;utm_source=baidu-search&#38;utm_medium=cpc&#38;utm_campaign=t_262767352_baidusearch&#38;utm_term=12777330128_0_0757319b492245849616c53bac31a23e)&#10;[mysqld]&#10;datadir=/var/lib/mysql&#10;socket=/var/lib/mysql/mysql.sock&#10;user=mysql&#10;# Disabling symbolic-links is recommended to prevent assorted security risks&#10;symbolic-links=0&#10;character-set-server=utf8&#10;innodb_file_per_table=1&#10;&#10;[mysqld_safe]&#10;log-error=/var/log/mysqld.log&#10;pid-file=/var/run/mysqld/mysqld.pid</span><br></pre></td></tr></table></figure>
+<h3 id="启动mysql服务">启动mysql服务</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-server -y&#10;service mysqld start&#10;ps -ef | grep mysql&#10;netstat -nlput | grep 3306</span><br></pre></td></tr></table></figure>
+<h4 id="mysql设置">mysql设置</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -uroot password admin&#10;mysql -uroot -padmin&#10;mysql&#62; create database zabbix character set utf8;&#10;mysql&#62; grant all privileges on zabbix.* to zabbix@localhost identified by &#39;zabbix&#39;;&#10;mysql&#62; flush privileges;</span><br></pre></td></tr></table></figure>
+<h3 id="创建zabbix的数据库">创建zabbix的数据库</h3><ul>
+<li>zabbix连接数据：zabbix/zabbix<h3 id="导入zabbix的数据库">导入zabbix的数据库</h3><h4 id="进入数据库导入">进入数据库导入</h4>mysql&gt;use zabbix<h3 id="倒入sql一定按顺序一定">倒入sql一定按顺序<code>一定</code></h3></li>
+<li><code>必须多说两句</code>，这个地方卡了我整整一天，报错贴图在最后<br>source /usr/share/zabbix-mysql/schema.sql<br>source /usr/share/zabbix-mysql/images.sql<br>source /usr/share/zabbix-mysql/data.sql<h4 id="在数据库外导入">在数据库外导入</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uzabbix -pzabbix zabbix &#60; /usr/share/zabbix-mysql/schema.sql&#10;mysql -uzabbix -p_zabbix_ zabbix &#60; /usr/share/zabbix-mysql/images.sql&#10;mysql -uzabbix -p_zabbix_ zabbix &#60; /usr/share/zabbix-mysql/data.sql</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="配置zabbix_server-conf">配置zabbix_server.conf</h3><ul>
+<li><p>默认参数：<br>  egrep -v “(^#|^$)” /etc/zabbix/zabbix_server.conf</p>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LogFile=/var/log/zabbix/zabbix_server.log&#10;LogFileSize=0&#10;PidFile=/var/run/zabbix/zabbix.pid&#10;DBName=zabbix&#10;DBUser=zabbix&#10;DBSocket=/var/lib/mysql/mysql.sock&#10;AlertScriptsPath=/var/lib/zabbix/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改后参数：<br>  主要添加字段为：DBpassword=zabbix</p>
+</li>
+</ul>
+<h4 id="iptables&amp;Selinux设置">iptables&amp;Selinux设置</h4><ul>
+<li>iptables设置(注意顺序)<blockquote>
+<p>-A INPUT -m state —state NEW -m tcp -p tcp —dport 80 -j ACCEPT<br>-A INPUT -m state —state NEW -m tcp -p tcp —dport 10051 -j ACCEPT<br>-A OUTPUT -m state —state NEW -m tcp -p tcp —dport 10050 -j ACCEPT<br>#-A INPUT -m state —state NEW -m tcp -p tcp —sport 10050 -j ACCEPT</p>
+</blockquote>
+</li>
+<li>Selinux关闭<blockquote>
+<p>[root@localhost ~]# setenforce 0<br>[root@localhost ~]# getenforce</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="启动zabbix服务&amp;http服务">启动zabbix服务&amp;http服务</h3><p>sudo /etc/init.d/zabbix-server start<br>sudo /etc/init.d/httpd start</p>
+<h2 id="zabbix_agent">zabbix agent</h2><h3 id="sofaware">sofaware</h3><blockquote>
+<p>rpm -ivh <a href="http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm" target="_blank" rel="external">http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm</a><br>yum install zabbix zabbix-agent</p>
+</blockquote>
+<h3 id="configure">configure</h3><h4 id="iptables">iptables</h4><blockquote>
+<p>-A INPUT -m state —state NEW -m tcp -p tcp —dport 10050 -j ACCEPT<br>-A OUTPUT -m state —state NEW -m tcp -p tcp —dport 10051 -j ACCEPT</p>
+</blockquote>
+<h4 id="zabbix_agentd-conf">zabbix_agentd.conf</h4><blockquote>
+<p>[root@localhost ~]# egrep -v “(^#|^$)” /etc/zabbix/zabbix_agentd.conf<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PidFile=/var/run/zabbix/zabbix_agentd.pid&#10;LogFile=/var/log/zabbix/zabbix_agentd.log&#10;LogFileSize=0&#10;Server=127.0.0.1&#9;#&#34987;&#21160;&#27169;&#24335;&#65292;&#20801;&#35768;&#37027;&#21488;&#26381;&#21153;&#22120;&#36830;&#25509;&#10;ServerActive=127.0.0.1,192.168.138.133&#9;#&#20027;&#21160;&#27169;&#24335;&#65292;&#21521;&#21738;&#21488;&#26381;&#21153;&#22120;&#21457;&#36865;&#25968;&#25454;&#10;Hostname=Centos-01&#10;Include=/etc/zabbix/zabbix_agentd.d/</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>那个没弄好，下面这个好用<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# egrep -v &#34;(^#|^$)&#34; /etc/zabbix/zabbix_agentd.conf &#10;PidFile=/var/run/zabbix/zabbix_agentd.pid&#10;LogFile=/var/log/zabbix/zabbix_agentd.log&#10;LogFileSize=0&#10;Server=192.168.138.133&#10;ServerActive=192.168.138.133&#10;Hostname=Centos-01.hostname&#10;Include=/etc/zabbix/zabbix_agentd.d/</span><br></pre></td></tr></table></figure></p>
+<h4 id="启动">启动</h4><blockquote>
+<p>[root@localhost ~]# /etc/init.d/zabbix-agent restart</p>
+</blockquote>
+<h4 id="zabbix添加主机">zabbix添加主机</h4><h5 id="手动添加">手动添加</h5><p><img src="http://i1.tietuku.com/29ff780785f8142b.png" alt="看图"><br><img src="http://i1.tietuku.com/a5071fd29e260241.png" alt=""></p>
+<h5 id="自动添加">自动添加</h5><p><img src="http://i1.tietuku.com/50818e58957d382a.png" alt=""><br><img src="http://i1.tietuku.com/5c8029d4a5750557.png" alt=""></p>
+<h2 id="报错解决">报错解决</h2><h4 id="timezone问题">timezone问题</h4><p><img src="http://i1.tietuku.com/6eab8e80bb3eb1f1.png" alt=""><br>php.ini配置文件设置<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/php.ini /tmp/&#10;sudo vim /etc/php.ini&#10;#&#28155;&#21152;&#23383;&#27573;&#65306;date.timezone = Asia/Shanghai</span><br></pre></td></tr></table></figure></p>
+<h4 id="web参数不满足要求问题">web参数不满足要求问题</h4><p><img src="http://i1.tietuku.com/0d83e480b0e348c7.png" alt=""><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/httpd/conf.d/zabbix.conf /tmp/&#10;sudo vim /etc/httpd/conf.d/zabbix.conf</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>修改其中字段为以下</p>
+<p><directory "="" usr="" share="" zabbix"=""><br>    Options FollowSymLinks<br>    AllowOverride None<br>    Order allow,deny<br>    Allow from all<br>    php_value date:timezone Asia/Shanghai<br>    php_value max_execution_time 300<br>    php_value post_max_size 16M<br>    php_value max_input_time 300<br>    php_value memory_limit 128M<br>    php_value upload_max_filesize 2M<br></directory><br>然后重启httpd服务</p>
+</blockquote>
+<h4 id="默认登陆账号密码">默认登陆账号密码</h4><p>账户：Admin<br>密码：zabbix</p>
+<h4 id="zabbix忘记密码，将旧密码修改为arvon">zabbix忘记密码，将旧密码修改为arvon</h4><p>登陆部署机数据库，修改数据库中的密码，步骤如下：<br>#echo -n arvon | openssl md5<br>(stdin)= 5c48aaaa95a1797ffb2dc32699b0c6c3</p>
+<blockquote>
+<p>>mysql -uname -ppassword<br>>use zabbix;<br>>select * from users;<br>#先在外面生成的md5码该用了<br>>update users set  passwd=’e2798af12a7a0f4f70b4d69efbc25f4d’ where userid = ‘1’;<br><img src="http://i1.tietuku.com/75f80ce9269b455a.png" alt=""></p>
+</blockquote>
+<h4 id="报错贴图“table_not_exist”">报错贴图“table not exist”</h4><p><img src="http://i1.tietuku.com/3f75b678db942213.png" alt=""><br><img src="http://i1.tietuku.com/b585f7995c14ad19.png" alt=""></p>
+<h4 id="epel源错误">epel源错误</h4><p><img src="http://i1.tietuku.com/c53075f14306cd61.png" alt=""><br>修改文件“/etc/yum.repos.d/epel.repo”， 第一项epel，将baseurl的注释取消， mirrorlist注释掉。即可</p>
+<h4 id="zabbixserver_web_报错“Zabbix_discoverer_processes_more_than_75%_busy”">zabbixserver web 报错“Zabbix discoverer processes more than 75% busy”</h4><p><img src="http://i1.tietuku.com/281d34ca6408ac6e.png" alt=""></p>
+<blockquote>
+<p><a href="Zabbix discoverer processes more than 75% busy">参考</a></p>
+</blockquote>
+<h4 id="zabbix_server_is_not_running报错">zabbix server is not running报错</h4><p><img src="http://i1.tietuku.com/21ba7ab71d649b6d.png" alt="错误如图"><br><img src="http://i1.tietuku.com/263e79625c329936.png" alt=""><br>解决：仅限于我个人使用，打死都想不到密码写错了，zabbix_server.conf里面的密码加了两个单引号，真是作死呀，就是看不出来</p>
+<p>参考文档：<br><a href="http://zabbix.org/wiki/InstallOnCentOS_RHEL#Database" target="_blank" rel="external">zabbix wike</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/zabbix/">zabbix</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/09/09/CentOS环境搭建zabbix监控/" data-title="CentOS环境搭建zabbix监控 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/09/14/虚拟机错误/" title="虚拟机错误">
+  <strong>上一篇：</strong><br/>
+  <span>
+  虚拟机错误</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/09/07/mysql-keepalive实现高可用/"  title="mysql + keepalive实现高可用">
+ <strong>下一篇：</strong><br/> 
+ <span>mysql + keepalive实现高可用
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#zabbix_server"><span class="toc-number">1.</span> <span class="toc-text">zabbix server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置yum源"><span class="toc-number">1.1.</span> <span class="toc-text">配置yum源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#install_zabbix_server"><span class="toc-number">1.2.</span> <span class="toc-text">install zabbix server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql_config"><span class="toc-number">1.3.</span> <span class="toc-text">mysql config</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#修改mysql配置文件"><span class="toc-number">1.3.1.</span> <span class="toc-text">修改mysql配置文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动mysql服务"><span class="toc-number">1.4.</span> <span class="toc-text">启动mysql服务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql设置"><span class="toc-number">1.4.1.</span> <span class="toc-text">mysql设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建zabbix的数据库"><span class="toc-number">1.5.</span> <span class="toc-text">创建zabbix的数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入zabbix的数据库"><span class="toc-number">1.6.</span> <span class="toc-text">导入zabbix的数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#进入数据库导入"><span class="toc-number">1.6.1.</span> <span class="toc-text">进入数据库导入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#倒入sql一定按顺序一定"><span class="toc-number">1.7.</span> <span class="toc-text">倒入sql一定按顺序一定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#在数据库外导入"><span class="toc-number">1.7.1.</span> <span class="toc-text">在数据库外导入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置zabbix_server-conf"><span class="toc-number">1.8.</span> <span class="toc-text">配置zabbix_server.conf</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iptables&Selinux设置"><span class="toc-number">1.8.1.</span> <span class="toc-text">iptables&Selinux设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动zabbix服务&http服务"><span class="toc-number">1.9.</span> <span class="toc-text">启动zabbix服务&http服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zabbix_agent"><span class="toc-number">2.</span> <span class="toc-text">zabbix agent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sofaware"><span class="toc-number">2.1.</span> <span class="toc-text">sofaware</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#configure"><span class="toc-number">2.2.</span> <span class="toc-text">configure</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iptables"><span class="toc-number">2.2.1.</span> <span class="toc-text">iptables</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix_agentd-conf"><span class="toc-number">2.2.2.</span> <span class="toc-text">zabbix_agentd.conf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动"><span class="toc-number">2.2.3.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix添加主机"><span class="toc-number">2.2.4.</span> <span class="toc-text">zabbix添加主机</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#手动添加"><span class="toc-number">2.2.4.1.</span> <span class="toc-text">手动添加</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#自动添加"><span class="toc-number">2.2.4.2.</span> <span class="toc-text">自动添加</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#报错解决"><span class="toc-number">3.</span> <span class="toc-text">报错解决</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#timezone问题"><span class="toc-number">3.0.1.</span> <span class="toc-text">timezone问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#web参数不满足要求问题"><span class="toc-number">3.0.2.</span> <span class="toc-text">web参数不满足要求问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#默认登陆账号密码"><span class="toc-number">3.0.3.</span> <span class="toc-text">默认登陆账号密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix忘记密码，将旧密码修改为arvon"><span class="toc-number">3.0.4.</span> <span class="toc-text">zabbix忘记密码，将旧密码修改为arvon</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#报错贴图“table_not_exist”"><span class="toc-number">3.0.5.</span> <span class="toc-text">报错贴图“table not exist”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#epel源错误"><span class="toc-number">3.0.6.</span> <span class="toc-text">epel源错误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbixserver_web_报错“Zabbix_discoverer_processes_more_than_75%_busy”"><span class="toc-number">3.0.7.</span> <span class="toc-text">zabbixserver web 报错“Zabbix discoverer processes more than 75% busy”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix_server_is_not_running报错"><span class="toc-number">3.0.8.</span> <span class="toc-text">zabbix server is not running报错</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/linux/" title="linux">linux<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tools/" title="tools">tools<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/command/" title="command">command<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/perl/" title="perl">perl<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/arvon/" title="arvon">arvon<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blog/" title="blog">blog<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ftp/" title="ftp">ftp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sed/" title="sed">sed<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mo/" title="mo">mo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/salt/" title="salt">salt<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/pandoc/" title="pandoc">pandoc<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/keepalive/" title="keepalive">keepalive<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/crontab/" title="crontab">crontab<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/awk/" title="awk">awk<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/yum/" title="yum">yum<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> My name I have forgot. <br/>
+			Her name is Pikachu.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Arvon">Arvon</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
