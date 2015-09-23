@@ -1,0 +1,517 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>tpcc-mysql测试mysql性能 | Arvon&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Arvon">
+    
+
+    
+    <meta name="description" content="摘要：tpcc-myql专用于mysql基准测试，模拟电商业务流程，源码在bazaar上，需下载bazaar客户端并进行源码安装，这个工具既可测试本地也可测试远端数据服务器，所以这里选择这个工具，但tpcc-mysql测试结果并不会获得tpc组织的认证，仅能作为一个参考的数据
+安装环境
+epel源
+yum install mysql -y    #安装mysql命令
+yum install bzr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tpcc-mysql测试mysql性能">
+<meta property="og:url" content="http://yoursite.com/2015/09/23/tpcc-mysql测试mysql性能/index.html">
+<meta property="og:site_name" content="Arvon's Blog">
+<meta property="og:description" content="摘要：tpcc-myql专用于mysql基准测试，模拟电商业务流程，源码在bazaar上，需下载bazaar客户端并进行源码安装，这个工具既可测试本地也可测试远端数据服务器，所以这里选择这个工具，但tpcc-mysql测试结果并不会获得tpc组织的认证，仅能作为一个参考的数据
+安装环境
+epel源
+yum install mysql -y    #安装mysql命令
+yum install bzr">
+<meta property="og:image" content="http://i3.tietuku.com/bd6290d5137a554f.png">
+<meta property="og:image" content="http://i3.tietuku.com/e4f76307357099e2.png">
+<meta property="og:image" content="http://i11.tietuku.com/afcda73f0196cca0.png">
+<meta property="og:image" content="http://i3.tietuku.com/6d304945beebc8c1.png">
+<meta property="og:updated_time" content="2015-09-23T09:54:32.912Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tpcc-mysql测试mysql性能">
+<meta name="twitter:description" content="摘要：tpcc-myql专用于mysql基准测试，模拟电商业务流程，源码在bazaar上，需下载bazaar客户端并进行源码安装，这个工具既可测试本地也可测试远端数据服务器，所以这里选择这个工具，但tpcc-mysql测试结果并不会获得tpc组织的认证，仅能作为一个参考的数据
+安装环境
+epel源
+yum install mysql -y    #安装mysql命令
+yum install bzr">
+
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/arvon.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/arvon.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Arvon&#39;s Blog">Arvon&#39;s Blog</a></h1>
+				<h2 class="blog-motto">清醒时做事，糊涂时读书，大怒时睡觉，独处时思考</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/23/tpcc-mysql测试mysql性能/" title="tpcc-mysql测试mysql性能" itemprop="url">tpcc-mysql测试mysql性能</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Arvon" target="_blank" itemprop="author">Arvon</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-23T09:26:36.000Z" itemprop="datePublished"> 发表于 2015-09-23</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装环境"><span class="toc-number">1.</span> <span class="toc-text">安装环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试步骤"><span class="toc-number">2.</span> <span class="toc-text">测试步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试准备"><span class="toc-number">2.1.</span> <span class="toc-text">测试准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始测试"><span class="toc-number">2.2.</span> <span class="toc-text">开始测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试结果分析"><span class="toc-number">2.3.</span> <span class="toc-text">测试结果分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误解决"><span class="toc-number">3.</span> <span class="toc-text">错误解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#编译错误load-c相关"><span class="toc-number">3.1.</span> <span class="toc-text">编译错误load.c相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载数据出错"><span class="toc-number">3.2.</span> <span class="toc-text">加载数据出错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载tpcc-myql源码报错"><span class="toc-number">3.3.</span> <span class="toc-text">下载tpcc-myql源码报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行tpcc_start命令报错"><span class="toc-number">3.4.</span> <span class="toc-text">执行tpcc_start命令报错</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考地址"><span class="toc-number">4.</span> <span class="toc-text">参考地址</span></a></li></ol>
+		
+		</div>
+		
+		<p><strong>摘要：</strong>tpcc-myql专用于mysql基准测试，模拟电商业务流程，源码在bazaar上，需下载bazaar客户端并进行源码安装，这个工具既可测试本地也可测试远端数据服务器，所以这里选择这个工具，但tpcc-mysql测试结果并不会获得tpc组织的认证，仅能作为一个参考的数据</p>
+<h2 id="安装环境">安装环境</h2><ul>
+<li>epel源</li>
+<li>yum install mysql -y    #安装mysql命令</li>
+<li>yum install bzr -y    #Bzr客户端<a href="http://download.chinaunix.net/download/0002000/1138.shtml" target="_blank" rel="external">（科普）</a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bzr branch lp:~percona-dev/perconatools/tpcc-mysql	<span class="comment">#使用bzr客户端下载tpcc-mysql的源码</span></span><br><span class="line"><span class="built_in">cd</span> tpcc-mysql/src	<span class="comment">#进入源码目录</span></span><br><span class="line">make	<span class="comment">#安装。这里出现错误了</span></span><br><span class="line"><span class="built_in">cd</span> /root/tpcc-mysql</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="测试步骤">测试步骤</h2><h3 id="测试准备">测试准备</h3><ul>
+<li>连接数据库<br>mysql -hHostname -uUsername -pPassword</li>
+<li><p>创建测试表结构</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -proot -e <span class="string">'create database tpcc'</span>  <span class="comment">//-u -p改成你自己mysql的用户名和密码</span></span><br><span class="line">mysql -uroot -proot tpcc &lt; create_table<span class="class">.sql</span></span><br><span class="line">mysql -uroot -proot tpcc &lt; add_fkey_idx.sql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建数据</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./tpcc_load dbhost tpcc dbuser dbpassword <span class="number">100</span> <span class="comment">//最后的数字是代表几个仓库，仓库越大,数据量越大。耗费的时间越长，数据最好模拟你真实的数据量,或者至少大于你的buffer pool。</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="开始测试">开始测试</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#Usage</span>: tpcc_start -h server_host -P port -d database_name -u mysql_user -<span class="tag">p</span> mysql_password -w warehouses -c connections -r warmup_time -l running_time -<span class="tag">i</span> report_interval -f report_file -t trx_file</span><br><span class="line">./tpcc_start -hhost:port -d tpcc -u dbusername  -<span class="tag">p</span> dbpassword -w <span class="number">100</span> -c <span class="number">8</span> -r <span class="number">10</span> -l <span class="number">20</span> -<span class="tag">i</span> report_interval -f report_file</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>-w 指定仓库数量<br>-c 指定并发连接数<br>-r 指定开始测试前进行warmup的时间，进行预热后，测试效果更好<br>-l 指定测试持续时间<br>-i  指定生成报告间隔时长<br>-f 指定生成的报告文件名</p>
+</blockquote>
+<h3 id="测试结果分析">测试结果分析</h3><p><a href="http://blog.itpub.net/22664653/viewspace-757735/" target="_blank" rel="external">看这里</a></p>
+<h2 id="错误解决">错误解决</h2><h3 id="编译错误load-c相关">编译错误load.c相关</h3><p><img src="http://i3.tietuku.com/bd6290d5137a554f.png" alt=""><br><strong>A：</strong>找不到mysql头文件，声明即可，export C_INCLUDE_PATH=/mysql安装路径/include<br><code>又是醉了</code>,我少装mysql-devel的包了，装了就解决了，是在下输了</p>
+<h3 id="加载数据出错">加载数据出错</h3><p>由于我这里不是本地测试，是测试远程主机，出现了连接错误，可是使用命令可以正常连接数据库，最后发现是端口不是默认端口，修改后成功。<em>host改为host:port</em>，嗯，就是这样<br><img src="http://i3.tietuku.com/e4f76307357099e2.png" alt=""></p>
+<h3 id="下载tpcc-myql源码报错">下载tpcc-myql源码报错</h3><p><img src="http://i11.tietuku.com/afcda73f0196cca0.png" alt=""></p>
+<h3 id="执行tpcc_start命令报错">执行tpcc_start命令报错</h3><p><img src="http://i3.tietuku.com/6d304945beebc8c1.png" alt=""><br><strong>A：</strong>出现这个错误就去掉report_interval这个参数就可以正常跑了</p>
+<h2 id="参考地址">参考地址</h2><p><a href="http://blog.chinaunix.net/uid-25266990-id-4080103.html" target="_blank" rel="external">测试并制图</a><br><a href="http://www.linuxde.net/2013/09/15285.html" target="_blank" rel="external">基测&amp;分析</a><br><a href="http://blog.csdn.net/wyzxg/article/details/8719756" target="_blank" rel="external">安装&amp;使用</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/linux/">linux</a><a href="/tags/mysql/">mysql</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/09/23/tpcc-mysql测试mysql性能/" data-title="tpcc-mysql测试mysql性能 | Arvon&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/09/16/crontab简记/"  title="crontab简记">
+ <strong>下一篇：</strong><br/> 
+ <span>crontab简记
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装环境"><span class="toc-number">1.</span> <span class="toc-text">安装环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试步骤"><span class="toc-number">2.</span> <span class="toc-text">测试步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试准备"><span class="toc-number">2.1.</span> <span class="toc-text">测试准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始测试"><span class="toc-number">2.2.</span> <span class="toc-text">开始测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试结果分析"><span class="toc-number">2.3.</span> <span class="toc-text">测试结果分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误解决"><span class="toc-number">3.</span> <span class="toc-text">错误解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#编译错误load-c相关"><span class="toc-number">3.1.</span> <span class="toc-text">编译错误load.c相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载数据出错"><span class="toc-number">3.2.</span> <span class="toc-text">加载数据出错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载tpcc-myql源码报错"><span class="toc-number">3.3.</span> <span class="toc-text">下载tpcc-myql源码报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行tpcc_start命令报错"><span class="toc-number">3.4.</span> <span class="toc-text">执行tpcc_start命令报错</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考地址"><span class="toc-number">4.</span> <span class="toc-text">参考地址</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/linux/" title="linux">linux<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tools/" title="tools">tools<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/command/" title="command">command<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/arvon/" title="arvon">arvon<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/perl/" title="perl">perl<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blog/" title="blog">blog<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/yum/" title="yum">yum<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ftp/" title="ftp">ftp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sed/" title="sed">sed<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/problems/" title="problems">problems<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/salt/" title="salt">salt<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/keepalive/" title="keepalive">keepalive<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/crontab/" title="crontab">crontab<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/awk/" title="awk">awk<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ansible/" title="ansible">ansible<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> My name I have forgot. <br/>
+			Her name is Pikachu.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Arvon">Arvon</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
